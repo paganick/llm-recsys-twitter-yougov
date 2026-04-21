@@ -42,18 +42,22 @@ $APT pipeline/prepare_dataset.py \
     --seed 42
 
 echo ""
-echo "[Step 2] run_llm_recommendation.py --fake"
-$APT pipeline/run_llm_recommendation.py \
-    --provider anthropic \
-    --n-trials 5 \
-    --sample-size 20 \
-    --fake
+echo "[Step 2] run_llm_recommendation.py --fake (all 3 providers)"
+for provider in anthropic openai gemini; do
+    $APT pipeline/run_llm_recommendation.py \
+        --provider $provider \
+        --n-trials 5 \
+        --sample-size 20 \
+        --fake
+done
 
 echo ""
-echo "[Step 3] compute_text_features.py --fake"
-$APT pipeline/compute_text_features.py \
-    --experiment-dir outputs/experiments/anthropic_claude-sonnet-4-5 \
-    --fake
+echo "[Step 3] compute_text_features.py --fake (all 3 providers)"
+for exp_dir in outputs/experiments/*/; do
+    $APT pipeline/compute_text_features.py \
+        --experiment-dir "$exp_dir" \
+        --fake
+done
 
 echo ""
 echo "[Step 4] compute_bias_metrics.py"
@@ -68,7 +72,7 @@ echo "======================================================"
 echo "  Test complete."
 echo "  Outputs:"
 echo "    outputs/pools/twitter_pool.csv"
-echo "    outputs/experiments/anthropic_claude-sonnet-4-5/post_level_data.csv"
+echo "    outputs/experiments/{provider}_*/post_level_data.csv"
 echo "    analysis_outputs/pool_vs_recommended_summary.csv"
 echo "    analysis_outputs/visualizations/paper_plots_final/"
 echo "======================================================"
