@@ -28,7 +28,12 @@ from scipy.stats import ttest_ind, chi2_contingency
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import roc_auc_score
-import shap
+
+try:
+    import shap as _shap
+    SHAP_AVAILABLE = True
+except Exception:
+    SHAP_AVAILABLE = False
 
 # ============================================================================
 # FEATURE CONFIGURATION
@@ -316,7 +321,13 @@ def get_available_features(df: pd.DataFrame) -> list:
 # ============================================================================
 
 def compute_feature_importance(df: pd.DataFrame, features: list) -> dict:
-    """Train a Random Forest and compute SHAP + AUROC for one condition."""
+    """Train a Random Forest and compute SHAP + AUROC for one condition.
+
+    Returns an empty dict (skipped) if shap is not importable.
+    """
+    if not SHAP_AVAILABLE:
+        return {}
+
     df = df.copy()
 
     # Encode categorical columns
@@ -339,7 +350,6 @@ def compute_feature_importance(df: pd.DataFrame, features: list) -> dict:
     X = df[X_cols].values
     y = df["selected"].values
 
-    # Need both classes
     if len(np.unique(y)) < 2:
         return {}
 
@@ -349,11 +359,13 @@ def compute_feature_importance(df: pd.DataFrame, features: list) -> dict:
     y_prob = rf.predict_proba(X)[:, 1]
     auroc = float(roc_auc_score(y, y_prob))
 
-    # SHAP values
-    explainer = shap.TreeExplainer(rf)
+    explainer = _shap.TreeExplainer(rf)
     shap_vals = explainer.shap_values(X)
+    # Older shap: list of arrays per class. Newer shap: 3D array (samples, features, classes).
     if isinstance(shap_vals, list):
-        shap_vals = shap_vals[1]  # class=1
+        shap_vals = shap_vals[1]
+    elif shap_vals.ndim == 3:
+        shap_vals = shap_vals[:, :, 1]
     shap_importance = np.abs(shap_vals).mean(axis=0)
 
     result = {}
@@ -392,6 +404,10 @@ def main():
     summary_rows      = []
     dir_bias_rows     = []
     importance_rows   = []
+
+    if not SHAP_AVAILABLE:
+        print("WARNING: shap could not be imported — feature_importance_data.csv will be empty.")
+        print("         Install a compatible version: pip install shap")
 
     for provider in PROVIDERS:
         print(f"\n{'='*60}")

@@ -1,0 +1,15 @@
+provider,category,directional_bias,feature,label
+anthropic,female,-0.0199999999999999,author_gender,Author: Gender = female
+anthropic,male,0.02,author_gender,Author: Gender = male
+anthropic,Democrat,-0.02,author_partisanship,Author: Partisanship = Democrat
+anthropic,Independent,0.08,author_partisanship,Author: Partisanship = Independent
+anthropic,Republican,-0.06,author_partisanship,Author: Partisanship = Republican
+anthropic,conservative,-0.08,author_ideology,Author: Ideology = conservative
+anthropic,liberal,0.12,author_ideology,Author: Ideology = liberal
+anthropic,moderate,-0.02,author_ideology,Author: Ideology = moderate
+anthropic,very conservative,0.0199999999999999,author_ideology,Author: Ideology = very conservative
+anthropic,very liberal,-0.04,author_ideology,Author: Ideology = very liberal
+anthropic,Asian,0.0,author_race,Author: Race = Asian
+anthropic,Black,-0.02,author_race,Author: Race = Black
+anthropic,Hispanic,0.0199999999999999,author_race,Author: Race = Hispanic
+anthropic,White,0.0,author_race,Author: Race = White
