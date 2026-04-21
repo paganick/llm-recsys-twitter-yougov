@@ -1,0 +1,14 @@
+# API key configuration
+# Copy this file to config.yaml and fill in your keys,
+# OR export the variables directly in your shell / container.
+
+# Anthropic (Claude)
+export ANTHROPIC_API_KEY="sk-ant-..."
+
+# OpenAI (GPT)
+export OPENAI_API_KEY="sk-..."
+
+# Google (Gemini)
+export GEMINI_API_KEY="AIza..."
+
+# Source with:  source config.yaml

@@ -1,0 +1,17 @@
+# Data — not redistributed
+datasets/
+outputs/pools/twitter_id_map.csv
+
+# Generated outputs (optional — uncomment to track analysis outputs)
+# outputs/
+# analysis_outputs/
+
+# Environment
+config.yaml
+*.sif
+*.def
+__pycache__/
+*.py[cod]
+.env
+*.egg-info/
+.ipynb_checkpoints/
