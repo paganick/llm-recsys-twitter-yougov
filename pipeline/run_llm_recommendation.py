@@ -125,6 +125,9 @@ def main():
                         help="Trials per prompt style (default: 100)")
     parser.add_argument("--dry-run", action="store_true",
                         help="Show missing trials and validate API, then exit")
+    parser.add_argument("--fake", action="store_true",
+                        help="Run without API calls: select k posts at random per trial. "
+                             "Useful for testing the full pipeline end-to-end.")
     args = parser.parse_args()
 
     posts = load_pool()
@@ -178,10 +181,16 @@ def main():
         print("\n--dry-run: exiting without making API calls.")
         return
 
-    print(f"\nValidating {args.provider} API... ", end="", flush=True)
-    llm_client = get_llm_client(provider=args.provider, model=model)
-    test = llm_client.generate("Reply with the single word: ok", max_tokens=10)
-    print(f"OK (response: '{test.strip()[:30]}')\n")
+    if args.fake:
+        print(f"\n--fake mode: selecting {args.k} posts at random per trial (no API calls)\n")
+        llm_client = None
+    else:
+        print(f"\nValidating {args.provider} API... ", end="", flush=True)
+        llm_client = get_llm_client(provider=args.provider, model=model)
+        test = llm_client.generate("Reply with the single word: ok", max_tokens=10)
+        print(f"OK (response: '{test.strip()[:30]}')\n")
+
+    import random
 
     for style in args.styles:
         if style not in style_missing:
@@ -192,12 +201,19 @@ def main():
         print(f"Prompt style: {style.upper()} — {len(missing_ids)} trials")
 
         for j, trial_id in enumerate(missing_ids):
-            pool = posts.sample(n=args.sample_size, random_state=1000 + trial_id)
-            try:
-                result = run_trial(llm_client, pool, args.k, style)
-            except RuntimeError as e:
-                print(f"  Trial {j + 1}/{len(missing_ids)} (id={trial_id}) SKIPPED: {e}")
-                continue
+            pool = posts.sample(n=min(args.sample_size, len(posts)), random_state=1000 + trial_id)
+            if args.fake:
+                result = pool.copy()
+                result["selected"] = 0
+                rng = random.Random(trial_id)
+                chosen = rng.sample(range(len(result)), min(args.k, len(result)))
+                result.iloc[chosen, result.columns.get_loc("selected")] = 1
+            else:
+                try:
+                    result = run_trial(llm_client, pool, args.k, style)
+                except RuntimeError as e:
+                    print(f"  Trial {j + 1}/{len(missing_ids)} (id={trial_id}) SKIPPED: {e}")
+                    continue
             result["prompt_style"] = style
             result["trial_id"] = trial_id
 
@@ -209,6 +225,12 @@ def main():
 
     total_rows = sum(1 for _ in open(out_csv)) - 1
     print(f"\n✓ Total: {total_rows:,} rows in {out_csv}")
+
+    if args.fake:
+        print(f"\n  Next steps:")
+        print(f"    python compute_text_features.py --experiment-dir {out_dir} --fake")
+        print(f"    python compute_bias_metrics.py")
+        return
 
     stats = llm_client.get_stats()
     rates = COST_PER_1M.get(args.provider, {"input": 0, "output": 0})

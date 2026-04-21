@@ -52,16 +52,52 @@ Step 5  generate_figures.py       Produce paper-ready figures
 | `user_account_age_days`, `engagement_score` | float | Account metadata |
 
 ### Survey CSV (required columns)
-| Column | Type | Description |
+| Column | Type | Example values |
 |---|---|---|
 | `user_id` | str | Must match tweet CSV |
-| `author_gender` | str | e.g. male / female / non-binary |
-| `author_partisanship` | str | e.g. Democrat / Republican / Independent |
-| `author_ideology` | str | e.g. liberal / moderate / conservative |
-| `author_race` | str | e.g. White / Black / Hispanic / Asian |
+| `author_gender` | str | `male`, `female`, `non-binary`, `other` |
+| `author_partisanship` | str | `Democrat`, `Republican`, `Independent`, `Other` |
+| `author_ideology` | str | `very liberal`, `liberal`, `moderate`, `conservative`, `very conservative` |
+| `author_race` | str | `White`, `Black`, `Hispanic`, `Asian`, `Other` |
 
 ### Survey CSV (optional columns)
-`author_age`, `author_education`, `author_income`, `author_marital_status`, `author_religiosity`
+| Column | Type | Example values |
+|---|---|---|
+| `author_age` | int | 34 |
+| `author_education` | str | `high school`, `college`, `postgraduate` |
+| `author_income` | str | `<25k`, `25k-50k`, `50k-75k`, `75k-100k`, `100k+` |
+| `author_marital_status` | str | `single`, `married`, `divorced`, `widowed` |
+| `author_religiosity` | str | `not religious`, `somewhat religious`, `religious`, `very religious` |
+
+> See `datasets/examples/` for concrete example files showing the expected format.
+
+---
+
+## Container setup
+
+All steps run inside an Apptainer container for reproducibility.
+
+**Option A — copy from the companion repo (fast, packages are identical):**
+```bash
+cp ../llm-recsys-clean/llm-recsys.sif llm-recsys-twitter.sif
+```
+
+**Option B — build from scratch (~20–30 min):**
+```bash
+apptainer build llm-recsys-twitter.sif llm-recsys-twitter.def
+```
+
+## Testing the pipeline (no API keys needed)
+
+Run the full pipeline on the included example data using fake LLM calls and
+random feature values — no API keys, no GPU, no NLP model downloads:
+
+```bash
+bash pipeline/test_pipeline.sh
+```
+
+This exercises every step end-to-end in ~1 minute. Once the test passes,
+replace example data with the real dataset and drop the `--fake` flags.
 
 ---
 

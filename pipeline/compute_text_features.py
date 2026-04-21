@@ -57,6 +57,30 @@ def save_cache(cache: pd.DataFrame):
     cache.to_parquet(CACHE_FILE, index=False)
 
 
+TOPICS = [
+    "news_&_social_concern", "arts_&_culture", "sports",
+    "science_&_technology", "business_&_entrepreneurs", "politics",
+    "celebrity_&_pop_culture", "diaries_&_daily_life", "family",
+    "fitness_&_health", "food_&_dining", "travel_&_adventure",
+    "gaming", "learning_&_educational", "other",
+]
+
+
+def fake_features(post_ids: pd.Series, seed: int = 42) -> pd.DataFrame:
+    """Generate plausible-looking random feature values for testing."""
+    import numpy as np
+    rng = np.random.default_rng(seed)
+    n = len(post_ids)
+    return pd.DataFrame({
+        "post_id":               post_ids.values,
+        "sentiment_polarity":    rng.uniform(-1, 1, n).round(4),
+        "sentiment_subjectivity":rng.uniform(0, 1, n).round(4),
+        "primary_topic":         rng.choice(TOPICS, n),
+        "polarization_score":    rng.uniform(0, 1, n).round(4),
+        "toxicity":              rng.uniform(0, 0.3, n).round(4),
+    })
+
+
 def main():
     parser = argparse.ArgumentParser(
         description=__doc__,
@@ -64,6 +88,10 @@ def main():
     )
     parser.add_argument("--experiment-dir", required=True,
                         help="Path to experiment directory containing post_level_data.csv")
+    parser.add_argument("--fake", action="store_true",
+                        help="Assign random feature values without loading any NLP models. "
+                             "Use together with --fake in run_llm_recommendation.py for "
+                             "end-to-end pipeline testing without API keys or GPU.")
     args = parser.parse_args()
 
     exp_dir  = Path(args.experiment_dir)
@@ -78,47 +106,49 @@ def main():
     df = pd.read_csv(csv_path)
     print(f"  {len(df):,} rows, {df['post_id'].nunique():,} unique post_ids")
 
-    cache = load_cache()
-    cached_ids = set(cache["post_id"]) if not cache.empty else set()
-
     unique_posts = df[["post_id", "text"]].drop_duplicates("post_id")
-    missing = unique_posts[~unique_posts["post_id"].isin(cached_ids)]
 
-    if missing.empty:
-        print(f"All {len(unique_posts):,} posts already in cache — skipping computation.")
+    if args.fake:
+        print(f"\n--fake mode: assigning random feature values (no NLP models loaded)")
+        new_rows = fake_features(unique_posts["post_id"])
+        cache = new_rows
     else:
-        print(f"\nCache: {len(cached_ids):,} posts already computed, "
-              f"{len(missing):,} new posts to process.")
-        features_df = infer_tweet_metadata(
-            missing,
-            text_column="text",
-            sentiment_method="vader",
-            topic_method="roberta",
-            include_gender=False,
-            include_political=False,
-        )
-        # Keep post_id and computed feature columns only
-        keep_cols = ["post_id"] + [c for c in COMPUTED_FEATURES if c in features_df.columns]
-        # Also keep fallback style/metric columns if computed (for pools missing them)
-        fallback_cols = [
-            c for c in features_df.columns
-            if c not in keep_cols and c not in ("text",)
-        ]
-        keep_cols = keep_cols + fallback_cols
-        new_rows = features_df[[c for c in keep_cols if c in features_df.columns]].copy()
+        cache = load_cache()
+        cached_ids = set(cache["post_id"]) if not cache.empty else set()
+        missing = unique_posts[~unique_posts["post_id"].isin(cached_ids)]
 
-        cache = pd.concat([cache, new_rows], ignore_index=True)
-        cache = cache.drop_duplicates(subset=["post_id"], keep="last")
-        save_cache(cache)
-        print(f"  Cache updated: {len(cache):,} posts total → {CACHE_FILE}")
+        if missing.empty:
+            print(f"All {len(unique_posts):,} posts already in cache — skipping computation.")
+        else:
+            print(f"\nCache: {len(cached_ids):,} posts already computed, "
+                  f"{len(missing):,} new posts to process.")
+            features_df = infer_tweet_metadata(
+                missing,
+                text_column="text",
+                sentiment_method="vader",
+                topic_method="roberta",
+                include_gender=False,
+                include_political=False,
+            )
+            keep_cols = ["post_id"] + [c for c in COMPUTED_FEATURES if c in features_df.columns]
+            fallback_cols = [
+                c for c in features_df.columns
+                if c not in keep_cols and c not in ("text",)
+            ]
+            keep_cols = keep_cols + fallback_cols
+            new_rows = features_df[[c for c in keep_cols if c in features_df.columns]].copy()
 
-    # Merge into experiment CSV (only columns not already present)
+            cache = pd.concat([cache, new_rows], ignore_index=True)
+            cache = cache.drop_duplicates(subset=["post_id"], keep="last")
+            save_cache(cache)
+            print(f"  Cache updated: {len(cache):,} posts total → {CACHE_FILE}")
+
+    # Merge into experiment CSV
     feature_cols = [c for c in cache.columns if c != "post_id"]
     new_cols = [c for c in feature_cols if c not in df.columns]
     if new_cols:
         df = df.merge(cache[["post_id"] + new_cols], on="post_id", how="left")
     else:
-        # Refresh all computed feature columns
         df = df.drop(columns=[c for c in feature_cols if c in df.columns], errors="ignore")
         df = df.merge(cache[["post_id"] + feature_cols], on="post_id", how="left")
 
