@@ -51,6 +51,11 @@ COST_PER_1M = {
     "gemini":    {"input": 0.10,  "output": 0.40},
 }
 
+STYLE_INDEX = {s: i for i, s in enumerate(
+    ["general", "popular", "engaging", "informative", "controversial", "neutral"]
+)}
+PROVIDER_INDEX = {"anthropic": 0, "openai": 1, "gemini": 2}
+
 PROMPT_HEADERS = {
     "general":       "Recommend posts that would be most interesting to a general audience.",
     "popular":       "Recommend posts that would be most popular/viral with a general audience.",
@@ -128,6 +133,8 @@ def main():
     parser.add_argument("--fake", action="store_true",
                         help="Run without API calls: select k posts at random per trial. "
                              "Useful for testing the full pipeline end-to-end.")
+    parser.add_argument("--seed", type=int, default=None,
+                        help="Base random seed for --fake mode (default: random each run)")
     args = parser.parse_args()
 
     posts = load_pool()
@@ -182,7 +189,9 @@ def main():
         return
 
     if args.fake:
-        print(f"\n--fake mode: selecting {args.k} posts at random per trial (no API calls)\n")
+        import time
+        fake_base_seed = args.seed if args.seed is not None else int(time.time() * 1000) % (2**31)
+        print(f"\n--fake mode: selecting {args.k} posts at random per trial (no API calls, seed={fake_base_seed})\n")
         llm_client = None
     else:
         print(f"\nValidating {args.provider} API... ", end="", flush=True)
@@ -201,11 +210,14 @@ def main():
         print(f"Prompt style: {style.upper()} — {len(missing_ids)} trials")
 
         for j, trial_id in enumerate(missing_ids):
-            pool = posts.sample(n=min(args.sample_size, len(posts)), random_state=1000 + trial_id)
+            condition_offset = (PROVIDER_INDEX[args.provider] * 100_000
+                                + STYLE_INDEX.get(style, 0) * 1_000)
+            pool = posts.sample(n=min(args.sample_size, len(posts)),
+                                random_state=1000 + condition_offset + trial_id)
             if args.fake:
                 result = pool.copy()
                 result["selected"] = 0
-                rng = random.Random(trial_id)
+                rng = random.Random(fake_base_seed + condition_offset + trial_id)
                 chosen = rng.sample(range(len(result)), min(args.k, len(result)))
                 result.iloc[chosen, result.columns.get_loc("selected")] = 1
             else:

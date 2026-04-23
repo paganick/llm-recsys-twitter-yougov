@@ -41,12 +41,17 @@ except Exception:
 
 # Features grouped by category — edit here to add/remove features
 FEATURES = {
-    # Ground-truth survey demographics
+    # Ground-truth survey demographics (all YouGov fields)
     "demographics": [
         "author_gender",
         "author_partisanship",
         "author_ideology",
         "author_race",
+        "author_age",
+        "author_education",
+        "author_income",
+        "author_marital_status",
+        "author_religiosity",
     ],
     # Computed NLP features
     "sentiment": [
@@ -76,13 +81,6 @@ FEATURES = {
     # --- Extended features (Phase 2) ---
     # Uncomment to include once data contains these columns:
     #
-    # "demographics_extended": [
-    #     "author_age",           # numerical
-    #     "author_education",     # categorical
-    #     "author_income",        # categorical
-    #     "author_marital_status",# categorical
-    #     "author_religiosity",   # categorical
-    # ],
     # "text_metrics_extended": [
     #     "text_length",
     #     "word_count",
@@ -108,8 +106,8 @@ FEATURE_TYPES = {
     "author_partisanship": "categorical",
     "author_ideology":     "categorical",
     "author_race":         "categorical",
-    # Demographics extended (categorical / numerical)
-    "author_age":              "numerical",
+    # Demographics extended (all categorical — age is binned by prepare_dataset.py)
+    "author_age":              "categorical",
     "author_education":        "categorical",
     "author_income":           "categorical",
     "author_marital_status":   "categorical",
@@ -144,19 +142,11 @@ FEATURE_TYPES = {
     "engagement_score":     "numerical",
 }
 
-CATEGORY_ORDERS = {
-    "author_partisanship": ["Democrat", "Republican", "Independent", "Other", "unknown"],
-    "author_ideology": ["very liberal", "liberal", "moderate", "conservative", "very conservative", "unknown"],
-    "author_gender": ["male", "female", "non-binary", "other", "unknown"],
-    "author_race": ["White", "Black", "Hispanic", "Asian", "Other", "unknown"],
-    "has_emoji":   [0, 1],
-    "has_hashtag": [0, 1],
-    "has_mention": [0, 1],
-    "has_url":     [0, 1],
-    "is_reply":    [0, 1],
-    "is_retweet":  [0, 1],
-    "is_quote":    [0, 1],
-    "user_verified": [0, 1],
+# Category ordering hints for features where order is meaningful.
+# Only used for documentation / downstream consumers — compute_directional_bias
+# derives the actual category list directly from the data.
+CATEGORY_ORDER_HINTS = {
+    "author_ideology": ["very liberal", "liberal", "moderate", "conservative", "very conservative"],
 }
 
 FEATURE_DISPLAY_NAMES = {

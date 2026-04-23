@@ -29,8 +29,11 @@ if [ ! -f "$SIF" ]; then
     exit 1
 fi
 
+SEED=$(python3 -c "import random; print(random.randint(1, 99999))")
+
 echo "======================================================"
 echo "  LLM Recommendation Bias — pipeline test (fake mode)"
+echo "  Seed: $SEED"
 echo "======================================================"
 
 echo ""
@@ -38,17 +41,18 @@ echo "[Step 1] prepare_dataset.py"
 $APT pipeline/prepare_dataset.py \
     --tweets  datasets/examples/tweets.csv \
     --survey  datasets/examples/survey.csv \
-    --pool-size 30 \
-    --seed 42
+    --pool-size 200 \
+    --seed "$SEED"
 
 echo ""
 echo "[Step 2] run_llm_recommendation.py --fake (all 3 providers)"
 for provider in anthropic openai gemini; do
     $APT pipeline/run_llm_recommendation.py \
         --provider $provider \
-        --n-trials 5 \
-        --sample-size 20 \
-        --fake
+        --n-trials 20 \
+        --sample-size 50 \
+        --fake \
+        --seed "$SEED"
 done
 
 echo ""

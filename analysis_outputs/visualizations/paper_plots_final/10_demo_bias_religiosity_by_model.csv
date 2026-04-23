@@ -1,0 +1,73 @@
+provider,prompt_style,category,mean_bias,std_bias,provider_label
+anthropic,controversial,not religious,-0.0112499999999999,,Claude Sonnet 4.5
+anthropic,controversial,religious,-0.0549999999999999,,Claude Sonnet 4.5
+anthropic,controversial,somewhat religious,0.03875,,Claude Sonnet 4.5
+anthropic,controversial,very religious,0.0274999999999999,,Claude Sonnet 4.5
+anthropic,engaging,not religious,0.03125,,Claude Sonnet 4.5
+anthropic,engaging,religious,0.0749999999999999,,Claude Sonnet 4.5
+anthropic,engaging,somewhat religious,-0.07,,Claude Sonnet 4.5
+anthropic,engaging,very religious,-0.03625,,Claude Sonnet 4.5
+anthropic,general,not religious,0.0149999999999999,,Claude Sonnet 4.5
+anthropic,general,religious,-0.0137499999999999,,Claude Sonnet 4.5
+anthropic,general,somewhat religious,-0.0174999999999999,,Claude Sonnet 4.5
+anthropic,general,very religious,0.0162499999999999,,Claude Sonnet 4.5
+anthropic,informative,not religious,-0.0262499999999999,,Claude Sonnet 4.5
+anthropic,informative,religious,0.01,,Claude Sonnet 4.5
+anthropic,informative,somewhat religious,0.0087499999999999,,Claude Sonnet 4.5
+anthropic,informative,very religious,0.0075,,Claude Sonnet 4.5
+anthropic,neutral,not religious,0.0225,,Claude Sonnet 4.5
+anthropic,neutral,religious,-0.0237499999999999,,Claude Sonnet 4.5
+anthropic,neutral,somewhat religious,-0.00375,,Claude Sonnet 4.5
+anthropic,neutral,very religious,0.005,,Claude Sonnet 4.5
+anthropic,popular,not religious,0.03125,,Claude Sonnet 4.5
+anthropic,popular,religious,0.0449999999999999,,Claude Sonnet 4.5
+anthropic,popular,somewhat religious,-0.0762499999999999,,Claude Sonnet 4.5
+anthropic,popular,very religious,0.0,,Claude Sonnet 4.5
+gemini,controversial,not religious,0.01875,,Gemini 2.0 Flash
+gemini,controversial,religious,-0.005,,Gemini 2.0 Flash
+gemini,controversial,somewhat religious,-0.0374999999999999,,Gemini 2.0 Flash
+gemini,controversial,very religious,0.0237499999999999,,Gemini 2.0 Flash
+gemini,engaging,not religious,-0.0087499999999999,,Gemini 2.0 Flash
+gemini,engaging,religious,-0.025,,Gemini 2.0 Flash
+gemini,engaging,somewhat religious,-0.0012499999999999,,Gemini 2.0 Flash
+gemini,engaging,very religious,0.035,,Gemini 2.0 Flash
+gemini,general,not religious,0.05625,,Gemini 2.0 Flash
+gemini,general,religious,0.00125,,Gemini 2.0 Flash
+gemini,general,somewhat religious,-0.0924999999999999,,Gemini 2.0 Flash
+gemini,general,very religious,0.035,,Gemini 2.0 Flash
+gemini,informative,not religious,-0.0425,,Gemini 2.0 Flash
+gemini,informative,religious,0.04125,,Gemini 2.0 Flash
+gemini,informative,somewhat religious,-0.04875,,Gemini 2.0 Flash
+gemini,informative,very religious,0.0499999999999999,,Gemini 2.0 Flash
+gemini,neutral,not religious,0.03625,,Gemini 2.0 Flash
+gemini,neutral,religious,-0.04,,Gemini 2.0 Flash
+gemini,neutral,somewhat religious,-0.0399999999999999,,Gemini 2.0 Flash
+gemini,neutral,very religious,0.04375,,Gemini 2.0 Flash
+gemini,popular,not religious,0.03125,,Gemini 2.0 Flash
+gemini,popular,religious,0.04625,,Gemini 2.0 Flash
+gemini,popular,somewhat religious,-0.0325,,Gemini 2.0 Flash
+gemini,popular,very religious,-0.045,,Gemini 2.0 Flash
+openai,controversial,not religious,0.04,,GPT-4o-mini
+openai,controversial,religious,-0.0312499999999999,,GPT-4o-mini
+openai,controversial,somewhat religious,-0.05125,,GPT-4o-mini
+openai,controversial,very religious,0.0425,,GPT-4o-mini
+openai,engaging,not religious,0.02375,,GPT-4o-mini
+openai,engaging,religious,-0.005,,GPT-4o-mini
+openai,engaging,somewhat religious,-0.0062499999999999,,GPT-4o-mini
+openai,engaging,very religious,-0.0125,,GPT-4o-mini
+openai,general,not religious,0.0225,,GPT-4o-mini
+openai,general,religious,-0.0375,,GPT-4o-mini
+openai,general,somewhat religious,0.06125,,GPT-4o-mini
+openai,general,very religious,-0.0462499999999999,,GPT-4o-mini
+openai,informative,not religious,0.01375,,GPT-4o-mini
+openai,informative,religious,-0.0525,,GPT-4o-mini
+openai,informative,somewhat religious,0.0625,,GPT-4o-mini
+openai,informative,very religious,-0.0237499999999999,,GPT-4o-mini
+openai,neutral,not religious,-0.00125,,GPT-4o-mini
+openai,neutral,religious,0.03875,,GPT-4o-mini
+openai,neutral,somewhat religious,-0.0162499999999999,,GPT-4o-mini
+openai,neutral,very religious,-0.0212499999999999,,GPT-4o-mini
+openai,popular,not religious,0.0462499999999999,,GPT-4o-mini
+openai,popular,religious,0.035,,GPT-4o-mini
+openai,popular,somewhat religious,-0.11875,,GPT-4o-mini
+openai,popular,very religious,0.0375,,GPT-4o-mini

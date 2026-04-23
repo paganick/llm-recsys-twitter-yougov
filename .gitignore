@@ -1,5 +1,6 @@
-# Data — not redistributed
-datasets/
+# Data — not redistributed (examples/ is synthetic and committed)
+datasets/*
+!datasets/examples/
 outputs/pools/twitter_id_map.csv
 
 # Generated outputs (optional — uncomment to track analysis outputs)

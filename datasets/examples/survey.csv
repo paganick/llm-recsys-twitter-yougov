@@ -1,0 +1,101 @@
+user_id,author_gender,author_partisanship,author_ideology,author_race,author_age,author_education,author_income,author_marital_status,author_religiosity
+user_001,male,Republican,moderate,White,62,postgraduate,50k-75k,married,somewhat religious
+user_002,male,Democrat,conservative,Black,23,high school,50k-75k,widowed,religious
+user_003,female,Democrat,moderate,White,37,postgraduate,50k-75k,single,very religious
+user_004,male,Democrat,liberal,Hispanic,51,college,50k-75k,divorced,somewhat religious
+user_005,female,Republican,moderate,White,39,college,75k-100k,married,somewhat religious
+user_006,female,Democrat,moderate,White,34,high school,75k-100k,divorced,not religious
+user_007,male,Democrat,conservative,Asian,38,postgraduate,75k-100k,widowed,somewhat religious
+user_008,female,Republican,liberal,White,30,college,75k-100k,single,religious
+user_009,male,Democrat,liberal,White,56,college,25k-50k,married,not religious
+user_010,female,Republican,liberal,White,36,college,75k-100k,single,religious
+user_011,female,Independent,liberal,Other,18,postgraduate,<25k,single,religious
+user_012,male,Republican,liberal,White,20,college,<25k,married,very religious
+user_013,female,Independent,liberal,White,58,college,25k-50k,married,religious
+user_014,female,Republican,moderate,Asian,54,postgraduate,25k-50k,married,not religious
+user_015,female,Republican,liberal,White,39,college,75k-100k,single,somewhat religious
+user_016,male,Democrat,moderate,White,25,college,50k-75k,married,religious
+user_017,female,Republican,conservative,White,22,postgraduate,50k-75k,single,somewhat religious
+user_018,female,Independent,conservative,Hispanic,69,postgraduate,75k-100k,divorced,somewhat religious
+user_019,female,Democrat,conservative,White,25,college,25k-50k,married,religious
+user_020,male,Democrat,conservative,White,67,high school,<25k,single,somewhat religious
+user_021,male,Republican,moderate,White,37,postgraduate,25k-50k,single,somewhat religious
+user_022,male,Other,liberal,White,57,college,25k-50k,single,religious
+user_023,male,Democrat,very liberal,White,58,high school,50k-75k,single,very religious
+user_024,non-binary,Republican,conservative,White,28,college,50k-75k,married,not religious
+user_025,female,Independent,conservative,White,28,high school,100k+,single,not religious
+user_026,female,Other,conservative,White,36,postgraduate,75k-100k,married,very religious
+user_027,female,Democrat,conservative,White,62,postgraduate,25k-50k,single,very religious
+user_028,male,Independent,moderate,White,34,high school,75k-100k,single,not religious
+user_029,female,Democrat,liberal,Asian,52,college,<25k,married,religious
+user_030,male,Democrat,liberal,Black,70,high school,<25k,married,not religious
+user_031,male,Democrat,very liberal,White,68,college,100k+,single,not religious
+user_032,male,Republican,moderate,Black,47,college,<25k,married,somewhat religious
+user_033,female,Republican,moderate,White,35,postgraduate,75k-100k,single,somewhat religious
+user_034,female,Democrat,conservative,Hispanic,23,college,50k-75k,divorced,religious
+user_035,female,Democrat,moderate,Black,65,postgraduate,50k-75k,divorced,religious
+user_036,male,Democrat,very conservative,White,32,college,25k-50k,married,religious
+user_037,non-binary,Republican,liberal,White,54,postgraduate,25k-50k,married,somewhat religious
+user_038,female,Independent,liberal,Hispanic,59,college,100k+,married,somewhat religious
+user_039,female,Other,moderate,White,58,high school,50k-75k,widowed,religious
+user_040,male,Independent,conservative,Hispanic,40,high school,75k-100k,divorced,very religious
+user_041,male,Independent,conservative,White,72,college,75k-100k,single,very religious
+user_042,male,Independent,liberal,Hispanic,36,postgraduate,25k-50k,single,somewhat religious
+user_043,male,Democrat,moderate,White,20,college,<25k,married,religious
+user_044,male,Republican,moderate,Asian,38,college,50k-75k,single,not religious
+user_045,male,Democrat,very conservative,Hispanic,70,college,25k-50k,married,religious
+user_046,female,Democrat,moderate,White,21,college,100k+,married,somewhat religious
+user_047,female,Other,liberal,White,58,high school,<25k,divorced,not religious
+user_048,female,Independent,very conservative,Hispanic,53,high school,<25k,married,somewhat religious
+user_049,male,Republican,liberal,Asian,25,postgraduate,<25k,single,very religious
+user_050,male,Democrat,moderate,White,37,postgraduate,<25k,single,somewhat religious
+user_051,other,Republican,very liberal,White,23,high school,<25k,married,somewhat religious
+user_052,male,Republican,very conservative,White,59,high school,25k-50k,married,somewhat religious
+user_053,male,Independent,moderate,White,50,high school,50k-75k,divorced,not religious
+user_054,female,Independent,very conservative,Other,48,college,100k+,married,very religious
+user_055,male,Democrat,very liberal,White,42,college,75k-100k,divorced,not religious
+user_056,male,Independent,moderate,White,73,high school,100k+,married,religious
+user_057,female,Democrat,moderate,Black,39,high school,<25k,married,somewhat religious
+user_058,female,Independent,conservative,White,36,high school,100k+,married,somewhat religious
+user_059,male,Republican,liberal,White,73,college,100k+,single,religious
+user_060,female,Democrat,moderate,White,40,postgraduate,50k-75k,married,not religious
+user_061,male,Republican,liberal,White,42,postgraduate,50k-75k,married,very religious
+user_062,male,Democrat,conservative,Asian,62,college,25k-50k,single,somewhat religious
+user_063,male,Republican,conservative,White,20,college,25k-50k,married,very religious
+user_064,female,Democrat,moderate,White,42,college,<25k,single,not religious
+user_065,female,Republican,liberal,White,26,college,25k-50k,married,very religious
+user_066,male,Republican,liberal,White,73,college,50k-75k,married,somewhat religious
+user_067,female,Republican,moderate,Black,47,high school,75k-100k,single,somewhat religious
+user_068,male,Democrat,conservative,Hispanic,22,college,25k-50k,widowed,not religious
+user_069,female,Independent,very conservative,Black,59,high school,75k-100k,married,not religious
+user_070,male,Democrat,moderate,White,42,high school,50k-75k,single,somewhat religious
+user_071,male,Democrat,liberal,White,20,college,50k-75k,single,religious
+user_072,female,Democrat,conservative,Other,32,postgraduate,100k+,married,somewhat religious
+user_073,female,Democrat,liberal,Black,66,college,50k-75k,married,not religious
+user_074,female,Democrat,moderate,Hispanic,62,postgraduate,25k-50k,divorced,somewhat religious
+user_075,female,Independent,liberal,White,68,postgraduate,25k-50k,divorced,somewhat religious
+user_076,female,Republican,liberal,Asian,45,high school,75k-100k,married,somewhat religious
+user_077,male,Independent,moderate,White,54,college,<25k,married,religious
+user_078,female,Democrat,conservative,Hispanic,23,high school,100k+,single,religious
+user_079,female,Republican,moderate,Other,49,college,100k+,single,not religious
+user_080,female,Republican,very liberal,White,58,postgraduate,100k+,divorced,religious
+user_081,female,Other,very conservative,Hispanic,69,college,75k-100k,married,not religious
+user_082,male,Republican,conservative,White,28,college,75k-100k,single,somewhat religious
+user_083,male,Independent,very liberal,White,58,high school,25k-50k,single,not religious
+user_084,female,Independent,conservative,White,30,high school,50k-75k,single,very religious
+user_085,non-binary,Republican,very liberal,Asian,42,college,50k-75k,single,very religious
+user_086,male,Independent,very liberal,Hispanic,62,high school,25k-50k,married,religious
+user_087,female,Democrat,very conservative,White,35,postgraduate,25k-50k,married,not religious
+user_088,female,Democrat,conservative,White,71,college,75k-100k,married,somewhat religious
+user_089,male,Democrat,liberal,White,56,college,25k-50k,single,somewhat religious
+user_090,female,Democrat,conservative,Black,57,high school,100k+,divorced,somewhat religious
+user_091,female,Republican,conservative,Other,58,college,50k-75k,married,somewhat religious
+user_092,male,Independent,very liberal,White,20,high school,50k-75k,single,religious
+user_093,male,Republican,moderate,Black,23,postgraduate,50k-75k,married,not religious
+user_094,male,Republican,very liberal,Black,29,high school,100k+,widowed,very religious
+user_095,male,Independent,liberal,Black,74,high school,25k-50k,single,religious
+user_096,male,Other,liberal,Hispanic,71,high school,50k-75k,divorced,not religious
+user_097,female,Republican,liberal,White,69,college,25k-50k,married,somewhat religious
+user_098,male,Independent,moderate,White,47,college,100k+,married,not religious
+user_099,male,Independent,moderate,White,73,postgraduate,25k-50k,married,religious
+user_100,female,Democrat,moderate,Other,41,college,75k-100k,divorced,not religious

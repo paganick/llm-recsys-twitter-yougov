@@ -1,0 +1,19 @@
+provider,prompt_style,mean_bias,std_bias,provider_label
+anthropic,controversial,-0.0254812499999999,,Claude Sonnet 4.5
+anthropic,engaging,-0.003591625,,Claude Sonnet 4.5
+anthropic,general,0.0302425,,Claude Sonnet 4.5
+anthropic,informative,0.0636951249999999,,Claude Sonnet 4.5
+anthropic,neutral,-0.0731687499999999,,Claude Sonnet 4.5
+anthropic,popular,0.0062872499999999,,Claude Sonnet 4.5
+gemini,controversial,-0.0014033749999999,,Gemini 2.0 Flash
+gemini,engaging,0.066955125,,Gemini 2.0 Flash
+gemini,general,0.0047475,,Gemini 2.0 Flash
+gemini,informative,-0.0428325,,Gemini 2.0 Flash
+gemini,neutral,-0.028042875,,Gemini 2.0 Flash
+gemini,popular,0.003869375,,Gemini 2.0 Flash
+openai,controversial,0.0558054999999999,,GPT-4o-mini
+openai,engaging,0.0492621249999999,,GPT-4o-mini
+openai,general,-0.0597918749999999,,GPT-4o-mini
+openai,informative,-0.002721125,,GPT-4o-mini
+openai,neutral,0.08162475,,GPT-4o-mini
+openai,popular,0.04108575,,GPT-4o-mini
