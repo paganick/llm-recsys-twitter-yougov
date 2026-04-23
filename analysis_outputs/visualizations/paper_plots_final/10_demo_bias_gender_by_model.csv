@@ -1,0 +1,73 @@
+provider,prompt_style,category,mean_bias,std_bias,provider_label
+anthropic,controversial,female,0.0125,,Claude Sonnet 4.5
+anthropic,controversial,male,-0.0149999999999999,,Claude Sonnet 4.5
+anthropic,controversial,non-binary,0.00125,,Claude Sonnet 4.5
+anthropic,controversial,other,0.0012499999999999,,Claude Sonnet 4.5
+anthropic,engaging,female,-0.08875,,Claude Sonnet 4.5
+anthropic,engaging,male,0.06875,,Claude Sonnet 4.5
+anthropic,engaging,non-binary,0.0124999999999999,,Claude Sonnet 4.5
+anthropic,engaging,other,0.0075,,Claude Sonnet 4.5
+anthropic,general,female,0.0549999999999999,,Claude Sonnet 4.5
+anthropic,general,male,-0.04125,,Claude Sonnet 4.5
+anthropic,general,non-binary,-0.01375,,Claude Sonnet 4.5
+anthropic,general,other,0.0,,Claude Sonnet 4.5
+anthropic,informative,female,-0.0262499999999999,,Claude Sonnet 4.5
+anthropic,informative,male,0.045,,Claude Sonnet 4.5
+anthropic,informative,non-binary,-0.01875,,Claude Sonnet 4.5
+anthropic,informative,other,0.0,,Claude Sonnet 4.5
+anthropic,neutral,female,-0.0125,,Claude Sonnet 4.5
+anthropic,neutral,male,0.03375,,Claude Sonnet 4.5
+anthropic,neutral,non-binary,-0.01625,,Claude Sonnet 4.5
+anthropic,neutral,other,-0.005,,Claude Sonnet 4.5
+anthropic,popular,female,-0.1,,Claude Sonnet 4.5
+anthropic,popular,male,0.1,,Claude Sonnet 4.5
+anthropic,popular,non-binary,-0.00125,,Claude Sonnet 4.5
+anthropic,popular,other,0.0012499999999999,,Claude Sonnet 4.5
+gemini,controversial,female,-0.03375,,Gemini 2.0 Flash
+gemini,controversial,male,0.0212499999999999,,Gemini 2.0 Flash
+gemini,controversial,non-binary,0.0125,,Gemini 2.0 Flash
+gemini,controversial,other,0.0,,Gemini 2.0 Flash
+gemini,engaging,female,0.0262499999999999,,Gemini 2.0 Flash
+gemini,engaging,male,-0.0124999999999999,,Gemini 2.0 Flash
+gemini,engaging,non-binary,-0.01625,,Gemini 2.0 Flash
+gemini,engaging,other,0.0025,,Gemini 2.0 Flash
+gemini,general,female,0.07625,,Gemini 2.0 Flash
+gemini,general,male,-0.075,,Gemini 2.0 Flash
+gemini,general,non-binary,0.0075,,Gemini 2.0 Flash
+gemini,general,other,-0.0087499999999999,,Gemini 2.0 Flash
+gemini,informative,female,-0.08875,,Gemini 2.0 Flash
+gemini,informative,male,0.08125,,Gemini 2.0 Flash
+gemini,informative,non-binary,-0.0025,,Gemini 2.0 Flash
+gemini,informative,other,0.01,,Gemini 2.0 Flash
+gemini,neutral,female,0.085,,Gemini 2.0 Flash
+gemini,neutral,male,-0.08125,,Gemini 2.0 Flash
+gemini,neutral,non-binary,0.00375,,Gemini 2.0 Flash
+gemini,neutral,other,-0.0075,,Gemini 2.0 Flash
+gemini,popular,female,-0.04125,,Gemini 2.0 Flash
+gemini,popular,male,0.05875,,Gemini 2.0 Flash
+gemini,popular,non-binary,-0.01875,,Gemini 2.0 Flash
+gemini,popular,other,0.0012499999999999,,Gemini 2.0 Flash
+openai,controversial,female,0.045,,GPT-4o-mini
+openai,controversial,male,-0.0224999999999999,,GPT-4o-mini
+openai,controversial,non-binary,-0.01125,,GPT-4o-mini
+openai,controversial,other,-0.01125,,GPT-4o-mini
+openai,engaging,female,-0.075,,GPT-4o-mini
+openai,engaging,male,0.0574999999999999,,GPT-4o-mini
+openai,engaging,non-binary,0.005,,GPT-4o-mini
+openai,engaging,other,0.0125,,GPT-4o-mini
+openai,general,female,0.07875,,GPT-4o-mini
+openai,general,male,-0.07875,,GPT-4o-mini
+openai,general,non-binary,-0.0075,,GPT-4o-mini
+openai,general,other,0.0075,,GPT-4o-mini
+openai,informative,female,-0.03125,,GPT-4o-mini
+openai,informative,male,-0.00875,,GPT-4o-mini
+openai,informative,non-binary,0.0124999999999999,,GPT-4o-mini
+openai,informative,other,0.0275,,GPT-4o-mini
+openai,neutral,female,-0.05875,,GPT-4o-mini
+openai,neutral,male,0.0475,,GPT-4o-mini
+openai,neutral,non-binary,0.01875,,GPT-4o-mini
+openai,neutral,other,-0.0075,,GPT-4o-mini
+openai,popular,female,0.03,,GPT-4o-mini
+openai,popular,male,-0.0274999999999999,,GPT-4o-mini
+openai,popular,non-binary,0.00375,,GPT-4o-mini
+openai,popular,other,-0.00625,,GPT-4o-mini

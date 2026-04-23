@@ -1,0 +1,91 @@
+provider,prompt_style,category,mean_bias,std_bias,provider_label
+anthropic,controversial,conservative,0.0149999999999999,,Claude Sonnet 4.5
+anthropic,controversial,liberal,0.0125,,Claude Sonnet 4.5
+anthropic,controversial,moderate,-0.03,,Claude Sonnet 4.5
+anthropic,controversial,very conservative,-0.0212499999999999,,Claude Sonnet 4.5
+anthropic,controversial,very liberal,0.0237499999999999,,Claude Sonnet 4.5
+anthropic,engaging,conservative,-0.03625,,Claude Sonnet 4.5
+anthropic,engaging,liberal,-0.0325,,Claude Sonnet 4.5
+anthropic,engaging,moderate,0.0262499999999999,,Claude Sonnet 4.5
+anthropic,engaging,very conservative,-0.0074999999999999,,Claude Sonnet 4.5
+anthropic,engaging,very liberal,0.05,,Claude Sonnet 4.5
+anthropic,general,conservative,0.05,,Claude Sonnet 4.5
+anthropic,general,liberal,0.005,,Claude Sonnet 4.5
+anthropic,general,moderate,-0.04625,,Claude Sonnet 4.5
+anthropic,general,very conservative,-0.0325,,Claude Sonnet 4.5
+anthropic,general,very liberal,0.02375,,Claude Sonnet 4.5
+anthropic,informative,conservative,-0.0025,,Claude Sonnet 4.5
+anthropic,informative,liberal,-0.0225,,Claude Sonnet 4.5
+anthropic,informative,moderate,0.0574999999999999,,Claude Sonnet 4.5
+anthropic,informative,very conservative,0.015,,Claude Sonnet 4.5
+anthropic,informative,very liberal,-0.0475,,Claude Sonnet 4.5
+anthropic,neutral,conservative,0.02,,Claude Sonnet 4.5
+anthropic,neutral,liberal,-0.0149999999999999,,Claude Sonnet 4.5
+anthropic,neutral,moderate,-0.00625,,Claude Sonnet 4.5
+anthropic,neutral,very conservative,-0.0249999999999999,,Claude Sonnet 4.5
+anthropic,neutral,very liberal,0.0262499999999999,,Claude Sonnet 4.5
+anthropic,popular,conservative,0.0075,,Claude Sonnet 4.5
+anthropic,popular,liberal,-0.03375,,Claude Sonnet 4.5
+anthropic,popular,moderate,-0.0274999999999999,,Claude Sonnet 4.5
+anthropic,popular,very conservative,0.0225,,Claude Sonnet 4.5
+anthropic,popular,very liberal,0.03125,,Claude Sonnet 4.5
+gemini,controversial,conservative,0.0125,,Gemini 2.0 Flash
+gemini,controversial,liberal,-0.0224999999999999,,Gemini 2.0 Flash
+gemini,controversial,moderate,0.0187499999999999,,Gemini 2.0 Flash
+gemini,controversial,very conservative,-0.0037499999999999,,Gemini 2.0 Flash
+gemini,controversial,very liberal,-0.0049999999999999,,Gemini 2.0 Flash
+gemini,engaging,conservative,-0.0187499999999999,,Gemini 2.0 Flash
+gemini,engaging,liberal,0.00625,,Gemini 2.0 Flash
+gemini,engaging,moderate,0.0187499999999999,,Gemini 2.0 Flash
+gemini,engaging,very conservative,-0.0037499999999999,,Gemini 2.0 Flash
+gemini,engaging,very liberal,-0.0024999999999999,,Gemini 2.0 Flash
+gemini,general,conservative,-0.03,,Gemini 2.0 Flash
+gemini,general,liberal,0.13125,,Gemini 2.0 Flash
+gemini,general,moderate,-0.08125,,Gemini 2.0 Flash
+gemini,general,very conservative,-0.00375,,Gemini 2.0 Flash
+gemini,general,very liberal,-0.01625,,Gemini 2.0 Flash
+gemini,informative,conservative,-0.015,,Gemini 2.0 Flash
+gemini,informative,liberal,0.0,,Gemini 2.0 Flash
+gemini,informative,moderate,-0.0499999999999999,,Gemini 2.0 Flash
+gemini,informative,very conservative,0.04375,,Gemini 2.0 Flash
+gemini,informative,very liberal,0.02125,,Gemini 2.0 Flash
+gemini,neutral,conservative,-0.0025,,Gemini 2.0 Flash
+gemini,neutral,liberal,0.03,,Gemini 2.0 Flash
+gemini,neutral,moderate,-0.0374999999999999,,Gemini 2.0 Flash
+gemini,neutral,very conservative,0.01625,,Gemini 2.0 Flash
+gemini,neutral,very liberal,-0.00625,,Gemini 2.0 Flash
+gemini,popular,conservative,-0.0412499999999999,,Gemini 2.0 Flash
+gemini,popular,liberal,0.0349999999999999,,Gemini 2.0 Flash
+gemini,popular,moderate,0.0362499999999999,,Gemini 2.0 Flash
+gemini,popular,very conservative,-0.04375,,Gemini 2.0 Flash
+gemini,popular,very liberal,0.0137499999999999,,Gemini 2.0 Flash
+openai,controversial,conservative,-0.01625,,GPT-4o-mini
+openai,controversial,liberal,0.0149999999999999,,GPT-4o-mini
+openai,controversial,moderate,-0.0125,,GPT-4o-mini
+openai,controversial,very conservative,0.0112499999999999,,GPT-4o-mini
+openai,controversial,very liberal,0.0025,,GPT-4o-mini
+openai,engaging,conservative,-0.0425,,GPT-4o-mini
+openai,engaging,liberal,0.0262499999999999,,GPT-4o-mini
+openai,engaging,moderate,-0.0474999999999999,,GPT-4o-mini
+openai,engaging,very conservative,0.0049999999999999,,GPT-4o-mini
+openai,engaging,very liberal,0.05875,,GPT-4o-mini
+openai,general,conservative,0.0262499999999999,,GPT-4o-mini
+openai,general,liberal,-0.025,,GPT-4o-mini
+openai,general,moderate,0.0112499999999999,,GPT-4o-mini
+openai,general,very conservative,-0.0325,,GPT-4o-mini
+openai,general,very liberal,0.02,,GPT-4o-mini
+openai,informative,conservative,-0.0224999999999999,,GPT-4o-mini
+openai,informative,liberal,0.00875,,GPT-4o-mini
+openai,informative,moderate,-0.0374999999999999,,GPT-4o-mini
+openai,informative,very conservative,0.0225,,GPT-4o-mini
+openai,informative,very liberal,0.0287499999999999,,GPT-4o-mini
+openai,neutral,conservative,0.025,,GPT-4o-mini
+openai,neutral,liberal,-0.0149999999999999,,GPT-4o-mini
+openai,neutral,moderate,-0.03375,,GPT-4o-mini
+openai,neutral,very conservative,-0.00625,,GPT-4o-mini
+openai,neutral,very liberal,0.03,,GPT-4o-mini
+openai,popular,conservative,0.0249999999999999,,GPT-4o-mini
+openai,popular,liberal,0.0025,,GPT-4o-mini
+openai,popular,moderate,-0.0075,,GPT-4o-mini
+openai,popular,very conservative,0.015,,GPT-4o-mini
+openai,popular,very liberal,-0.035,,GPT-4o-mini

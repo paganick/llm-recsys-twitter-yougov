@@ -1,0 +1,15 @@
+feature,feature_display,category,r_squared,significant
+primary_topic,Content: Primary Topic,content,0.014372880936088751,0.0
+author_ideology,Author: Ideology,author,0.004394153233826971,0.05555555555555555
+author_race,Author: Race,author,0.004339463278798753,0.05555555555555555
+author_age,Author: Age,other,0.004331229362453555,0.0
+author_income,Author: Income,other,0.004271071813408007,0.1111111111111111
+author_gender,Author: Gender,author,0.004172810068750959,0.05555555555555555
+author_religiosity,Author: Religiosity,other,0.003911208704801208,0.1111111111111111
+author_marital_status,Author: Marital Status,other,0.003650751598126899,0.05555555555555555
+author_education,Author: Education,other,0.0035186942401406324,0.16666666666666666
+author_partisanship,Author: Partisanship,author,0.0025605019067801533,0.0
+sentiment_subjectivity,Sentiment: Subjectivity,sentiment,0.0018566583330121556,0.05555555555555555
+sentiment_polarity,Sentiment: Polarity,sentiment,0.001559418436467616,0.0
+polarization_score,Content: Polarization Score,content,0.0014405838178532828,0.05555555555555555
+toxicity,Toxicity: Toxicity,toxicity,0.0008807565462789687,0.0

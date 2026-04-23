@@ -1,0 +1,73 @@
+provider,prompt_style,category,mean_bias,std_bias,provider_label
+anthropic,controversial,divorced,0.0162499999999999,,Claude Sonnet 4.5
+anthropic,controversial,married,-0.0749999999999999,,Claude Sonnet 4.5
+anthropic,controversial,single,0.0087499999999999,,Claude Sonnet 4.5
+anthropic,controversial,widowed,0.0499999999999999,,Claude Sonnet 4.5
+anthropic,engaging,divorced,-0.025,,Claude Sonnet 4.5
+anthropic,engaging,married,0.0562499999999999,,Claude Sonnet 4.5
+anthropic,engaging,single,-0.0112499999999999,,Claude Sonnet 4.5
+anthropic,engaging,widowed,-0.02,,Claude Sonnet 4.5
+anthropic,general,divorced,0.0262499999999999,,Claude Sonnet 4.5
+anthropic,general,married,0.0137499999999999,,Claude Sonnet 4.5
+anthropic,general,single,-0.0549999999999999,,Claude Sonnet 4.5
+anthropic,general,widowed,0.015,,Claude Sonnet 4.5
+anthropic,informative,divorced,-0.0249999999999999,,Claude Sonnet 4.5
+anthropic,informative,married,0.00375,,Claude Sonnet 4.5
+anthropic,informative,single,0.0374999999999999,,Claude Sonnet 4.5
+anthropic,informative,widowed,-0.0162499999999999,,Claude Sonnet 4.5
+anthropic,neutral,divorced,0.0425,,Claude Sonnet 4.5
+anthropic,neutral,married,-0.04625,,Claude Sonnet 4.5
+anthropic,neutral,single,0.0199999999999999,,Claude Sonnet 4.5
+anthropic,neutral,widowed,-0.0162499999999999,,Claude Sonnet 4.5
+anthropic,popular,divorced,-0.03,,Claude Sonnet 4.5
+anthropic,popular,married,0.0162499999999999,,Claude Sonnet 4.5
+anthropic,popular,single,-0.0025,,Claude Sonnet 4.5
+anthropic,popular,widowed,0.01625,,Claude Sonnet 4.5
+gemini,controversial,divorced,-0.0262499999999999,,Gemini 2.0 Flash
+gemini,controversial,married,-0.0087499999999999,,Gemini 2.0 Flash
+gemini,controversial,single,0.0162499999999999,,Gemini 2.0 Flash
+gemini,controversial,widowed,0.0187499999999999,,Gemini 2.0 Flash
+gemini,engaging,divorced,0.02875,,Gemini 2.0 Flash
+gemini,engaging,married,-0.0462499999999999,,Gemini 2.0 Flash
+gemini,engaging,single,0.03625,,Gemini 2.0 Flash
+gemini,engaging,widowed,-0.0187499999999999,,Gemini 2.0 Flash
+gemini,general,divorced,0.0137499999999999,,Gemini 2.0 Flash
+gemini,general,married,-0.0112499999999999,,Gemini 2.0 Flash
+gemini,general,single,-0.00125,,Gemini 2.0 Flash
+gemini,general,widowed,-0.00125,,Gemini 2.0 Flash
+gemini,informative,divorced,-0.05,,Gemini 2.0 Flash
+gemini,informative,married,0.0387499999999999,,Gemini 2.0 Flash
+gemini,informative,single,-0.00125,,Gemini 2.0 Flash
+gemini,informative,widowed,0.0124999999999999,,Gemini 2.0 Flash
+gemini,neutral,divorced,0.01375,,Gemini 2.0 Flash
+gemini,neutral,married,-0.04875,,Gemini 2.0 Flash
+gemini,neutral,single,0.0474999999999999,,Gemini 2.0 Flash
+gemini,neutral,widowed,-0.0125,,Gemini 2.0 Flash
+gemini,popular,divorced,-0.015,,Gemini 2.0 Flash
+gemini,popular,married,-0.0775,,Gemini 2.0 Flash
+gemini,popular,single,0.0762499999999999,,Gemini 2.0 Flash
+gemini,popular,widowed,0.01625,,Gemini 2.0 Flash
+openai,controversial,divorced,0.0149999999999999,,GPT-4o-mini
+openai,controversial,married,0.0675,,GPT-4o-mini
+openai,controversial,single,-0.0987499999999999,,GPT-4o-mini
+openai,controversial,widowed,0.01625,,GPT-4o-mini
+openai,engaging,divorced,-0.045,,GPT-4o-mini
+openai,engaging,married,-0.0175,,GPT-4o-mini
+openai,engaging,single,0.0549999999999999,,GPT-4o-mini
+openai,engaging,widowed,0.0075,,GPT-4o-mini
+openai,general,divorced,0.0412499999999999,,GPT-4o-mini
+openai,general,married,-0.1024999999999999,,GPT-4o-mini
+openai,general,single,0.0549999999999999,,GPT-4o-mini
+openai,general,widowed,0.00625,,GPT-4o-mini
+openai,informative,divorced,0.0537499999999999,,GPT-4o-mini
+openai,informative,married,-0.04125,,GPT-4o-mini
+openai,informative,single,-0.0187499999999999,,GPT-4o-mini
+openai,informative,widowed,0.0062499999999999,,GPT-4o-mini
+openai,neutral,divorced,-0.0025,,GPT-4o-mini
+openai,neutral,married,-0.005,,GPT-4o-mini
+openai,neutral,single,-0.01,,GPT-4o-mini
+openai,neutral,widowed,0.0175,,GPT-4o-mini
+openai,popular,divorced,-0.00125,,GPT-4o-mini
+openai,popular,married,0.01875,,GPT-4o-mini
+openai,popular,single,-0.0249999999999999,,GPT-4o-mini
+openai,popular,widowed,0.0075,,GPT-4o-mini

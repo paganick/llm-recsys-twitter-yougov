@@ -213,6 +213,15 @@ def main():
         found = [c for c in SURVEY_COLS if c in df.columns]
         print(f"  Found {len(found)}/{len(SURVEY_COLS)} demographic columns")
 
+    # Bin author_age into standard demographic ranges if it is numeric
+    if "author_age" in df.columns and pd.api.types.is_numeric_dtype(df["author_age"]):
+        bins   = [0, 24, 34, 44, 54, 64, 999]
+        labels = ["18-24", "25-34", "35-44", "45-54", "55-64", "65+"]
+        df["author_age"] = pd.cut(
+            df["author_age"], bins=bins, labels=labels, right=True
+        ).astype(str).replace("nan", pd.NA)
+        print(f"\nAuthor age binned into ranges: {labels}")
+
     # Length filter
     before = len(df)
     df = df[df["text"].str.len() <= args.max_chars].copy()
