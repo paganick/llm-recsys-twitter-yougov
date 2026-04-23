@@ -185,3 +185,28 @@ Re-run Steps 4–5 to update the analysis (no need to re-run the LLM experiments
 Steps 4–5 (`compute_bias_metrics.py`, `generate_figures.py`) operate entirely
 on the pre-generated experiment CSVs and can be re-run without API access or
 raw data.
+
+## Sharing outputs for figure regeneration
+
+After running the full pipeline, commit and push the generated outputs so that
+collaborators can re-run Steps 4–5 to adjust figures without re-running the
+LLM experiments:
+
+```bash
+git add outputs/pools/twitter_pool.csv \
+        outputs/experiments/ \
+        analysis_outputs/
+git commit -m "Add pipeline outputs"
+git push
+```
+
+The files needed to fully regenerate all figures are:
+
+| File | Needed for |
+|---|---|
+| `outputs/pools/twitter_pool.csv` | Pool distributions in figures |
+| `outputs/experiments/*/post_level_data.csv` | Re-running Step 4 (bias metrics) |
+| `analysis_outputs/*.csv` | Re-running Step 5 (figures) only |
+
+**Note:** `outputs/pools/twitter_id_map.csv` maps anonymised IDs back to
+original user IDs — do **not** share or commit this file.
