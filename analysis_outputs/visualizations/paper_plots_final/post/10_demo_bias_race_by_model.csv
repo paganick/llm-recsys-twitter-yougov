@@ -1,0 +1,91 @@
+provider,prompt_style,category,mean_bias,std_bias,provider_label
+anthropic,controversial,Asian,-0.0151839684625492,,Claude Sonnet 4.5
+anthropic,controversial,Black,-0.0100591327201051,,Claude Sonnet 4.5
+anthropic,controversial,Hispanic,-0.0057621550591327,,Claude Sonnet 4.5
+anthropic,controversial,Other,0.0044940867279894,,Claude Sonnet 4.5
+anthropic,controversial,White,0.0265111695137976,,Claude Sonnet 4.5
+anthropic,engaging,Asian,0.0171052631578947,,Claude Sonnet 4.5
+anthropic,engaging,Black,0.0023684210526315,,Claude Sonnet 4.5
+anthropic,engaging,Hispanic,0.0084210526315789,,Claude Sonnet 4.5
+anthropic,engaging,Other,-0.0484210526315789,,Claude Sonnet 4.5
+anthropic,engaging,White,0.0205263157894736,,Claude Sonnet 4.5
+anthropic,general,Asian,-0.0399006622516556,,Claude Sonnet 4.5
+anthropic,general,Black,0.0179801324503311,,Claude Sonnet 4.5
+anthropic,general,Hispanic,0.0820529801324503,,Claude Sonnet 4.5
+anthropic,general,Other,-0.0414900662251655,,Claude Sonnet 4.5
+anthropic,general,White,-0.0186423841059602,,Claude Sonnet 4.5
+anthropic,informative,Asian,-0.0064248021108179,,Claude Sonnet 4.5
+anthropic,informative,Black,-0.0130343007915567,,Claude Sonnet 4.5
+anthropic,informative,Hispanic,0.0128100263852242,,Claude Sonnet 4.5
+anthropic,informative,Other,0.0323218997361477,,Claude Sonnet 4.5
+anthropic,informative,White,-0.0256728232189973,,Claude Sonnet 4.5
+anthropic,neutral,Asian,0.0056382978723404,,Claude Sonnet 4.5
+anthropic,neutral,Black,0.0173936170212765,,Claude Sonnet 4.5
+anthropic,neutral,Hispanic,-0.0147340425531914,,Claude Sonnet 4.5
+anthropic,neutral,Other,-0.0200531914893617,,Claude Sonnet 4.5
+anthropic,neutral,White,0.0117553191489361,,Claude Sonnet 4.5
+anthropic,popular,Asian,-0.0080620155038759,,Claude Sonnet 4.5
+anthropic,popular,Black,-0.0237467700258397,,Claude Sonnet 4.5
+anthropic,popular,Hispanic,0.0293540051679586,,Claude Sonnet 4.5
+anthropic,popular,Other,0.0127777777777777,,Claude Sonnet 4.5
+anthropic,popular,White,-0.0103229974160206,,Claude Sonnet 4.5
+gemini,controversial,Asian,0.0159986684420772,,Gemini 2.0 Flash
+gemini,controversial,Black,-0.0354394141145139,,Gemini 2.0 Flash
+gemini,controversial,Hispanic,-0.003022636484687,,Gemini 2.0 Flash
+gemini,controversial,Other,0.0269507323568575,,Gemini 2.0 Flash
+gemini,controversial,White,-0.0044873501997336,,Gemini 2.0 Flash
+gemini,engaging,Asian,0.0416137566137566,,Gemini 2.0 Flash
+gemini,engaging,Black,-0.0543121693121693,,Gemini 2.0 Flash
+gemini,engaging,Hispanic,-0.0594179894179894,,Gemini 2.0 Flash
+gemini,engaging,Other,0.0586507936507936,,Gemini 2.0 Flash
+gemini,engaging,White,0.0134656084656084,,Gemini 2.0 Flash
+gemini,general,Asian,0.0286772486772486,,Gemini 2.0 Flash
+gemini,general,Black,0.0337566137566137,,Gemini 2.0 Flash
+gemini,general,Hispanic,0.0074867724867724,,Gemini 2.0 Flash
+gemini,general,Other,-0.0401587301587301,,Gemini 2.0 Flash
+gemini,general,White,-0.0297619047619047,,Gemini 2.0 Flash
+gemini,informative,Asian,0.0081699346405228,,Gemini 2.0 Flash
+gemini,informative,Black,0.004673202614379,,Gemini 2.0 Flash
+gemini,informative,Hispanic,-0.0513725490196078,,Gemini 2.0 Flash
+gemini,informative,Other,-0.0087581699346405,,Gemini 2.0 Flash
+gemini,informative,White,0.0472875816993464,,Gemini 2.0 Flash
+gemini,neutral,Asian,-0.020064267352185,,Gemini 2.0 Flash
+gemini,neutral,Black,0.040038560411311,,Gemini 2.0 Flash
+gemini,neutral,Hispanic,-0.0594987146529563,,Gemini 2.0 Flash
+gemini,neutral,Other,0.0119151670951156,,Gemini 2.0 Flash
+gemini,neutral,White,0.0276092544987146,,Gemini 2.0 Flash
+gemini,popular,Asian,-0.0412645914396887,,Gemini 2.0 Flash
+gemini,popular,Black,0.02973411154345,,Gemini 2.0 Flash
+gemini,popular,Hispanic,-0.00568093385214,,Gemini 2.0 Flash
+gemini,popular,Other,0.0272892347600518,,Gemini 2.0 Flash
+gemini,popular,White,-0.0100778210116731,,Gemini 2.0 Flash
+openai,controversial,Asian,0.003681392235609,,GPT-4o-mini
+openai,controversial,Black,-0.0156425702811245,,GPT-4o-mini
+openai,controversial,Hispanic,0.0110843373493975,,GPT-4o-mini
+openai,controversial,Other,0.0104551539491298,,GPT-4o-mini
+openai,controversial,White,-0.009578313253012,,GPT-4o-mini
+openai,engaging,Asian,-0.0084210526315789,,GPT-4o-mini
+openai,engaging,Black,0.0060526315789473,,GPT-4o-mini
+openai,engaging,Hispanic,-0.0257894736842105,,GPT-4o-mini
+openai,engaging,Other,-0.0118421052631578,,GPT-4o-mini
+openai,engaging,White,0.04,,GPT-4o-mini
+openai,general,Asian,0.0032258064516129,,GPT-4o-mini
+openai,general,Black,0.0216129032258064,,GPT-4o-mini
+openai,general,Hispanic,-0.0380645161290322,,GPT-4o-mini
+openai,general,Other,0.0130645161290322,,GPT-4o-mini
+openai,general,White,0.0001612903225806,,GPT-4o-mini
+openai,informative,Asian,-0.0262417871222076,,GPT-4o-mini
+openai,informative,Black,0.0280814717477004,,GPT-4o-mini
+openai,informative,Hispanic,-0.0225886990801577,,GPT-4o-mini
+openai,informative,Other,-0.0020762155059132,,GPT-4o-mini
+openai,informative,White,0.0228252299605782,,GPT-4o-mini
+openai,neutral,Asian,0.0706191744340878,,GPT-4o-mini
+openai,neutral,Black,0.0105392809587217,,GPT-4o-mini
+openai,neutral,Hispanic,-0.061664447403462,,GPT-4o-mini
+openai,neutral,Other,-0.0163648468708388,,GPT-4o-mini
+openai,neutral,White,-0.0031291611185086,,GPT-4o-mini
+openai,popular,Asian,0.0232467532467532,,GPT-4o-mini
+openai,popular,Black,-0.0263636363636363,,GPT-4o-mini
+openai,popular,Hispanic,0.0223376623376623,,GPT-4o-mini
+openai,popular,Other,-0.0424675324675324,,GPT-4o-mini
+openai,popular,White,0.0232467532467532,,GPT-4o-mini

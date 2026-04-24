@@ -45,12 +45,14 @@ $APT pipeline/prepare_dataset.py \
     --seed "$SEED"
 
 echo ""
-echo "[Step 2] run_llm_recommendation.py --fake (all 3 providers)"
+echo "[Step 2] run_llm_recommendation.py --fake (all 3 providers, temporal + all context levels)"
 for provider in anthropic openai gemini; do
     $APT pipeline/run_llm_recommendation.py \
         --provider $provider \
         --n-trials 20 \
         --sample-size 50 \
+        --sample-mode temporal \
+        --context-levels none author post author_post \
         --fake \
         --seed "$SEED"
 done

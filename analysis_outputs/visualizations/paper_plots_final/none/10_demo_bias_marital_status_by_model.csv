@@ -1,0 +1,55 @@
+provider,prompt_style,category,mean_bias,std_bias,provider_label
+anthropic,controversial,divorced,0.0479045092838196,,Claude Sonnet 4.5
+anthropic,controversial,married,0.0261007957559681,,Claude Sonnet 4.5
+anthropic,controversial,single,-0.0740053050397878,,Claude Sonnet 4.5
+anthropic,engaging,divorced,0.0555966277561608,,Claude Sonnet 4.5
+anthropic,engaging,married,-0.0491050583657587,,Claude Sonnet 4.5
+anthropic,engaging,single,-0.006491569390402,,Claude Sonnet 4.5
+anthropic,general,divorced,0.0042931937172774,,Claude Sonnet 4.5
+anthropic,general,married,-0.028979057591623,,Claude Sonnet 4.5
+anthropic,general,single,0.0246858638743455,,Claude Sonnet 4.5
+anthropic,informative,divorced,-0.0034895833333333,,Claude Sonnet 4.5
+anthropic,informative,married,-0.0566666666666667,,Claude Sonnet 4.5
+anthropic,informative,single,0.06015625,,Claude Sonnet 4.5
+anthropic,neutral,divorced,-0.0030612244897958,,Claude Sonnet 4.5
+anthropic,neutral,married,-0.0215816326530612,,Claude Sonnet 4.5
+anthropic,neutral,single,0.0246428571428571,,Claude Sonnet 4.5
+anthropic,popular,divorced,0.016117166212534,,Claude Sonnet 4.5
+anthropic,popular,married,-0.0259809264305176,,Claude Sonnet 4.5
+anthropic,popular,single,0.0098637602179836,,Claude Sonnet 4.5
+gemini,controversial,divorced,-0.0152005174644243,,Gemini 2.0 Flash
+gemini,controversial,married,0.0433699870633894,,Gemini 2.0 Flash
+gemini,controversial,single,-0.028169469598965,,Gemini 2.0 Flash
+gemini,engaging,divorced,-0.0476315789473684,,Gemini 2.0 Flash
+gemini,engaging,married,-0.0178947368421052,,Gemini 2.0 Flash
+gemini,engaging,single,0.0655263157894737,,Gemini 2.0 Flash
+gemini,general,divorced,0.0095597897503285,,Gemini 2.0 Flash
+gemini,general,married,-0.0013337713534822,,Gemini 2.0 Flash
+gemini,general,single,-0.0082260183968462,,Gemini 2.0 Flash
+gemini,informative,divorced,-0.0333641160949867,,Gemini 2.0 Flash
+gemini,informative,married,0.1124802110817941,,Gemini 2.0 Flash
+gemini,informative,single,-0.0791160949868074,,Gemini 2.0 Flash
+gemini,neutral,divorced,0.0154986522911051,,Gemini 2.0 Flash
+gemini,neutral,married,-0.0350943396226415,,Gemini 2.0 Flash
+gemini,neutral,single,0.0195956873315363,,Gemini 2.0 Flash
+gemini,popular,divorced,-0.0045019404915912,,Gemini 2.0 Flash
+gemini,popular,married,-0.0169793014230271,,Gemini 2.0 Flash
+gemini,popular,single,0.0214812419146183,,Gemini 2.0 Flash
+openai,controversial,divorced,-0.0062137203166227,,GPT-4o-mini
+openai,controversial,married,-0.0065435356200527,,GPT-4o-mini
+openai,controversial,single,0.0127572559366754,,GPT-4o-mini
+openai,engaging,divorced,0.0602631578947368,,GPT-4o-mini
+openai,engaging,married,0.0118421052631579,,GPT-4o-mini
+openai,engaging,single,-0.0721052631578947,,GPT-4o-mini
+openai,general,divorced,0.0122727272727272,,GPT-4o-mini
+openai,general,married,-0.0036693017127799,,GPT-4o-mini
+openai,general,single,-0.0086034255599473,,GPT-4o-mini
+openai,informative,divorced,-0.0457561929595828,,GPT-4o-mini
+openai,informative,married,-0.0219947848761408,,GPT-4o-mini
+openai,informative,single,0.0677509778357235,,GPT-4o-mini
+openai,neutral,divorced,-0.0072634271099744,,GPT-4o-mini
+openai,neutral,married,0.0278772378516624,,GPT-4o-mini
+openai,neutral,single,-0.0206138107416879,,GPT-4o-mini
+openai,popular,divorced,0.0352088772845952,,GPT-4o-mini
+openai,popular,married,-0.0153394255874673,,GPT-4o-mini
+openai,popular,single,-0.0198694516971279,,GPT-4o-mini

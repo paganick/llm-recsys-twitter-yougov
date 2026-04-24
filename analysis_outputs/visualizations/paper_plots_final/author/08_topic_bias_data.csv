@@ -1,0 +1,73 @@
+provider,prompt_style,category,directional_bias,category_display
+anthropic,controversial,fitness_&_health,-0.0169842312746386,Fitness & Health
+anthropic,controversial,gaming,0.0106438896189224,Gaming
+anthropic,controversial,news_&_social_concern,-0.0095795006570302,"News &
+Social Concern"
+anthropic,engaging,fitness_&_health,0.0210237780713342,Fitness & Health
+anthropic,engaging,gaming,-0.010112285336856,Gaming
+anthropic,engaging,news_&_social_concern,-0.0316314398943196,"News &
+Social Concern"
+anthropic,general,fitness_&_health,0.0228497409326424,Fitness & Health
+anthropic,general,gaming,0.0209844559585492,Gaming
+anthropic,general,news_&_social_concern,-0.0243523316062176,"News &
+Social Concern"
+anthropic,informative,fitness_&_health,0.0212901155327342,Fitness & Health
+anthropic,informative,gaming,-0.0164120667522464,Gaming
+anthropic,informative,news_&_social_concern,-0.0218164313222079,"News &
+Social Concern"
+anthropic,neutral,fitness_&_health,-0.0026892950391644,Fitness & Health
+anthropic,neutral,gaming,0.0164490861618799,Gaming
+anthropic,neutral,news_&_social_concern,0.0166449086161879,"News &
+Social Concern"
+anthropic,popular,fitness_&_health,-0.0066752910737386,Fitness & Health
+anthropic,popular,gaming,-0.021254851228978,Gaming
+anthropic,popular,news_&_social_concern,0.0313324708926261,"News &
+Social Concern"
+gemini,controversial,fitness_&_health,-0.0253911342894393,Fitness & Health
+gemini,controversial,gaming,-0.034960886571056,Gaming
+gemini,controversial,news_&_social_concern,0.002444589308996,"News &
+Social Concern"
+gemini,engaging,fitness_&_health,0.0215281501340482,Fitness & Health
+gemini,engaging,gaming,0.0376139410187667,Gaming
+gemini,engaging,news_&_social_concern,0.0073994638069704,"News &
+Social Concern"
+gemini,general,fitness_&_health,0.0266883116883116,Fitness & Health
+gemini,general,gaming,-0.0092207792207792,Gaming
+gemini,general,news_&_social_concern,-0.002077922077922,"News &
+Social Concern"
+gemini,informative,fitness_&_health,-0.042496714848883,Fitness & Health
+gemini,informative,gaming,-0.0085545335085413,Gaming
+gemini,informative,news_&_social_concern,0.010131406044678,"News &
+Social Concern"
+gemini,neutral,fitness_&_health,0.0237433155080213,Fitness & Health
+gemini,neutral,gaming,0.0051336898395722,Gaming
+gemini,neutral,news_&_social_concern,0.0217647058823529,"News &
+Social Concern"
+gemini,popular,fitness_&_health,-0.0082679738562091,Fitness & Health
+gemini,popular,gaming,-0.0199673202614379,Gaming
+gemini,popular,news_&_social_concern,0.0015032679738562,"News &
+Social Concern"
+openai,controversial,fitness_&_health,-0.0007142857142857,Fitness & Health
+openai,controversial,gaming,-0.0551948051948051,Gaming
+openai,controversial,news_&_social_concern,0.0081168831168831,"News &
+Social Concern"
+openai,engaging,fitness_&_health,-0.0432171581769437,Fitness & Health
+openai,engaging,gaming,0.0155495978552278,Gaming
+openai,engaging,news_&_social_concern,0.0210589812332439,"News &
+Social Concern"
+openai,general,fitness_&_health,-0.0204685494223363,Fitness & Health
+openai,general,gaming,0.0055455712451861,Gaming
+openai,general,news_&_social_concern,-0.0501283697047496,"News &
+Social Concern"
+openai,informative,fitness_&_health,0.0177483443708609,Fitness & Health
+openai,informative,gaming,-0.001092715231788,Gaming
+openai,informative,news_&_social_concern,-0.0528807947019867,"News &
+Social Concern"
+openai,neutral,fitness_&_health,0.0062734584450402,Fitness & Health
+openai,neutral,gaming,-0.0188337801608579,Gaming
+openai,neutral,news_&_social_concern,-0.0145576407506702,"News &
+Social Concern"
+openai,popular,fitness_&_health,0.0243726235741444,Fitness & Health
+openai,popular,gaming,0.0012103929024081,Gaming
+openai,popular,news_&_social_concern,-0.0226615969581749,"News &
+Social Concern"
