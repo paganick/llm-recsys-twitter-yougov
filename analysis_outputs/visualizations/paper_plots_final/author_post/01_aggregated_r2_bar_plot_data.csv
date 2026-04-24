@@ -1,0 +1,22 @@
+feature,feature_display,category,r_squared,significant
+primary_topic,Content: Primary Topic,content,0.013749522475469842,0.05555555555555555
+author_age,Author: Age,other,0.005102529813422129,0.0
+author_income,Author: Income,other,0.0047476056364558475,0.05555555555555555
+author_ideology,Author: Ideology,author,0.004305312190965584,0.0
+author_race,Author: Race,author,0.0036401304251634883,0.0
+author_religiosity,Author: Religiosity,other,0.003636070066860795,0.1111111111111111
+author_partisanship,Author: Partisanship,author,0.00226978675178101,0.1111111111111111
+author_gender,Author: Gender,author,0.002089569028656519,0.05555555555555555
+sentiment_subjectivity,Sentiment: Subjectivity,sentiment,0.002079319114330453,0.05555555555555555
+retweet_count,Retweet Count,other,0.0018446177559277611,0.05555555555555555
+sentiment_polarity,Sentiment: Polarity,sentiment,0.0017847896579806105,0.05555555555555555
+favorite_count,Favorite Count,other,0.0016902863015764557,0.05555555555555555
+author_marital_status,Author: Marital Status,other,0.0014319545900847038,0.0
+polarization_score,Content: Polarization Score,content,0.0014148947100795682,0.05555555555555555
+retweeted,Retweeted,other,0.0013455738480543213,0.0
+author_education,Author: Education,other,0.001260194611175165,0.0
+user_friends_count,User Friends Count,other,0.0011852347133382531,0.0
+user_statuses_count,User Statuses Count,other,0.001118970431255695,0.0
+user_favourites_count,User Favourites Count,other,0.0009400173044024394,0.0
+toxicity,Toxicity: Toxicity,toxicity,0.0008806537422533392,0.0
+user_followers_count,User Followers Count,other,0.0008795776295525843,0.0

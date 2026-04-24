@@ -1,0 +1,55 @@
+provider,prompt_style,category,mean_bias,std_bias,provider_label
+anthropic,controversial,college,-0.0231962864721485,,Claude Sonnet 4.5
+anthropic,controversial,high school,0.0323209549071618,,Claude Sonnet 4.5
+anthropic,controversial,postgraduate,-0.0091246684350132,,Claude Sonnet 4.5
+anthropic,engaging,college,-0.0226005188067444,,Claude Sonnet 4.5
+anthropic,engaging,high school,0.0099935149156938,,Claude Sonnet 4.5
+anthropic,engaging,postgraduate,0.0126070038910505,,Claude Sonnet 4.5
+anthropic,general,college,-0.0154188481675393,,Claude Sonnet 4.5
+anthropic,general,high school,0.0092146596858638,,Claude Sonnet 4.5
+anthropic,general,postgraduate,0.0062041884816753,,Claude Sonnet 4.5
+anthropic,informative,college,0.0034374999999999,,Claude Sonnet 4.5
+anthropic,informative,high school,-0.0234895833333333,,Claude Sonnet 4.5
+anthropic,informative,postgraduate,0.0200520833333333,,Claude Sonnet 4.5
+anthropic,neutral,college,-0.0142346938775509,,Claude Sonnet 4.5
+anthropic,neutral,high school,-0.0355612244897959,,Claude Sonnet 4.5
+anthropic,neutral,postgraduate,0.0497959183673469,,Claude Sonnet 4.5
+anthropic,popular,college,0.0343869209809264,,Claude Sonnet 4.5
+anthropic,popular,high school,-0.03783378746594,,Claude Sonnet 4.5
+anthropic,popular,postgraduate,0.0034468664850136,,Claude Sonnet 4.5
+gemini,controversial,college,-0.0403363518758085,,Gemini 2.0 Flash
+gemini,controversial,high school,-0.0063518758085381,,Gemini 2.0 Flash
+gemini,controversial,postgraduate,0.0466882276843467,,Gemini 2.0 Flash
+gemini,engaging,college,-0.026578947368421,,Gemini 2.0 Flash
+gemini,engaging,high school,0.03,,Gemini 2.0 Flash
+gemini,engaging,postgraduate,-0.0034210526315789,,Gemini 2.0 Flash
+gemini,general,college,0.0273193166885676,,Gemini 2.0 Flash
+gemini,general,high school,-0.0122010512483574,,Gemini 2.0 Flash
+gemini,general,postgraduate,-0.0151182654402102,,Gemini 2.0 Flash
+gemini,informative,college,-0.0670316622691293,,Gemini 2.0 Flash
+gemini,informative,high school,0.0881002638522427,,Gemini 2.0 Flash
+gemini,informative,postgraduate,-0.0210686015831134,,Gemini 2.0 Flash
+gemini,neutral,college,-0.0047978436657681,,Gemini 2.0 Flash
+gemini,neutral,high school,0.0076415094339622,,Gemini 2.0 Flash
+gemini,neutral,postgraduate,-0.002843665768194,,Gemini 2.0 Flash
+gemini,popular,college,0.0045924967658473,,Gemini 2.0 Flash
+gemini,popular,high school,-0.0375743855109961,,Gemini 2.0 Flash
+gemini,popular,postgraduate,0.0329818887451487,,Gemini 2.0 Flash
+openai,controversial,college,-0.0407124010554089,,GPT-4o-mini
+openai,controversial,high school,0.010395778364116,,GPT-4o-mini
+openai,controversial,postgraduate,0.0303166226912928,,GPT-4o-mini
+openai,engaging,college,-0.0705263157894737,,GPT-4o-mini
+openai,engaging,high school,0.0913157894736842,,GPT-4o-mini
+openai,engaging,postgraduate,-0.0207894736842105,,GPT-4o-mini
+openai,general,college,0.0047760210803688,,GPT-4o-mini
+openai,general,high school,-0.0262384716732542,,GPT-4o-mini
+openai,general,postgraduate,0.0214624505928853,,GPT-4o-mini
+openai,informative,college,-0.0263624511082137,,GPT-4o-mini
+openai,informative,high school,0.0221056062581486,,GPT-4o-mini
+openai,informative,postgraduate,0.0042568448500651,,GPT-4o-mini
+openai,neutral,college,-0.0231713554987211,,GPT-4o-mini
+openai,neutral,high school,-0.0280562659846547,,GPT-4o-mini
+openai,neutral,postgraduate,0.0512276214833759,,GPT-4o-mini
+openai,popular,college,-0.0948955613577023,,GPT-4o-mini
+openai,popular,high school,0.0281853785900783,,GPT-4o-mini
+openai,popular,postgraduate,0.0667101827676239,,GPT-4o-mini

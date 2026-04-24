@@ -1,201 +1,201 @@
-post_id,user_id,text,author_gender,author_partisanship,author_ideology,author_race,author_age,author_education,author_income,author_marital_status,author_religiosity
-post_00001,user_00001,Reading about tax policy this morning — highly recommend.,male,Republican,moderate,White,55-64,postgraduate,50k-75k,married,somewhat religious
-post_00002,user_00001,Reading about climate policy this morning — highly recommend.,male,Republican,moderate,White,55-64,postgraduate,50k-75k,married,somewhat religious
-post_00003,user_00002,Why does no one talk about election integrity enough? It really matters.,male,Democrat,conservative,Black,18-24,high school,50k-75k,widowed,religious
-post_00004,user_00002,The election integrity situation has been on my mind a lot lately.,male,Democrat,conservative,Black,18-24,high school,50k-75k,widowed,religious
-post_00005,user_00003,Had a great conversation today about mental health. So much nuance.,female,Democrat,moderate,White,35-44,postgraduate,50k-75k,single,very religious
-post_00006,user_00003,Reading about renewable energy this morning — highly recommend.,female,Democrat,moderate,White,35-44,postgraduate,50k-75k,single,very religious
-post_00007,user_00004,Today I'm thinking about gun safety and what it means for all of us.,male,Democrat,liberal,Hispanic,45-54,college,50k-75k,divorced,somewhat religious
-post_00008,user_00004,What's everyone's take on renewable energy? I'm genuinely curious.,male,Democrat,liberal,Hispanic,45-54,college,50k-75k,divorced,somewhat religious
-post_00009,user_00005,Today I'm thinking about student debt and what it means for all of us.,female,Republican,moderate,White,35-44,college,75k-100k,married,somewhat religious
-post_00010,user_00005,Why does no one talk about media bias enough? It really matters.,female,Republican,moderate,White,35-44,college,75k-100k,married,somewhat religious
-post_00011,user_00006,Excited to share my thoughts on housing affordability with everyone.,female,Democrat,moderate,White,25-34,high school,75k-100k,divorced,not religious
-post_00012,user_00006,What's everyone's take on minimum wage? I'm genuinely curious.,female,Democrat,moderate,White,25-34,high school,75k-100k,divorced,not religious
-post_00013,user_00007,Can we talk about renewable energy? There's so much to unpack here.,male,Democrat,conservative,Asian,35-44,postgraduate,75k-100k,widowed,somewhat religious
-post_00014,user_00007,New report on immigration reform just dropped. The findings are surprising.,male,Democrat,conservative,Asian,35-44,postgraduate,75k-100k,widowed,somewhat religious
-post_00015,user_00008,Excited to share my thoughts on tax policy with everyone.,female,Republican,liberal,White,25-34,college,75k-100k,single,religious
-post_00016,user_00008,Why does no one talk about infrastructure enough? It really matters.,female,Republican,liberal,White,25-34,college,75k-100k,single,religious
-post_00017,user_00009,Why does no one talk about housing affordability enough? It really matters.,male,Democrat,liberal,White,55-64,college,25k-50k,married,not religious
-post_00018,user_00009,"Reminder that minimum wage affects everyone, not just a few.",male,Democrat,liberal,White,55-64,college,25k-50k,married,not religious
-post_00019,user_00010,Excited to share my thoughts on mental health with everyone.,female,Republican,liberal,White,35-44,college,75k-100k,single,religious
-post_00020,user_00010,Hot take: media bias is more complicated than people think.,female,Republican,liberal,White,35-44,college,75k-100k,single,religious
-post_00021,user_00011,What's everyone's take on renewable energy? I'm genuinely curious.,female,Independent,liberal,Other,18-24,postgraduate,<25k,single,religious
-post_00022,user_00011,Hot take: foreign policy is more complicated than people think.,female,Independent,liberal,Other,18-24,postgraduate,<25k,single,religious
-post_00023,user_00012,Just saw the news about renewable energy. Interesting times ahead.,male,Republican,liberal,White,18-24,college,<25k,married,very religious
-post_00024,user_00012,Why does no one talk about tech regulation enough? It really matters.,male,Republican,liberal,White,18-24,college,<25k,married,very religious
-post_00025,user_00013,"Reminder that tax policy affects everyone, not just a few.",female,Independent,liberal,White,55-64,college,25k-50k,married,religious
-post_00026,user_00013,Can we talk about climate policy? There's so much to unpack here.,female,Independent,liberal,White,55-64,college,25k-50k,married,religious
-post_00027,user_00014,Why does no one talk about tax policy enough? It really matters.,female,Republican,moderate,Asian,45-54,postgraduate,25k-50k,married,not religious
-post_00028,user_00014,Reading about student debt this morning — highly recommend.,female,Republican,moderate,Asian,45-54,postgraduate,25k-50k,married,not religious
-post_00029,user_00015,Hot take: healthcare costs is more complicated than people think.,female,Republican,liberal,White,35-44,college,75k-100k,single,somewhat religious
-post_00030,user_00015,Why does no one talk about tax policy enough? It really matters.,female,Republican,liberal,White,35-44,college,75k-100k,single,somewhat religious
-post_00031,user_00016,"Reminder that education funding affects everyone, not just a few.",male,Democrat,moderate,White,25-34,college,50k-75k,married,religious
-post_00032,user_00016,The tax policy situation has been on my mind a lot lately.,male,Democrat,moderate,White,25-34,college,50k-75k,married,religious
-post_00033,user_00017,Long thread incoming on healthcare costs — stay tuned.,female,Republican,conservative,White,18-24,postgraduate,50k-75k,single,somewhat religious
-post_00034,user_00017,Hot take: tech regulation is more complicated than people think.,female,Republican,conservative,White,18-24,postgraduate,50k-75k,single,somewhat religious
-post_00035,user_00018,Long thread incoming on media bias — stay tuned.,female,Independent,conservative,Hispanic,65+,postgraduate,75k-100k,divorced,somewhat religious
-post_00036,user_00018,Can we talk about election integrity? There's so much to unpack here.,female,Independent,conservative,Hispanic,65+,postgraduate,75k-100k,divorced,somewhat religious
-post_00037,user_00019,Unpopular opinion: gun safety deserves way more attention.,female,Democrat,conservative,White,25-34,college,25k-50k,married,religious
-post_00038,user_00019,Long thread incoming on election integrity — stay tuned.,female,Democrat,conservative,White,25-34,college,25k-50k,married,religious
-post_00039,user_00020,Unpopular opinion: labor rights deserves way more attention.,male,Democrat,conservative,White,65+,high school,<25k,single,somewhat religious
-post_00040,user_00020,Reading about student debt this morning — highly recommend.,male,Democrat,conservative,White,65+,high school,<25k,single,somewhat religious
-post_00041,user_00021,"Reminder that gun safety affects everyone, not just a few.",male,Republican,moderate,White,35-44,postgraduate,25k-50k,single,somewhat religious
-post_00042,user_00021,Why does no one talk about healthcare costs enough? It really matters.,male,Republican,moderate,White,35-44,postgraduate,25k-50k,single,somewhat religious
-post_00043,user_00022,What's everyone's take on housing affordability? I'm genuinely curious.,male,Other,liberal,White,55-64,college,25k-50k,single,religious
-post_00044,user_00022,New report on minimum wage just dropped. The findings are surprising.,male,Other,liberal,White,55-64,college,25k-50k,single,religious
-post_00045,user_00023,Excited to share my thoughts on foreign policy with everyone.,male,Democrat,very liberal,White,55-64,high school,50k-75k,single,very religious
-post_00046,user_00023,Had a great conversation today about education funding. So much nuance.,male,Democrat,very liberal,White,55-64,high school,50k-75k,single,very religious
-post_00047,user_00024,Excited to share my thoughts on immigration reform with everyone.,non-binary,Republican,conservative,White,25-34,college,50k-75k,married,not religious
-post_00048,user_00024,Unpopular opinion: education funding deserves way more attention.,non-binary,Republican,conservative,White,25-34,college,50k-75k,married,not religious
-post_00049,user_00025,Just saw the news about gun safety. Interesting times ahead.,female,Independent,conservative,White,25-34,high school,100k+,single,not religious
-post_00050,user_00025,Reading about tax policy this morning — highly recommend.,female,Independent,conservative,White,25-34,high school,100k+,single,not religious
-post_00051,user_00026,Just saw the news about election integrity. Interesting times ahead.,female,Other,conservative,White,35-44,postgraduate,75k-100k,married,very religious
-post_00052,user_00026,Why does no one talk about media bias enough? It really matters.,female,Other,conservative,White,35-44,postgraduate,75k-100k,married,very religious
-post_00053,user_00027,"Reminder that student debt affects everyone, not just a few.",female,Democrat,conservative,White,55-64,postgraduate,25k-50k,single,very religious
-post_00054,user_00027,Can we talk about election integrity? There's so much to unpack here.,female,Democrat,conservative,White,55-64,postgraduate,25k-50k,single,very religious
-post_00055,user_00028,New report on minimum wage just dropped. The findings are surprising.,male,Independent,moderate,White,25-34,high school,75k-100k,single,not religious
-post_00056,user_00028,The housing affordability situation has been on my mind a lot lately.,male,Independent,moderate,White,25-34,high school,75k-100k,single,not religious
-post_00057,user_00029,Excited to share my thoughts on tech regulation with everyone.,female,Democrat,liberal,Asian,45-54,college,<25k,married,religious
-post_00058,user_00029,Quick update on foreign policy: things are moving fast.,female,Democrat,liberal,Asian,45-54,college,<25k,married,religious
-post_00059,user_00030,Hot take: education funding is more complicated than people think.,male,Democrat,liberal,Black,65+,high school,<25k,married,not religious
-post_00060,user_00030,Just saw the news about immigration reform. Interesting times ahead.,male,Democrat,liberal,Black,65+,high school,<25k,married,not religious
-post_00061,user_00031,Why does no one talk about media bias enough? It really matters.,male,Democrat,very liberal,White,65+,college,100k+,single,not religious
-post_00062,user_00031,Reading about housing affordability this morning — highly recommend.,male,Democrat,very liberal,White,65+,college,100k+,single,not religious
-post_00063,user_00032,What's everyone's take on media bias? I'm genuinely curious.,male,Republican,moderate,Black,45-54,college,<25k,married,somewhat religious
-post_00064,user_00032,What's everyone's take on labor rights? I'm genuinely curious.,male,Republican,moderate,Black,45-54,college,<25k,married,somewhat religious
-post_00065,user_00033,Unpopular opinion: renewable energy deserves way more attention.,female,Republican,moderate,White,35-44,postgraduate,75k-100k,single,somewhat religious
-post_00066,user_00033,Reading about student debt this morning — highly recommend.,female,Republican,moderate,White,35-44,postgraduate,75k-100k,single,somewhat religious
-post_00067,user_00034,Long thread incoming on healthcare costs — stay tuned.,female,Democrat,conservative,Hispanic,18-24,college,50k-75k,divorced,religious
-post_00068,user_00034,Quick update on gun safety: things are moving fast.,female,Democrat,conservative,Hispanic,18-24,college,50k-75k,divorced,religious
-post_00069,user_00035,Today I'm thinking about foreign policy and what it means for all of us.,female,Democrat,moderate,Black,65+,postgraduate,50k-75k,divorced,religious
-post_00070,user_00035,Just saw the news about education funding. Interesting times ahead.,female,Democrat,moderate,Black,65+,postgraduate,50k-75k,divorced,religious
-post_00071,user_00036,Had a great conversation today about climate policy. So much nuance.,male,Democrat,very conservative,White,25-34,college,25k-50k,married,religious
-post_00072,user_00036,New report on foreign policy just dropped. The findings are surprising.,male,Democrat,very conservative,White,25-34,college,25k-50k,married,religious
-post_00073,user_00037,Just saw the news about immigration reform. Interesting times ahead.,non-binary,Republican,liberal,White,45-54,postgraduate,25k-50k,married,somewhat religious
-post_00074,user_00037,Reading about infrastructure this morning — highly recommend.,non-binary,Republican,liberal,White,45-54,postgraduate,25k-50k,married,somewhat religious
-post_00075,user_00038,Reading about foreign policy this morning — highly recommend.,female,Independent,liberal,Hispanic,55-64,college,100k+,married,somewhat religious
-post_00076,user_00038,Hot take: gun safety is more complicated than people think.,female,Independent,liberal,Hispanic,55-64,college,100k+,married,somewhat religious
-post_00077,user_00039,"Reminder that tax policy affects everyone, not just a few.",female,Other,moderate,White,55-64,high school,50k-75k,widowed,religious
-post_00078,user_00039,Can we talk about tax policy? There's so much to unpack here.,female,Other,moderate,White,55-64,high school,50k-75k,widowed,religious
-post_00079,user_00040,The social media situation has been on my mind a lot lately.,male,Independent,conservative,Hispanic,35-44,high school,75k-100k,divorced,very religious
-post_00080,user_00040,Today I'm thinking about housing affordability and what it means for all of us.,male,Independent,conservative,Hispanic,35-44,high school,75k-100k,divorced,very religious
-post_00081,user_00041,Hot take: social media is more complicated than people think.,male,Independent,conservative,White,65+,college,75k-100k,single,very religious
-post_00082,user_00041,The tax policy situation has been on my mind a lot lately.,male,Independent,conservative,White,65+,college,75k-100k,single,very religious
-post_00083,user_00042,Had a great conversation today about labor rights. So much nuance.,male,Independent,liberal,Hispanic,35-44,postgraduate,25k-50k,single,somewhat religious
-post_00084,user_00042,"Reminder that renewable energy affects everyone, not just a few.",male,Independent,liberal,Hispanic,35-44,postgraduate,25k-50k,single,somewhat religious
-post_00085,user_00043,Reading about education funding this morning — highly recommend.,male,Democrat,moderate,White,18-24,college,<25k,married,religious
-post_00086,user_00043,Today I'm thinking about foreign policy and what it means for all of us.,male,Democrat,moderate,White,18-24,college,<25k,married,religious
-post_00087,user_00044,Can we talk about labor rights? There's so much to unpack here.,male,Republican,moderate,Asian,35-44,college,50k-75k,single,not religious
-post_00088,user_00044,"Reminder that infrastructure affects everyone, not just a few.",male,Republican,moderate,Asian,35-44,college,50k-75k,single,not religious
-post_00089,user_00045,Just saw the news about renewable energy. Interesting times ahead.,male,Democrat,very conservative,Hispanic,65+,college,25k-50k,married,religious
-post_00090,user_00045,Reading about gun safety this morning — highly recommend.,male,Democrat,very conservative,Hispanic,65+,college,25k-50k,married,religious
-post_00091,user_00046,Excited to share my thoughts on infrastructure with everyone.,female,Democrat,moderate,White,18-24,college,100k+,married,somewhat religious
-post_00092,user_00046,Today I'm thinking about tax policy and what it means for all of us.,female,Democrat,moderate,White,18-24,college,100k+,married,somewhat religious
-post_00093,user_00047,Reading about healthcare costs this morning — highly recommend.,female,Other,liberal,White,55-64,high school,<25k,divorced,not religious
-post_00094,user_00047,Excited to share my thoughts on foreign policy with everyone.,female,Other,liberal,White,55-64,high school,<25k,divorced,not religious
-post_00095,user_00048,Hot take: media bias is more complicated than people think.,female,Independent,very conservative,Hispanic,45-54,high school,<25k,married,somewhat religious
-post_00096,user_00048,Reading about tax policy this morning — highly recommend.,female,Independent,very conservative,Hispanic,45-54,high school,<25k,married,somewhat religious
-post_00097,user_00049,Just saw the news about election integrity. Interesting times ahead.,male,Republican,liberal,Asian,25-34,postgraduate,<25k,single,very religious
-post_00098,user_00049,What's everyone's take on immigration reform? I'm genuinely curious.,male,Republican,liberal,Asian,25-34,postgraduate,<25k,single,very religious
-post_00099,user_00050,Unpopular opinion: climate policy deserves way more attention.,male,Democrat,moderate,White,35-44,postgraduate,<25k,single,somewhat religious
-post_00100,user_00050,Unpopular opinion: gun safety deserves way more attention.,male,Democrat,moderate,White,35-44,postgraduate,<25k,single,somewhat religious
-post_00101,user_00051,Excited to share my thoughts on housing affordability with everyone.,other,Republican,very liberal,White,18-24,high school,<25k,married,somewhat religious
-post_00102,user_00051,Reading about housing affordability this morning — highly recommend.,other,Republican,very liberal,White,18-24,high school,<25k,married,somewhat religious
-post_00103,user_00052,"Reminder that tech regulation affects everyone, not just a few.",male,Republican,very conservative,White,55-64,high school,25k-50k,married,somewhat religious
-post_00104,user_00052,Reading about media bias this morning — highly recommend.,male,Republican,very conservative,White,55-64,high school,25k-50k,married,somewhat religious
-post_00105,user_00053,What's everyone's take on foreign policy? I'm genuinely curious.,male,Independent,moderate,White,45-54,high school,50k-75k,divorced,not religious
-post_00106,user_00053,The tax policy situation has been on my mind a lot lately.,male,Independent,moderate,White,45-54,high school,50k-75k,divorced,not religious
-post_00107,user_00054,Excited to share my thoughts on student debt with everyone.,female,Independent,very conservative,Other,45-54,college,100k+,married,very religious
-post_00108,user_00054,Unpopular opinion: tech regulation deserves way more attention.,female,Independent,very conservative,Other,45-54,college,100k+,married,very religious
-post_00109,user_00055,Excited to share my thoughts on infrastructure with everyone.,male,Democrat,very liberal,White,35-44,college,75k-100k,divorced,not religious
-post_00110,user_00055,What's everyone's take on tech regulation? I'm genuinely curious.,male,Democrat,very liberal,White,35-44,college,75k-100k,divorced,not religious
-post_00111,user_00056,Can we talk about foreign policy? There's so much to unpack here.,male,Independent,moderate,White,65+,high school,100k+,married,religious
-post_00112,user_00056,New report on gun safety just dropped. The findings are surprising.,male,Independent,moderate,White,65+,high school,100k+,married,religious
-post_00113,user_00057,Quick update on infrastructure: things are moving fast.,female,Democrat,moderate,Black,35-44,high school,<25k,married,somewhat religious
-post_00114,user_00057,Why does no one talk about climate policy enough? It really matters.,female,Democrat,moderate,Black,35-44,high school,<25k,married,somewhat religious
-post_00115,user_00058,What's everyone's take on media bias? I'm genuinely curious.,female,Independent,conservative,White,35-44,high school,100k+,married,somewhat religious
-post_00116,user_00058,"Reminder that tax policy affects everyone, not just a few.",female,Independent,conservative,White,35-44,high school,100k+,married,somewhat religious
-post_00117,user_00059,Hot take: student debt is more complicated than people think.,male,Republican,liberal,White,65+,college,100k+,single,religious
-post_00118,user_00059,Unpopular opinion: tax policy deserves way more attention.,male,Republican,liberal,White,65+,college,100k+,single,religious
-post_00119,user_00060,Today I'm thinking about renewable energy and what it means for all of us.,female,Democrat,moderate,White,35-44,postgraduate,50k-75k,married,not religious
-post_00120,user_00060,New report on renewable energy just dropped. The findings are surprising.,female,Democrat,moderate,White,35-44,postgraduate,50k-75k,married,not religious
-post_00121,user_00061,Reading about social media this morning — highly recommend.,male,Republican,liberal,White,35-44,postgraduate,50k-75k,married,very religious
-post_00122,user_00061,"Reminder that minimum wage affects everyone, not just a few.",male,Republican,liberal,White,35-44,postgraduate,50k-75k,married,very religious
-post_00123,user_00062,Excited to share my thoughts on labor rights with everyone.,male,Democrat,conservative,Asian,55-64,college,25k-50k,single,somewhat religious
-post_00124,user_00062,Excited to share my thoughts on gun safety with everyone.,male,Democrat,conservative,Asian,55-64,college,25k-50k,single,somewhat religious
-post_00125,user_00063,Today I'm thinking about tax policy and what it means for all of us.,male,Republican,conservative,White,18-24,college,25k-50k,married,very religious
-post_00126,user_00063,What's everyone's take on labor rights? I'm genuinely curious.,male,Republican,conservative,White,18-24,college,25k-50k,married,very religious
-post_00127,user_00064,Had a great conversation today about tech regulation. So much nuance.,female,Democrat,moderate,White,35-44,college,<25k,single,not religious
-post_00128,user_00064,Reading about healthcare costs this morning — highly recommend.,female,Democrat,moderate,White,35-44,college,<25k,single,not religious
-post_00129,user_00065,Unpopular opinion: social media deserves way more attention.,female,Republican,liberal,White,25-34,college,25k-50k,married,very religious
-post_00130,user_00065,"Reminder that housing affordability affects everyone, not just a few.",female,Republican,liberal,White,25-34,college,25k-50k,married,very religious
-post_00131,user_00066,"Reminder that student debt affects everyone, not just a few.",male,Republican,liberal,White,65+,college,50k-75k,married,somewhat religious
-post_00132,user_00066,Can we talk about infrastructure? There's so much to unpack here.,male,Republican,liberal,White,65+,college,50k-75k,married,somewhat religious
-post_00133,user_00067,Just saw the news about tech regulation. Interesting times ahead.,female,Republican,moderate,Black,45-54,high school,75k-100k,single,somewhat religious
-post_00134,user_00067,The tech regulation situation has been on my mind a lot lately.,female,Republican,moderate,Black,45-54,high school,75k-100k,single,somewhat religious
-post_00135,user_00068,Reading about foreign policy this morning — highly recommend.,male,Democrat,conservative,Hispanic,18-24,college,25k-50k,widowed,not religious
-post_00136,user_00068,Today I'm thinking about labor rights and what it means for all of us.,male,Democrat,conservative,Hispanic,18-24,college,25k-50k,widowed,not religious
-post_00137,user_00069,Can we talk about social media? There's so much to unpack here.,female,Independent,very conservative,Black,55-64,high school,75k-100k,married,not religious
-post_00138,user_00069,"Reminder that renewable energy affects everyone, not just a few.",female,Independent,very conservative,Black,55-64,high school,75k-100k,married,not religious
-post_00139,user_00070,Today I'm thinking about tax policy and what it means for all of us.,male,Democrat,moderate,White,35-44,high school,50k-75k,single,somewhat religious
-post_00140,user_00070,"Reminder that renewable energy affects everyone, not just a few.",male,Democrat,moderate,White,35-44,high school,50k-75k,single,somewhat religious
-post_00141,user_00071,Long thread incoming on education funding — stay tuned.,male,Democrat,liberal,White,18-24,college,50k-75k,single,religious
-post_00142,user_00071,Excited to share my thoughts on media bias with everyone.,male,Democrat,liberal,White,18-24,college,50k-75k,single,religious
-post_00143,user_00072,What's everyone's take on education funding? I'm genuinely curious.,female,Democrat,conservative,Other,25-34,postgraduate,100k+,married,somewhat religious
-post_00144,user_00072,The housing affordability situation has been on my mind a lot lately.,female,Democrat,conservative,Other,25-34,postgraduate,100k+,married,somewhat religious
-post_00145,user_00073,Had a great conversation today about housing affordability. So much nuance.,female,Democrat,liberal,Black,65+,college,50k-75k,married,not religious
-post_00146,user_00073,Reading about immigration reform this morning — highly recommend.,female,Democrat,liberal,Black,65+,college,50k-75k,married,not religious
-post_00147,user_00074,Why does no one talk about climate policy enough? It really matters.,female,Democrat,moderate,Hispanic,55-64,postgraduate,25k-50k,divorced,somewhat religious
-post_00148,user_00074,Just saw the news about social media. Interesting times ahead.,female,Democrat,moderate,Hispanic,55-64,postgraduate,25k-50k,divorced,somewhat religious
-post_00149,user_00075,Just saw the news about media bias. Interesting times ahead.,female,Independent,liberal,White,65+,postgraduate,25k-50k,divorced,somewhat religious
-post_00150,user_00075,Today I'm thinking about mental health and what it means for all of us.,female,Independent,liberal,White,65+,postgraduate,25k-50k,divorced,somewhat religious
-post_00151,user_00076,Hot take: election integrity is more complicated than people think.,female,Republican,liberal,Asian,45-54,high school,75k-100k,married,somewhat religious
-post_00152,user_00076,Unpopular opinion: gun safety deserves way more attention.,female,Republican,liberal,Asian,45-54,high school,75k-100k,married,somewhat religious
-post_00153,user_00077,Had a great conversation today about immigration reform. So much nuance.,male,Independent,moderate,White,45-54,college,<25k,married,religious
-post_00154,user_00077,Hot take: immigration reform is more complicated than people think.,male,Independent,moderate,White,45-54,college,<25k,married,religious
-post_00155,user_00078,Long thread incoming on labor rights — stay tuned.,female,Democrat,conservative,Hispanic,18-24,high school,100k+,single,religious
-post_00156,user_00078,Long thread incoming on election integrity — stay tuned.,female,Democrat,conservative,Hispanic,18-24,high school,100k+,single,religious
-post_00157,user_00079,Quick update on tech regulation: things are moving fast.,female,Republican,moderate,Other,45-54,college,100k+,single,not religious
-post_00158,user_00079,Excited to share my thoughts on student debt with everyone.,female,Republican,moderate,Other,45-54,college,100k+,single,not religious
-post_00159,user_00080,Why does no one talk about student debt enough? It really matters.,female,Republican,very liberal,White,55-64,postgraduate,100k+,divorced,religious
-post_00160,user_00080,Why does no one talk about climate policy enough? It really matters.,female,Republican,very liberal,White,55-64,postgraduate,100k+,divorced,religious
-post_00161,user_00081,Reading about media bias this morning — highly recommend.,female,Other,very conservative,Hispanic,65+,college,75k-100k,married,not religious
-post_00162,user_00081,Had a great conversation today about renewable energy. So much nuance.,female,Other,very conservative,Hispanic,65+,college,75k-100k,married,not religious
-post_00163,user_00082,Can we talk about student debt? There's so much to unpack here.,male,Republican,conservative,White,25-34,college,75k-100k,single,somewhat religious
-post_00164,user_00082,Today I'm thinking about media bias and what it means for all of us.,male,Republican,conservative,White,25-34,college,75k-100k,single,somewhat religious
-post_00165,user_00083,The foreign policy situation has been on my mind a lot lately.,male,Independent,very liberal,White,55-64,high school,25k-50k,single,not religious
-post_00166,user_00083,Reading about media bias this morning — highly recommend.,male,Independent,very liberal,White,55-64,high school,25k-50k,single,not religious
-post_00167,user_00084,The tax policy situation has been on my mind a lot lately.,female,Independent,conservative,White,25-34,high school,50k-75k,single,very religious
-post_00168,user_00084,Can we talk about election integrity? There's so much to unpack here.,female,Independent,conservative,White,25-34,high school,50k-75k,single,very religious
-post_00169,user_00085,Long thread incoming on mental health — stay tuned.,non-binary,Republican,very liberal,Asian,35-44,college,50k-75k,single,very religious
-post_00170,user_00085,Long thread incoming on media bias — stay tuned.,non-binary,Republican,very liberal,Asian,35-44,college,50k-75k,single,very religious
-post_00171,user_00086,Why does no one talk about climate policy enough? It really matters.,male,Independent,very liberal,Hispanic,55-64,high school,25k-50k,married,religious
-post_00172,user_00086,"Reminder that labor rights affects everyone, not just a few.",male,Independent,very liberal,Hispanic,55-64,high school,25k-50k,married,religious
-post_00173,user_00087,Just saw the news about healthcare costs. Interesting times ahead.,female,Democrat,very conservative,White,35-44,postgraduate,25k-50k,married,not religious
-post_00174,user_00087,Quick update on tax policy: things are moving fast.,female,Democrat,very conservative,White,35-44,postgraduate,25k-50k,married,not religious
-post_00175,user_00088,Quick update on media bias: things are moving fast.,female,Democrat,conservative,White,65+,college,75k-100k,married,somewhat religious
-post_00176,user_00088,New report on election integrity just dropped. The findings are surprising.,female,Democrat,conservative,White,65+,college,75k-100k,married,somewhat religious
-post_00177,user_00089,New report on mental health just dropped. The findings are surprising.,male,Democrat,liberal,White,55-64,college,25k-50k,single,somewhat religious
-post_00178,user_00089,Excited to share my thoughts on minimum wage with everyone.,male,Democrat,liberal,White,55-64,college,25k-50k,single,somewhat religious
-post_00179,user_00090,Why does no one talk about tech regulation enough? It really matters.,female,Democrat,conservative,Black,55-64,high school,100k+,divorced,somewhat religious
-post_00180,user_00090,Had a great conversation today about housing affordability. So much nuance.,female,Democrat,conservative,Black,55-64,high school,100k+,divorced,somewhat religious
-post_00181,user_00091,Had a great conversation today about healthcare costs. So much nuance.,female,Republican,conservative,Other,55-64,college,50k-75k,married,somewhat religious
-post_00182,user_00091,Why does no one talk about student debt enough? It really matters.,female,Republican,conservative,Other,55-64,college,50k-75k,married,somewhat religious
-post_00183,user_00092,Long thread incoming on mental health — stay tuned.,male,Independent,very liberal,White,18-24,high school,50k-75k,single,religious
-post_00184,user_00092,What's everyone's take on tech regulation? I'm genuinely curious.,male,Independent,very liberal,White,18-24,high school,50k-75k,single,religious
-post_00185,user_00093,Quick update on media bias: things are moving fast.,male,Republican,moderate,Black,18-24,postgraduate,50k-75k,married,not religious
-post_00186,user_00093,Today I'm thinking about gun safety and what it means for all of us.,male,Republican,moderate,Black,18-24,postgraduate,50k-75k,married,not religious
-post_00187,user_00094,Excited to share my thoughts on tech regulation with everyone.,male,Republican,very liberal,Black,25-34,high school,100k+,widowed,very religious
-post_00188,user_00094,New report on renewable energy just dropped. The findings are surprising.,male,Republican,very liberal,Black,25-34,high school,100k+,widowed,very religious
-post_00189,user_00095,Today I'm thinking about infrastructure and what it means for all of us.,male,Independent,liberal,Black,65+,high school,25k-50k,single,religious
-post_00190,user_00095,Unpopular opinion: foreign policy deserves way more attention.,male,Independent,liberal,Black,65+,high school,25k-50k,single,religious
-post_00191,user_00096,Hot take: foreign policy is more complicated than people think.,male,Other,liberal,Hispanic,65+,high school,50k-75k,divorced,not religious
-post_00192,user_00096,Quick update on tax policy: things are moving fast.,male,Other,liberal,Hispanic,65+,high school,50k-75k,divorced,not religious
-post_00193,user_00097,Why does no one talk about social media enough? It really matters.,female,Republican,liberal,White,65+,college,25k-50k,married,somewhat religious
-post_00194,user_00097,New report on housing affordability just dropped. The findings are surprising.,female,Republican,liberal,White,65+,college,25k-50k,married,somewhat religious
-post_00195,user_00098,Can we talk about tech regulation? There's so much to unpack here.,male,Independent,moderate,White,45-54,college,100k+,married,not religious
-post_00196,user_00098,New report on election integrity just dropped. The findings are surprising.,male,Independent,moderate,White,45-54,college,100k+,married,not religious
-post_00197,user_00099,Had a great conversation today about labor rights. So much nuance.,male,Independent,moderate,White,65+,postgraduate,25k-50k,married,religious
-post_00198,user_00099,"Reminder that renewable energy affects everyone, not just a few.",male,Independent,moderate,White,65+,postgraduate,25k-50k,married,religious
-post_00199,user_00100,Can we talk about labor rights? There's so much to unpack here.,female,Democrat,moderate,Other,35-44,college,75k-100k,divorced,not religious
-post_00200,user_00100,Just saw the news about foreign policy. Interesting times ahead.,female,Democrat,moderate,Other,35-44,college,75k-100k,divorced,not religious
+post_id,user_id,text,author_gender,author_partisanship,author_ideology,author_race,author_age,author_education,author_income,author_marital_status,author_religiosity,created_at,user_followers_count,user_friends_count,user_statuses_count,user_favourites_count,favorite_count,retweet_count,retweeted
+post_00001,user_00001,Education funding deserves more attention.,non-binary,Independent,conservative,White,65+,high school,100k+,divorced,somewhat religious,2023-02-01,7346,122,6174,36548,71,13,True
+post_00002,user_00001,Immigration policy needs nuance.,non-binary,Independent,conservative,White,65+,high school,100k+,divorced,somewhat religious,2023-03-17,7346,122,6174,36548,16,3,True
+post_00003,user_00002,Renewable energy is the future.,female,Republican,liberal,Asian,35-44,college,75k-100k,married,not religious,2023-01-04,14378,972,4239,79407,101,69,False
+post_00004,user_00002,Mental health awareness is more important than ever.,female,Republican,liberal,Asian,35-44,college,75k-100k,married,not religious,2023-01-29,14378,972,4239,79407,301,35,True
+post_00005,user_00003,Healthcare costs are still rising — we need to talk.,female,Republican,moderate,Hispanic,35-44,high school,75k-100k,single,not religious,2023-02-05,10513,2879,3562,45097,110,43,True
+post_00006,user_00003,Immigration policy needs nuance.,female,Republican,moderate,Hispanic,35-44,high school,75k-100k,single,not religious,2023-01-12,10513,2879,3562,45097,49,45,False
+post_00007,user_00004,Renewable energy is the future.,male,Democrat,conservative,White,65+,postgraduate,50k-75k,single,not religious,2023-02-28,39615,1103,6711,6195,63,48,True
+post_00008,user_00004,Gun safety is a critical issue right now.,male,Democrat,conservative,White,65+,postgraduate,50k-75k,single,not religious,2023-03-12,39615,1103,6711,6195,321,79,False
+post_00009,user_00005,Education funding deserves more attention.,non-binary,Independent,very conservative,Hispanic,65+,high school,75k-100k,married,very religious,2023-01-06,37887,807,5871,9616,395,37,True
+post_00010,user_00005,Really interesting take on tax reform.,non-binary,Independent,very conservative,Hispanic,65+,high school,75k-100k,married,very religious,2023-01-30,37887,807,5871,9616,194,35,False
+post_00011,user_00006,Gun safety is a critical issue right now.,non-binary,Democrat,moderate,Other,35-44,college,<25k,divorced,somewhat religious,2023-01-27,23959,686,3132,47066,359,9,True
+post_00012,user_00006,Education funding deserves more attention.,non-binary,Democrat,moderate,Other,35-44,college,<25k,divorced,somewhat religious,2023-03-10,23959,686,3132,47066,83,59,False
+post_00013,user_00007,The housing market is wild lately.,male,Independent,conservative,Black,18-24,college,100k+,married,not religious,2023-01-29,17741,2641,5737,73500,393,7,True
+post_00014,user_00007,The housing market is wild lately.,male,Independent,conservative,Black,18-24,college,100k+,married,not religious,2023-01-05,17741,2641,5737,73500,205,34,True
+post_00015,user_00008,Mental health awareness is more important than ever.,female,Independent,liberal,Asian,55-64,postgraduate,100k+,divorced,not religious,2023-01-28,13876,2343,7279,41745,202,58,True
+post_00016,user_00008,Healthcare costs are still rising — we need to talk.,female,Independent,liberal,Asian,55-64,postgraduate,100k+,divorced,not religious,2023-02-03,13876,2343,7279,41745,126,71,False
+post_00017,user_00009,The housing market is wild lately.,non-binary,Independent,moderate,White,25-34,college,50k-75k,married,religious,2023-02-21,38361,1774,7454,76984,112,17,False
+post_00018,user_00009,Thoughts on climate policy today.,non-binary,Independent,moderate,White,25-34,college,50k-75k,married,religious,2023-01-12,38361,1774,7454,76984,56,19,True
+post_00019,user_00010,Media bias is real and it matters.,male,Democrat,liberal,Other,65+,college,<25k,single,not religious,2023-02-18,27716,2462,620,50932,239,67,False
+post_00020,user_00010,Thoughts on climate policy today.,male,Democrat,liberal,Other,65+,college,<25k,single,not religious,2023-03-12,27716,2462,620,50932,348,14,False
+post_00021,user_00011,Mental health awareness is more important than ever.,male,Independent,very conservative,Black,45-54,college,75k-100k,married,somewhat religious,2023-01-21,22343,476,2504,57485,1,33,True
+post_00022,user_00011,Really interesting take on tax reform.,male,Independent,very conservative,Black,45-54,college,75k-100k,married,somewhat religious,2023-03-06,22343,476,2504,57485,320,38,True
+post_00023,user_00012,Renewable energy is the future.,female,Republican,moderate,Other,55-64,high school,<25k,single,somewhat religious,2023-03-11,10066,1551,6346,21674,0,76,False
+post_00024,user_00012,Thoughts on climate policy today.,female,Republican,moderate,Other,55-64,high school,<25k,single,somewhat religious,2023-03-04,10066,1551,6346,21674,57,46,False
+post_00025,user_00013,Really interesting take on tax reform.,non-binary,Democrat,very liberal,Hispanic,45-54,postgraduate,75k-100k,married,very religious,2023-01-11,15742,257,2073,74864,374,62,True
+post_00026,user_00013,Healthcare costs are still rising — we need to talk.,non-binary,Democrat,very liberal,Hispanic,45-54,postgraduate,75k-100k,married,very religious,2023-03-10,15742,257,2073,74864,65,60,True
+post_00027,user_00014,Renewable energy is the future.,female,Republican,liberal,Other,18-24,college,75k-100k,single,religious,2023-01-28,17420,2181,7246,55961,386,25,False
+post_00028,user_00014,The housing market is wild lately.,female,Republican,liberal,Other,18-24,college,75k-100k,single,religious,2023-02-21,17420,2181,7246,55961,224,66,False
+post_00029,user_00015,Thoughts on climate policy today.,non-binary,Independent,very conservative,Asian,55-64,postgraduate,50k-75k,single,somewhat religious,2023-02-13,7980,1035,1940,8892,301,70,True
+post_00030,user_00015,Education funding deserves more attention.,non-binary,Independent,very conservative,Asian,55-64,postgraduate,50k-75k,single,somewhat religious,2023-03-17,7980,1035,1940,8892,3,9,True
+post_00031,user_00016,Really interesting take on tax reform.,female,Independent,very liberal,White,25-34,college,25k-50k,single,religious,2023-02-12,15053,296,7517,4617,263,30,False
+post_00032,user_00016,Mental health awareness is more important than ever.,female,Independent,very liberal,White,25-34,college,25k-50k,single,religious,2023-03-27,15053,296,7517,4617,109,69,True
+post_00033,user_00017,Immigration policy needs nuance.,female,Republican,very liberal,White,45-54,postgraduate,75k-100k,single,somewhat religious,2023-03-02,37473,2380,3972,32350,97,12,True
+post_00034,user_00017,Immigration policy needs nuance.,female,Republican,very liberal,White,45-54,postgraduate,75k-100k,single,somewhat religious,2023-03-26,37473,2380,3972,32350,181,54,False
+post_00035,user_00018,Immigration policy needs nuance.,female,Independent,liberal,Other,55-64,postgraduate,50k-75k,single,very religious,2023-01-08,30656,241,5616,13399,372,43,True
+post_00036,user_00018,Education funding deserves more attention.,female,Independent,liberal,Other,55-64,postgraduate,50k-75k,single,very religious,2023-02-01,30656,241,5616,13399,97,68,False
+post_00037,user_00019,Education funding deserves more attention.,non-binary,Democrat,conservative,White,45-54,high school,50k-75k,divorced,very religious,2023-03-01,9236,1748,1603,37009,38,56,True
+post_00038,user_00019,Renewable energy is the future.,non-binary,Democrat,conservative,White,45-54,high school,50k-75k,divorced,very religious,2023-01-07,9236,1748,1603,37009,7,11,True
+post_00039,user_00020,Immigration policy needs nuance.,non-binary,Republican,conservative,Hispanic,18-24,college,<25k,married,somewhat religious,2023-01-28,10949,1684,4078,63592,30,21,False
+post_00040,user_00020,Immigration policy needs nuance.,non-binary,Republican,conservative,Hispanic,18-24,college,<25k,married,somewhat religious,2023-01-01,10949,1684,4078,63592,135,58,False
+post_00041,user_00021,Mental health awareness is more important than ever.,non-binary,Republican,moderate,White,45-54,high school,25k-50k,married,very religious,2023-03-26,27772,2873,7942,73345,79,24,False
+post_00042,user_00021,Thoughts on climate policy today.,non-binary,Republican,moderate,White,45-54,high school,25k-50k,married,very religious,2023-01-28,27772,2873,7942,73345,296,69,True
+post_00043,user_00022,Renewable energy is the future.,non-binary,Democrat,conservative,Hispanic,65+,college,25k-50k,married,somewhat religious,2023-03-03,20602,254,510,77069,271,20,True
+post_00044,user_00022,Really interesting take on tax reform.,non-binary,Democrat,conservative,Hispanic,65+,college,25k-50k,married,somewhat religious,2023-03-07,20602,254,510,77069,95,8,True
+post_00045,user_00023,Media bias is real and it matters.,male,Independent,very liberal,Other,55-64,high school,50k-75k,married,somewhat religious,2023-02-01,15464,1673,1082,75168,304,5,True
+post_00046,user_00023,Media bias is real and it matters.,male,Independent,very liberal,Other,55-64,high school,50k-75k,married,somewhat religious,2023-02-23,15464,1673,1082,75168,289,66,False
+post_00047,user_00024,Gun safety is a critical issue right now.,male,Democrat,liberal,Hispanic,25-34,high school,100k+,single,not religious,2023-01-31,17139,856,5586,41680,202,16,False
+post_00048,user_00024,The housing market is wild lately.,male,Democrat,liberal,Hispanic,25-34,high school,100k+,single,not religious,2023-02-28,17139,856,5586,41680,384,9,True
+post_00049,user_00025,Renewable energy is the future.,male,Independent,conservative,Asian,55-64,postgraduate,75k-100k,divorced,religious,2023-01-10,30084,2564,4712,13604,109,64,False
+post_00050,user_00025,The housing market is wild lately.,male,Independent,conservative,Asian,55-64,postgraduate,75k-100k,divorced,religious,2023-01-17,30084,2564,4712,13604,35,31,False
+post_00051,user_00026,Media bias is real and it matters.,non-binary,Republican,liberal,Asian,18-24,college,75k-100k,divorced,religious,2023-02-08,18726,666,3689,71700,334,67,True
+post_00052,user_00026,Renewable energy is the future.,non-binary,Republican,liberal,Asian,18-24,college,75k-100k,divorced,religious,2023-03-27,18726,666,3689,71700,153,13,True
+post_00053,user_00027,Healthcare costs are still rising — we need to talk.,female,Independent,very liberal,Hispanic,55-64,high school,50k-75k,married,very religious,2023-03-12,17382,492,7388,14529,139,36,True
+post_00054,user_00027,Education funding deserves more attention.,female,Independent,very liberal,Hispanic,55-64,high school,50k-75k,married,very religious,2023-02-13,17382,492,7388,14529,351,33,False
+post_00055,user_00028,Thoughts on climate policy today.,male,Democrat,moderate,Hispanic,18-24,postgraduate,<25k,divorced,very religious,2023-02-05,16507,228,856,56018,1,42,True
+post_00056,user_00028,Gun safety is a critical issue right now.,male,Democrat,moderate,Hispanic,18-24,postgraduate,<25k,divorced,very religious,2023-03-23,16507,228,856,56018,82,56,False
+post_00057,user_00029,Healthcare costs are still rising — we need to talk.,female,Independent,very conservative,White,45-54,postgraduate,25k-50k,married,very religious,2023-03-30,36809,59,1016,10362,279,4,False
+post_00058,user_00029,Renewable energy is the future.,female,Independent,very conservative,White,45-54,postgraduate,25k-50k,married,very religious,2023-03-16,36809,59,1016,10362,75,55,True
+post_00059,user_00030,Education funding deserves more attention.,non-binary,Democrat,very liberal,Asian,18-24,college,<25k,divorced,somewhat religious,2023-02-15,2791,1282,3087,5729,349,31,True
+post_00060,user_00030,Renewable energy is the future.,non-binary,Democrat,very liberal,Asian,18-24,college,<25k,divorced,somewhat religious,2023-02-15,2791,1282,3087,5729,208,79,True
+post_00061,user_00031,Thoughts on climate policy today.,male,Democrat,conservative,Asian,55-64,postgraduate,100k+,single,religious,2023-02-22,15564,685,6652,23706,91,42,False
+post_00062,user_00031,Education funding deserves more attention.,male,Democrat,conservative,Asian,55-64,postgraduate,100k+,single,religious,2023-03-27,15564,685,6652,23706,136,20,True
+post_00063,user_00032,Education funding deserves more attention.,female,Republican,conservative,Asian,35-44,postgraduate,100k+,single,religious,2023-01-29,25120,178,7133,62194,235,44,False
+post_00064,user_00032,Education funding deserves more attention.,female,Republican,conservative,Asian,35-44,postgraduate,100k+,single,religious,2023-01-30,25120,178,7133,62194,12,24,False
+post_00065,user_00033,The housing market is wild lately.,male,Republican,very liberal,Other,65+,college,50k-75k,married,somewhat religious,2023-02-05,21562,1161,7180,9599,328,65,False
+post_00066,user_00033,Renewable energy is the future.,male,Republican,very liberal,Other,65+,college,50k-75k,married,somewhat religious,2023-03-28,21562,1161,7180,9599,169,3,True
+post_00067,user_00034,Really interesting take on tax reform.,female,Democrat,very conservative,Black,35-44,college,75k-100k,single,not religious,2023-01-05,17168,751,4856,35295,305,55,False
+post_00068,user_00034,Immigration policy needs nuance.,female,Democrat,very conservative,Black,35-44,college,75k-100k,single,not religious,2023-02-10,17168,751,4856,35295,310,65,True
+post_00069,user_00035,Immigration policy needs nuance.,female,Independent,conservative,Hispanic,25-34,postgraduate,100k+,single,very religious,2023-01-06,25294,2381,1657,33886,0,66,True
+post_00070,user_00035,Immigration policy needs nuance.,female,Independent,conservative,Hispanic,25-34,postgraduate,100k+,single,very religious,2023-02-16,25294,2381,1657,33886,35,42,False
+post_00071,user_00036,Gun safety is a critical issue right now.,non-binary,Republican,very liberal,Hispanic,35-44,high school,25k-50k,married,very religious,2023-03-06,8217,2968,7473,39863,341,52,False
+post_00072,user_00036,Gun safety is a critical issue right now.,non-binary,Republican,very liberal,Hispanic,35-44,high school,25k-50k,married,very religious,2023-02-21,8217,2968,7473,39863,283,16,True
+post_00073,user_00037,Healthcare costs are still rising — we need to talk.,male,Democrat,liberal,Black,18-24,college,<25k,divorced,not religious,2023-03-28,27604,2743,7803,50195,315,72,False
+post_00074,user_00037,Renewable energy is the future.,male,Democrat,liberal,Black,18-24,college,<25k,divorced,not religious,2023-02-21,27604,2743,7803,50195,0,38,False
+post_00075,user_00038,The housing market is wild lately.,non-binary,Republican,very conservative,Black,55-64,college,25k-50k,single,somewhat religious,2023-03-19,13824,1780,6536,76519,238,56,False
+post_00076,user_00038,Education funding deserves more attention.,non-binary,Republican,very conservative,Black,55-64,college,25k-50k,single,somewhat religious,2023-03-28,13824,1780,6536,76519,261,60,True
+post_00077,user_00039,Education funding deserves more attention.,non-binary,Independent,liberal,Asian,18-24,college,50k-75k,divorced,somewhat religious,2023-01-12,5607,1182,4322,44433,344,39,True
+post_00078,user_00039,Healthcare costs are still rising — we need to talk.,non-binary,Independent,liberal,Asian,18-24,college,50k-75k,divorced,somewhat religious,2023-01-26,5607,1182,4322,44433,12,5,True
+post_00079,user_00040,Immigration policy needs nuance.,female,Independent,moderate,Asian,25-34,postgraduate,25k-50k,married,very religious,2023-02-28,31188,2523,7061,10045,322,73,True
+post_00080,user_00040,Immigration policy needs nuance.,female,Independent,moderate,Asian,25-34,postgraduate,25k-50k,married,very religious,2023-03-31,31188,2523,7061,10045,253,51,True
+post_00081,user_00041,Immigration policy needs nuance.,male,Republican,very conservative,Asian,45-54,college,75k-100k,divorced,very religious,2023-01-14,9721,2707,5733,1226,112,22,False
+post_00082,user_00041,Renewable energy is the future.,male,Republican,very conservative,Asian,45-54,college,75k-100k,divorced,very religious,2023-01-07,9721,2707,5733,1226,127,15,False
+post_00083,user_00042,Media bias is real and it matters.,male,Democrat,very conservative,Black,35-44,high school,75k-100k,married,not religious,2023-03-13,8788,1923,5568,70116,162,56,False
+post_00084,user_00042,Mental health awareness is more important than ever.,male,Democrat,very conservative,Black,35-44,high school,75k-100k,married,not religious,2023-03-12,8788,1923,5568,70116,81,60,False
+post_00085,user_00043,Mental health awareness is more important than ever.,non-binary,Independent,very liberal,Hispanic,18-24,high school,50k-75k,married,somewhat religious,2023-03-08,17036,1032,6980,36847,320,30,False
+post_00086,user_00043,Really interesting take on tax reform.,non-binary,Independent,very liberal,Hispanic,18-24,high school,50k-75k,married,somewhat religious,2023-02-26,17036,1032,6980,36847,365,36,True
+post_00087,user_00044,Healthcare costs are still rising — we need to talk.,female,Democrat,liberal,Asian,35-44,high school,75k-100k,single,very religious,2023-01-11,17857,1395,2719,71298,77,29,False
+post_00088,user_00044,Healthcare costs are still rising — we need to talk.,female,Democrat,liberal,Asian,35-44,high school,75k-100k,single,very religious,2023-03-30,17857,1395,2719,71298,361,27,True
+post_00089,user_00045,Immigration policy needs nuance.,non-binary,Republican,liberal,Asian,18-24,college,25k-50k,single,religious,2023-03-01,27238,1689,2810,71621,31,26,False
+post_00090,user_00045,Media bias is real and it matters.,non-binary,Republican,liberal,Asian,18-24,college,25k-50k,single,religious,2023-02-19,27238,1689,2810,71621,356,2,False
+post_00091,user_00046,Immigration policy needs nuance.,male,Independent,moderate,Black,25-34,high school,50k-75k,married,somewhat religious,2023-02-08,31309,44,7822,46605,214,68,True
+post_00092,user_00046,Education funding deserves more attention.,male,Independent,moderate,Black,25-34,high school,50k-75k,married,somewhat religious,2023-03-04,31309,44,7822,46605,139,55,False
+post_00093,user_00047,Mental health awareness is more important than ever.,non-binary,Republican,conservative,Other,18-24,high school,<25k,married,somewhat religious,2023-01-22,1952,1612,2853,53494,65,79,True
+post_00094,user_00047,Media bias is real and it matters.,non-binary,Republican,conservative,Other,18-24,high school,<25k,married,somewhat religious,2023-02-20,1952,1612,2853,53494,288,3,True
+post_00095,user_00048,Thoughts on climate policy today.,male,Independent,very conservative,Other,45-54,high school,50k-75k,single,religious,2023-01-24,28139,575,7201,61015,133,48,False
+post_00096,user_00048,Mental health awareness is more important than ever.,male,Independent,very conservative,Other,45-54,high school,50k-75k,single,religious,2023-01-28,28139,575,7201,61015,167,43,False
+post_00097,user_00049,Thoughts on climate policy today.,male,Democrat,liberal,Asian,65+,postgraduate,75k-100k,single,not religious,2023-03-02,18285,1746,2166,11235,383,69,True
+post_00098,user_00049,Education funding deserves more attention.,male,Democrat,liberal,Asian,65+,postgraduate,75k-100k,single,not religious,2023-02-14,18285,1746,2166,11235,332,8,True
+post_00099,user_00050,Healthcare costs are still rising — we need to talk.,female,Independent,very conservative,White,65+,postgraduate,100k+,single,somewhat religious,2023-03-21,2083,1032,1733,3171,122,16,False
+post_00100,user_00050,Really interesting take on tax reform.,female,Independent,very conservative,White,65+,postgraduate,100k+,single,somewhat religious,2023-03-27,2083,1032,1733,3171,288,27,False
+post_00101,user_00051,Really interesting take on tax reform.,female,Republican,very liberal,Other,35-44,high school,100k+,married,somewhat religious,2023-03-19,16843,1530,1474,79915,398,20,False
+post_00102,user_00051,Media bias is real and it matters.,female,Republican,very liberal,Other,35-44,high school,100k+,married,somewhat religious,2023-01-14,16843,1530,1474,79915,13,39,False
+post_00103,user_00052,Education funding deserves more attention.,non-binary,Independent,very liberal,Other,35-44,high school,100k+,divorced,not religious,2023-03-17,26045,2948,1724,10461,52,38,True
+post_00104,user_00052,Thoughts on climate policy today.,non-binary,Independent,very liberal,Other,35-44,high school,100k+,divorced,not religious,2023-03-14,26045,2948,1724,10461,177,68,False
+post_00105,user_00053,Immigration policy needs nuance.,female,Republican,very liberal,Asian,35-44,college,<25k,married,not religious,2023-01-02,24335,302,4244,45225,250,13,False
+post_00106,user_00053,Mental health awareness is more important than ever.,female,Republican,very liberal,Asian,35-44,college,<25k,married,not religious,2023-02-16,24335,302,4244,45225,362,19,False
+post_00107,user_00054,Renewable energy is the future.,female,Democrat,very liberal,Other,65+,college,25k-50k,single,religious,2023-03-20,11593,2157,5428,35900,396,61,False
+post_00108,user_00054,Media bias is real and it matters.,female,Democrat,very liberal,Other,65+,college,25k-50k,single,religious,2023-02-25,11593,2157,5428,35900,137,41,True
+post_00109,user_00055,Mental health awareness is more important than ever.,non-binary,Republican,liberal,Asian,65+,college,25k-50k,single,not religious,2023-02-01,5729,1162,7322,59587,291,78,False
+post_00110,user_00055,Thoughts on climate policy today.,non-binary,Republican,liberal,Asian,65+,college,25k-50k,single,not religious,2023-02-13,5729,1162,7322,59587,253,41,True
+post_00111,user_00056,Gun safety is a critical issue right now.,non-binary,Republican,very liberal,Hispanic,25-34,high school,25k-50k,single,religious,2023-02-13,32002,888,3006,34362,305,35,True
+post_00112,user_00056,Education funding deserves more attention.,non-binary,Republican,very liberal,Hispanic,25-34,high school,25k-50k,single,religious,2023-03-08,32002,888,3006,34362,43,30,False
+post_00113,user_00057,Mental health awareness is more important than ever.,female,Independent,conservative,Other,45-54,college,<25k,divorced,somewhat religious,2023-03-30,32069,2294,6310,31999,330,62,False
+post_00114,user_00057,Really interesting take on tax reform.,female,Independent,conservative,Other,45-54,college,<25k,divorced,somewhat religious,2023-01-03,32069,2294,6310,31999,150,28,False
+post_00115,user_00058,Mental health awareness is more important than ever.,female,Republican,very liberal,Hispanic,35-44,high school,50k-75k,married,very religious,2023-02-17,15995,1274,5539,76725,283,67,False
+post_00116,user_00058,Renewable energy is the future.,female,Republican,very liberal,Hispanic,35-44,high school,50k-75k,married,very religious,2023-02-24,15995,1274,5539,76725,169,45,False
+post_00117,user_00059,Education funding deserves more attention.,non-binary,Republican,conservative,Hispanic,25-34,college,75k-100k,married,religious,2023-01-16,17804,1275,2159,30717,161,15,True
+post_00118,user_00059,Education funding deserves more attention.,non-binary,Republican,conservative,Hispanic,25-34,college,75k-100k,married,religious,2023-01-25,17804,1275,2159,30717,378,61,False
+post_00119,user_00060,Education funding deserves more attention.,male,Independent,conservative,White,45-54,postgraduate,25k-50k,divorced,religious,2023-01-13,38689,2168,4988,37593,151,29,False
+post_00120,user_00060,Gun safety is a critical issue right now.,male,Independent,conservative,White,45-54,postgraduate,25k-50k,divorced,religious,2023-01-23,38689,2168,4988,37593,7,68,True
+post_00121,user_00061,Healthcare costs are still rising — we need to talk.,female,Democrat,very liberal,Hispanic,65+,college,50k-75k,married,very religious,2023-02-07,18027,206,546,73029,326,62,True
+post_00122,user_00061,Media bias is real and it matters.,female,Democrat,very liberal,Hispanic,65+,college,50k-75k,married,very religious,2023-01-02,18027,206,546,73029,145,60,False
+post_00123,user_00062,Mental health awareness is more important than ever.,male,Independent,conservative,Hispanic,45-54,high school,50k-75k,divorced,very religious,2023-02-02,28916,1415,1610,7234,58,8,False
+post_00124,user_00062,Really interesting take on tax reform.,male,Independent,conservative,Hispanic,45-54,high school,50k-75k,divorced,very religious,2023-03-04,28916,1415,1610,7234,295,80,True
+post_00125,user_00063,Really interesting take on tax reform.,female,Independent,very liberal,White,65+,postgraduate,75k-100k,married,somewhat religious,2023-02-08,9993,631,6744,74272,127,15,False
+post_00126,user_00063,Media bias is real and it matters.,female,Independent,very liberal,White,65+,postgraduate,75k-100k,married,somewhat religious,2023-03-19,9993,631,6744,74272,316,28,False
+post_00127,user_00064,Gun safety is a critical issue right now.,male,Democrat,very conservative,Asian,18-24,high school,<25k,single,religious,2023-02-24,29574,1833,2535,77639,291,79,True
+post_00128,user_00064,Really interesting take on tax reform.,male,Democrat,very conservative,Asian,18-24,high school,<25k,single,religious,2023-03-20,29574,1833,2535,77639,390,26,True
+post_00129,user_00065,Healthcare costs are still rising — we need to talk.,female,Republican,very conservative,White,55-64,high school,75k-100k,married,religious,2023-01-31,17393,2725,765,21085,282,9,True
+post_00130,user_00065,Immigration policy needs nuance.,female,Republican,very conservative,White,55-64,high school,75k-100k,married,religious,2023-01-01,17393,2725,765,21085,230,76,False
+post_00131,user_00066,Mental health awareness is more important than ever.,female,Democrat,very conservative,Black,55-64,college,75k-100k,married,religious,2023-02-06,19137,153,1996,38262,36,29,False
+post_00132,user_00066,Media bias is real and it matters.,female,Democrat,very conservative,Black,55-64,college,75k-100k,married,religious,2023-03-22,19137,153,1996,38262,338,25,False
+post_00133,user_00067,Healthcare costs are still rising — we need to talk.,male,Democrat,very liberal,Black,45-54,postgraduate,75k-100k,divorced,not religious,2023-02-04,7571,2250,1941,20028,36,7,True
+post_00134,user_00067,Media bias is real and it matters.,male,Democrat,very liberal,Black,45-54,postgraduate,75k-100k,divorced,not religious,2023-02-09,7571,2250,1941,20028,383,72,False
+post_00135,user_00068,Immigration policy needs nuance.,female,Republican,conservative,Black,55-64,college,75k-100k,single,not religious,2023-03-31,28830,529,3939,40357,139,64,False
+post_00136,user_00068,Really interesting take on tax reform.,female,Republican,conservative,Black,55-64,college,75k-100k,single,not religious,2023-02-26,28830,529,3939,40357,306,5,False
+post_00137,user_00069,Education funding deserves more attention.,male,Democrat,conservative,Black,65+,college,<25k,divorced,religious,2023-01-12,21173,2492,2151,3890,345,73,True
+post_00138,user_00069,Gun safety is a critical issue right now.,male,Democrat,conservative,Black,65+,college,<25k,divorced,religious,2023-03-28,21173,2492,2151,3890,295,5,True
+post_00139,user_00070,Healthcare costs are still rising — we need to talk.,non-binary,Republican,very liberal,Other,55-64,college,50k-75k,single,somewhat religious,2023-02-05,30884,2145,5437,58463,299,55,False
+post_00140,user_00070,Mental health awareness is more important than ever.,non-binary,Republican,very liberal,Other,55-64,college,50k-75k,single,somewhat religious,2023-01-12,30884,2145,5437,58463,178,52,False
+post_00141,user_00071,Immigration policy needs nuance.,female,Independent,liberal,White,25-34,high school,25k-50k,married,not religious,2023-02-12,21090,2764,956,21579,355,63,False
+post_00142,user_00071,Immigration policy needs nuance.,female,Independent,liberal,White,25-34,high school,25k-50k,married,not religious,2023-03-26,21090,2764,956,21579,389,70,True
+post_00143,user_00072,Really interesting take on tax reform.,female,Independent,very conservative,Hispanic,45-54,postgraduate,25k-50k,divorced,not religious,2023-02-11,29857,380,2676,33582,395,51,True
+post_00144,user_00072,Renewable energy is the future.,female,Independent,very conservative,Hispanic,45-54,postgraduate,25k-50k,divorced,not religious,2023-03-26,29857,380,2676,33582,236,52,True
+post_00145,user_00073,Mental health awareness is more important than ever.,male,Republican,conservative,Asian,55-64,college,75k-100k,divorced,not religious,2023-03-22,12343,2143,3063,65838,389,6,True
+post_00146,user_00073,Renewable energy is the future.,male,Republican,conservative,Asian,55-64,college,75k-100k,divorced,not religious,2023-02-04,12343,2143,3063,65838,67,36,False
+post_00147,user_00074,Gun safety is a critical issue right now.,male,Republican,very liberal,Asian,45-54,postgraduate,100k+,married,somewhat religious,2023-01-21,31816,517,336,31865,282,1,False
+post_00148,user_00074,Education funding deserves more attention.,male,Republican,very liberal,Asian,45-54,postgraduate,100k+,married,somewhat religious,2023-01-12,31816,517,336,31865,58,59,True
+post_00149,user_00075,Gun safety is a critical issue right now.,non-binary,Independent,very conservative,Black,25-34,college,100k+,single,not religious,2023-03-07,10140,2061,7740,38754,212,61,False
+post_00150,user_00075,Mental health awareness is more important than ever.,non-binary,Independent,very conservative,Black,25-34,college,100k+,single,not religious,2023-02-01,10140,2061,7740,38754,282,18,False
+post_00151,user_00076,Gun safety is a critical issue right now.,non-binary,Democrat,moderate,Black,25-34,college,25k-50k,married,religious,2023-01-09,12541,2475,4263,18392,395,53,False
+post_00152,user_00076,Gun safety is a critical issue right now.,non-binary,Democrat,moderate,Black,25-34,college,25k-50k,married,religious,2023-03-06,12541,2475,4263,18392,1,36,False
+post_00153,user_00077,Mental health awareness is more important than ever.,male,Republican,liberal,Other,35-44,high school,50k-75k,divorced,not religious,2023-01-20,38515,2395,5506,64678,275,61,False
+post_00154,user_00077,Renewable energy is the future.,male,Republican,liberal,Other,35-44,high school,50k-75k,divorced,not religious,2023-02-12,38515,2395,5506,64678,390,69,False
+post_00155,user_00078,Education funding deserves more attention.,non-binary,Independent,liberal,Other,55-64,high school,25k-50k,divorced,religious,2023-03-31,29891,1338,7223,25227,292,49,True
+post_00156,user_00078,Thoughts on climate policy today.,non-binary,Independent,liberal,Other,55-64,high school,25k-50k,divorced,religious,2023-02-22,29891,1338,7223,25227,162,60,False
+post_00157,user_00079,Thoughts on climate policy today.,non-binary,Democrat,very liberal,White,18-24,postgraduate,100k+,married,somewhat religious,2023-03-05,25352,2738,6591,20436,64,64,False
+post_00158,user_00079,Mental health awareness is more important than ever.,non-binary,Democrat,very liberal,White,18-24,postgraduate,100k+,married,somewhat religious,2023-01-13,25352,2738,6591,20436,51,67,False
+post_00159,user_00080,Healthcare costs are still rising — we need to talk.,non-binary,Republican,very conservative,White,45-54,postgraduate,100k+,married,religious,2023-03-25,1055,2979,1280,54236,38,60,False
+post_00160,user_00080,Media bias is real and it matters.,non-binary,Republican,very conservative,White,45-54,postgraduate,100k+,married,religious,2023-02-13,1055,2979,1280,54236,354,50,True
+post_00161,user_00081,The housing market is wild lately.,female,Democrat,conservative,Hispanic,45-54,high school,<25k,single,very religious,2023-02-18,21582,2782,7139,70442,320,62,True
+post_00162,user_00081,Really interesting take on tax reform.,female,Democrat,conservative,Hispanic,45-54,high school,<25k,single,very religious,2023-03-21,21582,2782,7139,70442,120,80,False
+post_00163,user_00082,Really interesting take on tax reform.,female,Republican,conservative,Black,35-44,postgraduate,25k-50k,married,religious,2023-03-23,14958,390,3655,13403,227,21,False
+post_00164,user_00082,Thoughts on climate policy today.,female,Republican,conservative,Black,35-44,postgraduate,25k-50k,married,religious,2023-01-04,14958,390,3655,13403,166,7,False
+post_00165,user_00083,Renewable energy is the future.,non-binary,Republican,conservative,Black,35-44,postgraduate,100k+,single,religious,2023-02-01,23542,1555,3628,19580,210,72,True
+post_00166,user_00083,Healthcare costs are still rising — we need to talk.,non-binary,Republican,conservative,Black,35-44,postgraduate,100k+,single,religious,2023-01-22,23542,1555,3628,19580,40,78,False
+post_00167,user_00084,Education funding deserves more attention.,male,Republican,very liberal,Hispanic,45-54,high school,25k-50k,single,not religious,2023-01-19,15833,2058,7577,76935,236,32,False
+post_00168,user_00084,Thoughts on climate policy today.,male,Republican,very liberal,Hispanic,45-54,high school,25k-50k,single,not religious,2023-02-02,15833,2058,7577,76935,238,36,True
+post_00169,user_00085,Gun safety is a critical issue right now.,female,Republican,very conservative,Asian,25-34,high school,50k-75k,divorced,religious,2023-03-17,4890,1829,7843,45793,327,54,False
+post_00170,user_00085,Gun safety is a critical issue right now.,female,Republican,very conservative,Asian,25-34,high school,50k-75k,divorced,religious,2023-02-28,4890,1829,7843,45793,101,49,False
+post_00171,user_00086,Media bias is real and it matters.,male,Democrat,conservative,Other,45-54,college,50k-75k,married,not religious,2023-02-15,7039,991,3224,75463,151,37,True
+post_00172,user_00086,Immigration policy needs nuance.,male,Democrat,conservative,Other,45-54,college,50k-75k,married,not religious,2023-03-26,7039,991,3224,75463,140,1,True
+post_00173,user_00087,Media bias is real and it matters.,male,Republican,very conservative,Asian,25-34,high school,100k+,married,not religious,2023-01-30,39791,2054,6922,38012,180,28,True
+post_00174,user_00087,Gun safety is a critical issue right now.,male,Republican,very conservative,Asian,25-34,high school,100k+,married,not religious,2023-03-21,39791,2054,6922,38012,347,17,True
+post_00175,user_00088,Media bias is real and it matters.,male,Republican,conservative,Other,65+,postgraduate,75k-100k,married,not religious,2023-01-05,2633,1285,6560,58279,186,16,True
+post_00176,user_00088,The housing market is wild lately.,male,Republican,conservative,Other,65+,postgraduate,75k-100k,married,not religious,2023-02-07,2633,1285,6560,58279,382,53,True
+post_00177,user_00089,Renewable energy is the future.,male,Republican,liberal,Hispanic,65+,college,75k-100k,married,not religious,2023-02-16,13209,561,6543,71201,256,34,True
+post_00178,user_00089,Mental health awareness is more important than ever.,male,Republican,liberal,Hispanic,65+,college,75k-100k,married,not religious,2023-02-02,13209,561,6543,71201,151,43,True
+post_00179,user_00090,Immigration policy needs nuance.,female,Democrat,very conservative,Other,25-34,college,100k+,married,not religious,2023-03-28,30742,328,1253,30071,285,46,True
+post_00180,user_00090,Thoughts on climate policy today.,female,Democrat,very conservative,Other,25-34,college,100k+,married,not religious,2023-02-20,30742,328,1253,30071,135,68,True
+post_00181,user_00091,Immigration policy needs nuance.,female,Independent,conservative,Other,35-44,postgraduate,100k+,single,somewhat religious,2023-03-16,29854,1529,5611,34862,326,47,True
+post_00182,user_00091,Education funding deserves more attention.,female,Independent,conservative,Other,35-44,postgraduate,100k+,single,somewhat religious,2023-03-28,29854,1529,5611,34862,241,3,False
+post_00183,user_00092,Gun safety is a critical issue right now.,male,Republican,moderate,Hispanic,55-64,college,25k-50k,single,very religious,2023-03-31,14557,2672,617,61352,332,52,True
+post_00184,user_00092,Thoughts on climate policy today.,male,Republican,moderate,Hispanic,55-64,college,25k-50k,single,very religious,2023-01-18,14557,2672,617,61352,19,38,False
+post_00185,user_00093,Immigration policy needs nuance.,non-binary,Democrat,very liberal,White,25-34,postgraduate,50k-75k,married,very religious,2023-01-18,7660,418,2023,70957,232,47,False
+post_00186,user_00093,Healthcare costs are still rising — we need to talk.,non-binary,Democrat,very liberal,White,25-34,postgraduate,50k-75k,married,very religious,2023-03-17,7660,418,2023,70957,212,12,False
+post_00187,user_00094,Mental health awareness is more important than ever.,male,Independent,very conservative,Black,35-44,postgraduate,50k-75k,single,very religious,2023-01-28,26796,1165,368,49066,227,30,False
+post_00188,user_00094,The housing market is wild lately.,male,Independent,very conservative,Black,35-44,postgraduate,50k-75k,single,very religious,2023-01-13,26796,1165,368,49066,278,45,True
+post_00189,user_00095,Really interesting take on tax reform.,non-binary,Independent,moderate,Other,35-44,postgraduate,100k+,divorced,very religious,2023-02-28,26142,1150,1654,16511,339,27,True
+post_00190,user_00095,The housing market is wild lately.,non-binary,Independent,moderate,Other,35-44,postgraduate,100k+,divorced,very religious,2023-01-07,26142,1150,1654,16511,124,16,True
+post_00191,user_00096,Education funding deserves more attention.,non-binary,Independent,moderate,Asian,18-24,college,50k-75k,divorced,not religious,2023-01-28,4546,2290,1797,77358,168,18,True
+post_00192,user_00096,Healthcare costs are still rising — we need to talk.,non-binary,Independent,moderate,Asian,18-24,college,50k-75k,divorced,not religious,2023-02-05,4546,2290,1797,77358,66,69,False
+post_00193,user_00097,Thoughts on climate policy today.,female,Independent,moderate,White,55-64,college,50k-75k,divorced,somewhat religious,2023-01-17,11485,470,5515,3879,183,30,False
+post_00194,user_00097,Healthcare costs are still rising — we need to talk.,female,Independent,moderate,White,55-64,college,50k-75k,divorced,somewhat religious,2023-01-03,11485,470,5515,3879,135,6,True
+post_00195,user_00098,Mental health awareness is more important than ever.,non-binary,Democrat,very conservative,Asian,25-34,postgraduate,100k+,married,somewhat religious,2023-03-02,27638,2174,1031,8830,398,46,True
+post_00196,user_00098,Renewable energy is the future.,non-binary,Democrat,very conservative,Asian,25-34,postgraduate,100k+,married,somewhat religious,2023-02-27,27638,2174,1031,8830,113,78,True
+post_00197,user_00099,Mental health awareness is more important than ever.,non-binary,Democrat,very liberal,Other,65+,high school,25k-50k,single,very religious,2023-01-08,34223,1255,3852,4582,205,54,True
+post_00198,user_00099,Mental health awareness is more important than ever.,non-binary,Democrat,very liberal,Other,65+,high school,25k-50k,single,very religious,2023-03-04,34223,1255,3852,4582,37,10,False
+post_00199,user_00100,Media bias is real and it matters.,female,Republican,liberal,Asian,65+,high school,75k-100k,divorced,very religious,2023-02-05,39915,627,638,17040,324,74,False
+post_00200,user_00100,Media bias is real and it matters.,female,Republican,liberal,Asian,65+,high school,75k-100k,divorced,very religious,2023-02-18,39915,627,638,17040,271,37,False

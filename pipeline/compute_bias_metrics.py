@@ -3,7 +3,8 @@
 Compute bias metrics for the Twitter/X LLM Recommendation Bias Study.
 
 Analyzes bias across all available features, 3 LLM providers (Anthropic /
-OpenAI / Gemini), and 6 prompt styles (18 conditions total).
+OpenAI / Gemini), 6 prompt styles, and up to 4 context levels
+(none / author / post / author_post), giving up to 72 conditions total.
 
 Reads per-condition post_level_data.csv files from outputs/experiments/ and
 produces three aggregated output files in analysis_outputs/:
@@ -78,6 +79,19 @@ FEATURES = {
     "toxicity": [
         "toxicity",
     ],
+    # Author social-graph metadata (exposed to LLM in author/author_post context levels)
+    "author_metadata": [
+        "user_followers_count",
+        "user_friends_count",
+        "user_statuses_count",
+        "user_favourites_count",
+    ],
+    # Post engagement metadata (exposed to LLM in post/author_post context levels)
+    "post_metadata": [
+        "favorite_count",
+        "retweet_count",
+        "retweeted",
+    ],
     # --- Extended features (Phase 2) ---
     # Uncomment to include once data contains these columns:
     #
@@ -89,14 +103,6 @@ FEATURES = {
     #     "is_reply",
     #     "is_retweet",
     #     "is_quote",
-    # ],
-    # "user_account": [
-    #     "user_followers_count",
-    #     "user_friends_count",
-    #     "user_statuses_count",
-    #     "user_verified",
-    #     "user_account_age_days",
-    #     "engagement_score",
     # ],
 }
 
@@ -134,12 +140,17 @@ FEATURE_TYPES = {
     "is_retweet": "binary",
     "is_quote":   "binary",
     # User account (numerical / binary)
-    "user_followers_count": "numerical",
-    "user_friends_count":   "numerical",
-    "user_statuses_count":  "numerical",
-    "user_verified":        "binary",
-    "user_account_age_days":"numerical",
-    "engagement_score":     "numerical",
+    "user_followers_count":  "numerical",
+    "user_friends_count":    "numerical",
+    "user_statuses_count":   "numerical",
+    "user_favourites_count": "numerical",
+    "user_verified":         "binary",
+    "user_account_age_days": "numerical",
+    "engagement_score":      "numerical",
+    # Post engagement metadata
+    "favorite_count": "numerical",
+    "retweet_count":  "numerical",
+    "retweeted":      "binary",
 }
 
 # Category ordering hints for features where order is meaningful.
@@ -174,12 +185,16 @@ FEATURE_DISPLAY_NAMES = {
     "is_reply":    "Tweet: Is Reply",
     "is_retweet":  "Tweet: Is Retweet",
     "is_quote":    "Tweet: Is Quote",
-    "user_followers_count": "User: Followers",
-    "user_friends_count":   "User: Friends",
-    "user_statuses_count":  "User: Statuses",
-    "user_verified":        "User: Verified",
-    "user_account_age_days":"User: Account Age",
-    "engagement_score":     "User: Engagement Score",
+    "user_followers_count":  "Author: Followers",
+    "user_friends_count":    "Author: Following",
+    "user_statuses_count":   "Author: Tweet Count",
+    "user_favourites_count": "Author: Likes Given",
+    "user_verified":         "Author: Verified",
+    "user_account_age_days": "Author: Account Age",
+    "engagement_score":      "Author: Engagement Score",
+    "favorite_count": "Post: Likes",
+    "retweet_count":  "Post: Retweets",
+    "retweeted":      "Post: Is Retweeted",
 }
 
 PROVIDERS    = ["openai", "anthropic", "gemini"]
@@ -407,57 +422,70 @@ def main():
             print(f"  No data found — skipping.")
             continue
 
+        # Handle data without context_level column (backward compat)
+        if "context_level" not in df.columns:
+            df["context_level"] = "none"
+
+        context_levels = sorted(df["context_level"].unique())
         features = get_available_features(df)
         print(f"  Features found: {features}")
+        print(f"  Context levels: {context_levels}")
 
         for style in PROMPT_STYLES:
-            sub = df[df["prompt_style"] == style].copy()
-            if sub.empty:
-                continue
+            for context_level in context_levels:
+                sub = df[
+                    (df["prompt_style"] == style) &
+                    (df["context_level"] == context_level)
+                ].copy()
+                if sub.empty:
+                    continue
 
-            pool_df = sub[sub["selected"] == 0]
-            rec_df  = sub[sub["selected"] == 1]
+                pool_df = sub[sub["selected"] == 0]
+                rec_df  = sub[sub["selected"] == 1]
 
-            # ------------------------------------------------------------------
-            # Bias summary
-            for feature in features:
-                ftype = FEATURE_TYPES.get(feature, "numerical")
-                bias, p, metric = compute_bias_metric(
-                    pool_df[feature], rec_df[feature], ftype
-                )
-                summary_rows.append({
-                    "feature":      feature,
-                    "provider":     provider,
-                    "prompt_style": style,
-                    "bias":         bias,
-                    "p_value":      p,
-                    "metric":       metric,
-                    "significant":  p < 0.05,
-                })
-
-                # Directional bias rows
-                dir_rows = compute_directional_bias(
-                    pool_df[feature], rec_df[feature], ftype
-                )
-                for row in dir_rows:
-                    row.update({
-                        "feature":      feature,
-                        "provider":     provider,
-                        "prompt_style": style,
-                        "feature_type": ftype,
+                # --------------------------------------------------------------
+                # Bias summary
+                for feature in features:
+                    ftype = FEATURE_TYPES.get(feature, "numerical")
+                    bias, p, metric = compute_bias_metric(
+                        pool_df[feature], rec_df[feature], ftype
+                    )
+                    summary_rows.append({
+                        "feature":        feature,
+                        "provider":       provider,
+                        "prompt_style":   style,
+                        "context_level":  context_level,
+                        "bias":           bias,
+                        "p_value":        p,
+                        "metric":         metric,
+                        "significant":    p < 0.05,
                     })
-                    dir_bias_rows.append(row)
 
-            # ------------------------------------------------------------------
-            # Feature importance (one RF per style × provider)
-            imp = compute_feature_importance(sub, features)
-            for feat, stats in imp.items():
-                importance_rows.append({
-                    "feature":      feat,
-                    "provider":     provider,
-                    "prompt_style": style,
-                    **stats,
-                })
+                    # Directional bias rows
+                    dir_rows = compute_directional_bias(
+                        pool_df[feature], rec_df[feature], ftype
+                    )
+                    for row in dir_rows:
+                        row.update({
+                            "feature":       feature,
+                            "provider":      provider,
+                            "prompt_style":  style,
+                            "context_level": context_level,
+                            "feature_type":  ftype,
+                        })
+                        dir_bias_rows.append(row)
+
+                # --------------------------------------------------------------
+                # Feature importance (one RF per style × context_level × provider)
+                imp = compute_feature_importance(sub, features)
+                for feat, stats in imp.items():
+                    importance_rows.append({
+                        "feature":       feat,
+                        "provider":      provider,
+                        "prompt_style":  style,
+                        "context_level": context_level,
+                        **stats,
+                    })
 
     # --------------------------------------------------------------------------
     # Save outputs

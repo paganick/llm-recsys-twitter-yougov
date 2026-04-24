@@ -15,11 +15,12 @@ Expected tweet columns (required):
   user_id, text
 
 Expected tweet columns (optional, passed through to pool):
-  tweet_id, has_url, has_hashtag, has_mention, has_emoji,
+  tweet_id, created_at, has_url, has_hashtag, has_mention, has_emoji,
   text_length, word_count, avg_word_length,
   is_reply, is_retweet, is_quote,
   user_followers_count, user_friends_count, user_statuses_count,
-  user_verified, user_account_age_days, engagement_score
+  user_favourites_count, user_verified, user_account_age_days, engagement_score,
+  favorite_count, retweet_count, retweeted
 
 Expected survey columns (required when --survey is provided):
   user_id, author_gender, author_partisanship, author_ideology, author_race
@@ -56,11 +57,20 @@ OUT_DIR = Path("outputs/pools")
 
 # Metadata columns passed through from tweet data to the pool (if present)
 TWEET_METADATA_COLS = [
+    # Temporal
+    "created_at",
+    # Style flags
     "has_url", "has_hashtag", "has_mention", "has_emoji",
+    # Text metrics
     "text_length", "word_count", "avg_word_length",
+    # Tweet type
     "is_reply", "is_retweet", "is_quote",
+    # Author metadata
     "user_followers_count", "user_friends_count", "user_statuses_count",
+    "user_favourites_count",
     "user_verified", "user_account_age_days", "engagement_score",
+    # Post engagement metadata
+    "favorite_count", "retweet_count", "retweeted",
 ]
 
 # Demographic columns from survey data
@@ -175,8 +185,8 @@ def main():
                         help="Path to survey demographics CSV (omit with --tweets-only)")
     parser.add_argument("--tweets-only", action="store_true",
                         help="Input file already contains merged tweet + demographics")
-    parser.add_argument("--pool-size", type=int, default=5000,
-                        help="Max tweets to sample into pool (default: 5000)")
+    parser.add_argument("--pool-size", type=int, default=None,
+                        help="Max tweets to sample into pool (default: unlimited)")
     parser.add_argument("--max-chars", type=int, default=280,
                         help="Max tweet length in characters (default: 280)")
     parser.add_argument("--seed", type=int, default=42,
@@ -238,11 +248,12 @@ def main():
             print(f"Demographic filter: {before - len(df):,} removed, {len(df):,} remain")
 
     # Sample
-    if args.pool_size < len(df):
+    if args.pool_size is not None and args.pool_size < len(df):
         df = df.sample(n=args.pool_size, random_state=args.seed).reset_index(drop=True)
         print(f"Sampled {args.pool_size:,} posts (seed={args.seed})")
     else:
-        print(f"Using all {len(df):,} posts (fewer than requested {args.pool_size:,})")
+        cap_msg = f" (cap={args.pool_size:,})" if args.pool_size else ""
+        print(f"Using all {len(df):,} posts{cap_msg}")
 
     # Anonymise
     df, id_map = anonymise(df)

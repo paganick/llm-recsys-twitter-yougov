@@ -188,9 +188,26 @@ def to_r2(row):
         return v ** 2
     return np.nan
 
-def load_summary():
+def _filter_context(df: pd.DataFrame, context_level: str = "none") -> pd.DataFrame:
+    """Filter to a single context_level if the column exists."""
+    if "context_level" in df.columns:
+        return df[df["context_level"] == context_level].copy()
+    return df
+
+
+def load_summary(context_level: str = "none"):
+    df = pd.read_csv(SUMMARY_CSV)
+    df = _filter_context(df, context_level)
+    df["r_squared"] = df.apply(to_r2, axis=1)
+    return df.dropna(subset=["r_squared"])
+
+
+def load_summary_all():
+    """Load all context levels (for new figures 11–13)."""
     df = pd.read_csv(SUMMARY_CSV)
     df["r_squared"] = df.apply(to_r2, axis=1)
+    if "context_level" not in df.columns:
+        df["context_level"] = "none"
     return df.dropna(subset=["r_squared"])
 
 def make_r2_annot(pivot_r2, pivot_sig, mean_row_name="Mean Across Features"):
@@ -214,8 +231,9 @@ def make_r2_annot(pivot_r2, pivot_sig, mean_row_name="Mean Across Features"):
                 annot[i, j] = f"{val:.3f}"
     return annot
 
-def _load_metric_bias(feature_name):
+def _load_metric_bias(feature_name, context_level="none"):
     df = pd.read_csv(DIR_BIAS_CSV)
+    df = _filter_context(df, context_level)
     mask = (df["feature"] == feature_name) & (
         df["feature_type"].isin(["continuous", "numerical"])
     )
@@ -522,8 +540,9 @@ def _cat_label(cat: str) -> str:
     return str(cat).replace("_", " ").title()
 
 
-def _load_demo_bias():
+def _load_demo_bias(context_level="none"):
     dir_bias = pd.read_csv(DIR_BIAS_CSV)
+    dir_bias = _filter_context(dir_bias, context_level)
     # Only normalise categorical demographic features (not numerical like age)
     cat_demo_features = [
         f for f in _DEMO_FEATURE_CONFIG
@@ -544,12 +563,12 @@ def _load_demo_bias():
     return pd.concat([dir_bias] + normalized_rows, ignore_index=True)
 
 
-def plot_04_demographics():
+def plot_04_demographics(context_level="none"):
     print("\n" + "="*70)
     print("FIGURE 04 — Demographic directional bias")
     print("="*70)
 
-    dir_bias = _load_demo_bias()
+    dir_bias = _load_demo_bias(context_level)
 
     # Pool proportions from pool CSV
     pool_props: dict = {}
@@ -702,7 +721,7 @@ def plot_04_demographics():
 # FIGURE 05 — Content/safety heatmap (prompt × model)
 # ============================================================================
 
-def plot_05_content_safety_heatmap():
+def plot_05_content_safety_heatmap(context_level="none"):
     print("\n" + "="*70)
     print("FIGURE 05 — Content/safety heatmap (prompt × model)")
     print("="*70)
@@ -712,7 +731,7 @@ def plot_05_content_safety_heatmap():
 
     for idx, (feat, minfo) in enumerate(RQ3_METRICS.items()):
         ax   = axes[idx]
-        data = _load_metric_bias(feat)
+        data = _load_metric_bias(feat, context_level)
 
         agg_m = data.groupby(["provider", "prompt_style"])["directional_bias"].mean().reset_index()
         piv_m = agg_m.pivot(index="prompt_style", columns="provider",
@@ -797,14 +816,14 @@ def plot_05_content_safety_heatmap():
 # FIGURE 06 — Content/safety bar charts (prompt grid, bars by provider)
 # ============================================================================
 
-def plot_06_content_safety_bars():
+def plot_06_content_safety_bars(context_level="none"):
     print("\n" + "="*70)
     print("FIGURE 06 — Content/safety bar charts by model")
     print("="*70)
 
     all_rows = []
     for feat, minfo in RQ3_METRICS.items():
-        data  = _load_metric_bias(feat)
+        data  = _load_metric_bias(feat, context_level)
         if data.empty:
             print(f"  skipped {feat} (no data)")
             continue
@@ -871,12 +890,13 @@ def plot_06_content_safety_bars():
 # FIGURE 07 — Feature importance by model (SHAP heatmap)
 # ============================================================================
 
-def plot_07_feature_importance():
+def plot_07_feature_importance(context_level="none"):
     print("\n" + "="*70)
     print("FIGURE 07 — Feature importance by model (SHAP, absolute)")
     print("="*70)
 
     df = pd.read_csv(IMPORTANCE_CSV)
+    df = _filter_context(df, context_level)
     if "feature" in df.columns and "shap_importance" in df.columns:
         df_long = df[["feature", "provider", "shap_importance"]].copy()
     else:
@@ -985,12 +1005,13 @@ def _draw_topic_heatmap(ax, piv, annot, vmax, col_lbls, row_lbls,
     ax.tick_params(axis="y", rotation=0)
 
 
-def plot_08_topic_heatmaps():
+def plot_08_topic_heatmaps(context_level="none"):
     print("\n" + "="*70)
     print("FIGURES 08a/b — Primary topic directional bias")
     print("="*70)
 
     df = pd.read_csv(DIR_BIAS_CSV)
+    df = _filter_context(df, context_level)
     pt = df[df["feature"] == "primary_topic"].copy()
     if pt.empty:
         print("  No primary_topic data — skipping.")
@@ -1080,8 +1101,8 @@ _METRICS_09 = {
 }
 
 
-def _plot_09_single_metric(feature, minfo):
-    data = _load_metric_bias(feature)
+def _plot_09_single_metric(feature, minfo, context_level="none"):
+    data = _load_metric_bias(feature, context_level)
     if data.empty:
         return None
 
@@ -1148,7 +1169,7 @@ def _plot_09_single_metric(feature, minfo):
     return fig
 
 
-def plot_09_raw_bias_heatmaps():
+def plot_09_raw_bias_heatmaps(context_level="none"):
     print("\n" + "="*70)
     print("FIGURES 09a–d — Raw directional bias (one figure per metric)")
     print("="*70)
@@ -1160,7 +1181,7 @@ def plot_09_raw_bias_heatmaps():
         "toxicity":           "09d",
     }
     for feature, minfo in _METRICS_09.items():
-        fig = _plot_09_single_metric(feature, minfo)
+        fig = _plot_09_single_metric(feature, minfo, context_level)
         if fig is None:
             print(f"  skipped {feature} (no data)")
             continue
@@ -1170,7 +1191,7 @@ def plot_09_raw_bias_heatmaps():
         plt.close()
         print(f"  ✓ {fname}")
 
-        data    = _load_metric_bias(feature)
+        data    = _load_metric_bias(feature, context_level)
         mean_df = data.groupby(["provider", "prompt_style"])["directional_bias"].mean().reset_index()
         std_df  = data.groupby(["provider", "prompt_style"])["directional_bias"].std().reset_index()
         mean_df = mean_df.rename(columns={"directional_bias": "mean_bias"})
@@ -1184,12 +1205,12 @@ def plot_09_raw_bias_heatmaps():
 # FIGURE 10 — Demographic bias by model (one figure per demographic variable)
 # ============================================================================
 
-def plot_10_demographic_by_model():
+def plot_10_demographic_by_model(context_level="none"):
     print("\n" + "="*70)
     print("FIGURE 10 — Demographic bias by model")
     print("="*70)
 
-    dir_bias = _load_demo_bias()
+    dir_bias = _load_demo_bias(context_level)
 
     for feature, finfo in _DEMO_FEATURE_CONFIG.items():
         fdata = dir_bias[(dir_bias["feature"] == feature) &
@@ -1299,12 +1320,13 @@ def plot_10_demographic_by_model():
 # POOL DISTRIBUTIONS CSV
 # ============================================================================
 
-def save_pool_distributions():
+def save_pool_distributions(context_level="none"):
     print("\n" + "="*70)
     print("SAVING pool_distributions.csv")
     print("="*70)
 
     df   = pd.read_csv(DIR_BIAS_CSV)
+    df   = _filter_context(df, context_level)
     rows = []
 
     cat  = df[df["feature_type"] == "categorical"]
@@ -1333,10 +1355,222 @@ def save_pool_distributions():
     print("  ✓ pool_distributions.csv")
 
 # ============================================================================
+# FIGURES 11–13 — Metadata context-level experiment
+# ============================================================================
+
+_AUTHOR_META_FEATURES = [
+    "user_followers_count", "user_friends_count",
+    "user_statuses_count",  "user_favourites_count",
+]
+_POST_META_FEATURES = ["favorite_count", "retweet_count", "retweeted"]
+
+_CONTEXT_DISPLAY = {
+    "none":        "None\n(text only)",
+    "author":      "Author\nmetadata",
+    "post":        "Post\nmetadata",
+    "author_post": "Author+Post\nmetadata",
+}
+
+_META_FEATURE_DISPLAY = {
+    "user_followers_count":  "Followers",
+    "user_friends_count":    "Following",
+    "user_statuses_count":   "Tweet count",
+    "user_favourites_count": "Likes given",
+    "favorite_count":        "Post likes",
+    "retweet_count":         "Retweets",
+    "retweeted":             "Is retweeted",
+}
+
+
+def _meta_bias_pivot(all_df, features, context_levels):
+    """Build pivot (rows = feature × provider, cols = context_level) of mean R²."""
+    sub = all_df[
+        all_df["feature"].isin(features) &
+        all_df["context_level"].isin(context_levels)
+    ].copy()
+    agg = sub.groupby(["feature", "provider", "context_level"])["r_squared"].mean().reset_index()
+    return agg
+
+
+def plot_11_author_metadata_bias(all_df):
+    print("\n" + "="*70)
+    print("FIGURE 11 — Author metadata bias by context level × model")
+    print("="*70)
+
+    context_levels = ["author", "author_post"]
+    available = [f for f in _AUTHOR_META_FEATURES if f in all_df["feature"].unique()]
+    if not available:
+        print("  No author metadata features found — skipping.")
+        return
+
+    agg = _meta_bias_pivot(all_df, available, context_levels)
+    if agg.empty:
+        print("  No data for author/author_post context levels — skipping.")
+        return
+
+    pivot = agg.pivot_table(
+        index=["feature", "provider"],
+        columns="context_level",
+        values="r_squared",
+        aggfunc="mean",
+    ).reindex(columns=context_levels)
+
+    row_labels = [
+        f"{_META_FEATURE_DISPLAY.get(f, f)}\n({PROVIDER_LABELS.get(p, p).split()[0]})"
+        for f, p in pivot.index
+    ]
+    col_labels = [_CONTEXT_DISPLAY.get(c, c) for c in context_levels]
+
+    fig, ax = plt.subplots(figsize=(6, max(4, len(pivot) * 0.55)))
+    sns.heatmap(pivot.values, annot=True, fmt=".3f", cmap=CMAP_WR,
+                vmin=0, vmax=max(0.01, pivot.values[~pd.isna(pivot.values)].max()),
+                ax=ax, cbar_kws={"label": "R²"},
+                linewidths=0.5, linecolor="lightgray", annot_kws={"fontsize": 12})
+    ax.set_xticks(np.arange(len(col_labels)) + 0.5)
+    ax.set_xticklabels(col_labels, fontsize=12)
+    ax.set_yticks(np.arange(len(row_labels)) + 0.5)
+    ax.set_yticklabels(row_labels, fontsize=11, rotation=0, ha="right")
+    ax.set_title("Author Metadata Bias by Context Level\n(R², mean across prompt styles)",
+                 fontweight="bold", fontsize=13, pad=10)
+    ax.set_xlabel("Context level", fontsize=12)
+    plt.tight_layout()
+    fig.savefig(OUT / "11_author_metadata_bias_by_context.png", bbox_inches="tight", dpi=300)
+    plt.close()
+    print("  ✓ 11_author_metadata_bias_by_context.png")
+    agg.to_csv(OUT / "11_author_metadata_bias_data.csv", index=False)
+    print("  ✓ 11_author_metadata_bias_data.csv")
+
+
+def plot_12_post_metadata_bias(all_df):
+    print("\n" + "="*70)
+    print("FIGURE 12 — Post metadata bias by context level × model")
+    print("="*70)
+
+    context_levels = ["post", "author_post"]
+    available = [f for f in _POST_META_FEATURES if f in all_df["feature"].unique()]
+    if not available:
+        print("  No post metadata features found — skipping.")
+        return
+
+    agg = _meta_bias_pivot(all_df, available, context_levels)
+    if agg.empty:
+        print("  No data for post/author_post context levels — skipping.")
+        return
+
+    pivot = agg.pivot_table(
+        index=["feature", "provider"],
+        columns="context_level",
+        values="r_squared",
+        aggfunc="mean",
+    ).reindex(columns=context_levels)
+
+    row_labels = [
+        f"{_META_FEATURE_DISPLAY.get(f, f)}\n({PROVIDER_LABELS.get(p, p).split()[0]})"
+        for f, p in pivot.index
+    ]
+    col_labels = [_CONTEXT_DISPLAY.get(c, c) for c in context_levels]
+
+    fig, ax = plt.subplots(figsize=(6, max(4, len(pivot) * 0.55)))
+    vals = pivot.values
+    vmax = max(0.01, vals[~np.isnan(vals.astype(float))].max()) if vals.size > 0 else 0.01
+    sns.heatmap(vals, annot=True, fmt=".3f", cmap=CMAP_WR,
+                vmin=0, vmax=vmax,
+                ax=ax, cbar_kws={"label": "R²"},
+                linewidths=0.5, linecolor="lightgray", annot_kws={"fontsize": 12})
+    ax.set_xticks(np.arange(len(col_labels)) + 0.5)
+    ax.set_xticklabels(col_labels, fontsize=12)
+    ax.set_yticks(np.arange(len(row_labels)) + 0.5)
+    ax.set_yticklabels(row_labels, fontsize=11, rotation=0, ha="right")
+    ax.set_title("Post Metadata Bias by Context Level\n(R², mean across prompt styles)",
+                 fontweight="bold", fontsize=13, pad=10)
+    ax.set_xlabel("Context level", fontsize=12)
+    plt.tight_layout()
+    fig.savefig(OUT / "12_post_metadata_bias_by_context.png", bbox_inches="tight", dpi=300)
+    plt.close()
+    print("  ✓ 12_post_metadata_bias_by_context.png")
+    agg.to_csv(OUT / "12_post_metadata_bias_data.csv", index=False)
+    print("  ✓ 12_post_metadata_bias_data.csv")
+
+
+def plot_13_context_level_delta(all_df):
+    """Delta heatmap: R² change vs none baseline, for each feature × provider × context_level."""
+    print("\n" + "="*70)
+    print("FIGURE 13 — Δ bias vs none baseline (all features, all context levels)")
+    print("="*70)
+
+    non_none = [c for c in all_df["context_level"].unique() if c != "none"]
+    if not non_none:
+        print("  Only 'none' context level present — skipping.")
+        return
+
+    none_df = all_df[all_df["context_level"] == "none"].copy()
+    none_base = none_df.groupby(["feature", "provider"])["r_squared"].mean()
+
+    rows = []
+    for cl in sorted(non_none):
+        cl_df = all_df[all_df["context_level"] == cl]
+        agg = cl_df.groupby(["feature", "provider"])["r_squared"].mean()
+        delta = (agg - none_base).dropna().reset_index()
+        delta.columns = ["feature", "provider", "delta_r2"]
+        delta["context_level"] = cl
+        rows.append(delta)
+
+    if not rows:
+        print("  No data — skipping.")
+        return
+
+    delta_all = pd.concat(rows, ignore_index=True)
+    delta_all["feature_display"]   = delta_all["feature"].apply(
+        lambda f: _META_FEATURE_DISPLAY.get(f, fmt(f))
+    )
+    delta_all["provider_display"]  = delta_all["provider"].map(PROVIDER_LABELS)
+    delta_all["row_label"] = (delta_all["feature_display"] + "\n("
+                              + delta_all["provider_display"].str.split().str[0] + ")")
+    delta_all["col_label"] = delta_all["context_level"].map(
+        lambda c: _CONTEXT_DISPLAY.get(c, c)
+    )
+
+    pivot = delta_all.pivot_table(
+        index="row_label", columns="col_label", values="delta_r2", aggfunc="mean"
+    )
+    col_order = [_CONTEXT_DISPLAY.get(c, c) for c in sorted(non_none)
+                 if _CONTEXT_DISPLAY.get(c, c) in pivot.columns]
+    pivot = pivot.reindex(columns=col_order)
+
+    vals = pivot.values.flatten()
+    vals = vals[~pd.isna(vals)]
+    max_abs = max(abs(vals).max(), 1e-6) if len(vals) > 0 else 0.1
+
+    fig, ax = plt.subplots(figsize=(max(6, len(pivot.columns) * 2.5),
+                                    max(6, len(pivot) * 0.45)))
+    sns.heatmap(pivot, annot=True, fmt=".3f", cmap=CMAP_DIVG,
+                center=0, vmin=-max_abs, vmax=max_abs, ax=ax,
+                cbar_kws={"label": "ΔR² (vs. none baseline)"},
+                linewidths=0.5, linecolor="lightgray", annot_kws={"fontsize": 11})
+    ax.set_title("Bias Change vs. No-Context Baseline (ΔR²)\n"
+                 "(red = more bias with metadata visible; blue = less bias)",
+                 fontweight="bold", fontsize=13, pad=10)
+    ax.set_xlabel("Context level", fontsize=12)
+    ax.set_ylabel("Feature / Model", fontsize=12)
+    ax.tick_params(axis="x", labelsize=12)
+    ax.tick_params(axis="y", labelsize=10)
+    plt.setp(ax.get_xticklabels(), rotation=30, ha="right")
+    plt.tight_layout()
+    fig.savefig(OUT / "13_context_level_delta_heatmap.png", bbox_inches="tight", dpi=300)
+    plt.close()
+    print("  ✓ 13_context_level_delta_heatmap.png")
+    delta_all.to_csv(OUT / "13_context_level_delta_data.csv", index=False)
+    print("  ✓ 13_context_level_delta_data.csv")
+
+
+# ============================================================================
 # MAIN
 # ============================================================================
 
 def main():
+    global OUT
+    import shutil
+
     print("=" * 70)
     print("GENERATING ALL PAPER PLOTS")
     print(f"Output → {OUT}")
@@ -1349,29 +1583,65 @@ def main():
             print(f"  {p}")
         return
 
-    comp_df = load_summary()
-    print(f"\nLoaded {len(comp_df)} rows from pool_vs_recommended_summary.csv")
+    # All context levels for new figures
+    all_df = load_summary_all()
+    n_cl = all_df["context_level"].nunique() if "context_level" in all_df.columns else 1
+    context_levels = sorted(all_df["context_level"].unique()) if "context_level" in all_df.columns else ["none"]
+    print(f"Loaded {len(all_df)} total rows across {n_cl} context level(s): {context_levels}")
 
-    save_pool_distributions()
-    plot_01_aggregated_bar(comp_df)
-    plot_02_bias_by_prompt(comp_df)
-    plot_03_normalized_bias(comp_df)
-    plot_04_demographics()
-    plot_05_content_safety_heatmap()
-    plot_06_content_safety_bars()
-    if IMPORTANCE_CSV.exists():
-        plot_07_feature_importance()
+    root_out = OUT
+    use_subfolders = n_cl > 1
+
+    # Figures 01–10: one set per context level, each in its own subfolder (or root if only one)
+    for cl in context_levels:
+        if use_subfolders:
+            OUT = root_out / cl
+            if OUT.exists():
+                shutil.rmtree(OUT)
+            OUT.mkdir(parents=True, exist_ok=True)
+            print(f"\n{'='*70}")
+            print(f"  Context level: '{cl}'  →  {OUT}")
+            print(f"{'='*70}")
+        else:
+            OUT = root_out  # already created by _init_paths
+
+        comp_df = load_summary(context_level=cl)
+        print(f"  Loaded {len(comp_df)} rows for context_level='{cl}'")
+
+        save_pool_distributions(context_level=cl)
+        plot_01_aggregated_bar(comp_df)
+        plot_02_bias_by_prompt(comp_df)
+        plot_03_normalized_bias(comp_df)
+        plot_04_demographics(context_level=cl)
+        plot_05_content_safety_heatmap(context_level=cl)
+        plot_06_content_safety_bars(context_level=cl)
+        if IMPORTANCE_CSV.exists():
+            plot_07_feature_importance(context_level=cl)
+        else:
+            print("\nFIGURE 07 skipped — feature_importance_data.csv not found")
+        plot_08_topic_heatmaps(context_level=cl)
+        plot_09_raw_bias_heatmaps(context_level=cl)
+        plot_10_demographic_by_model(context_level=cl)
+
+    # Figures 11–13: cross-context comparisons, always in root
+    OUT = root_out
+    if n_cl > 1:
+        plot_11_author_metadata_bias(all_df)
+        plot_12_post_metadata_bias(all_df)
+        plot_13_context_level_delta(all_df)
     else:
-        print("\nFIGURE 07 skipped — feature_importance_data.csv not found")
-    plot_08_topic_heatmaps()
-    plot_09_raw_bias_heatmaps()
-    plot_10_demographic_by_model()
+        print("\nFIGURES 11–13 skipped — only one context level in data")
 
     print("\n" + "=" * 70)
     print("ALL DONE")
     print("=" * 70)
-    for f in sorted(OUT.iterdir()):
-        print(f"  {f.name:<65} {f.stat().st_size // 1024:>4} KB")
+    print(f"Root: {root_out}")
+    for f in sorted(root_out.iterdir()):
+        if f.is_dir():
+            n = sum(1 for _ in f.glob("*.png"))
+            print(f"  {f.name}/  ({n} figures)")
+        else:
+            print(f"  {f.name:<65} {f.stat().st_size // 1024:>4} KB")
 
 
 if __name__ == "__main__":
