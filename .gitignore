@@ -14,9 +14,8 @@ outputs/experiments/
 # outputs/
 # analysis_outputs/
 
-# Personal / collaborator files (shared privately, not via git)
+# Personal notes
 NOTES.md
-COLLABORATOR_INSTRUCTIONS.md
 
 # Environment
 config.yaml
