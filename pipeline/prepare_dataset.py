@@ -62,7 +62,7 @@ TWEET_METADATA_COLS = [
     # Style flags
     "has_url", "has_hashtag", "has_mention", "has_emoji",
     # Text metrics
-    "text_length", "word_count", "avg_word_length",
+    "word_count", "avg_word_length",
     # Tweet type
     "is_reply", "is_retweet", "is_quote",
     # Author metadata

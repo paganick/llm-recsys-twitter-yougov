@@ -53,7 +53,7 @@ LOG_FEATURES = [
 ]
 # Features used on the original scale (still z-scored)
 LINEAR_FEATURES = [
-    "avg_word_length", "text_length",
+    "avg_word_length",
     "sentiment_polarity", "sentiment_subjectivity",
     "polarization_score", "toxicity",
 ]
@@ -76,7 +76,6 @@ CATEGORICAL_CONFIG = {
 # Display names for the table
 FEATURE_DISPLAY = {
     "avg_word_length":        "Avg word length",
-    "text_length":            "Text length",
     "sentiment_polarity":     "Sentiment polarity",
     "sentiment_subjectivity": "Sentiment subjectivity",
     "polarization_score":     "Polarization",
@@ -97,7 +96,7 @@ FEATURE_DISPLAY = {
 
 # Feature groups for table section headers
 FEATURE_GROUPS = [
-    ("Text",            ["avg_word_length", "text_length"]),
+    ("Text",            ["avg_word_length"]),
     ("Content",         ["polarization_score", "toxicity"]),
     ("Sentiment",       ["sentiment_polarity", "sentiment_subjectivity"]),
     ("Style",           ["has_emoji", "has_hashtag", "has_mention", "has_url"]),
@@ -807,7 +806,6 @@ def plot_context_effect_21(table_df: pd.DataFrame, out_dir: Path):
     ax = axes[1, 1]
     feats_d = [
         ("avg_word_length",        "Avg word length"),
-        ("text_length",            "Text length"),
         ("sentiment_polarity",     "Sentiment polarity"),
         ("sentiment_subjectivity", "Sent. subjectivity"),
         ("polarization_score",     "Polarization"),
