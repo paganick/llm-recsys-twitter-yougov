@@ -37,9 +37,13 @@ warnings.filterwarnings("ignore")
 
 ROOT = Path(__file__).parent.parent
 
-CONTEXT_LEVELS  = ["none", "author", "post", "author_post"]
+CONTEXT_LEVELS  = ["none", "author", "post", "author_post", "public_demo"]
 CONTEXT_LABELS  = {
-    "none": "No context", "author": "Author", "post": "Post", "author_post": "Author+Post"
+    "none":        "No context",
+    "author":      "Author",
+    "post":        "Post",
+    "author_post": "Author+Post",
+    "public_demo": "Public+Demo",
 }
 PROVIDER_ORDER  = ["anthropic", "openai", "google"]
 PROVIDER_LABELS = {"anthropic": "Claude", "openai": "GPT-4o", "google": "Gemini"}
@@ -635,6 +639,7 @@ CONTEXT_COLORS = {
     "author":      "#2166AC",
     "post":        "#33A02C",
     "author_post": "#984EA3",
+    "public_demo": "#E6550D",
 }
 
 
@@ -662,7 +667,7 @@ def plot_forest_20(table_df: pd.DataFrame, out_dir: Path):
                 y += 1.0
     total_h = y
 
-    offsets = {"none": -0.27, "author": -0.09, "post": 0.09, "author_post": 0.27}
+    offsets = {"none": -0.32, "author": -0.16, "post": 0.0, "author_post": 0.16, "public_demo": 0.32}
     fig, ax = plt.subplots(figsize=(10, max(10, total_h * 0.30)))
 
     for cl in CONTEXT_LEVELS:
@@ -740,15 +745,24 @@ def plot_context_effect_21(table_df: pd.DataFrame, out_dir: Path):
 
     fig, axes = plt.subplots(2, 2, figsize=(14, 10))
 
+    _AUTHOR_CLS = {"author", "author_post", "public_demo"}
+    _POST_CLS   = {"post",   "author_post", "public_demo"}
+    _DEMO_CLS   = {"public_demo"}
+
     def _shade_author(ax):
         for xi, cl in enumerate(CONTEXT_LEVELS):
-            if "author" in cl:
+            if cl in _AUTHOR_CLS:
                 ax.axvspan(xi - 0.42, xi + 0.42, alpha=0.10, color="#2166AC", zorder=0)
 
     def _shade_post(ax):
         for xi, cl in enumerate(CONTEXT_LEVELS):
-            if "post" in cl:
+            if cl in _POST_CLS:
                 ax.axvspan(xi - 0.42, xi + 0.42, alpha=0.10, color="#33A02C", zorder=0)
+
+    def _shade_demo(ax):
+        for xi, cl in enumerate(CONTEXT_LEVELS):
+            if cl in _DEMO_CLS:
+                ax.axvspan(xi - 0.42, xi + 0.42, alpha=0.12, color="#E6550D", zorder=0)
 
     def _fmt_ax(ax, title, ylabel):
         ax.axhline(0, color="black", lw=0.7, ls="--", alpha=0.7)
@@ -781,10 +795,10 @@ def plot_context_effect_21(table_df: pd.DataFrame, out_dir: Path):
     for i, (feat, lbl) in enumerate(zip(demo_feats, demo_labels)):
         ax.plot(xticks, _demo_abs_series(feat), marker="s", lw=1.6, ms=5,
                 color=cmap_b(i / max(len(demo_feats) - 1, 1)), label=lbl)
-    _shade_author(ax)
+    _shade_demo(ax)
     _fmt_ax(ax,
             "B  Author Demographic Features\n"
-            "(revealed when context includes Author)\n"
+            "(explicitly revealed only in public_demo)\n"
             "Mean |coefficient| across category dummies",
             "Mean |coefficient| across dummies")
     ax.legend(fontsize=7, framealpha=0.85, ncol=2)
@@ -825,10 +839,10 @@ def plot_context_effect_21(table_df: pd.DataFrame, out_dir: Path):
 
     fig.text(
         0.5, -0.015,
-        "Blue shading = context levels where author info is provided in prompt. "
-        "Green shading = context levels where post engagement info is provided.\n"
-        "Key question: do author/post feature coefficients increase when the corresponding "
-        "context is revealed?",
+        "Blue shading = author info in prompt (author, author_post, public_demo).  "
+        "Green shading = post engagement in prompt (post, author_post, public_demo).  "
+        "Orange shading = demographics explicitly shown (public_demo only).\n"
+        "Key question: do feature coefficients increase when the corresponding context is revealed?",
         ha="center", fontsize=9, style="italic", color="dimgray",
     )
     fig.suptitle(

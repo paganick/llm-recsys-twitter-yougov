@@ -3,8 +3,8 @@
 Compute bias metrics for the Twitter/X LLM Recommendation Bias Study.
 
 Analyzes bias across all available features, 3 LLM providers (Anthropic /
-OpenAI / Gemini), 6 prompt styles, and up to 4 context levels
-(none / author / post / author_post), giving up to 72 conditions total.
+OpenAI / Gemini), 6 prompt styles, and up to 5 context levels
+(none / author / post / author_post / public_demo), giving up to 90 conditions total.
 
 Reads per-condition post_level_data.csv files from outputs/experiments/ and
 produces three aggregated output files in analysis_outputs/:
@@ -79,14 +79,14 @@ FEATURES = {
     "toxicity": [
         "toxicity",
     ],
-    # Author social-graph metadata (exposed to LLM in author/author_post context levels)
+    # Author social-graph metadata (exposed to LLM in author/author_post/public_demo context levels)
     "author_metadata": [
         "user_followers_count",
         "user_friends_count",
         "user_statuses_count",
         "user_favourites_count",
     ],
-    # Post engagement metadata (exposed to LLM in post/author_post context levels)
+    # Post engagement metadata (exposed to LLM in post/author_post/public_demo context levels)
     "post_metadata": [
         "favorite_count",
         "retweet_count",
