@@ -1,91 +1,91 @@
 provider,prompt_style,category,mean_bias,std_bias,provider_label
-anthropic,controversial,conservative,0.0470822281167108,,Claude Sonnet 4.5
-anthropic,controversial,liberal,-0.0520026525198938,,Claude Sonnet 4.5
-anthropic,controversial,moderate,-0.0429310344827586,,Claude Sonnet 4.5
-anthropic,controversial,very conservative,-0.0225066312997347,,Claude Sonnet 4.5
-anthropic,controversial,very liberal,0.0703580901856764,,Claude Sonnet 4.5
-anthropic,engaging,conservative,-0.0210570687418936,,Claude Sonnet 4.5
-anthropic,engaging,liberal,0.0337937743190661,,Claude Sonnet 4.5
-anthropic,engaging,moderate,0.0315953307392996,,Claude Sonnet 4.5
-anthropic,engaging,very conservative,-0.0393839169909208,,Claude Sonnet 4.5
-anthropic,engaging,very liberal,-0.0049481193255512,,Claude Sonnet 4.5
-anthropic,general,conservative,0.0142670157068063,,Claude Sonnet 4.5
-anthropic,general,liberal,-0.0078795811518324,,Claude Sonnet 4.5
-anthropic,general,moderate,-0.0287434554973822,,Claude Sonnet 4.5
-anthropic,general,very conservative,-0.0226439790575916,,Claude Sonnet 4.5
-anthropic,general,very liberal,0.0449999999999999,,Claude Sonnet 4.5
-anthropic,informative,conservative,-0.0031249999999999,,Claude Sonnet 4.5
-anthropic,informative,liberal,0.0009895833333333,,Claude Sonnet 4.5
-anthropic,informative,moderate,0.0443229166666666,,Claude Sonnet 4.5
-anthropic,informative,very conservative,0.0474999999999999,,Claude Sonnet 4.5
-anthropic,informative,very liberal,-0.0896875,,Claude Sonnet 4.5
-anthropic,neutral,conservative,-0.0143877551020408,,Claude Sonnet 4.5
-anthropic,neutral,liberal,-0.0048979591836734,,Claude Sonnet 4.5
-anthropic,neutral,moderate,0.0051020408163265,,Claude Sonnet 4.5
-anthropic,neutral,very conservative,0.0053571428571428,,Claude Sonnet 4.5
-anthropic,neutral,very liberal,0.0088265306122448,,Claude Sonnet 4.5
-anthropic,popular,conservative,-0.0388828337874659,,Claude Sonnet 4.5
-anthropic,popular,liberal,-0.0057765667574931,,Claude Sonnet 4.5
-anthropic,popular,moderate,0.0423841961852861,,Claude Sonnet 4.5
-anthropic,popular,very conservative,0.0152043596730245,,Claude Sonnet 4.5
-anthropic,popular,very liberal,-0.0129291553133514,,Claude Sonnet 4.5
-gemini,controversial,conservative,0.0349029754204398,,Gemini 2.0 Flash
-gemini,controversial,liberal,-0.0318111254851228,,Gemini 2.0 Flash
-gemini,controversial,moderate,-0.0345407503234152,,Gemini 2.0 Flash
-gemini,controversial,very conservative,-0.0358667529107374,,Gemini 2.0 Flash
-gemini,controversial,very liberal,0.0673156532988356,,Gemini 2.0 Flash
-gemini,engaging,conservative,0.0252631578947368,,Gemini 2.0 Flash
-gemini,engaging,liberal,0.0110526315789473,,Gemini 2.0 Flash
-gemini,engaging,moderate,-0.0563157894736842,,Gemini 2.0 Flash
-gemini,engaging,very conservative,0.0431578947368421,,Gemini 2.0 Flash
-gemini,engaging,very liberal,-0.0231578947368421,,Gemini 2.0 Flash
-gemini,general,conservative,0.0187253613666228,,Gemini 2.0 Flash
-gemini,general,liberal,-0.0513074901445466,,Gemini 2.0 Flash
-gemini,general,moderate,-0.0174638633377135,,Gemini 2.0 Flash
-gemini,general,very conservative,-0.0186793692509855,,Gemini 2.0 Flash
-gemini,general,very liberal,0.0687253613666228,,Gemini 2.0 Flash
-gemini,informative,conservative,0.0612796833773087,,Gemini 2.0 Flash
-gemini,informative,liberal,-0.0015699208443271,,Gemini 2.0 Flash
-gemini,informative,moderate,-0.0398416886543535,,Gemini 2.0 Flash
-gemini,informative,very conservative,-0.0197625329815303,,Gemini 2.0 Flash
-gemini,informative,very liberal,-0.0001055408970976,,Gemini 2.0 Flash
-gemini,neutral,conservative,-0.03911051212938,,Gemini 2.0 Flash
-gemini,neutral,liberal,0.038099730458221,,Gemini 2.0 Flash
-gemini,neutral,moderate,0.0121428571428571,,Gemini 2.0 Flash
-gemini,neutral,very conservative,-0.0310242587601078,,Gemini 2.0 Flash
-gemini,neutral,very liberal,0.0198921832884097,,Gemini 2.0 Flash
-gemini,popular,conservative,0.0343078913324708,,Gemini 2.0 Flash
-gemini,popular,liberal,-0.0132794307891332,,Gemini 2.0 Flash
-gemini,popular,moderate,-0.0077231565329883,,Gemini 2.0 Flash
-gemini,popular,very conservative,0.036895213454075,,Gemini 2.0 Flash
-gemini,popular,very liberal,-0.0502005174644243,,Gemini 2.0 Flash
-openai,controversial,conservative,0.0378759894459102,,GPT-4o-mini
-openai,controversial,liberal,-0.0429551451187335,,GPT-4o-mini
-openai,controversial,moderate,-0.00532981530343,,GPT-4o-mini
-openai,controversial,very conservative,0.0232189973614775,,GPT-4o-mini
-openai,controversial,very liberal,-0.0128100263852242,,GPT-4o-mini
-openai,engaging,conservative,-0.0186842105263158,,GPT-4o-mini
-openai,engaging,liberal,0.0405263157894736,,GPT-4o-mini
-openai,engaging,moderate,0.0307894736842105,,GPT-4o-mini
-openai,engaging,very conservative,-0.0205263157894736,,GPT-4o-mini
-openai,engaging,very liberal,-0.0321052631578947,,GPT-4o-mini
-openai,general,conservative,-0.0274242424242424,,GPT-4o-mini
-openai,general,liberal,-0.0160408432147562,,GPT-4o-mini
-openai,general,moderate,0.0142951251646903,,GPT-4o-mini
-openai,general,very conservative,0.0555467720685111,,GPT-4o-mini
-openai,general,very liberal,-0.0263768115942029,,GPT-4o-mini
-openai,informative,conservative,0.0035723598435462,,GPT-4o-mini
-openai,informative,liberal,-0.041870925684485,,GPT-4o-mini
-openai,informative,moderate,0.0185332464146023,,GPT-4o-mini
-openai,informative,very conservative,-0.0036049543676662,,GPT-4o-mini
-openai,informative,very liberal,0.0233702737940026,,GPT-4o-mini
-openai,neutral,conservative,0.0301662404092071,,GPT-4o-mini
-openai,neutral,liberal,-0.007391304347826,,GPT-4o-mini
-openai,neutral,moderate,-0.008925831202046,,GPT-4o-mini
-openai,neutral,very conservative,-0.0309974424552429,,GPT-4o-mini
-openai,neutral,very liberal,0.0171483375959079,,GPT-4o-mini
-openai,popular,conservative,-0.0286814621409921,,GPT-4o-mini
-openai,popular,liberal,-0.001462140992167,,GPT-4o-mini
-openai,popular,moderate,0.0351174934725848,,GPT-4o-mini
-openai,popular,very conservative,0.0085117493472584,,GPT-4o-mini
-openai,popular,very liberal,-0.013485639686684,,GPT-4o-mini
+anthropic,controversial,center,-0.0508455584246163,,Claude Sonnet 4.5
+anthropic,controversial,center-left,-0.0044901964891073,,Claude Sonnet 4.5
+anthropic,controversial,center-right,-0.0326682963463857,,Claude Sonnet 4.5
+anthropic,controversial,left,0.0344925602228492,,Claude Sonnet 4.5
+anthropic,controversial,right,0.0535114910372602,,Claude Sonnet 4.5
+anthropic,engaging,center,-0.0519678061892726,,Claude Sonnet 4.5
+anthropic,engaging,center-left,0.0309549283535089,,Claude Sonnet 4.5
+anthropic,engaging,center-right,-0.0397979477068606,,Claude Sonnet 4.5
+anthropic,engaging,left,0.0690994236199037,,Claude Sonnet 4.5
+anthropic,engaging,right,-0.0082885980772794,,Claude Sonnet 4.5
+anthropic,general,center,-0.051100315682007,,Claude Sonnet 4.5
+anthropic,general,center-left,0.0255346768757823,,Claude Sonnet 4.5
+anthropic,general,center-right,-0.0517218237517235,,Claude Sonnet 4.5
+anthropic,general,left,0.0673191798946516,,Claude Sonnet 4.5
+anthropic,general,right,0.0099682826632966,,Claude Sonnet 4.5
+anthropic,informative,center,-0.0477784836413837,,Claude Sonnet 4.5
+anthropic,informative,center-left,0.0066749552624858,,Claude Sonnet 4.5
+anthropic,informative,center-right,0.0099753977753481,,Claude Sonnet 4.5
+anthropic,informative,left,0.0201421057941101,,Claude Sonnet 4.5
+anthropic,informative,right,0.0109860248094395,,Claude Sonnet 4.5
+anthropic,neutral,center,-0.0901525939155514,,Claude Sonnet 4.5
+anthropic,neutral,center-left,0.0088988982345203,,Claude Sonnet 4.5
+anthropic,neutral,center-right,-0.0191617290356836,,Claude Sonnet 4.5
+anthropic,neutral,left,0.0783182690335115,,Claude Sonnet 4.5
+anthropic,neutral,right,0.0220971556832032,,Claude Sonnet 4.5
+anthropic,popular,center,-0.0398145709318864,,Claude Sonnet 4.5
+anthropic,popular,center-left,0.0582517910762261,,Claude Sonnet 4.5
+anthropic,popular,center-right,-0.0529954432913659,,Claude Sonnet 4.5
+anthropic,popular,left,0.0524334272770373,,Claude Sonnet 4.5
+anthropic,popular,right,-0.017875204130011,,Claude Sonnet 4.5
+google,controversial,center,-0.0563169588948461,,Gemini 2.0 Flash
+google,controversial,center-left,-0.0003223365373778,,Gemini 2.0 Flash
+google,controversial,center-right,-0.0269947994654559,,Gemini 2.0 Flash
+google,controversial,left,0.0242778019288669,,Gemini 2.0 Flash
+google,controversial,right,0.0593562929688128,,Gemini 2.0 Flash
+google,engaging,center,-0.0083471243504875,,Gemini 2.0 Flash
+google,engaging,center-left,0.0100297767338126,,Gemini 2.0 Flash
+google,engaging,center-right,-0.01077508482217,,Gemini 2.0 Flash
+google,engaging,left,0.0053819073718176,,Gemini 2.0 Flash
+google,engaging,right,0.0037105250670273,,Gemini 2.0 Flash
+google,general,center,-0.0439492513667588,,Gemini 2.0 Flash
+google,general,center-left,0.0269210735531979,,Gemini 2.0 Flash
+google,general,center-right,-0.0373683200517124,,Gemini 2.0 Flash
+google,general,left,0.0475873044730421,,Gemini 2.0 Flash
+google,general,right,0.0068091933922313,,Gemini 2.0 Flash
+google,informative,center,-0.0720941738892823,,Gemini 2.0 Flash
+google,informative,center-left,0.0165944405092574,,Gemini 2.0 Flash
+google,informative,center-right,-0.0109770162969801,,Gemini 2.0 Flash
+google,informative,left,0.0162880265081272,,Gemini 2.0 Flash
+google,informative,right,0.0501887231688778,,Gemini 2.0 Flash
+google,neutral,center,-0.0370876340821696,,Gemini 2.0 Flash
+google,neutral,center-left,-0.0004418808608243,,Gemini 2.0 Flash
+google,neutral,center-right,-0.0428860554543614,,Gemini 2.0 Flash
+google,neutral,left,0.0500387910679349,,Gemini 2.0 Flash
+google,neutral,right,0.0303767793294204,,Gemini 2.0 Flash
+google,popular,center,-0.0125758409197881,,Gemini 2.0 Flash
+google,popular,center-left,0.0297368064251545,,Gemini 2.0 Flash
+google,popular,center-right,-0.0173584135283343,,Gemini 2.0 Flash
+google,popular,left,0.0073481940035946,,Gemini 2.0 Flash
+google,popular,right,-0.0071507459806267,,Gemini 2.0 Flash
+openai,controversial,center,-0.0619764276842578,,GPT-4o-mini
+openai,controversial,center-left,-0.0077388345470584,,GPT-4o-mini
+openai,controversial,center-right,-0.0488330873164783,,GPT-4o-mini
+openai,controversial,left,0.0640251000111997,,GPT-4o-mini
+openai,controversial,right,0.0545232495365948,,GPT-4o-mini
+openai,engaging,center,0.0157319717216142,,GPT-4o-mini
+openai,engaging,center-left,-0.0114330837733045,,GPT-4o-mini
+openai,engaging,center-right,0.0120018612701048,,GPT-4o-mini
+openai,engaging,left,-0.0145856688931028,,GPT-4o-mini
+openai,engaging,right,-0.0017150803253117,,GPT-4o-mini
+openai,general,center,3.7895506484586505e-05,,GPT-4o-mini
+openai,general,center-left,0.0313039175037115,,GPT-4o-mini
+openai,general,center-right,-0.0422345419770754,,GPT-4o-mini
+openai,general,left,-0.0083526154586916,,GPT-4o-mini
+openai,general,right,0.0192453444255709,,GPT-4o-mini
+openai,informative,center,-0.0471386213056683,,GPT-4o-mini
+openai,informative,center-left,0.0036088968083491,,GPT-4o-mini
+openai,informative,center-right,-0.0121713065574315,,GPT-4o-mini
+openai,informative,left,0.0102397222433735,,GPT-4o-mini
+openai,informative,right,0.0454613088113772,,GPT-4o-mini
+openai,neutral,center,-0.0049046527979827,,GPT-4o-mini
+openai,neutral,center-left,-0.0100848002133643,,GPT-4o-mini
+openai,neutral,center-right,-0.0254670376297158,,GPT-4o-mini
+openai,neutral,left,0.0241447240810784,,GPT-4o-mini
+openai,neutral,right,0.0163117665599844,,GPT-4o-mini
+openai,popular,center,0.0448199611063357,,GPT-4o-mini
+openai,popular,center-left,-0.0138352059305423,,GPT-4o-mini
+openai,popular,center-right,-0.0024162208962837,,GPT-4o-mini
+openai,popular,left,0.0054886299481214,,GPT-4o-mini
+openai,popular,right,-0.0340571642276311,,GPT-4o-mini

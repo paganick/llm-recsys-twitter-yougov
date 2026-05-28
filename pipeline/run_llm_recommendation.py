@@ -75,7 +75,7 @@ def load_pool() -> pd.DataFrame:
         print(f"ERROR: Pool file not found at {pool_file}")
         print(f"       Run first:  python prepare_dataset.py --tweets <path> --survey <path>")
         sys.exit(1)
-    df = pd.read_csv(pool_file)
+    df = pd.read_csv(pool_file, engine="python", on_bad_lines="warn")
     print(f"Loaded {len(df):,} posts from {pool_file}")
     return df
 
@@ -279,7 +279,7 @@ def main():
     cond_missing: dict = {}  # key: (style, context_level) → list of missing trial_ids
     if out_csv.exists():
         try:
-            existing = pd.read_csv(out_csv)
+            existing = pd.read_csv(out_csv, engine="python", on_bad_lines="warn")
         except Exception as exc:
             print(f"  WARNING: could not parse {out_csv} ({exc}); starting fresh.")
             existing = None
@@ -392,7 +392,9 @@ def main():
                 result["trial_id"]      = trial_id
 
                 header = not out_csv.exists()
-                result.to_csv(out_csv, mode="a", index=False, header=header)
+                import csv as _csv
+                result.to_csv(out_csv, mode="a", index=False, header=header,
+                              quoting=_csv.QUOTE_ALL)
                 print(f"  Trial {j + 1}/{len(missing_ids)} (id={trial_id}) saved")
 
             print(f"  {len(missing_ids)} trials done for '{style}' / '{context_level}'")

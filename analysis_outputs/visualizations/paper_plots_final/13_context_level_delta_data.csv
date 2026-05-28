@@ -1,568 +1,730 @@
 feature,provider,delta_r2,context_level,feature_display,provider_display,row_label,col_label
-author_age,anthropic,0.0036078678428444156,author,Author: Age,Claude Sonnet 4.5,"Author: Age
+author_age,anthropic,-0.0008975641484837735,author,Author: Age,Claude Sonnet 4.5,"Author: Age
 (Claude)","Author
 metadata"
-author_age,gemini,-0.0008509193360240874,author,Author: Age,Gemini 2.0 Flash,"Author: Age
+author_age,google,-0.0024536443485457028,author,Author: Age,Gemini 2.0 Flash,"Author: Age
 (Gemini)","Author
 metadata"
-author_age,openai,-0.0007841477260034663,author,Author: Age,GPT-4o-mini,"Author: Age
+author_age,openai,9.109710169141923e-05,author,Author: Age,GPT-4o-mini,"Author: Age
 (GPT-4o-mini)","Author
 metadata"
-author_education,anthropic,0.002325517931404869,author,Author: Education,Claude Sonnet 4.5,"Author: Education
+author_education,anthropic,0.0013757127392853225,author,Author: Education,Claude Sonnet 4.5,"Author: Education
 (Claude)","Author
 metadata"
-author_education,gemini,0.0005096624947011016,author,Author: Education,Gemini 2.0 Flash,"Author: Education
+author_education,google,-0.001899122498530697,author,Author: Education,Gemini 2.0 Flash,"Author: Education
 (Gemini)","Author
 metadata"
-author_education,openai,-0.0005631151908215056,author,Author: Education,GPT-4o-mini,"Author: Education
+author_education,openai,-0.0001942719942334898,author,Author: Education,GPT-4o-mini,"Author: Education
 (GPT-4o-mini)","Author
 metadata"
-author_gender,anthropic,-4.885176215333083e-05,author,Author: Gender,Claude Sonnet 4.5,"Author: Gender
+author_gender,anthropic,0.0013081727834542366,author,Author: Gender,Claude Sonnet 4.5,"Author: Gender
 (Claude)","Author
 metadata"
-author_gender,gemini,0.000594370152228004,author,Author: Gender,Gemini 2.0 Flash,"Author: Gender
+author_gender,google,-0.0012138564818548073,author,Author: Gender,Gemini 2.0 Flash,"Author: Gender
 (Gemini)","Author
 metadata"
-author_gender,openai,0.0012976404918869694,author,Author: Gender,GPT-4o-mini,"Author: Gender
+author_gender,openai,0.0001435766968139792,author,Author: Gender,GPT-4o-mini,"Author: Gender
 (GPT-4o-mini)","Author
 metadata"
-author_ideology,anthropic,-0.001918893729691431,author,Author: Ideology,Claude Sonnet 4.5,"Author: Ideology
+author_ideology,anthropic,0.002005109537523004,author,Author: Ideology,Claude Sonnet 4.5,"Author: Ideology
 (Claude)","Author
 metadata"
-author_ideology,gemini,-0.002464256221112343,author,Author: Ideology,Gemini 2.0 Flash,"Author: Ideology
+author_ideology,google,0.0007306430664977687,author,Author: Ideology,Gemini 2.0 Flash,"Author: Ideology
 (Gemini)","Author
 metadata"
-author_ideology,openai,0.006479790333506286,author,Author: Ideology,GPT-4o-mini,"Author: Ideology
+author_ideology,openai,0.00010739910743344646,author,Author: Ideology,GPT-4o-mini,"Author: Ideology
 (GPT-4o-mini)","Author
 metadata"
-author_income,anthropic,0.0015022253106666975,author,Author: Income,Claude Sonnet 4.5,"Author: Income
+author_income,anthropic,9.28047215662765e-05,author,Author: Income,Claude Sonnet 4.5,"Author: Income
 (Claude)","Author
 metadata"
-author_income,gemini,-0.0006602975310404215,author,Author: Income,Gemini 2.0 Flash,"Author: Income
+author_income,google,0.00010058965782882862,author,Author: Income,Gemini 2.0 Flash,"Author: Income
 (Gemini)","Author
 metadata"
-author_income,openai,0.0011288104975665891,author,Author: Income,GPT-4o-mini,"Author: Income
+author_income,openai,-0.00010049396838034109,author,Author: Income,GPT-4o-mini,"Author: Income
 (GPT-4o-mini)","Author
 metadata"
-author_marital_status,anthropic,-0.0007186358049243158,author,Author: Marital Status,Claude Sonnet 4.5,"Author: Marital Status
+author_marital_status,anthropic,0.00010206476125183763,author,Author: Marital Status,Claude Sonnet 4.5,"Author: Marital Status
 (Claude)","Author
 metadata"
-author_marital_status,gemini,-0.0014229160548101772,author,Author: Marital Status,Gemini 2.0 Flash,"Author: Marital Status
+author_marital_status,google,-0.0008104088047893214,author,Author: Marital Status,Gemini 2.0 Flash,"Author: Marital Status
 (Gemini)","Author
 metadata"
-author_marital_status,openai,0.0004491121893804399,author,Author: Marital Status,GPT-4o-mini,"Author: Marital Status
+author_marital_status,openai,-0.0002980009812093424,author,Author: Marital Status,GPT-4o-mini,"Author: Marital Status
 (GPT-4o-mini)","Author
 metadata"
-author_partisanship,anthropic,0.001286936919669126,author,Author: Partisanship,Claude Sonnet 4.5,"Author: Partisanship
+author_partisanship,anthropic,0.00040667337267433993,author,Author: Partisanship,Claude Sonnet 4.5,"Author: Partisanship
 (Claude)","Author
 metadata"
-author_partisanship,gemini,0.0011019107217806608,author,Author: Partisanship,Gemini 2.0 Flash,"Author: Partisanship
+author_partisanship,google,-0.0007164821537490651,author,Author: Partisanship,Gemini 2.0 Flash,"Author: Partisanship
 (Gemini)","Author
 metadata"
-author_partisanship,openai,0.0009162223071562318,author,Author: Partisanship,GPT-4o-mini,"Author: Partisanship
+author_partisanship,openai,-6.761101659214712e-05,author,Author: Partisanship,GPT-4o-mini,"Author: Partisanship
 (GPT-4o-mini)","Author
 metadata"
-author_race,anthropic,-0.001748713039520304,author,Author: Race,Claude Sonnet 4.5,"Author: Race
+author_race,anthropic,-0.00012956249298367879,author,Author: Race,Claude Sonnet 4.5,"Author: Race
 (Claude)","Author
 metadata"
-author_race,gemini,0.000935326460835943,author,Author: Race,Gemini 2.0 Flash,"Author: Race
+author_race,google,-0.0006411956697667893,author,Author: Race,Gemini 2.0 Flash,"Author: Race
 (Gemini)","Author
 metadata"
-author_race,openai,0.0002639324642883115,author,Author: Race,GPT-4o-mini,"Author: Race
+author_race,openai,-0.0005039380184901148,author,Author: Race,GPT-4o-mini,"Author: Race
 (GPT-4o-mini)","Author
 metadata"
-author_religiosity,anthropic,-0.0019558121845601514,author,Author: Religiosity,Claude Sonnet 4.5,"Author: Religiosity
+author_religiosity,anthropic,0.00013362369762804998,author,Author: Religiosity,Claude Sonnet 4.5,"Author: Religiosity
 (Claude)","Author
 metadata"
-author_religiosity,gemini,0.0007335634921484665,author,Author: Religiosity,Gemini 2.0 Flash,"Author: Religiosity
+author_religiosity,google,-0.0007240494383543389,author,Author: Religiosity,Gemini 2.0 Flash,"Author: Religiosity
 (Gemini)","Author
 metadata"
-author_religiosity,openai,-0.0020411374138209573,author,Author: Religiosity,GPT-4o-mini,"Author: Religiosity
+author_religiosity,openai,0.0005304643026115074,author,Author: Religiosity,GPT-4o-mini,"Author: Religiosity
 (GPT-4o-mini)","Author
 metadata"
-favorite_count,anthropic,0.0014838381185839676,author,Post likes,Claude Sonnet 4.5,"Post likes
+avg_word_length,anthropic,-0.006195757210532183,author,Text: Avg Word Length,Claude Sonnet 4.5,"Text: Avg Word Length
 (Claude)","Author
 metadata"
-favorite_count,gemini,0.001125154858986587,author,Post likes,Gemini 2.0 Flash,"Post likes
+avg_word_length,google,-0.0004242834698787029,author,Text: Avg Word Length,Gemini 2.0 Flash,"Text: Avg Word Length
 (Gemini)","Author
 metadata"
-favorite_count,openai,0.0010689931057551148,author,Post likes,GPT-4o-mini,"Post likes
+avg_word_length,openai,-0.0022658098624786234,author,Text: Avg Word Length,GPT-4o-mini,"Text: Avg Word Length
 (GPT-4o-mini)","Author
 metadata"
-polarization_score,anthropic,0.0006817695592193578,author,Content: Polarization Score,Claude Sonnet 4.5,"Content: Polarization Score
+favorite_count,anthropic,0.00287202277917394,author,Post likes,Claude Sonnet 4.5,"Post likes
 (Claude)","Author
 metadata"
-polarization_score,gemini,-0.001717641056206596,author,Content: Polarization Score,Gemini 2.0 Flash,"Content: Polarization Score
+favorite_count,google,0.002927626803424086,author,Post likes,Gemini 2.0 Flash,"Post likes
 (Gemini)","Author
 metadata"
-polarization_score,openai,-0.0002736210629906685,author,Content: Polarization Score,GPT-4o-mini,"Content: Polarization Score
+favorite_count,openai,0.0006542973415656251,author,Post likes,GPT-4o-mini,"Post likes
 (GPT-4o-mini)","Author
 metadata"
-primary_topic,anthropic,-0.002840699690916616,author,Content: Primary Topic,Claude Sonnet 4.5,"Content: Primary Topic
+has_emoji,anthropic,3.562833258228962e-05,author,Style: Has Emoji,Claude Sonnet 4.5,"Style: Has Emoji
 (Claude)","Author
 metadata"
-primary_topic,gemini,-6.371425998427313e-05,author,Content: Primary Topic,Gemini 2.0 Flash,"Content: Primary Topic
+has_emoji,google,-4.7807951928761916e-05,author,Style: Has Emoji,Gemini 2.0 Flash,"Style: Has Emoji
 (Gemini)","Author
 metadata"
-primary_topic,openai,-0.0022739119410859817,author,Content: Primary Topic,GPT-4o-mini,"Content: Primary Topic
+has_emoji,openai,-0.0010238778663677738,author,Style: Has Emoji,GPT-4o-mini,"Style: Has Emoji
 (GPT-4o-mini)","Author
 metadata"
-retweet_count,anthropic,0.0007133243210594549,author,Retweets,Claude Sonnet 4.5,"Retweets
+has_hashtag,anthropic,-0.002798338702870784,author,Style: Has Hashtag,Claude Sonnet 4.5,"Style: Has Hashtag
 (Claude)","Author
 metadata"
-retweet_count,gemini,-0.001753029489368691,author,Retweets,Gemini 2.0 Flash,"Retweets
+has_hashtag,google,0.0005723794118705381,author,Style: Has Hashtag,Gemini 2.0 Flash,"Style: Has Hashtag
 (Gemini)","Author
 metadata"
-retweet_count,openai,-0.000869663315703972,author,Retweets,GPT-4o-mini,"Retweets
+has_hashtag,openai,-0.0009878225781096562,author,Style: Has Hashtag,GPT-4o-mini,"Style: Has Hashtag
 (GPT-4o-mini)","Author
 metadata"
-retweeted,anthropic,0.00043800023558031895,author,Is retweeted,Claude Sonnet 4.5,"Is retweeted
+has_mention,anthropic,-0.009802180917769021,author,Style: Has Mention,Claude Sonnet 4.5,"Style: Has Mention
 (Claude)","Author
 metadata"
-retweeted,gemini,0.0014438322955057843,author,Is retweeted,Gemini 2.0 Flash,"Is retweeted
+has_mention,google,-0.007187725455779118,author,Style: Has Mention,Gemini 2.0 Flash,"Style: Has Mention
 (Gemini)","Author
 metadata"
-retweeted,openai,0.0008017136707865638,author,Is retweeted,GPT-4o-mini,"Is retweeted
+has_mention,openai,-0.006566946181169842,author,Style: Has Mention,GPT-4o-mini,"Style: Has Mention
 (GPT-4o-mini)","Author
 metadata"
-sentiment_polarity,anthropic,-0.001503158445374197,author,Sentiment: Polarity,Claude Sonnet 4.5,"Sentiment: Polarity
+has_url,anthropic,-0.0017936866848144838,author,Style: Has URL,Claude Sonnet 4.5,"Style: Has URL
 (Claude)","Author
 metadata"
-sentiment_polarity,gemini,-0.0015040726682268133,author,Sentiment: Polarity,Gemini 2.0 Flash,"Sentiment: Polarity
+has_url,google,-0.0031497578307819237,author,Style: Has URL,Gemini 2.0 Flash,"Style: Has URL
 (Gemini)","Author
 metadata"
-sentiment_polarity,openai,-0.00116196669932202,author,Sentiment: Polarity,GPT-4o-mini,"Sentiment: Polarity
+has_url,openai,-0.007431618527404321,author,Style: Has URL,GPT-4o-mini,"Style: Has URL
 (GPT-4o-mini)","Author
 metadata"
-sentiment_subjectivity,anthropic,0.0009235881857541518,author,Sentiment: Subjectivity,Claude Sonnet 4.5,"Sentiment: Subjectivity
+polarization_score,anthropic,-0.02773623475419197,author,Content: Polarization Score,Claude Sonnet 4.5,"Content: Polarization Score
 (Claude)","Author
 metadata"
-sentiment_subjectivity,gemini,0.0025930569909607126,author,Sentiment: Subjectivity,Gemini 2.0 Flash,"Sentiment: Subjectivity
+polarization_score,google,-0.04561913213004909,author,Content: Polarization Score,Gemini 2.0 Flash,"Content: Polarization Score
 (Gemini)","Author
 metadata"
-sentiment_subjectivity,openai,-0.0006912690511809514,author,Sentiment: Subjectivity,GPT-4o-mini,"Sentiment: Subjectivity
+polarization_score,openai,0.013410483230291932,author,Content: Polarization Score,GPT-4o-mini,"Content: Polarization Score
 (GPT-4o-mini)","Author
 metadata"
-toxicity,anthropic,-2.3287245738742163e-05,author,Toxicity: Toxicity,Claude Sonnet 4.5,"Toxicity: Toxicity
+primary_topic,anthropic,-0.006818833481835693,author,Content: Primary Topic,Claude Sonnet 4.5,"Content: Primary Topic
 (Claude)","Author
 metadata"
-toxicity,gemini,0.0011054244387579825,author,Toxicity: Toxicity,Gemini 2.0 Flash,"Toxicity: Toxicity
+primary_topic,google,-0.017211204357432567,author,Content: Primary Topic,Gemini 2.0 Flash,"Content: Primary Topic
 (Gemini)","Author
 metadata"
-toxicity,openai,0.0017319134705656445,author,Toxicity: Toxicity,GPT-4o-mini,"Toxicity: Toxicity
+primary_topic,openai,8.846930045506435e-05,author,Content: Primary Topic,GPT-4o-mini,"Content: Primary Topic
 (GPT-4o-mini)","Author
 metadata"
-user_favourites_count,anthropic,0.0006409599643973521,author,Likes given,Claude Sonnet 4.5,"Likes given
+retweet_count,anthropic,0.0006188897958712821,author,Retweets,Claude Sonnet 4.5,"Retweets
 (Claude)","Author
 metadata"
-user_favourites_count,gemini,-0.001175505003436542,author,Likes given,Gemini 2.0 Flash,"Likes given
+retweet_count,google,0.0020795434265391175,author,Retweets,Gemini 2.0 Flash,"Retweets
 (Gemini)","Author
 metadata"
-user_favourites_count,openai,0.000490647566998337,author,Likes given,GPT-4o-mini,"Likes given
+retweet_count,openai,0.0011158821768515708,author,Retweets,GPT-4o-mini,"Retweets
 (GPT-4o-mini)","Author
 metadata"
-user_followers_count,anthropic,-0.0005068127343628721,author,Followers,Claude Sonnet 4.5,"Followers
+retweeted,anthropic,0.0,author,Is retweeted,Claude Sonnet 4.5,"Is retweeted
 (Claude)","Author
 metadata"
-user_followers_count,gemini,0.0007978446008595904,author,Followers,Gemini 2.0 Flash,"Followers
+retweeted,google,0.0,author,Is retweeted,Gemini 2.0 Flash,"Is retweeted
 (Gemini)","Author
 metadata"
-user_followers_count,openai,-0.00044002468434312103,author,Followers,GPT-4o-mini,"Followers
+retweeted,openai,0.0,author,Is retweeted,GPT-4o-mini,"Is retweeted
 (GPT-4o-mini)","Author
 metadata"
-user_friends_count,anthropic,0.0009889338690338317,author,Following,Claude Sonnet 4.5,"Following
+sentiment_polarity,anthropic,-0.010976339953197547,author,Sentiment: Polarity,Claude Sonnet 4.5,"Sentiment: Polarity
 (Claude)","Author
 metadata"
-user_friends_count,gemini,-0.00036959924114443046,author,Following,Gemini 2.0 Flash,"Following
+sentiment_polarity,google,-0.01662005029742533,author,Sentiment: Polarity,Gemini 2.0 Flash,"Sentiment: Polarity
 (Gemini)","Author
 metadata"
-user_friends_count,openai,-0.0005935097612203544,author,Following,GPT-4o-mini,"Following
+sentiment_polarity,openai,0.00010555128989221327,author,Sentiment: Polarity,GPT-4o-mini,"Sentiment: Polarity
 (GPT-4o-mini)","Author
 metadata"
-user_statuses_count,anthropic,-0.0007812616825741904,author,Tweet count,Claude Sonnet 4.5,"Tweet count
+sentiment_subjectivity,anthropic,2.1838884075900747e-05,author,Sentiment: Subjectivity,Claude Sonnet 4.5,"Sentiment: Subjectivity
 (Claude)","Author
 metadata"
-user_statuses_count,gemini,0.000606051347219973,author,Tweet count,Gemini 2.0 Flash,"Tweet count
+sentiment_subjectivity,google,-0.0007171593018357419,author,Sentiment: Subjectivity,Gemini 2.0 Flash,"Sentiment: Subjectivity
 (Gemini)","Author
 metadata"
-user_statuses_count,openai,-0.0028880474491936752,author,Tweet count,GPT-4o-mini,"Tweet count
+sentiment_subjectivity,openai,-0.0026578583510376984,author,Sentiment: Subjectivity,GPT-4o-mini,"Sentiment: Subjectivity
 (GPT-4o-mini)","Author
 metadata"
-author_age,anthropic,-0.00016426877498041184,author_post,Author: Age,Claude Sonnet 4.5,"Author: Age
+text_length,anthropic,-0.011763395632262086,author,Text: Character Length,Claude Sonnet 4.5,"Text: Character Length
+(Claude)","Author
+metadata"
+text_length,google,-0.015544666202429325,author,Text: Character Length,Gemini 2.0 Flash,"Text: Character Length
+(Gemini)","Author
+metadata"
+text_length,openai,0.0019148056827981048,author,Text: Character Length,GPT-4o-mini,"Text: Character Length
+(GPT-4o-mini)","Author
+metadata"
+toxicity,anthropic,-0.008416493745982486,author,Toxicity: Toxicity,Claude Sonnet 4.5,"Toxicity: Toxicity
+(Claude)","Author
+metadata"
+toxicity,google,-0.007718354241899863,author,Toxicity: Toxicity,Gemini 2.0 Flash,"Toxicity: Toxicity
+(Gemini)","Author
+metadata"
+toxicity,openai,-0.0009826466157532906,author,Toxicity: Toxicity,GPT-4o-mini,"Toxicity: Toxicity
+(GPT-4o-mini)","Author
+metadata"
+user_favourites_count,anthropic,-0.00014248216681776683,author,Likes given,Claude Sonnet 4.5,"Likes given
+(Claude)","Author
+metadata"
+user_favourites_count,google,0.005406026511397416,author,Likes given,Gemini 2.0 Flash,"Likes given
+(Gemini)","Author
+metadata"
+user_favourites_count,openai,0.014319072686478048,author,Likes given,GPT-4o-mini,"Likes given
+(GPT-4o-mini)","Author
+metadata"
+user_followers_count,anthropic,-0.001405581914732063,author,Followers,Claude Sonnet 4.5,"Followers
+(Claude)","Author
+metadata"
+user_followers_count,google,0.0063052282188048436,author,Followers,Gemini 2.0 Flash,"Followers
+(Gemini)","Author
+metadata"
+user_followers_count,openai,0.0007146594469338661,author,Followers,GPT-4o-mini,"Followers
+(GPT-4o-mini)","Author
+metadata"
+user_friends_count,anthropic,0.0026257821628298548,author,Following,Claude Sonnet 4.5,"Following
+(Claude)","Author
+metadata"
+user_friends_count,google,0.0019091854369720934,author,Following,Gemini 2.0 Flash,"Following
+(Gemini)","Author
+metadata"
+user_friends_count,openai,0.004088568023383324,author,Following,GPT-4o-mini,"Following
+(GPT-4o-mini)","Author
+metadata"
+user_statuses_count,anthropic,-0.00045940670425702627,author,Tweet count,Claude Sonnet 4.5,"Tweet count
+(Claude)","Author
+metadata"
+user_statuses_count,google,0.001688009203134656,author,Tweet count,Gemini 2.0 Flash,"Tweet count
+(Gemini)","Author
+metadata"
+user_statuses_count,openai,0.00199405212065856,author,Tweet count,GPT-4o-mini,"Tweet count
+(GPT-4o-mini)","Author
+metadata"
+author_age,anthropic,0.0006157095835701782,author_post,Author: Age,Claude Sonnet 4.5,"Author: Age
 (Claude)","Author+Post
 metadata"
-author_age,gemini,-0.001992774284466605,author_post,Author: Age,Gemini 2.0 Flash,"Author: Age
+author_age,google,-0.0013938850400472213,author_post,Author: Age,Gemini 2.0 Flash,"Author: Age
 (Gemini)","Author+Post
 metadata"
-author_age,openai,-0.0005777199706425368,author_post,Author: Age,GPT-4o-mini,"Author: Age
+author_age,openai,0.00013577215930228505,author_post,Author: Age,GPT-4o-mini,"Author: Age
 (GPT-4o-mini)","Author+Post
 metadata"
-author_education,anthropic,-8.215137609032645e-05,author_post,Author: Education,Claude Sonnet 4.5,"Author: Education
+author_education,anthropic,0.0038257154646476107,author_post,Author: Education,Claude Sonnet 4.5,"Author: Education
 (Claude)","Author+Post
 metadata"
-author_education,gemini,0.0004255539749946785,author_post,Author: Education,Gemini 2.0 Flash,"Author: Education
+author_education,google,-0.0012621260619423062,author_post,Author: Education,Gemini 2.0 Flash,"Author: Education
 (Gemini)","Author+Post
 metadata"
-author_education,openai,-0.0021851765089787385,author_post,Author: Education,GPT-4o-mini,"Author: Education
+author_education,openai,0.0005510342527145413,author_post,Author: Education,GPT-4o-mini,"Author: Education
 (GPT-4o-mini)","Author+Post
 metadata"
-author_gender,anthropic,-0.0008765995227679999,author_post,Author: Gender,Claude Sonnet 4.5,"Author: Gender
+author_gender,anthropic,0.0022217237657415514,author_post,Author: Gender,Claude Sonnet 4.5,"Author: Gender
 (Claude)","Author+Post
 metadata"
-author_gender,gemini,-7.632367182924663e-05,author_post,Author: Gender,Gemini 2.0 Flash,"Author: Gender
+author_gender,google,-0.0003773491850458028,author_post,Author: Gender,Gemini 2.0 Flash,"Author: Gender
 (Gemini)","Author+Post
 metadata"
-author_gender,openai,0.002187631520213236,author_post,Author: Gender,GPT-4o-mini,"Author: Gender
+author_gender,openai,9.209620581313808e-05,author_post,Author: Gender,GPT-4o-mini,"Author: Gender
 (GPT-4o-mini)","Author+Post
 metadata"
-author_ideology,anthropic,-0.0008319598051191373,author_post,Author: Ideology,Claude Sonnet 4.5,"Author: Ideology
+author_ideology,anthropic,0.004323430082212562,author_post,Author: Ideology,Claude Sonnet 4.5,"Author: Ideology
 (Claude)","Author+Post
 metadata"
-author_ideology,gemini,0.00028738413796233157,author_post,Author: Ideology,Gemini 2.0 Flash,"Author: Ideology
+author_ideology,google,0.0016053105321522077,author_post,Author: Ideology,Gemini 2.0 Flash,"Author: Ideology
 (Gemini)","Author+Post
 metadata"
-author_ideology,openai,9.293862620353465e-05,author_post,Author: Ideology,GPT-4o-mini,"Author: Ideology
+author_ideology,openai,0.004447213303635809,author_post,Author: Ideology,GPT-4o-mini,"Author: Ideology
 (GPT-4o-mini)","Author+Post
 metadata"
-author_income,anthropic,0.0009440253485447888,author_post,Author: Income,Claude Sonnet 4.5,"Author: Income
+author_income,anthropic,-3.638050529877583e-05,author_post,Author: Income,Claude Sonnet 4.5,"Author: Income
 (Claude)","Author+Post
 metadata"
-author_income,gemini,-6.533277894433826e-05,author_post,Author: Income,Gemini 2.0 Flash,"Author: Income
+author_income,google,-0.0008932372228895059,author_post,Author: Income,Gemini 2.0 Flash,"Author: Income
 (Gemini)","Author+Post
 metadata"
-author_income,openai,-6.279385437877021e-05,author_post,Author: Income,GPT-4o-mini,"Author: Income
+author_income,openai,0.0004056529498699178,author_post,Author: Income,GPT-4o-mini,"Author: Income
 (GPT-4o-mini)","Author+Post
 metadata"
-author_marital_status,anthropic,-0.0006472495172396881,author_post,Author: Marital Status,Claude Sonnet 4.5,"Author: Marital Status
+author_marital_status,anthropic,0.0007386363686996853,author_post,Author: Marital Status,Claude Sonnet 4.5,"Author: Marital Status
 (Claude)","Author+Post
 metadata"
-author_marital_status,gemini,-0.000837991461564468,author_post,Author: Marital Status,Gemini 2.0 Flash,"Author: Marital Status
+author_marital_status,google,-0.0005581037990818093,author_post,Author: Marital Status,Gemini 2.0 Flash,"Author: Marital Status
 (Gemini)","Author+Post
 metadata"
-author_marital_status,openai,-0.000521359910466262,author_post,Author: Marital Status,GPT-4o-mini,"Author: Marital Status
+author_marital_status,openai,0.0003203235496902126,author_post,Author: Marital Status,GPT-4o-mini,"Author: Marital Status
 (GPT-4o-mini)","Author+Post
 metadata"
-author_partisanship,anthropic,0.0003687395076747218,author_post,Author: Partisanship,Claude Sonnet 4.5,"Author: Partisanship
+author_partisanship,anthropic,-3.910153494185442e-07,author_post,Author: Partisanship,Claude Sonnet 4.5,"Author: Partisanship
 (Claude)","Author+Post
 metadata"
-author_partisanship,gemini,0.00038230092080790553,author_post,Author: Partisanship,Gemini 2.0 Flash,"Author: Partisanship
+author_partisanship,google,-0.0010116622815800557,author_post,Author: Partisanship,Gemini 2.0 Flash,"Author: Partisanship
 (Gemini)","Author+Post
 metadata"
-author_partisanship,openai,0.0018475687778870503,author_post,Author: Partisanship,GPT-4o-mini,"Author: Partisanship
+author_partisanship,openai,0.0009282357482898083,author_post,Author: Partisanship,GPT-4o-mini,"Author: Partisanship
 (GPT-4o-mini)","Author+Post
 metadata"
-author_race,anthropic,-0.0016059641729305849,author_post,Author: Race,Claude Sonnet 4.5,"Author: Race
+author_race,anthropic,0.0004606202225079536,author_post,Author: Race,Claude Sonnet 4.5,"Author: Race
 (Claude)","Author+Post
 metadata"
-author_race,gemini,0.0015869786742212012,author_post,Author: Race,Gemini 2.0 Flash,"Author: Race
+author_race,google,0.0006066341701683317,author_post,Author: Race,Gemini 2.0 Flash,"Author: Race
 (Gemini)","Author+Post
 metadata"
-author_race,openai,-0.0018049473920407045,author_post,Author: Race,GPT-4o-mini,"Author: Race
+author_race,openai,-9.346036893209024e-05,author_post,Author: Race,GPT-4o-mini,"Author: Race
 (GPT-4o-mini)","Author+Post
 metadata"
-author_religiosity,anthropic,-0.0017037493223803482,author_post,Author: Religiosity,Claude Sonnet 4.5,"Author: Religiosity
+author_religiosity,anthropic,-0.0003339887673271761,author_post,Author: Religiosity,Claude Sonnet 4.5,"Author: Religiosity
 (Claude)","Author+Post
 metadata"
-author_religiosity,gemini,0.0016193897549831473,author_post,Author: Religiosity,Gemini 2.0 Flash,"Author: Religiosity
+author_religiosity,google,-0.0005446831729987921,author_post,Author: Religiosity,Gemini 2.0 Flash,"Author: Religiosity
 (Gemini)","Author+Post
 metadata"
-author_religiosity,openai,0.0002841739259887184,author_post,Author: Religiosity,GPT-4o-mini,"Author: Religiosity
+author_religiosity,openai,0.00023376121911881703,author_post,Author: Religiosity,GPT-4o-mini,"Author: Religiosity
 (GPT-4o-mini)","Author+Post
 metadata"
-favorite_count,anthropic,0.001026000895819937,author_post,Post likes,Claude Sonnet 4.5,"Post likes
+avg_word_length,anthropic,-0.00454473344302922,author_post,Text: Avg Word Length,Claude Sonnet 4.5,"Text: Avg Word Length
 (Claude)","Author+Post
 metadata"
-favorite_count,gemini,0.002335752357740426,author_post,Post likes,Gemini 2.0 Flash,"Post likes
+avg_word_length,google,-0.0031967080967621716,author_post,Text: Avg Word Length,Gemini 2.0 Flash,"Text: Avg Word Length
 (Gemini)","Author+Post
 metadata"
-favorite_count,openai,-0.0011312464151842338,author_post,Post likes,GPT-4o-mini,"Post likes
+avg_word_length,openai,0.0008480318885939206,author_post,Text: Avg Word Length,GPT-4o-mini,"Text: Avg Word Length
 (GPT-4o-mini)","Author+Post
 metadata"
-polarization_score,anthropic,0.0012314043343795216,author_post,Content: Polarization Score,Claude Sonnet 4.5,"Content: Polarization Score
+favorite_count,anthropic,0.012221048439381928,author_post,Post likes,Claude Sonnet 4.5,"Post likes
 (Claude)","Author+Post
 metadata"
-polarization_score,gemini,-0.0024196702275005493,author_post,Content: Polarization Score,Gemini 2.0 Flash,"Content: Polarization Score
+favorite_count,google,0.008233836779330482,author_post,Post likes,Gemini 2.0 Flash,"Post likes
 (Gemini)","Author+Post
 metadata"
-polarization_score,openai,0.0006850610388655809,author_post,Content: Polarization Score,GPT-4o-mini,"Content: Polarization Score
+favorite_count,openai,0.004908166019087964,author_post,Post likes,GPT-4o-mini,"Post likes
 (GPT-4o-mini)","Author+Post
 metadata"
-primary_topic,anthropic,-0.004192688582546015,author_post,Content: Primary Topic,Claude Sonnet 4.5,"Content: Primary Topic
+has_emoji,anthropic,-7.062519100014923e-05,author_post,Style: Has Emoji,Claude Sonnet 4.5,"Style: Has Emoji
 (Claude)","Author+Post
 metadata"
-primary_topic,gemini,0.0035356264148659524,author_post,Content: Primary Topic,Gemini 2.0 Flash,"Content: Primary Topic
+has_emoji,google,-0.0008639220686184109,author_post,Style: Has Emoji,Gemini 2.0 Flash,"Style: Has Emoji
 (Gemini)","Author+Post
 metadata"
-primary_topic,openai,-0.002069117113711244,author_post,Content: Primary Topic,GPT-4o-mini,"Content: Primary Topic
+has_emoji,openai,0.0013822910695109214,author_post,Style: Has Emoji,GPT-4o-mini,"Style: Has Emoji
 (GPT-4o-mini)","Author+Post
 metadata"
-retweet_count,anthropic,0.0006235746844043955,author_post,Retweets,Claude Sonnet 4.5,"Retweets
+has_hashtag,anthropic,-0.004195098279344115,author_post,Style: Has Hashtag,Claude Sonnet 4.5,"Style: Has Hashtag
 (Claude)","Author+Post
 metadata"
-retweet_count,gemini,-0.0007564651970328831,author_post,Retweets,Gemini 2.0 Flash,"Retweets
+has_hashtag,google,-0.0010421404027607336,author_post,Style: Has Hashtag,Gemini 2.0 Flash,"Style: Has Hashtag
 (Gemini)","Author+Post
 metadata"
-retweet_count,openai,0.0003925339827030201,author_post,Retweets,GPT-4o-mini,"Retweets
+has_hashtag,openai,-0.001718625102507988,author_post,Style: Has Hashtag,GPT-4o-mini,"Style: Has Hashtag
 (GPT-4o-mini)","Author+Post
 metadata"
-retweeted,anthropic,-0.0013358556647932699,author_post,Is retweeted,Claude Sonnet 4.5,"Is retweeted
+has_mention,anthropic,-0.007412647341464879,author_post,Style: Has Mention,Claude Sonnet 4.5,"Style: Has Mention
 (Claude)","Author+Post
 metadata"
-retweeted,gemini,0.00029612165818716785,author_post,Is retweeted,Gemini 2.0 Flash,"Is retweeted
+has_mention,google,-0.00906260630499545,author_post,Style: Has Mention,Gemini 2.0 Flash,"Style: Has Mention
 (Gemini)","Author+Post
 metadata"
-retweeted,openai,0.00031688975211816104,author_post,Is retweeted,GPT-4o-mini,"Is retweeted
+has_mention,openai,0.0007188316424525665,author_post,Style: Has Mention,GPT-4o-mini,"Style: Has Mention
 (GPT-4o-mini)","Author+Post
 metadata"
-sentiment_polarity,anthropic,-0.001100717211171922,author_post,Sentiment: Polarity,Claude Sonnet 4.5,"Sentiment: Polarity
+has_url,anthropic,-0.004960906840035826,author_post,Style: Has URL,Claude Sonnet 4.5,"Style: Has URL
 (Claude)","Author+Post
 metadata"
-sentiment_polarity,gemini,-0.0011221851010326893,author_post,Sentiment: Polarity,Gemini 2.0 Flash,"Sentiment: Polarity
+has_url,google,-0.006725118674234998,author_post,Style: Has URL,Gemini 2.0 Flash,"Style: Has URL
 (Gemini)","Author+Post
 metadata"
-sentiment_polarity,openai,0.0006887068851441271,author_post,Sentiment: Polarity,GPT-4o-mini,"Sentiment: Polarity
+has_url,openai,-0.007955819015321712,author_post,Style: Has URL,GPT-4o-mini,"Style: Has URL
 (GPT-4o-mini)","Author+Post
 metadata"
-sentiment_subjectivity,anthropic,0.0017294667804294212,author_post,Sentiment: Subjectivity,Claude Sonnet 4.5,"Sentiment: Subjectivity
+polarization_score,anthropic,-0.035748579190912566,author_post,Content: Polarization Score,Claude Sonnet 4.5,"Content: Polarization Score
 (Claude)","Author+Post
 metadata"
-sentiment_subjectivity,gemini,-0.0007373526290189736,author_post,Sentiment: Subjectivity,Gemini 2.0 Flash,"Sentiment: Subjectivity
+polarization_score,google,-0.041947136019949705,author_post,Content: Polarization Score,Gemini 2.0 Flash,"Content: Polarization Score
 (Gemini)","Author+Post
 metadata"
-sentiment_subjectivity,openai,0.001111412927693204,author_post,Sentiment: Subjectivity,GPT-4o-mini,"Sentiment: Subjectivity
+polarization_score,openai,0.028323923700574606,author_post,Content: Polarization Score,GPT-4o-mini,"Content: Polarization Score
 (GPT-4o-mini)","Author+Post
 metadata"
-toxicity,anthropic,-0.0016036273966719386,author_post,Toxicity: Toxicity,Claude Sonnet 4.5,"Toxicity: Toxicity
+primary_topic,anthropic,-0.007603935076989317,author_post,Content: Primary Topic,Claude Sonnet 4.5,"Content: Primary Topic
 (Claude)","Author+Post
 metadata"
-toxicity,gemini,0.0006974828093585371,author_post,Toxicity: Toxicity,Gemini 2.0 Flash,"Toxicity: Toxicity
+primary_topic,google,-0.01665263456000717,author_post,Content: Primary Topic,Gemini 2.0 Flash,"Content: Primary Topic
 (Gemini)","Author+Post
 metadata"
-toxicity,openai,-8.552959476536412e-05,author_post,Toxicity: Toxicity,GPT-4o-mini,"Toxicity: Toxicity
+primary_topic,openai,0.0056011027061381065,author_post,Content: Primary Topic,GPT-4o-mini,"Content: Primary Topic
 (GPT-4o-mini)","Author+Post
 metadata"
-user_favourites_count,anthropic,-0.0004890287926356754,author_post,Likes given,Claude Sonnet 4.5,"Likes given
+retweet_count,anthropic,0.008056139638982197,author_post,Retweets,Claude Sonnet 4.5,"Retweets
 (Claude)","Author+Post
 metadata"
-user_favourites_count,gemini,-6.8893114318387e-05,author_post,Likes given,Gemini 2.0 Flash,"Likes given
+retweet_count,google,0.006309396650072955,author_post,Retweets,Gemini 2.0 Flash,"Retweets
 (Gemini)","Author+Post
 metadata"
-user_favourites_count,openai,-0.0003320466882575369,author_post,Likes given,GPT-4o-mini,"Likes given
+retweet_count,openai,0.0038951951090270913,author_post,Retweets,GPT-4o-mini,"Retweets
 (GPT-4o-mini)","Author+Post
 metadata"
-user_followers_count,anthropic,-0.0016627853121900064,author_post,Followers,Claude Sonnet 4.5,"Followers
+retweeted,anthropic,0.0,author_post,Is retweeted,Claude Sonnet 4.5,"Is retweeted
 (Claude)","Author+Post
 metadata"
-user_followers_count,gemini,-0.0006924044590874943,author_post,Followers,Gemini 2.0 Flash,"Followers
+retweeted,google,0.0,author_post,Is retweeted,Gemini 2.0 Flash,"Is retweeted
 (Gemini)","Author+Post
 metadata"
-user_followers_count,openai,-2.46007187320364e-05,author_post,Followers,GPT-4o-mini,"Followers
+retweeted,openai,0.0,author_post,Is retweeted,GPT-4o-mini,"Is retweeted
 (GPT-4o-mini)","Author+Post
 metadata"
-user_friends_count,anthropic,0.0006127672156252907,author_post,Following,Claude Sonnet 4.5,"Following
+sentiment_polarity,anthropic,-0.015310406087586926,author_post,Sentiment: Polarity,Claude Sonnet 4.5,"Sentiment: Polarity
 (Claude)","Author+Post
 metadata"
-user_friends_count,gemini,-0.0005873798754704014,author_post,Following,Gemini 2.0 Flash,"Following
+sentiment_polarity,google,-0.011807221414881993,author_post,Sentiment: Polarity,Gemini 2.0 Flash,"Sentiment: Polarity
 (Gemini)","Author+Post
 metadata"
-user_friends_count,openai,0.0006424118963668469,author_post,Following,GPT-4o-mini,"Following
+sentiment_polarity,openai,0.002166856499612537,author_post,Sentiment: Polarity,GPT-4o-mini,"Sentiment: Polarity
 (GPT-4o-mini)","Author+Post
 metadata"
-user_statuses_count,anthropic,-0.00035039776793183565,author_post,Tweet count,Claude Sonnet 4.5,"Tweet count
+sentiment_subjectivity,anthropic,-0.0006459225405992146,author_post,Sentiment: Subjectivity,Claude Sonnet 4.5,"Sentiment: Subjectivity
 (Claude)","Author+Post
 metadata"
-user_statuses_count,gemini,0.0013897379581015393,author_post,Tweet count,Gemini 2.0 Flash,"Tweet count
+sentiment_subjectivity,google,-0.0014700946905047837,author_post,Sentiment: Subjectivity,Gemini 2.0 Flash,"Sentiment: Subjectivity
 (Gemini)","Author+Post
 metadata"
-user_statuses_count,openai,-0.0026268544614034524,author_post,Tweet count,GPT-4o-mini,"Tweet count
+sentiment_subjectivity,openai,-0.0019260046326633642,author_post,Sentiment: Subjectivity,GPT-4o-mini,"Sentiment: Subjectivity
 (GPT-4o-mini)","Author+Post
 metadata"
-author_age,anthropic,0.0001375564145757284,post,Author: Age,Claude Sonnet 4.5,"Author: Age
+text_length,anthropic,-0.006912484850588617,author_post,Text: Character Length,Claude Sonnet 4.5,"Text: Character Length
+(Claude)","Author+Post
+metadata"
+text_length,google,-0.008918940187075113,author_post,Text: Character Length,Gemini 2.0 Flash,"Text: Character Length
+(Gemini)","Author+Post
+metadata"
+text_length,openai,0.017349969317114255,author_post,Text: Character Length,GPT-4o-mini,"Text: Character Length
+(GPT-4o-mini)","Author+Post
+metadata"
+toxicity,anthropic,-0.009026603013186833,author_post,Toxicity: Toxicity,Claude Sonnet 4.5,"Toxicity: Toxicity
+(Claude)","Author+Post
+metadata"
+toxicity,google,-0.0023924444670148613,author_post,Toxicity: Toxicity,Gemini 2.0 Flash,"Toxicity: Toxicity
+(Gemini)","Author+Post
+metadata"
+toxicity,openai,0.002297450665290152,author_post,Toxicity: Toxicity,GPT-4o-mini,"Toxicity: Toxicity
+(GPT-4o-mini)","Author+Post
+metadata"
+user_favourites_count,anthropic,0.00018490447368192404,author_post,Likes given,Claude Sonnet 4.5,"Likes given
+(Claude)","Author+Post
+metadata"
+user_favourites_count,google,0.005008695911537887,author_post,Likes given,Gemini 2.0 Flash,"Likes given
+(Gemini)","Author+Post
+metadata"
+user_favourites_count,openai,0.024517423996652087,author_post,Likes given,GPT-4o-mini,"Likes given
+(GPT-4o-mini)","Author+Post
+metadata"
+user_followers_count,anthropic,0.0018865157375042964,author_post,Followers,Claude Sonnet 4.5,"Followers
+(Claude)","Author+Post
+metadata"
+user_followers_count,google,0.011041688198952505,author_post,Followers,Gemini 2.0 Flash,"Followers
+(Gemini)","Author+Post
+metadata"
+user_followers_count,openai,0.0008488513600644915,author_post,Followers,GPT-4o-mini,"Followers
+(GPT-4o-mini)","Author+Post
+metadata"
+user_friends_count,anthropic,0.008626645328916634,author_post,Following,Claude Sonnet 4.5,"Following
+(Claude)","Author+Post
+metadata"
+user_friends_count,google,0.011526464089471607,author_post,Following,Gemini 2.0 Flash,"Following
+(Gemini)","Author+Post
+metadata"
+user_friends_count,openai,0.01770647690825287,author_post,Following,GPT-4o-mini,"Following
+(GPT-4o-mini)","Author+Post
+metadata"
+user_statuses_count,anthropic,0.0016248793462334552,author_post,Tweet count,Claude Sonnet 4.5,"Tweet count
+(Claude)","Author+Post
+metadata"
+user_statuses_count,google,0.003444827189156713,author_post,Tweet count,Gemini 2.0 Flash,"Tweet count
+(Gemini)","Author+Post
+metadata"
+user_statuses_count,openai,0.0052650252077186994,author_post,Tweet count,GPT-4o-mini,"Tweet count
+(GPT-4o-mini)","Author+Post
+metadata"
+author_age,anthropic,0.0010038306365855272,post,Author: Age,Claude Sonnet 4.5,"Author: Age
 (Claude)","Post
 metadata"
-author_age,gemini,-0.0028142100725630963,post,Author: Age,Gemini 2.0 Flash,"Author: Age
+author_age,google,-8.853053084618544e-05,post,Author: Age,Gemini 2.0 Flash,"Author: Age
 (Gemini)","Post
 metadata"
-author_age,openai,-0.0008876490981687499,post,Author: Age,GPT-4o-mini,"Author: Age
+author_age,openai,0.0010431230805486094,post,Author: Age,GPT-4o-mini,"Author: Age
 (GPT-4o-mini)","Post
 metadata"
-author_education,anthropic,0.0015670965366934922,post,Author: Education,Claude Sonnet 4.5,"Author: Education
+author_education,anthropic,0.0007316331763415002,post,Author: Education,Claude Sonnet 4.5,"Author: Education
 (Claude)","Post
 metadata"
-author_education,gemini,-0.00023277091870086493,post,Author: Education,Gemini 2.0 Flash,"Author: Education
+author_education,google,-0.0012974506428658295,post,Author: Education,Gemini 2.0 Flash,"Author: Education
 (Gemini)","Post
 metadata"
-author_education,openai,-0.0004398023385212913,post,Author: Education,GPT-4o-mini,"Author: Education
+author_education,openai,0.0007699360654378046,post,Author: Education,GPT-4o-mini,"Author: Education
 (GPT-4o-mini)","Post
 metadata"
-author_gender,anthropic,0.0007069898709759293,post,Author: Gender,Claude Sonnet 4.5,"Author: Gender
+author_gender,anthropic,-0.00016577967945485784,post,Author: Gender,Claude Sonnet 4.5,"Author: Gender
 (Claude)","Post
 metadata"
-author_gender,gemini,0.00019610658928864472,post,Author: Gender,Gemini 2.0 Flash,"Author: Gender
+author_gender,google,-0.001097819361276433,post,Author: Gender,Gemini 2.0 Flash,"Author: Gender
 (Gemini)","Post
 metadata"
-author_gender,openai,0.00043302701104231235,post,Author: Gender,GPT-4o-mini,"Author: Gender
+author_gender,openai,0.0006190447947346596,post,Author: Gender,GPT-4o-mini,"Author: Gender
 (GPT-4o-mini)","Post
 metadata"
-author_ideology,anthropic,-0.0007697761200389005,post,Author: Ideology,Claude Sonnet 4.5,"Author: Ideology
+author_ideology,anthropic,0.002137504331846814,post,Author: Ideology,Claude Sonnet 4.5,"Author: Ideology
 (Claude)","Post
 metadata"
-author_ideology,gemini,-0.002275616356323104,post,Author: Ideology,Gemini 2.0 Flash,"Author: Ideology
+author_ideology,google,0.001490494764136659,post,Author: Ideology,Gemini 2.0 Flash,"Author: Ideology
 (Gemini)","Post
 metadata"
-author_ideology,openai,0.0015891727193500732,post,Author: Ideology,GPT-4o-mini,"Author: Ideology
+author_ideology,openai,0.00011310058038034154,post,Author: Ideology,GPT-4o-mini,"Author: Ideology
 (GPT-4o-mini)","Post
 metadata"
-author_income,anthropic,-0.0009723434999199814,post,Author: Income,Claude Sonnet 4.5,"Author: Income
+author_income,anthropic,-0.0005244124589402215,post,Author: Income,Claude Sonnet 4.5,"Author: Income
 (Claude)","Post
 metadata"
-author_income,gemini,0.0007071115334641373,post,Author: Income,Gemini 2.0 Flash,"Author: Income
+author_income,google,5.076517260918642e-05,post,Author: Income,Gemini 2.0 Flash,"Author: Income
 (Gemini)","Post
 metadata"
-author_income,openai,0.0005334514077819492,post,Author: Income,GPT-4o-mini,"Author: Income
+author_income,openai,0.0005071774967098644,post,Author: Income,GPT-4o-mini,"Author: Income
 (GPT-4o-mini)","Post
 metadata"
-author_marital_status,anthropic,3.543355860503514e-05,post,Author: Marital Status,Claude Sonnet 4.5,"Author: Marital Status
+author_marital_status,anthropic,0.001294190413842206,post,Author: Marital Status,Claude Sonnet 4.5,"Author: Marital Status
 (Claude)","Post
 metadata"
-author_marital_status,gemini,0.0005392372923321747,post,Author: Marital Status,Gemini 2.0 Flash,"Author: Marital Status
+author_marital_status,google,0.0003432079522903324,post,Author: Marital Status,Gemini 2.0 Flash,"Author: Marital Status
 (Gemini)","Post
 metadata"
-author_marital_status,openai,0.0003312363880051878,post,Author: Marital Status,GPT-4o-mini,"Author: Marital Status
+author_marital_status,openai,2.4819730153709555e-05,post,Author: Marital Status,GPT-4o-mini,"Author: Marital Status
 (GPT-4o-mini)","Post
 metadata"
-author_partisanship,anthropic,0.000981756234301769,post,Author: Partisanship,Claude Sonnet 4.5,"Author: Partisanship
+author_partisanship,anthropic,-0.0004671591845716145,post,Author: Partisanship,Claude Sonnet 4.5,"Author: Partisanship
 (Claude)","Post
 metadata"
-author_partisanship,gemini,0.0013165997348915288,post,Author: Partisanship,Gemini 2.0 Flash,"Author: Partisanship
+author_partisanship,google,-0.0008865590301786207,post,Author: Partisanship,Gemini 2.0 Flash,"Author: Partisanship
 (Gemini)","Post
 metadata"
-author_partisanship,openai,0.0001655104697376223,post,Author: Partisanship,GPT-4o-mini,"Author: Partisanship
+author_partisanship,openai,-0.00029637757149416776,post,Author: Partisanship,GPT-4o-mini,"Author: Partisanship
 (GPT-4o-mini)","Post
 metadata"
-author_race,anthropic,-0.002687587409852054,post,Author: Race,Claude Sonnet 4.5,"Author: Race
+author_race,anthropic,0.00140767397779804,post,Author: Race,Claude Sonnet 4.5,"Author: Race
 (Claude)","Post
 metadata"
-author_race,gemini,0.002654845752562077,post,Author: Race,Gemini 2.0 Flash,"Author: Race
+author_race,google,0.0010984809782871728,post,Author: Race,Gemini 2.0 Flash,"Author: Race
 (Gemini)","Post
 metadata"
-author_race,openai,-0.0025226452264006283,post,Author: Race,GPT-4o-mini,"Author: Race
+author_race,openai,0.0006031532810837573,post,Author: Race,GPT-4o-mini,"Author: Race
 (GPT-4o-mini)","Post
 metadata"
-author_religiosity,anthropic,0.0007176083869123626,post,Author: Religiosity,Claude Sonnet 4.5,"Author: Religiosity
+author_religiosity,anthropic,-0.0007404099851741839,post,Author: Religiosity,Claude Sonnet 4.5,"Author: Religiosity
 (Claude)","Post
 metadata"
-author_religiosity,gemini,0.0003685035943634483,post,Author: Religiosity,Gemini 2.0 Flash,"Author: Religiosity
+author_religiosity,google,-0.000627998831928456,post,Author: Religiosity,Gemini 2.0 Flash,"Author: Religiosity
 (Gemini)","Post
 metadata"
-author_religiosity,openai,-2.159553016647768e-05,post,Author: Religiosity,GPT-4o-mini,"Author: Religiosity
+author_religiosity,openai,-9.979504365723794e-06,post,Author: Religiosity,GPT-4o-mini,"Author: Religiosity
 (GPT-4o-mini)","Post
 metadata"
-favorite_count,anthropic,0.0006697451673041074,post,Post likes,Claude Sonnet 4.5,"Post likes
+avg_word_length,anthropic,-0.0029082787131024766,post,Text: Avg Word Length,Claude Sonnet 4.5,"Text: Avg Word Length
 (Claude)","Post
 metadata"
-favorite_count,gemini,0.000658750799532374,post,Post likes,Gemini 2.0 Flash,"Post likes
+avg_word_length,google,-6.145797250725615e-05,post,Text: Avg Word Length,Gemini 2.0 Flash,"Text: Avg Word Length
 (Gemini)","Post
 metadata"
-favorite_count,openai,-0.0009313917164056312,post,Post likes,GPT-4o-mini,"Post likes
+avg_word_length,openai,0.002278859485242369,post,Text: Avg Word Length,GPT-4o-mini,"Text: Avg Word Length
 (GPT-4o-mini)","Post
 metadata"
-polarization_score,anthropic,0.0027804720960754605,post,Content: Polarization Score,Claude Sonnet 4.5,"Content: Polarization Score
+favorite_count,anthropic,0.01564840220953388,post,Post likes,Claude Sonnet 4.5,"Post likes
 (Claude)","Post
 metadata"
-polarization_score,gemini,-0.002411517253096861,post,Content: Polarization Score,Gemini 2.0 Flash,"Content: Polarization Score
+favorite_count,google,0.009586343491542094,post,Post likes,Gemini 2.0 Flash,"Post likes
 (Gemini)","Post
 metadata"
-polarization_score,openai,-0.0005522304063160064,post,Content: Polarization Score,GPT-4o-mini,"Content: Polarization Score
+favorite_count,openai,0.009824903113702606,post,Post likes,GPT-4o-mini,"Post likes
 (GPT-4o-mini)","Post
 metadata"
-primary_topic,anthropic,0.0011857777630879113,post,Content: Primary Topic,Claude Sonnet 4.5,"Content: Primary Topic
+has_emoji,anthropic,-0.0010059530566371047,post,Style: Has Emoji,Claude Sonnet 4.5,"Style: Has Emoji
 (Claude)","Post
 metadata"
-primary_topic,gemini,0.0022143856620574897,post,Content: Primary Topic,Gemini 2.0 Flash,"Content: Primary Topic
+has_emoji,google,-0.0004020586084579657,post,Style: Has Emoji,Gemini 2.0 Flash,"Style: Has Emoji
 (Gemini)","Post
 metadata"
-primary_topic,openai,-0.003604946634546238,post,Content: Primary Topic,GPT-4o-mini,"Content: Primary Topic
+has_emoji,openai,0.0006062446342534583,post,Style: Has Emoji,GPT-4o-mini,"Style: Has Emoji
 (GPT-4o-mini)","Post
 metadata"
-retweet_count,anthropic,0.0004411656062107709,post,Retweets,Claude Sonnet 4.5,"Retweets
+has_hashtag,anthropic,-0.0026340975486251637,post,Style: Has Hashtag,Claude Sonnet 4.5,"Style: Has Hashtag
 (Claude)","Post
 metadata"
-retweet_count,gemini,-0.0009535360166523438,post,Retweets,Gemini 2.0 Flash,"Retweets
+has_hashtag,google,-0.0007475166987146458,post,Style: Has Hashtag,Gemini 2.0 Flash,"Style: Has Hashtag
 (Gemini)","Post
 metadata"
-retweet_count,openai,-0.0006883723871579459,post,Retweets,GPT-4o-mini,"Retweets
+has_hashtag,openai,2.8218677466013403e-05,post,Style: Has Hashtag,GPT-4o-mini,"Style: Has Hashtag
 (GPT-4o-mini)","Post
 metadata"
-retweeted,anthropic,-0.00023367264235689932,post,Is retweeted,Claude Sonnet 4.5,"Is retweeted
+has_mention,anthropic,-0.011958555546098891,post,Style: Has Mention,Claude Sonnet 4.5,"Style: Has Mention
 (Claude)","Post
 metadata"
-retweeted,gemini,0.002438696717672353,post,Is retweeted,Gemini 2.0 Flash,"Is retweeted
+has_mention,google,0.00013763611173237683,post,Style: Has Mention,Gemini 2.0 Flash,"Style: Has Mention
 (Gemini)","Post
 metadata"
-retweeted,openai,0.001364391130650401,post,Is retweeted,GPT-4o-mini,"Is retweeted
+has_mention,openai,0.0012038797516386607,post,Style: Has Mention,GPT-4o-mini,"Style: Has Mention
 (GPT-4o-mini)","Post
 metadata"
-sentiment_polarity,anthropic,-0.0009979045635636708,post,Sentiment: Polarity,Claude Sonnet 4.5,"Sentiment: Polarity
+has_url,anthropic,-0.0013299384245791229,post,Style: Has URL,Claude Sonnet 4.5,"Style: Has URL
 (Claude)","Post
 metadata"
-sentiment_polarity,gemini,0.0010158293848716643,post,Sentiment: Polarity,Gemini 2.0 Flash,"Sentiment: Polarity
+has_url,google,-0.0026566237598778675,post,Style: Has URL,Gemini 2.0 Flash,"Style: Has URL
 (Gemini)","Post
 metadata"
-sentiment_polarity,openai,-0.0015905914760550328,post,Sentiment: Polarity,GPT-4o-mini,"Sentiment: Polarity
+has_url,openai,-0.005504722366585186,post,Style: Has URL,GPT-4o-mini,"Style: Has URL
 (GPT-4o-mini)","Post
 metadata"
-sentiment_subjectivity,anthropic,-0.0009528367174834383,post,Sentiment: Subjectivity,Claude Sonnet 4.5,"Sentiment: Subjectivity
+polarization_score,anthropic,-0.0288656785017323,post,Content: Polarization Score,Claude Sonnet 4.5,"Content: Polarization Score
 (Claude)","Post
 metadata"
-sentiment_subjectivity,gemini,-0.00016891573097720146,post,Sentiment: Subjectivity,Gemini 2.0 Flash,"Sentiment: Subjectivity
+polarization_score,google,-0.009758861556302331,post,Content: Polarization Score,Gemini 2.0 Flash,"Content: Polarization Score
 (Gemini)","Post
 metadata"
-sentiment_subjectivity,openai,0.0003214463085258422,post,Sentiment: Subjectivity,GPT-4o-mini,"Sentiment: Subjectivity
+polarization_score,openai,0.03574455720393185,post,Content: Polarization Score,GPT-4o-mini,"Content: Polarization Score
 (GPT-4o-mini)","Post
 metadata"
-toxicity,anthropic,-0.0013031911264065367,post,Toxicity: Toxicity,Claude Sonnet 4.5,"Toxicity: Toxicity
+primary_topic,anthropic,-0.00853693104803336,post,Content: Primary Topic,Claude Sonnet 4.5,"Content: Primary Topic
 (Claude)","Post
 metadata"
-toxicity,gemini,-0.0004859897274348962,post,Toxicity: Toxicity,Gemini 2.0 Flash,"Toxicity: Toxicity
+primary_topic,google,-0.0030006875533470367,post,Content: Primary Topic,Gemini 2.0 Flash,"Content: Primary Topic
 (Gemini)","Post
 metadata"
-toxicity,openai,0.0009225839328830275,post,Toxicity: Toxicity,GPT-4o-mini,"Toxicity: Toxicity
+primary_topic,openai,0.007975064139216417,post,Content: Primary Topic,GPT-4o-mini,"Content: Primary Topic
 (GPT-4o-mini)","Post
 metadata"
-user_favourites_count,anthropic,-0.00014623294729695382,post,Likes given,Claude Sonnet 4.5,"Likes given
+retweet_count,anthropic,0.010758639064159317,post,Retweets,Claude Sonnet 4.5,"Retweets
 (Claude)","Post
 metadata"
-user_favourites_count,gemini,-0.0010153038452812336,post,Likes given,Gemini 2.0 Flash,"Likes given
+retweet_count,google,0.01047768798789656,post,Retweets,Gemini 2.0 Flash,"Retweets
 (Gemini)","Post
 metadata"
-user_favourites_count,openai,0.00018814276068173882,post,Likes given,GPT-4o-mini,"Likes given
+retweet_count,openai,0.013163657666118966,post,Retweets,GPT-4o-mini,"Retweets
 (GPT-4o-mini)","Post
 metadata"
-user_followers_count,anthropic,-0.0009611715922581536,post,Followers,Claude Sonnet 4.5,"Followers
+retweeted,anthropic,0.0,post,Is retweeted,Claude Sonnet 4.5,"Is retweeted
 (Claude)","Post
 metadata"
-user_followers_count,gemini,0.002322345785814823,post,Followers,Gemini 2.0 Flash,"Followers
+retweeted,google,0.0,post,Is retweeted,Gemini 2.0 Flash,"Is retweeted
 (Gemini)","Post
 metadata"
-user_followers_count,openai,0.0018000347365406404,post,Followers,GPT-4o-mini,"Followers
+retweeted,openai,0.0,post,Is retweeted,GPT-4o-mini,"Is retweeted
 (GPT-4o-mini)","Post
 metadata"
-user_friends_count,anthropic,0.0028171173532693054,post,Following,Claude Sonnet 4.5,"Following
+sentiment_polarity,anthropic,-0.012938775475527502,post,Sentiment: Polarity,Claude Sonnet 4.5,"Sentiment: Polarity
 (Claude)","Post
 metadata"
-user_friends_count,gemini,0.002793662963930897,post,Following,Gemini 2.0 Flash,"Following
+sentiment_polarity,google,-0.00783061482729053,post,Sentiment: Polarity,Gemini 2.0 Flash,"Sentiment: Polarity
 (Gemini)","Post
 metadata"
-user_friends_count,openai,-0.00034090742244573973,post,Following,GPT-4o-mini,"Following
+sentiment_polarity,openai,0.00343748605462689,post,Sentiment: Polarity,GPT-4o-mini,"Sentiment: Polarity
 (GPT-4o-mini)","Post
 metadata"
-user_statuses_count,anthropic,-0.00013386126008109824,post,Tweet count,Claude Sonnet 4.5,"Tweet count
+sentiment_subjectivity,anthropic,-0.00023353194110255302,post,Sentiment: Subjectivity,Claude Sonnet 4.5,"Sentiment: Subjectivity
 (Claude)","Post
 metadata"
-user_statuses_count,gemini,0.0011565051380135064,post,Tweet count,Gemini 2.0 Flash,"Tweet count
+sentiment_subjectivity,google,-0.0002350656395576499,post,Sentiment: Subjectivity,Gemini 2.0 Flash,"Sentiment: Subjectivity
 (Gemini)","Post
 metadata"
-user_statuses_count,openai,-0.0022954166720019365,post,Tweet count,GPT-4o-mini,"Tweet count
+sentiment_subjectivity,openai,-0.002168428948622531,post,Sentiment: Subjectivity,GPT-4o-mini,"Sentiment: Subjectivity
+(GPT-4o-mini)","Post
+metadata"
+text_length,anthropic,-0.0015242478696854272,post,Text: Character Length,Claude Sonnet 4.5,"Text: Character Length
+(Claude)","Post
+metadata"
+text_length,google,0.005099195455057673,post,Text: Character Length,Gemini 2.0 Flash,"Text: Character Length
+(Gemini)","Post
+metadata"
+text_length,openai,0.03812172051638875,post,Text: Character Length,GPT-4o-mini,"Text: Character Length
+(GPT-4o-mini)","Post
+metadata"
+toxicity,anthropic,-0.0067963285895926324,post,Toxicity: Toxicity,Claude Sonnet 4.5,"Toxicity: Toxicity
+(Claude)","Post
+metadata"
+toxicity,google,-0.005430619807498419,post,Toxicity: Toxicity,Gemini 2.0 Flash,"Toxicity: Toxicity
+(Gemini)","Post
+metadata"
+toxicity,openai,-0.00020706651092829587,post,Toxicity: Toxicity,GPT-4o-mini,"Toxicity: Toxicity
+(GPT-4o-mini)","Post
+metadata"
+user_favourites_count,anthropic,-0.00014769614493702083,post,Likes given,Claude Sonnet 4.5,"Likes given
+(Claude)","Post
+metadata"
+user_favourites_count,google,-0.00011572591125080236,post,Likes given,Gemini 2.0 Flash,"Likes given
+(Gemini)","Post
+metadata"
+user_favourites_count,openai,0.0005001624437021625,post,Likes given,GPT-4o-mini,"Likes given
+(GPT-4o-mini)","Post
+metadata"
+user_followers_count,anthropic,0.007689199135007451,post,Followers,Claude Sonnet 4.5,"Followers
+(Claude)","Post
+metadata"
+user_followers_count,google,0.010060414130687024,post,Followers,Gemini 2.0 Flash,"Followers
+(Gemini)","Post
+metadata"
+user_followers_count,openai,0.007571569029639653,post,Followers,GPT-4o-mini,"Followers
+(GPT-4o-mini)","Post
+metadata"
+user_friends_count,anthropic,0.0034377363259464524,post,Following,Claude Sonnet 4.5,"Following
+(Claude)","Post
+metadata"
+user_friends_count,google,0.004113712557495193,post,Following,Gemini 2.0 Flash,"Following
+(Gemini)","Post
+metadata"
+user_friends_count,openai,0.004975276507666753,post,Following,GPT-4o-mini,"Following
+(GPT-4o-mini)","Post
+metadata"
+user_statuses_count,anthropic,-0.0020999458384152086,post,Tweet count,Claude Sonnet 4.5,"Tweet count
+(Claude)","Post
+metadata"
+user_statuses_count,google,0.0012229476618377242,post,Tweet count,Gemini 2.0 Flash,"Tweet count
+(Gemini)","Post
+metadata"
+user_statuses_count,openai,0.0011843304614435864,post,Tweet count,GPT-4o-mini,"Tweet count
 (GPT-4o-mini)","Post
 metadata"
