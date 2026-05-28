@@ -90,7 +90,7 @@ FEATURES_ALL = {
         "author_gender", "author_partisanship", "author_ideology", "author_race",
         "author_age", "author_education", "author_income", "author_marital_status", "author_religiosity",
     ],
-    "text_metrics":    ["avg_word_length", "text_length"],
+    "text_metrics":    ["avg_word_length"],
     "sentiment":       ["sentiment_polarity", "sentiment_subjectivity"],
     "style":           ["has_emoji", "has_hashtag", "has_mention", "has_url"],
     "content":         ["polarization_score", "primary_topic"],
@@ -110,7 +110,6 @@ FEATURE_DISPLAY = {
     "author_marital_status":  "Author: Marital Status",
     "author_religiosity":     "Author: Religiosity",
     "avg_word_length":        "Text: Avg Word Length",
-    "text_length":            "Text: Character Length",
     "polarization_score":     "Content: Polarization Score",
     "primary_topic":          "Content: Primary Topic",
     "sentiment_polarity":     "Sentiment: Polarity",
@@ -1124,10 +1123,6 @@ _METRICS_09 = {
         "title":  "Average Word Length Directional Bias by Model and Prompt Style",
         "ylabel": "Directional Bias (chars/word)\n← Shorter | Longer →",
     },
-    "text_length": {
-        "title":  "Post Character Length Directional Bias by Model and Prompt Style",
-        "ylabel": "Directional Bias (chars)\n← Shorter | Longer Posts →",
-    },
     "polarization_score": {
         "title":  "Polarization Directional Bias by Model and Prompt Style",
         "ylabel": "Directional Bias\n← Less | More Polarized →",
@@ -1265,8 +1260,7 @@ def plot_09_raw_bias_heatmaps(context_level="none"):
 
     labels = {
         "avg_word_length":      "09a",
-        "text_length":          "09b",
-        "polarization_score":   "09c",
+        "polarization_score":   "09b",
         "sentiment_polarity":   "09d",
         "toxicity":             "09e",
         "has_emoji":            "09f",

@@ -69,7 +69,6 @@ FEATURES = {
     # Text metrics (pre-computed from tweet text)
     "text_metrics": [
         "avg_word_length",
-        "text_length",
     ],
     # Content (NLP-computed)
     "content": [
@@ -97,7 +96,6 @@ FEATURES = {
     # Uncomment to include once data contains these columns:
     #
     # "text_metrics_extended": [
-    #     "text_length",
     #     "word_count",
     # ],
     # "tweet_type": [

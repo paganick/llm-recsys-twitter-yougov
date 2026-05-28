@@ -43,7 +43,7 @@ LOG_COLS = {
 }
 
 NUMERICAL = [
-    "text_length", "avg_word_length", "word_count",
+    "avg_word_length", "word_count",
     "sentiment_polarity", "sentiment_subjectivity",
     "polarization_score", "toxicity",
     "user_followers_count", "user_friends_count",
@@ -61,7 +61,6 @@ CATEGORICAL = [
 ]
 
 DISPLAY = {
-    "text_length":            "Text length",
     "avg_word_length":        "Avg word length",
     "word_count":             "Word count",
     "sentiment_polarity":     "Sentiment polarity",
@@ -93,7 +92,7 @@ DISPLAY = {
 # ── semantic groups for main matrix ordering ──────────────────────────────────
 # Ordered list of (group_label, [features])
 SEMANTIC_GROUPS = [
-    ("Generated\n(Text style)",     ["text_length", "avg_word_length", "word_count",
+    ("Generated\n(Text style)",     ["avg_word_length", "word_count",
                                      "has_emoji", "has_hashtag", "has_mention", "has_url"]),
     ("Generated\n(Content)",        ["sentiment_polarity", "sentiment_subjectivity",
                                      "polarization_score", "toxicity", "primary_topic"]),
@@ -111,7 +110,7 @@ SUB_GROUPS = [
         "key":      "text_style",
         "letter":   "a",
         "title":    "Generated Features — Text Style (Pearson r)",
-        "features": ["text_length", "avg_word_length", "word_count",
+        "features": ["avg_word_length", "word_count",
                      "has_emoji", "has_hashtag", "has_mention", "has_url"],
         "plot":     "pearson",
     },
