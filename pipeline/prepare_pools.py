@@ -63,13 +63,18 @@ def main():
     pool = pd.read_csv(POOL_FILE, engine="python", on_bad_lines="warn")
     print(f"  {len(pool):,} posts loaded")
 
-    # Sort by date; posts without a parseable date go to the end
+    # Sort by date then post_id as tiebreaker — fully deterministic regardless
+    # of platform or pandas version (avoids unstable-sort ambiguity on ties).
     if "created_at" not in pool.columns:
-        print("WARNING: no created_at column — using original row order as proxy for date")
+        print("WARNING: no created_at column — sorting by post_id only")
+        pool = pool.sort_values("post_id", kind="mergesort").reset_index(drop=True)
     else:
         dates = pd.to_datetime(pool["created_at"], errors="coerce")
-        pool = pool.assign(_date=dates).sort_values("_date", na_position="last").drop(columns="_date")
-        pool = pool.reset_index(drop=True)
+        sort_cols = ["_date", "post_id"] if "post_id" in pool.columns else ["_date"]
+        pool = (pool.assign(_date=dates)
+                    .sort_values(sort_cols, na_position="last", kind="mergesort")
+                    .drop(columns="_date")
+                    .reset_index(drop=True))
 
     n      = len(pool)
     n_t    = args.n_trials
