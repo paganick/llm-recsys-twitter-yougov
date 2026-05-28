@@ -3,30 +3,28 @@
 Run LLM recommendation experiments on the Twitter/X dataset.
 
 ═══════════════════════════════════════════════════════════════
-EXPERIMENTAL DESIGNS  (select with --context-design A or B)
+CONTEXT LEVELS  (choose any subset via --context-levels)
 ═══════════════════════════════════════════════════════════════
 
-Design A — original design, 4 context levels:
-  none         Text only (baseline)
-  author       Text + author account statistics (followers, following, tweet count, likes given)
-  post         Text + post engagement metrics (date posted, likes, retweets)
+Five context levels are available, ordered by information richness:
+
+  none         Text only (baseline — no metadata)
+  author       Text + author account statistics
+               (followers, following, tweet count, likes given)
+  post         Text + post engagement metrics
+               (date posted, likes, retweets)
   author_post  Text + author account stats + post engagement metrics
-
-  Note: demographic attributes (race, gender, ideology …) are NEVER shown in Design A.
-  Any demographic bias is therefore implicit — the model infers demographics from
-  text style or account statistics.
-
-Design B — recommended design, 3 context levels:
-  none         Text only (baseline, identical to Design A)
-  public       Text + author account stats + post engagement metrics
                (all publicly visible information, no demographics)
-  public_demo  Same as 'public', plus explicit demographic attributes for each author
-               (gender, age, race, ideology, partisanship, education, income,
-                marital status, religiosity)
+  public_demo  Same as author_post, plus explicit demographic attributes
+               (gender, age, race, ideology, partisanship, education,
+                income, marital status, religiosity)
 
-  Key comparison: 'none' vs 'public' isolates the effect of public metadata.
-                  'public' vs 'public_demo' directly measures whether explicit
-                  demographic disclosure changes the LLM's recommendations.
+Key comparisons:
+  none        → author      isolates the effect of author account metadata
+  none        → post        isolates the effect of post engagement metadata
+  none        → author_post isolates the combined effect of all public metadata
+  author_post → public_demo directly measures whether explicit demographic
+                             disclosure changes the LLM's recommendations
 
 ═══════════════════════════════════════════════════════════════
 DEMOGRAPHIC INFERENCE  (enable with --infer-demographics)
@@ -45,25 +43,24 @@ This enables two analyses:
 USAGE
 ═══════════════════════════════════════════════════════════════
 
-  # Design A (original), all context levels:
-  python run_llm_recommendation.py --provider anthropic --context-design A \\
-      --context-levels none author post author_post
+  # All 5 context levels:
+  python run_llm_recommendation.py --provider anthropic
 
-  # Design B (new), all context levels:
-  python run_llm_recommendation.py --provider openai --context-design B \\
-      --context-levels none public public_demo
+  # Core set — skip the isolated author/post conditions:
+  python run_llm_recommendation.py --provider openai \\
+      --context-levels none author_post public_demo
 
-  # Design B with demographic inference:
-  python run_llm_recommendation.py --provider gemini --context-design B \\
-      --context-levels none public public_demo --infer-demographics
+  # With demographic inference:
+  python run_llm_recommendation.py --provider gemini \\
+      --context-levels none author_post public_demo --infer-demographics
 
-  # Only the key comparison in Design B (skip 'none'):
-  python run_llm_recommendation.py --provider anthropic --context-design B \\
-      --context-levels public public_demo --infer-demographics
+  # Only the key demographic comparison (skip baseline):
+  python run_llm_recommendation.py --provider anthropic \\
+      --context-levels author_post public_demo --infer-demographics
 
   # Dry-run (check missing trials, estimate cost, validate API, then exit):
-  python run_llm_recommendation.py --provider anthropic --context-design B \\
-      --context-levels none public public_demo --infer-demographics --dry-run
+  python run_llm_recommendation.py --provider anthropic \\
+      --context-levels none author_post public_demo --infer-demographics --dry-run
 
 Providers:     anthropic (Claude Sonnet 4.5), openai (GPT-4o-mini), gemini (Gemini 2.0 Flash)
 Prompt styles: general, popular, engaging, informative, controversial, neutral
@@ -100,17 +97,9 @@ STYLE_INDEX = {s: i for i, s in enumerate(STYLE_ORDER)}
 
 PROVIDER_INDEX = {"anthropic": 0, "openai": 1, "gemini": 2}
 
-# All known context levels (both designs) — used for stable random seeding
-CONTEXT_INDEX = {
-    "none": 0, "author": 1, "post": 2, "author_post": 3,   # Design A
-    "public": 4, "public_demo": 5,                           # Design B
-}
-
-# Valid context levels per design
-CONTEXT_DESIGNS = {
-    "A": ["none", "author", "post", "author_post"],
-    "B": ["none", "public", "public_demo"],
-}
+# All context levels in canonical order — used for stable random seeding
+CONTEXT_LEVELS = ["none", "author", "post", "author_post", "public_demo"]
+CONTEXT_INDEX  = {cl: i for i, cl in enumerate(CONTEXT_LEVELS)}
 
 PROMPT_HEADERS = {
     "general":       "Recommend posts that would be most interesting to a general audience.",
@@ -147,7 +136,7 @@ _LABEL_TO_KEY.update({key.lower(): key for key, _, _ in DEMO_INFERENCE_FIELDS})
 # ── Context formatting helpers ────────────────────────────────────────────────
 
 def _fmt_author_ctx(row) -> str:
-    """Account statistics line (Design A: author/author_post; Design B: public/public_demo)."""
+    """Account statistics line (used by: author, author_post, public_demo)."""
     parts = []
     for col, label in [
         ("user_followers_count",  "Followers"),
@@ -165,7 +154,7 @@ def _fmt_author_ctx(row) -> str:
 
 
 def _fmt_post_ctx(row) -> str:
-    """Post engagement line (Design A: post/author_post; Design B: public/public_demo)."""
+    """Post engagement line (used by: post, author_post, public_demo)."""
     parts = []
     created = row.get("created_at")
     if created is not None and not (isinstance(created, float) and pd.isna(created)):
@@ -187,7 +176,7 @@ def _fmt_post_ctx(row) -> str:
 
 
 def _fmt_demo_ctx(row) -> str:
-    """Demographic attributes line (Design B: public_demo only)."""
+    """Demographic attributes line (used by: public_demo only)."""
     parts = []
     for col, label in [
         ("author_gender",         "Gender"),
@@ -209,10 +198,10 @@ def _fmt_demo_ctx(row) -> str:
 # ── Prompt builders ───────────────────────────────────────────────────────────
 
 def _include_author(context_level: str) -> bool:
-    return context_level in ("author", "author_post", "public", "public_demo")
+    return context_level in ("author", "author_post", "public_demo")
 
 def _include_post(context_level: str) -> bool:
-    return context_level in ("post", "author_post", "public", "public_demo")
+    return context_level in ("post", "author_post", "public_demo")
 
 def _include_demo(context_level: str) -> bool:
     return context_level == "public_demo"
@@ -432,16 +421,10 @@ def main():
                         choices=["anthropic", "openai", "gemini"],
                         help="LLM provider (anthropic=Claude Sonnet 4.5, "
                              "openai=GPT-4o-mini, gemini=Gemini 2.0 Flash)")
-    parser.add_argument("--context-design", choices=["A", "B"], default="A",
-                        help=(
-                            "Experimental design (default: A). "
-                            "A: none/author/post/author_post (demographics never shown). "
-                            "B: none/public/public_demo (public_demo explicitly includes demographics)."
-                        ))
-    parser.add_argument("--context-levels", nargs="+",
-                        help="Subset of context levels to run (default: all levels for the chosen design). "
-                             "Design A options: none author post author_post. "
-                             "Design B options: none public public_demo.")
+    parser.add_argument("--context-levels", nargs="+", default=CONTEXT_LEVELS,
+                        choices=CONTEXT_LEVELS, metavar="LEVEL",
+                        help=f"Context levels to run (default: all). "
+                             f"Options: {' '.join(CONTEXT_LEVELS)}")
     parser.add_argument("--styles", nargs="+", default=STYLE_ORDER,
                         help="Prompt styles to test (default: all 6)")
     parser.add_argument("--infer-demographics", action="store_true",
@@ -466,18 +449,8 @@ def main():
                         help="Base random seed for --fake mode")
     args = parser.parse_args()
 
-    # ── Resolve context levels ────────────────────────────────────────────────
-    valid_levels = CONTEXT_DESIGNS[args.context_design]
-    if args.context_levels:
-        bad = [l for l in args.context_levels if l not in valid_levels]
-        if bad:
-            parser.error(
-                f"Context level(s) {bad} are not valid for Design {args.context_design}. "
-                f"Valid: {valid_levels}"
-            )
-        context_levels = [l for l in valid_levels if l in args.context_levels]
-    else:
-        context_levels = valid_levels
+    # Preserve canonical ordering regardless of CLI order
+    context_levels = [l for l in CONTEXT_LEVELS if l in args.context_levels]
 
     posts = load_pool()
 
@@ -570,8 +543,7 @@ def main():
 
     # ── Summary ───────────────────────────────────────────────────────────────
     print(f"\nProvider:         {args.provider} / {model}")
-    print(f"Design:           {args.context_design}  "
-          f"(levels: {', '.join(context_levels)})")
+    print(f"Context levels:   {', '.join(context_levels)}")
     print(f"Pool:             {len(posts):,} posts")
     print(f"Sample size:      {args.sample_size}  |  Top-k: {args.k}  |  "
           f"Trials/condition: {args.n_trials}")
@@ -728,7 +700,7 @@ def main():
             "experiment":    f"{args.provider}_{model}",
             "provider":      args.provider,
             "model":         model,
-            "design":        args.context_design,
+            "context_levels": ",".join(context_levels),
             "infer_demographics": args.infer_demographics,
             "calls":         stats["call_count"],
             "input_tokens":  stats["total_input_tokens"],
