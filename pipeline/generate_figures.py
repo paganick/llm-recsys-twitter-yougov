@@ -1468,6 +1468,7 @@ _CONTEXT_DISPLAY = {
     "author":      "Author\nmetadata",
     "post":        "Post\nmetadata",
     "author_post": "Author+Post\nmetadata",
+    "public_demo": "Public+Demo\n(+demographics)",
 }
 
 _META_FEATURE_DISPLAY = {
@@ -1782,7 +1783,7 @@ def plot_14_author_metadata_directional(all_df):
     print("FIGURE 14 — Author metadata directional bias by context level (per feature)")
     print("="*70)
 
-    context_levels = [c for c in ["none", "author", "post", "author_post"]
+    context_levels = [c for c in ["none", "author", "post", "author_post", "public_demo"]
                       if c in all_df["context_level"].unique()]
     agg = _plot_metadata_directional_per_feature(
         14, _AUTHOR_META_FEATURES, context_levels,
@@ -1798,7 +1799,7 @@ def plot_15_post_metadata_directional(all_df):
     print("FIGURE 15 — Post metadata directional bias by context level (per feature)")
     print("="*70)
 
-    context_levels = [c for c in ["none", "author", "post", "author_post"]
+    context_levels = [c for c in ["none", "author", "post", "author_post", "public_demo"]
                       if c in all_df["context_level"].unique()]
     agg = _plot_metadata_directional_per_feature(
         15, _POST_META_FEATURES, context_levels,
