@@ -71,12 +71,14 @@ sns.set_style("whitegrid")
 plt.rcParams["figure.dpi"]  = 150
 plt.rcParams["savefig.dpi"] = 300
 
-PROVIDER_ORDER  = ["anthropic", "openai", "gemini"]
+PROVIDER_ORDER  = ["anthropic", "openai", "gemini", "google"]
 PROVIDER_LABELS = {
     "anthropic": "Claude Sonnet 4.5",
     "openai":    "GPT-4o-mini",
     "gemini":    "Gemini 2.0 Flash",
+    "google":    "Gemini 2.0 Flash",
 }
+_PROVIDER_PREFERRED_ORDER = ["anthropic", "openai", "gemini", "google"]
 
 PROMPT_ORDER  = ["neutral", "general", "popular", "engaging", "informative", "controversial"]
 PROMPT_LABELS = {p: p.capitalize() for p in PROMPT_ORDER}
@@ -84,12 +86,17 @@ PROMPT_LABELS = {p: p.capitalize() for p in PROMPT_ORDER}
 AUTHOR_FEATURES = ["author_gender", "author_partisanship", "author_ideology", "author_race"]
 
 FEATURES_ALL = {
-    "author":       ["author_gender", "author_partisanship", "author_ideology", "author_race"],
-    "text_metrics": ["avg_word_length"],
-    "sentiment":    ["sentiment_polarity", "sentiment_subjectivity"],
-    "style":        ["has_emoji", "has_hashtag", "has_mention", "has_url"],
-    "content":      ["polarization_score", "primary_topic"],
-    "toxicity":     ["toxicity"],
+    "author":          [
+        "author_gender", "author_partisanship", "author_ideology", "author_race",
+        "author_age", "author_education", "author_income", "author_marital_status", "author_religiosity",
+    ],
+    "text_metrics":    ["avg_word_length", "text_length"],
+    "sentiment":       ["sentiment_polarity", "sentiment_subjectivity"],
+    "style":           ["has_emoji", "has_hashtag", "has_mention", "has_url"],
+    "content":         ["polarization_score", "primary_topic"],
+    "toxicity":        ["toxicity"],
+    "author_metadata": ["user_followers_count", "user_friends_count", "user_statuses_count", "user_favourites_count"],
+    "post_metadata":   ["favorite_count", "retweet_count", "retweeted"],
 }
 
 FEATURE_DISPLAY = {
@@ -103,6 +110,7 @@ FEATURE_DISPLAY = {
     "author_marital_status":  "Author: Marital Status",
     "author_religiosity":     "Author: Religiosity",
     "avg_word_length":        "Text: Avg Word Length",
+    "text_length":            "Text: Character Length",
     "polarization_score":     "Content: Polarization Score",
     "primary_topic":          "Content: Primary Topic",
     "sentiment_polarity":     "Sentiment: Polarity",
@@ -112,15 +120,24 @@ FEATURE_DISPLAY = {
     "has_mention":            "Style: Has Mention",
     "has_url":                "Style: Has URL",
     "toxicity":               "Toxicity: Toxicity",
+    "user_followers_count":   "Author Meta: Followers",
+    "user_friends_count":     "Author Meta: Following",
+    "user_statuses_count":    "Author Meta: Tweet Count",
+    "user_favourites_count":  "Author Meta: Likes Given",
+    "favorite_count":         "Post Meta: Likes",
+    "retweet_count":          "Post Meta: Retweets",
+    "retweeted":              "Post Meta: Is Retweeted",
 }
 
 CATEGORY_COLORS = {
-    "author":       ["#8B4513", "#A0522D", "#CD853F", "#DEB887"],
-    "text_metrics": ["#1E90FF"],
-    "content":      ["#32CD32", "#3CB371"],
-    "sentiment":    ["#FFD700", "#FFA500"],
-    "style":        ["#9370DB", "#8A2BE2", "#9400D3", "#9932CC"],
-    "toxicity":     ["#DC143C"],
+    "author":          ["#4A1A00", "#6B2F0A", "#8B4513", "#A0522D", "#CD853F", "#C8965A", "#DEB887", "#E8C99A", "#F5DEB3"],
+    "text_metrics":    ["#1E90FF"],
+    "content":         ["#32CD32", "#3CB371"],
+    "sentiment":       ["#FFD700", "#FFA500"],
+    "style":           ["#9370DB", "#8A2BE2", "#9400D3", "#9932CC"],
+    "toxicity":        ["#DC143C"],
+    "author_metadata": ["#008080", "#20B2AA", "#48D1CC", "#7FFFD4"],
+    "post_metadata":   ["#FF6347", "#FF7F50", "#FFA07A"],
 }
 
 DIVG_COLORS = [
@@ -235,7 +252,7 @@ def _load_metric_bias(feature_name, context_level="none"):
     df = pd.read_csv(DIR_BIAS_CSV)
     df = _filter_context(df, context_level)
     mask = (df["feature"] == feature_name) & (
-        df["feature_type"].isin(["continuous", "numerical"])
+        df["feature_type"].isin(["numerical", "binary"])
     )
     return df[mask][["provider", "prompt_style", "directional_bias"]].copy()
 
@@ -282,7 +299,7 @@ def plot_01_aggregated_bar(comp_df):
     ax.grid(axis="y", alpha=0.3)
 
     legend_elements = []
-    for cat in ["author", "text_metrics", "sentiment", "style", "content", "toxicity"]:
+    for cat in ["author", "text_metrics", "sentiment", "style", "content", "toxicity", "author_metadata", "post_metadata"]:
         feats = FEATURES_ALL.get(cat, [])
         if not feats:
             continue
@@ -498,19 +515,34 @@ _DEMO_FEATURE_CONFIG = {
     },
     "author_ideology": {
         "display_name":   "Author Ideology",
-        "preferred_order": [
-            "very liberal", "liberal", "moderate",
-            "conservative", "very conservative", "unknown",
-        ],
+        "preferred_order": ["left", "center-left", "center", "center-right", "right", "unknown"],
     },
     "author_race": {
         "display_name":   "Author Race",
     },
-    "author_age":            {"display_name": "Author Age"},
-    "author_education":      {"display_name": "Author Education"},
-    "author_income":         {"display_name": "Author Income"},
-    "author_marital_status": {"display_name": "Author Marital Status"},
-    "author_religiosity":    {"display_name": "Author Religiosity"},
+    "author_age": {
+        "display_name":    "Author Age",
+        "preferred_order": ["18-24", "25-34", "35-44", "45-54", "55-64", "65+", "unknown"],
+    },
+    "author_education": {
+        "display_name":    "Author Education",
+        "preferred_order": ["less than high school", "high school", "some college",
+                            "college", "postgraduate", "unknown"],
+    },
+    "author_income": {
+        "display_name":    "Author Income",
+        "preferred_order": ["<$30k", "$30-60k", "$60-100k", "$100k+",
+                            "Prefer not to say", "unknown"],
+    },
+    "author_marital_status": {
+        "display_name":    "Author Marital Status",
+        "preferred_order": ["single", "married", "divorced", "widowed", "other", "unknown"],
+    },
+    "author_religiosity": {
+        "display_name":    "Author Religiosity",
+        "preferred_order": ["not religious", "somewhat religious", "religious",
+                            "very religious", "unknown"],
+    },
 }
 
 
@@ -895,7 +927,13 @@ def plot_07_feature_importance(context_level="none"):
     print("FIGURE 07 — Feature importance by model (SHAP, absolute)")
     print("="*70)
 
-    df = pd.read_csv(IMPORTANCE_CSV)
+    try:
+        df = pd.read_csv(IMPORTANCE_CSV)
+    except Exception:
+        df = pd.DataFrame()
+    if df.empty:
+        print("  skipped (no SHAP data — install shap and re-run compute_bias_metrics.py)")
+        return
     df = _filter_context(df, context_level)
     if "feature" in df.columns and "shap_importance" in df.columns:
         df_long = df[["feature", "provider", "shap_importance"]].copy()
@@ -1086,6 +1124,10 @@ _METRICS_09 = {
         "title":  "Average Word Length Directional Bias by Model and Prompt Style",
         "ylabel": "Directional Bias (chars/word)\n← Shorter | Longer →",
     },
+    "text_length": {
+        "title":  "Post Character Length Directional Bias by Model and Prompt Style",
+        "ylabel": "Directional Bias (chars)\n← Shorter | Longer Posts →",
+    },
     "polarization_score": {
         "title":  "Polarization Directional Bias by Model and Prompt Style",
         "ylabel": "Directional Bias\n← Less | More Polarized →",
@@ -1097,6 +1139,53 @@ _METRICS_09 = {
     "toxicity": {
         "title":  "Toxicity Directional Bias by Model and Prompt Style",
         "ylabel": "Directional Bias\n← Less | More Toxic →",
+    },
+    # Style (binary)
+    "has_emoji": {
+        "title":  "Emoji Usage Directional Bias by Model and Prompt Style",
+        "ylabel": "Directional Bias (proportion)\n← Fewer | More Posts with Emoji →",
+    },
+    "has_hashtag": {
+        "title":  "Hashtag Usage Directional Bias by Model and Prompt Style",
+        "ylabel": "Directional Bias (proportion)\n← Fewer | More Posts with Hashtag →",
+    },
+    "has_mention": {
+        "title":  "Mention Usage Directional Bias by Model and Prompt Style",
+        "ylabel": "Directional Bias (proportion)\n← Fewer | More Posts with Mention →",
+    },
+    "has_url": {
+        "title":  "URL Usage Directional Bias by Model and Prompt Style",
+        "ylabel": "Directional Bias (proportion)\n← Fewer | More Posts with URL →",
+    },
+    # Author metadata
+    "user_followers_count": {
+        "title":  "Author Followers Directional Bias by Model and Prompt Style",
+        "ylabel": "Directional Bias (followers)\n← Fewer | More Followers →",
+    },
+    "user_friends_count": {
+        "title":  "Author Following Count Directional Bias by Model and Prompt Style",
+        "ylabel": "Directional Bias (following)\n← Fewer | More Following →",
+    },
+    "user_statuses_count": {
+        "title":  "Author Tweet Count Directional Bias by Model and Prompt Style",
+        "ylabel": "Directional Bias (tweets)\n← Fewer | More Tweets →",
+    },
+    "user_favourites_count": {
+        "title":  "Author Likes Given Directional Bias by Model and Prompt Style",
+        "ylabel": "Directional Bias (likes given)\n← Fewer | More Likes Given →",
+    },
+    # Post engagement metadata
+    "favorite_count": {
+        "title":  "Post Likes Directional Bias by Model and Prompt Style",
+        "ylabel": "Directional Bias (likes)\n← Fewer | More Likes →",
+    },
+    "retweet_count": {
+        "title":  "Post Retweets Directional Bias by Model and Prompt Style",
+        "ylabel": "Directional Bias (retweets)\n← Fewer | More Retweets →",
+    },
+    "retweeted": {
+        "title":  "Post Is-Retweeted Directional Bias by Model and Prompt Style",
+        "ylabel": "Directional Bias\n← Less | More Often Retweeted →",
     },
 }
 
@@ -1171,14 +1260,26 @@ def _plot_09_single_metric(feature, minfo, context_level="none"):
 
 def plot_09_raw_bias_heatmaps(context_level="none"):
     print("\n" + "="*70)
-    print("FIGURES 09a–d — Raw directional bias (one figure per metric)")
+    print("FIGURES 09a–p — Raw directional bias (one figure per metric)")
     print("="*70)
 
     labels = {
-        "avg_word_length":    "09a",
-        "polarization_score": "09b",
-        "sentiment_polarity": "09c",
-        "toxicity":           "09d",
+        "avg_word_length":      "09a",
+        "text_length":          "09b",
+        "polarization_score":   "09c",
+        "sentiment_polarity":   "09d",
+        "toxicity":             "09e",
+        "has_emoji":            "09f",
+        "has_hashtag":          "09g",
+        "has_mention":          "09h",
+        "has_url":              "09i",
+        "user_followers_count": "09j",
+        "user_friends_count":   "09k",
+        "user_statuses_count":  "09l",
+        "user_favourites_count":"09m",
+        "favorite_count":       "09n",
+        "retweet_count":        "09o",
+        "retweeted":            "09p",
     }
     for feature, minfo in _METRICS_09.items():
         fig = _plot_09_single_metric(feature, minfo, context_level)
@@ -1221,7 +1322,11 @@ def plot_10_demographic_by_model(context_level="none"):
 
         avail      = _resolve_categories(finfo, fdata["category"].unique())
         avail      = [c for c in avail if c in fdata["category"].unique()]
-        col_labels = [_cat_label(c) for c in avail]
+        pool_pct   = fdata.groupby("category")["prop_pool"].mean()
+        col_labels = [
+            f"{_cat_label(c)}\n({pool_pct.get(c, 0) * 100:.1f}%)"
+            for c in avail
+        ]
 
         all_vals = fdata["directional_bias"].dropna()
         max_abs  = max(abs(all_vals.min()), abs(all_vals.max())) if len(all_vals) else 1.0
@@ -1564,6 +1669,153 @@ def plot_13_context_level_delta(all_df):
 
 
 # ============================================================================
+# FIGURES 14–15 — Metadata directional bias across context levels
+# ============================================================================
+
+def _metadata_directional_pivot(features, context_levels):
+    """Load directional_bias_data.csv and return a pivot of mean directional bias.
+
+    Rows: (feature, provider) — Cols: context_level
+    Only uses rows where feature_type is numerical/binary and category == 'mean'.
+    Values are averaged across prompt styles.
+    """
+    dir_df = pd.read_csv(DIR_BIAS_CSV)
+    if "context_level" not in dir_df.columns:
+        dir_df["context_level"] = "none"
+
+    available = [f for f in features if f in dir_df["feature"].unique()]
+    if not available:
+        return None, []
+
+    sub = dir_df[
+        dir_df["feature"].isin(available) &
+        dir_df["feature_type"].isin(["numerical", "binary"]) &
+        (dir_df["category"] == "mean") &
+        dir_df["context_level"].isin(context_levels)
+    ].copy()
+
+    if sub.empty:
+        return None, []
+
+    agg = sub.groupby(["feature", "provider", "context_level"])["directional_bias"].mean().reset_index()
+    pivot = agg.pivot_table(
+        index=["feature", "provider"],
+        columns="context_level",
+        values="directional_bias",
+        aggfunc="mean",
+    ).reindex(columns=context_levels)
+    return pivot, agg
+
+
+def _draw_directional_heatmap(pivot, row_labels, col_labels, title, cbar_label, out_path):
+    vals = pivot.values.astype(float)
+    max_abs = max(np.nanmax(np.abs(vals)), 1e-6)
+
+    fig, ax = plt.subplots(figsize=(max(6, len(col_labels) * 2), max(4, len(pivot) * 0.55)))
+    sns.heatmap(vals, annot=True, fmt=".2g", cmap=CMAP_DIVG,
+                center=0, vmin=-max_abs, vmax=max_abs,
+                ax=ax, cbar_kws={"label": cbar_label},
+                linewidths=0.5, linecolor="lightgray", annot_kws={"fontsize": 12})
+    if ax.collections:
+        cbar = ax.collections[0].colorbar
+        if cbar:
+            cbar.ax.tick_params(labelsize=12)
+            cbar.set_label(cbar_label, fontsize=13, fontweight="bold")
+    ax.set_xticks(np.arange(len(col_labels)) + 0.5)
+    ax.set_xticklabels(col_labels, fontsize=12)
+    ax.set_yticks(np.arange(len(row_labels)) + 0.5)
+    ax.set_yticklabels(row_labels, fontsize=11, rotation=0, ha="right")
+    ax.set_title(title, fontweight="bold", fontsize=13, pad=10)
+    ax.set_xlabel("Context level", fontsize=12)
+    plt.tight_layout()
+    fig.savefig(out_path, bbox_inches="tight", dpi=300)
+    plt.close()
+
+
+def _plot_metadata_directional_per_feature(fig_num, features, context_levels, title_prefix, out_prefix):
+    """Create one heatmap per feature (providers × context levels)."""
+    dir_df = pd.read_csv(DIR_BIAS_CSV)
+    if "context_level" not in dir_df.columns:
+        dir_df["context_level"] = "none"
+
+    available = [f for f in features if f in dir_df["feature"].unique()]
+    if not available:
+        print("  No data — skipping.")
+        return pd.DataFrame()
+
+    sub = dir_df[
+        dir_df["feature"].isin(available) &
+        dir_df["feature_type"].isin(["numerical", "binary"]) &
+        (dir_df["category"] == "mean") &
+        dir_df["context_level"].isin(context_levels)
+    ].copy()
+
+    if sub.empty:
+        print("  No data — skipping.")
+        return pd.DataFrame()
+
+    agg = sub.groupby(["feature", "provider", "context_level"])["directional_bias"].mean().reset_index()
+    col_labels = [_CONTEXT_DISPLAY.get(c, c) for c in context_levels]
+
+    letters = "abcdefghijklmnopqrstuvwxyz"
+    for i, feat in enumerate(available):
+        feat_agg = agg[agg["feature"] == feat]
+        pivot = feat_agg.pivot_table(
+            index="provider", columns="context_level",
+            values="directional_bias", aggfunc="mean",
+        ).reindex(index=PROVIDER_ORDER, columns=context_levels)
+
+        row_labels = [PROVIDER_LABELS.get(p, p) for p in pivot.index]
+        feat_display = _META_FEATURE_DISPLAY.get(feat, feat)
+        suffix = letters[i]
+
+        _draw_directional_heatmap(
+            pivot, row_labels, col_labels,
+            title=f"{title_prefix}: {feat_display}\n"
+                  "(mean recommended − mean pool, averaged across prompt styles;\n"
+                  " red = LLM selects higher values, blue = selects lower)",
+            cbar_label="Mean Rec − Mean Pool",
+            out_path=OUT / f"{out_prefix}{suffix}_{feat}.png",
+        )
+        slug = f"{out_prefix}{suffix}_{feat}.png"
+        print(f"  ✓ {slug}")
+
+    return agg
+
+
+def plot_14_author_metadata_directional(all_df):
+    print("\n" + "="*70)
+    print("FIGURE 14 — Author metadata directional bias by context level (per feature)")
+    print("="*70)
+
+    context_levels = [c for c in ["none", "author", "post", "author_post"]
+                      if c in all_df["context_level"].unique()]
+    agg = _plot_metadata_directional_per_feature(
+        14, _AUTHOR_META_FEATURES, context_levels,
+        "Author Metadata Directional Bias", "14",
+    )
+    if not agg.empty:
+        agg.to_csv(OUT / "14_author_metadata_directional_data.csv", index=False)
+        print("  ✓ 14_author_metadata_directional_data.csv")
+
+
+def plot_15_post_metadata_directional(all_df):
+    print("\n" + "="*70)
+    print("FIGURE 15 — Post metadata directional bias by context level (per feature)")
+    print("="*70)
+
+    context_levels = [c for c in ["none", "author", "post", "author_post"]
+                      if c in all_df["context_level"].unique()]
+    agg = _plot_metadata_directional_per_feature(
+        15, _POST_META_FEATURES, context_levels,
+        "Post Engagement Directional Bias", "15",
+    )
+    if not agg.empty:
+        agg.to_csv(OUT / "15_post_metadata_directional_data.csv", index=False)
+        print("  ✓ 15_post_metadata_directional_data.csv")
+
+
+# ============================================================================
 # MAIN
 # ============================================================================
 
@@ -1588,6 +1840,12 @@ def main():
     n_cl = all_df["context_level"].nunique() if "context_level" in all_df.columns else 1
     context_levels = sorted(all_df["context_level"].unique()) if "context_level" in all_df.columns else ["none"]
     print(f"Loaded {len(all_df)} total rows across {n_cl} context level(s): {context_levels}")
+
+    # Restrict PROVIDER_ORDER to providers actually present in the data
+    dir_df = pd.read_csv(DIR_BIAS_CSV)
+    providers_in_data = set(dir_df["provider"].unique())
+    PROVIDER_ORDER[:] = [p for p in _PROVIDER_PREFERRED_ORDER if p in providers_in_data]
+    print(f"Providers in data: {PROVIDER_ORDER}")
 
     root_out = OUT
     use_subfolders = n_cl > 1
@@ -1623,14 +1881,16 @@ def main():
         plot_09_raw_bias_heatmaps(context_level=cl)
         plot_10_demographic_by_model(context_level=cl)
 
-    # Figures 11–13: cross-context comparisons, always in root
+    # Figures 11–15: cross-context comparisons, always in root
     OUT = root_out
     if n_cl > 1:
         plot_11_author_metadata_bias(all_df)
         plot_12_post_metadata_bias(all_df)
         plot_13_context_level_delta(all_df)
+        plot_14_author_metadata_directional(all_df)
+        plot_15_post_metadata_directional(all_df)
     else:
-        print("\nFIGURES 11–13 skipped — only one context level in data")
+        print("\nFIGURES 11–15 skipped — only one context level in data")
 
     print("\n" + "=" * 70)
     print("ALL DONE")

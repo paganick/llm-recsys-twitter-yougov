@@ -83,7 +83,8 @@ SURVEY_COLS = [
 
 def load_tweets(path: Path) -> pd.DataFrame:
     """Load tweet CSV; normalise text/user columns."""
-    df = pd.read_csv(path)
+    # Use python engine + quotechar to handle embedded newlines in tweet text
+    df = pd.read_csv(path, engine="python", on_bad_lines="warn")
 
     # Normalise user identifier column
     if "user_id" not in df.columns:

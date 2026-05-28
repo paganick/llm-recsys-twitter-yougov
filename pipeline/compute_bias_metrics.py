@@ -69,6 +69,7 @@ FEATURES = {
     # Text metrics (pre-computed from tweet text)
     "text_metrics": [
         "avg_word_length",
+        "text_length",
     ],
     # Content (NLP-computed)
     "content": [
@@ -197,7 +198,7 @@ FEATURE_DISPLAY_NAMES = {
     "retweeted":      "Post: Is Retweeted",
 }
 
-PROVIDERS    = ["openai", "anthropic", "gemini"]
+PROVIDERS    = ["openai", "anthropic", "gemini", "google"]
 PROMPT_STYLES = ["general", "popular", "engaging", "informative", "controversial", "neutral"]
 
 OUTPUT_DIR = Path("analysis_outputs")
@@ -246,6 +247,14 @@ def compute_cramers_v(pool_vals, rec_vals):
         return 0.0
 
 
+def _to_numeric(s: pd.Series) -> pd.Series:
+    """Coerce a series to float, mapping string booleans to 0/1 first."""
+    return pd.to_numeric(
+        s.map(lambda x: 1 if x is True or x == "True" else (0 if x is False or x == "False" else x)),
+        errors="coerce",
+    )
+
+
 def compute_bias_metric(pool_vals, rec_vals, feature_type):
     """Return (bias_value, p_value, metric_name)."""
     pool_vals = pool_vals.dropna()
@@ -254,8 +263,8 @@ def compute_bias_metric(pool_vals, rec_vals, feature_type):
         return 0.0, 1.0, "insufficient_data"
 
     if feature_type in ("numerical", "binary"):
-        pool_arr = pool_vals.astype(float).values
-        rec_arr  = rec_vals.astype(float).values
+        pool_arr = _to_numeric(pool_vals).dropna().values
+        rec_arr  = _to_numeric(rec_vals).dropna().values
         d = compute_cohens_d(rec_arr, pool_arr)
         _, p = ttest_ind(rec_arr, pool_arr)
         return abs(d), float(p), "Cohen's d"
@@ -280,10 +289,12 @@ def compute_directional_bias(pool_vals, rec_vals, feature_type):
     rows = []
 
     if feature_type in ("numerical", "binary"):
-        pool_mean = float(pool_vals.astype(float).mean())
-        rec_mean  = float(rec_vals.astype(float).mean())
-        pool_std  = float(pool_vals.astype(float).std())
-        rec_std   = float(rec_vals.astype(float).std())
+        pool_num  = _to_numeric(pool_vals).dropna()
+        rec_num   = _to_numeric(rec_vals).dropna()
+        pool_mean = float(pool_num.mean())
+        rec_mean  = float(rec_num.mean())
+        pool_std  = float(pool_num.std())
+        rec_std   = float(rec_num.std())
         rows.append({
             "category":         "mean",
             "directional_bias": rec_mean - pool_mean,
@@ -312,7 +323,8 @@ def load_experiment_data(experiments_dir: Path, provider: str) -> pd.DataFrame |
     exp_dirs = list(experiments_dir.glob(f"{provider}_*"))
     if not exp_dirs:
         return None
-    return pd.read_csv(exp_dirs[0] / "post_level_data.csv")
+    return pd.read_csv(exp_dirs[0] / "post_level_data.csv",
+                       engine="python", on_bad_lines="warn")
 
 
 def get_available_features(df: pd.DataFrame) -> list:

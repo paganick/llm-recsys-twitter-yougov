@@ -1,73 +1,73 @@
 provider,prompt_style,category,mean_bias,std_bias,provider_label
-anthropic,controversial,not religious,0.0172207621550591,,Claude Sonnet 4.5
-anthropic,controversial,religious,0.0092378449408672,,Claude Sonnet 4.5
-anthropic,controversial,somewhat religious,-0.0180683311432325,,Claude Sonnet 4.5
-anthropic,controversial,very religious,-0.0083902759526938,,Claude Sonnet 4.5
-anthropic,engaging,not religious,0.0294782034346102,,Claude Sonnet 4.5
-anthropic,engaging,religious,0.0201453104359313,,Claude Sonnet 4.5
-anthropic,engaging,somewhat religious,-0.0576948480845442,,Claude Sonnet 4.5
-anthropic,engaging,very religious,0.0080713342140026,,Claude Sonnet 4.5
-anthropic,general,not religious,-0.0119948186528497,,Claude Sonnet 4.5
-anthropic,general,religious,0.0064507772020725,,Claude Sonnet 4.5
-anthropic,general,somewhat religious,-0.0073834196891191,,Claude Sonnet 4.5
-anthropic,general,very religious,0.0129274611398963,,Claude Sonnet 4.5
-anthropic,informative,not religious,0.0180616174582798,,Claude Sonnet 4.5
-anthropic,informative,religious,-0.0480937098844672,,Claude Sonnet 4.5
-anthropic,informative,somewhat religious,-0.0009948652118099,,Claude Sonnet 4.5
-anthropic,informative,very religious,0.0310269576379974,,Claude Sonnet 4.5
-anthropic,neutral,not religious,0.0258224543080939,,Claude Sonnet 4.5
-anthropic,neutral,religious,-0.012597911227154,,Claude Sonnet 4.5
-anthropic,neutral,somewhat religious,-0.0008746736292428,,Claude Sonnet 4.5
-anthropic,neutral,very religious,-0.0123498694516971,,Claude Sonnet 4.5
-anthropic,popular,not religious,-0.0485899094437257,,Claude Sonnet 4.5
-anthropic,popular,religious,0.0189586028460543,,Claude Sonnet 4.5
-anthropic,popular,somewhat religious,0.0545536869340232,,Claude Sonnet 4.5
-anthropic,popular,very religious,-0.0249223803363518,,Claude Sonnet 4.5
-gemini,controversial,not religious,0.0390417209908735,,Gemini 2.0 Flash
-gemini,controversial,religious,-0.0475032594524119,,Gemini 2.0 Flash
-gemini,controversial,somewhat religious,-0.0700977835723598,,Gemini 2.0 Flash
-gemini,controversial,very religious,0.0785593220338983,,Gemini 2.0 Flash
-gemini,engaging,not religious,-0.0183109919571045,,Gemini 2.0 Flash
-gemini,engaging,religious,-0.0215415549597855,,Gemini 2.0 Flash
-gemini,engaging,somewhat religious,0.055053619302949,,Gemini 2.0 Flash
-gemini,engaging,very religious,-0.015201072386059,,Gemini 2.0 Flash
-gemini,general,not religious,-0.0083116883116882,,Gemini 2.0 Flash
-gemini,general,religious,-0.0176623376623376,,Gemini 2.0 Flash
-gemini,general,somewhat religious,-0.0099350649350649,,Gemini 2.0 Flash
-gemini,general,very religious,0.0359090909090909,,Gemini 2.0 Flash
-gemini,informative,not religious,-0.0256636005256241,,Gemini 2.0 Flash
-gemini,informative,religious,0.0250394218134034,,Gemini 2.0 Flash
-gemini,informative,somewhat religious,-0.0088699080157687,,Gemini 2.0 Flash
-gemini,informative,very religious,0.0094940867279894,,Gemini 2.0 Flash
-gemini,neutral,not religious,0.0033155080213903,,Gemini 2.0 Flash
-gemini,neutral,religious,0.0150534759358288,,Gemini 2.0 Flash
-gemini,neutral,somewhat religious,-0.0337700534759358,,Gemini 2.0 Flash
-gemini,neutral,very religious,0.0154010695187165,,Gemini 2.0 Flash
-gemini,popular,not religious,-0.0433333333333333,,Gemini 2.0 Flash
-gemini,popular,religious,-0.0279084967320261,,Gemini 2.0 Flash
-gemini,popular,somewhat religious,0.0281699346405228,,Gemini 2.0 Flash
-gemini,popular,very religious,0.0430718954248366,,Gemini 2.0 Flash
-openai,controversial,not religious,-0.0475974025974025,,GPT-4o-mini
-openai,controversial,religious,0.0301298701298701,,GPT-4o-mini
-openai,controversial,somewhat religious,0.0373376623376623,,GPT-4o-mini
-openai,controversial,very religious,-0.0198701298701298,,GPT-4o-mini
-openai,engaging,not religious,0.0211796246648793,,GPT-4o-mini
-openai,engaging,religious,0.0246916890080429,,GPT-4o-mini
-openai,engaging,somewhat religious,-0.0146916890080429,,GPT-4o-mini
-openai,engaging,very religious,-0.0311796246648793,,GPT-4o-mini
-openai,general,not religious,0.0569127086007701,,GPT-4o-mini
-openai,general,religious,-0.083767650834403,,GPT-4o-mini
-openai,general,somewhat religious,0.0018421052631579,,GPT-4o-mini
-openai,general,very religious,0.0250128369704749,,GPT-4o-mini
-openai,informative,not religious,0.0086092715231788,,GPT-4o-mini
-openai,informative,religious,-0.0070860927152317,,GPT-4o-mini
-openai,informative,somewhat religious,0.0014238410596026,,GPT-4o-mini
-openai,informative,very religious,-0.0029470198675496,,GPT-4o-mini
-openai,neutral,not religious,9.383378016086796e-05,,GPT-4o-mini
-openai,neutral,religious,-0.0134986595174262,,GPT-4o-mini
-openai,neutral,somewhat religious,0.0136058981233244,,GPT-4o-mini
-openai,neutral,very religious,-0.0002010723860589,,GPT-4o-mini
-openai,popular,not religious,-0.0386818757921419,,GPT-4o-mini
-openai,popular,religious,0.0158745247148288,,GPT-4o-mini
-openai,popular,somewhat religious,-0.0008111533586818,,GPT-4o-mini
-openai,popular,very religious,0.0236185044359949,,GPT-4o-mini
+anthropic,controversial,not religious,-0.0001478746770456,,Claude Sonnet 4.5
+anthropic,controversial,religious,0.016710172309048,,Claude Sonnet 4.5
+anthropic,controversial,somewhat religious,-0.0157975552276869,,Claude Sonnet 4.5
+anthropic,controversial,very religious,-0.0007647424043154,,Claude Sonnet 4.5
+anthropic,engaging,not religious,0.0143290921183178,,Claude Sonnet 4.5
+anthropic,engaging,religious,0.0134614056702173,,Claude Sonnet 4.5
+anthropic,engaging,somewhat religious,-0.0009912522668876,,Claude Sonnet 4.5
+anthropic,engaging,very religious,-0.0267992455216476,,Claude Sonnet 4.5
+anthropic,general,not religious,0.0144234073796357,,Claude Sonnet 4.5
+anthropic,general,religious,0.0151326272377917,,Claude Sonnet 4.5
+anthropic,general,somewhat religious,-0.0375730308994907,,Claude Sonnet 4.5
+anthropic,general,very religious,0.0080169962820633,,Claude Sonnet 4.5
+anthropic,informative,not religious,-0.0310872102503368,,Claude Sonnet 4.5
+anthropic,informative,religious,0.0465703582738416,,Claude Sonnet 4.5
+anthropic,informative,somewhat religious,-0.0486078162373829,,Claude Sonnet 4.5
+anthropic,informative,very religious,0.033124668213878,,Claude Sonnet 4.5
+anthropic,neutral,not religious,0.0109838281800888,,Claude Sonnet 4.5
+anthropic,neutral,religious,0.003591936050288,,Claude Sonnet 4.5
+anthropic,neutral,somewhat religious,-0.0045676380136449,,Claude Sonnet 4.5
+anthropic,neutral,very religious,-0.0100081262167318,,Claude Sonnet 4.5
+anthropic,popular,not religious,-0.0188184251585027,,Claude Sonnet 4.5
+anthropic,popular,religious,0.0224972970018445,,Claude Sonnet 4.5
+anthropic,popular,somewhat religious,-0.0097568944493422,,Claude Sonnet 4.5
+anthropic,popular,very religious,0.0060780226060003,,Claude Sonnet 4.5
+google,controversial,not religious,0.0045959673311796,,Gemini 2.0 Flash
+google,controversial,religious,0.0170572772896134,,Gemini 2.0 Flash
+google,controversial,somewhat religious,-0.0243359916226487,,Gemini 2.0 Flash
+google,controversial,very religious,0.0026827470018556,,Gemini 2.0 Flash
+google,engaging,not religious,0.002385928662447,,Gemini 2.0 Flash
+google,engaging,religious,0.0068109717770783,,Gemini 2.0 Flash
+google,engaging,somewhat religious,-0.005132817028378,,Gemini 2.0 Flash
+google,engaging,very religious,-0.0040640834111474,,Gemini 2.0 Flash
+google,general,not religious,0.0418734197077819,,Gemini 2.0 Flash
+google,general,religious,0.0033993445242094,,Gemini 2.0 Flash
+google,general,somewhat religious,-0.0429472160110125,,Gemini 2.0 Flash
+google,general,very religious,-0.0023255482209787,,Gemini 2.0 Flash
+google,informative,not religious,0.0036222734401546,,Gemini 2.0 Flash
+google,informative,religious,0.0086220739286196,,Gemini 2.0 Flash
+google,informative,somewhat religious,-0.0087155474990021,,Gemini 2.0 Flash
+google,informative,very religious,-0.0035287998697721,,Gemini 2.0 Flash
+google,neutral,not religious,0.0343885317372348,,Gemini 2.0 Flash
+google,neutral,religious,0.0149656395477721,,Gemini 2.0 Flash
+google,neutral,somewhat religious,-0.040516515185103,,Gemini 2.0 Flash
+google,neutral,very religious,-0.0088376560999039,,Gemini 2.0 Flash
+google,popular,not religious,0.0010235598686022,,Gemini 2.0 Flash
+google,popular,religious,0.0124874958210363,,Gemini 2.0 Flash
+google,popular,somewhat religious,-0.0094397146462944,,Gemini 2.0 Flash
+google,popular,very religious,-0.0040713410433441,,Gemini 2.0 Flash
+openai,controversial,not religious,0.0262717715945273,,GPT-4o-mini
+openai,controversial,religious,-0.0159803625108948,,GPT-4o-mini
+openai,controversial,somewhat religious,-0.0232014734585039,,GPT-4o-mini
+openai,controversial,very religious,0.0129100643748716,,GPT-4o-mini
+openai,engaging,not religious,0.0071240952950476,,GPT-4o-mini
+openai,engaging,religious,-0.0265185471949685,,GPT-4o-mini
+openai,engaging,somewhat religious,-0.0181864020862494,,GPT-4o-mini
+openai,engaging,very religious,0.0375808539861704,,GPT-4o-mini
+openai,general,not religious,0.0328597812019301,,GPT-4o-mini
+openai,general,religious,-0.0356073165538705,,GPT-4o-mini
+openai,general,somewhat religious,-0.0009539222652035,,GPT-4o-mini
+openai,general,very religious,0.003701457617144,,GPT-4o-mini
+openai,informative,not religious,-0.0040509010286389,,GPT-4o-mini
+openai,informative,religious,0.0056083467990711,,GPT-4o-mini
+openai,informative,somewhat religious,-0.0287438182124624,,GPT-4o-mini
+openai,informative,very religious,0.0271863724420302,,GPT-4o-mini
+openai,neutral,not religious,0.0019853867665251,,GPT-4o-mini
+openai,neutral,religious,-0.0166648291611682,,GPT-4o-mini
+openai,neutral,somewhat religious,0.0034913093819507,,GPT-4o-mini
+openai,neutral,very religious,0.0111881330126922,,GPT-4o-mini
+openai,popular,not religious,0.0275285998228298,,GPT-4o-mini
+openai,popular,religious,-0.0332352773451308,,GPT-4o-mini
+openai,popular,somewhat religious,0.0056437615749901,,GPT-4o-mini
+openai,popular,very religious,6.291594731092087e-05,,GPT-4o-mini

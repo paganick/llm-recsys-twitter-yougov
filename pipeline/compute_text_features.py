@@ -66,6 +66,40 @@ TOPICS = [
 ]
 
 
+_TOXICITY_BATCH = 512
+
+
+def _compute_toxicity_batched(texts: list) -> list:
+    from detoxify import Detoxify
+    model = Detoxify("original")
+    scores = []
+    for i in range(0, len(texts), _TOXICITY_BATCH):
+        batch = texts[i: i + _TOXICITY_BATCH]
+        scores.extend(model.predict(batch)["toxicity"])
+        if (i // _TOXICITY_BATCH) % 20 == 0:
+            print(f"    {i + len(batch):,}/{len(texts):,} posts scored", flush=True)
+    return scores
+
+
+_FEATURE_FILLERS = {
+    "toxicity": _compute_toxicity_batched,
+}
+
+
+def _fill_null_features(cache: pd.DataFrame, posts: pd.DataFrame, null_cols: list) -> pd.DataFrame:
+    """Fill specific null columns in cache for the given posts using targeted models."""
+    for col in null_cols:
+        if col not in _FEATURE_FILLERS:
+            print(f"  (no targeted filler for {col}, skipping)")
+            continue
+        filler = _FEATURE_FILLERS[col]
+        print(f"  Computing {col} for {len(posts):,} posts ...")
+        scores = filler(posts["text"].astype(str).tolist())
+        score_map = dict(zip(posts["post_id"].values, scores))
+        cache[col] = cache["post_id"].map(score_map).combine_first(cache[col])
+    return cache
+
+
 def fake_features(post_ids: pd.Series, seed: int = 42) -> pd.DataFrame:
     """Generate plausible-looking random feature values for testing."""
     import numpy as np
@@ -103,7 +137,7 @@ def main():
         sys.exit(1)
 
     print(f"Loading experiment data from {csv_path} ...")
-    df = pd.read_csv(csv_path)
+    df = pd.read_csv(csv_path, engine="python", on_bad_lines="warn")
     print(f"  {len(df):,} rows, {df['post_id'].nunique():,} unique post_ids")
 
     unique_posts = df[["post_id", "text"]].drop_duplicates("post_id")
@@ -119,6 +153,18 @@ def main():
 
         if missing.empty:
             print(f"All {len(unique_posts):,} posts already in cache — skipping computation.")
+
+            # Fill any NLP features that are null in the cache (e.g. toxicity added later)
+            null_cols = [c for c in COMPUTED_FEATURES
+                         if c in cache.columns and cache[c].isna().any()]
+            if null_cols:
+                null_ids = cache[cache[null_cols].isna().any(axis=1)]["post_id"]
+                null_texts = unique_posts[unique_posts["post_id"].isin(null_ids)]
+                if not null_texts.empty:
+                    print(f"  Re-filling {len(null_ids):,} posts with null columns: {null_cols}")
+                    cache = _fill_null_features(cache, null_texts, null_cols)
+                    save_cache(cache)
+                    print(f"  Cache updated → {CACHE_FILE}")
         else:
             print(f"\nCache: {len(cached_ids):,} posts already computed, "
                   f"{len(missing):,} new posts to process.")

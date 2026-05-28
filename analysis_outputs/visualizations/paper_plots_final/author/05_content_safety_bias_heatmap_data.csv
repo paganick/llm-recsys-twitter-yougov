@@ -1,55 +1,55 @@
 feature,provider,provider_display,prompt_style,prompt_display,directional_bias
-polarization_score,anthropic,Claude Sonnet 4.5,neutral,Neutral,0.0326737180156658
-polarization_score,anthropic,Claude Sonnet 4.5,general,General,0.0161484481865285
-polarization_score,anthropic,Claude Sonnet 4.5,popular,Popular,0.0078174282018111
-polarization_score,anthropic,Claude Sonnet 4.5,engaging,Engaging,0.0263784022457067
-polarization_score,anthropic,Claude Sonnet 4.5,informative,Informative,-0.0176594422336328
-polarization_score,anthropic,Claude Sonnet 4.5,controversial,Controversial,-0.0119016346911957
-polarization_score,openai,GPT-4o-mini,neutral,Neutral,0.015340974530831
-polarization_score,openai,GPT-4o-mini,general,General,-0.0135876116816431
-polarization_score,openai,GPT-4o-mini,popular,Popular,0.0188031647655259
-polarization_score,openai,GPT-4o-mini,engaging,Engaging,-0.0107957560321716
-polarization_score,openai,GPT-4o-mini,informative,Informative,0.015779559602649
-polarization_score,openai,GPT-4o-mini,controversial,Controversial,0.0183864999999999
-polarization_score,gemini,Gemini 2.0 Flash,neutral,Neutral,-0.0117539786096256
-polarization_score,gemini,Gemini 2.0 Flash,general,General,0.0163241688311687
-polarization_score,gemini,Gemini 2.0 Flash,popular,Popular,-0.0275451111111111
-polarization_score,gemini,Gemini 2.0 Flash,engaging,Engaging,0.0285616420911527
-polarization_score,gemini,Gemini 2.0 Flash,informative,Informative,0.0136522141918529
-polarization_score,gemini,Gemini 2.0 Flash,controversial,Controversial,0.0316974889178617
-sentiment_polarity,anthropic,Claude Sonnet 4.5,neutral,Neutral,0.0022306292428198
-sentiment_polarity,anthropic,Claude Sonnet 4.5,general,General,-0.0618418419689119
-sentiment_polarity,anthropic,Claude Sonnet 4.5,popular,Popular,-0.0179430181112548
-sentiment_polarity,anthropic,Claude Sonnet 4.5,engaging,Engaging,-0.0288828348745046
-sentiment_polarity,anthropic,Claude Sonnet 4.5,informative,Informative,0.0571223465982028
-sentiment_polarity,anthropic,Claude Sonnet 4.5,controversial,Controversial,0.0144646156373193
-sentiment_polarity,openai,GPT-4o-mini,neutral,Neutral,0.0065386126005361
-sentiment_polarity,openai,GPT-4o-mini,general,General,-0.0059086219512195
-sentiment_polarity,openai,GPT-4o-mini,popular,Popular,0.0342815411913815
-sentiment_polarity,openai,GPT-4o-mini,engaging,Engaging,-0.0688215857908847
-sentiment_polarity,openai,GPT-4o-mini,informative,Informative,0.014700559602649
-sentiment_polarity,openai,GPT-4o-mini,controversial,Controversial,0.0072393636363636
-sentiment_polarity,gemini,Gemini 2.0 Flash,neutral,Neutral,-0.005062909090909
-sentiment_polarity,gemini,Gemini 2.0 Flash,general,General,-0.0100674805194805
-sentiment_polarity,gemini,Gemini 2.0 Flash,popular,Popular,0.0238893496732026
-sentiment_polarity,gemini,Gemini 2.0 Flash,engaging,Engaging,-0.0410341501340482
-sentiment_polarity,gemini,Gemini 2.0 Flash,informative,Informative,-0.0185028659658344
-sentiment_polarity,gemini,Gemini 2.0 Flash,controversial,Controversial,0.0477227451108213
-toxicity,anthropic,Claude Sonnet 4.5,neutral,Neutral,0.0055012154046997
-toxicity,anthropic,Claude Sonnet 4.5,general,General,0.0089157512953368
-toxicity,anthropic,Claude Sonnet 4.5,popular,Popular,0.0123441578266494
-toxicity,anthropic,Claude Sonnet 4.5,engaging,Engaging,0.0009112357992074
-toxicity,anthropic,Claude Sonnet 4.5,informative,Informative,-0.0063428132220795
-toxicity,anthropic,Claude Sonnet 4.5,controversial,Controversial,-0.0062282798948751
-toxicity,openai,GPT-4o-mini,neutral,Neutral,-0.0027957654155495
-toxicity,openai,GPT-4o-mini,general,General,-0.0181094184852374
-toxicity,openai,GPT-4o-mini,popular,Popular,0.001433608365019
-toxicity,openai,GPT-4o-mini,engaging,Engaging,0.0004500817694369
-toxicity,openai,GPT-4o-mini,informative,Informative,0.0068886225165562
-toxicity,openai,GPT-4o-mini,controversial,Controversial,0.0085877662337662
-toxicity,gemini,Gemini 2.0 Flash,neutral,Neutral,0.0105905106951871
-toxicity,gemini,Gemini 2.0 Flash,general,General,-0.0069671753246753
-toxicity,gemini,Gemini 2.0 Flash,popular,Popular,-0.0045861732026143
-toxicity,gemini,Gemini 2.0 Flash,engaging,Engaging,0.0087954249329758
-toxicity,gemini,Gemini 2.0 Flash,informative,Informative,0.0040100611038107
-toxicity,gemini,Gemini 2.0 Flash,controversial,Controversial,0.0122063168187744
+polarization_score,anthropic,Claude Sonnet 4.5,neutral,Neutral,0.1522742779215474
+polarization_score,anthropic,Claude Sonnet 4.5,general,General,0.1380244742056163
+polarization_score,anthropic,Claude Sonnet 4.5,popular,Popular,0.0380429907183101
+polarization_score,anthropic,Claude Sonnet 4.5,engaging,Engaging,0.151376657859667
+polarization_score,anthropic,Claude Sonnet 4.5,informative,Informative,0.2767109307293356
+polarization_score,anthropic,Claude Sonnet 4.5,controversial,Controversial,0.4131222683911376
+polarization_score,openai,GPT-4o-mini,neutral,Neutral,0.1150513053602882
+polarization_score,openai,GPT-4o-mini,general,General,0.138672130101946
+polarization_score,openai,GPT-4o-mini,popular,Popular,0.0805959912562357
+polarization_score,openai,GPT-4o-mini,engaging,Engaging,0.088536471280149
+polarization_score,openai,GPT-4o-mini,informative,Informative,0.3081683570779105
+polarization_score,openai,GPT-4o-mini,controversial,Controversial,0.417778614551213
+polarization_score,google,Gemini 2.0 Flash,neutral,Neutral,0.0575087176373514
+polarization_score,google,Gemini 2.0 Flash,general,General,0.0400171064138337
+polarization_score,google,Gemini 2.0 Flash,popular,Popular,0.0243670448430813
+polarization_score,google,Gemini 2.0 Flash,engaging,Engaging,0.079570301021233
+polarization_score,google,Gemini 2.0 Flash,informative,Informative,0.1678342725205042
+polarization_score,google,Gemini 2.0 Flash,controversial,Controversial,0.3829420667647053
+sentiment_polarity,anthropic,Claude Sonnet 4.5,neutral,Neutral,-0.0883168067674614
+sentiment_polarity,anthropic,Claude Sonnet 4.5,general,General,-0.1331970450214015
+sentiment_polarity,anthropic,Claude Sonnet 4.5,popular,Popular,-0.0593271285054914
+sentiment_polarity,anthropic,Claude Sonnet 4.5,engaging,Engaging,-0.1446892709434977
+sentiment_polarity,anthropic,Claude Sonnet 4.5,informative,Informative,-0.1287643598566071
+sentiment_polarity,anthropic,Claude Sonnet 4.5,controversial,Controversial,-0.2225777671257569
+sentiment_polarity,openai,GPT-4o-mini,neutral,Neutral,-0.0362332228579029
+sentiment_polarity,openai,GPT-4o-mini,general,General,-0.0596592278074022
+sentiment_polarity,openai,GPT-4o-mini,popular,Popular,-0.0063262007716827
+sentiment_polarity,openai,GPT-4o-mini,engaging,Engaging,-0.0383227348486686
+sentiment_polarity,openai,GPT-4o-mini,informative,Informative,-0.1183405585555662
+sentiment_polarity,openai,GPT-4o-mini,controversial,Controversial,-0.2520773215946081
+sentiment_polarity,google,Gemini 2.0 Flash,neutral,Neutral,-0.0474779159831523
+sentiment_polarity,google,Gemini 2.0 Flash,general,General,-0.0672555521795104
+sentiment_polarity,google,Gemini 2.0 Flash,popular,Popular,-0.0716644577422539
+sentiment_polarity,google,Gemini 2.0 Flash,engaging,Engaging,-0.0754606719508681
+sentiment_polarity,google,Gemini 2.0 Flash,informative,Informative,-0.1249507253590482
+sentiment_polarity,google,Gemini 2.0 Flash,controversial,Controversial,-0.204122993567391
+toxicity,anthropic,Claude Sonnet 4.5,neutral,Neutral,-0.0184085432415551
+toxicity,anthropic,Claude Sonnet 4.5,general,General,-0.0064153245696694
+toxicity,anthropic,Claude Sonnet 4.5,popular,Popular,0.0146528564564766
+toxicity,anthropic,Claude Sonnet 4.5,engaging,Engaging,0.0268735874686563
+toxicity,anthropic,Claude Sonnet 4.5,informative,Informative,-0.0316951871127855
+toxicity,anthropic,Claude Sonnet 4.5,controversial,Controversial,0.0232922561184027
+toxicity,openai,GPT-4o-mini,neutral,Neutral,0.0145469104855391
+toxicity,openai,GPT-4o-mini,general,General,-0.0037825770338161
+toxicity,openai,GPT-4o-mini,popular,Popular,0.0215731977704807
+toxicity,openai,GPT-4o-mini,engaging,Engaging,0.0054159225892557
+toxicity,openai,GPT-4o-mini,informative,Informative,-0.0260349892247202
+toxicity,openai,GPT-4o-mini,controversial,Controversial,0.0322115150031024
+toxicity,google,Gemini 2.0 Flash,neutral,Neutral,-0.0021532957799358
+toxicity,google,Gemini 2.0 Flash,general,General,-0.0050089829799718
+toxicity,google,Gemini 2.0 Flash,popular,Popular,0.0019239060600943
+toxicity,google,Gemini 2.0 Flash,engaging,Engaging,0.0343697008284907
+toxicity,google,Gemini 2.0 Flash,informative,Informative,-0.0243103636890418
+toxicity,google,Gemini 2.0 Flash,controversial,Controversial,0.048933615416813

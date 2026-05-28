@@ -1,55 +1,55 @@
 provider,prompt_style,directional_bias,feature,provider_display,prompt_display
-openai,general,-0.012763269433465,polarization_score,GPT-4o-mini,General
-openai,popular,-0.0104998067885118,polarization_score,GPT-4o-mini,Popular
-openai,engaging,0.0378071578947367,polarization_score,GPT-4o-mini,Engaging
-openai,informative,-0.0143207059973925,polarization_score,GPT-4o-mini,Informative
-openai,controversial,-0.009588889182058,polarization_score,GPT-4o-mini,Controversial
-openai,neutral,-0.0099614424552429,polarization_score,GPT-4o-mini,Neutral
-anthropic,general,-0.0116257434554972,polarization_score,Claude Sonnet 4.5,General
-anthropic,popular,0.0008758801089918,polarization_score,Claude Sonnet 4.5,Popular
-anthropic,engaging,0.022977275616083,polarization_score,Claude Sonnet 4.5,Engaging
-anthropic,informative,0.0198484322916667,polarization_score,Claude Sonnet 4.5,Informative
-anthropic,controversial,-0.0055627705570291,polarization_score,Claude Sonnet 4.5,Controversial
-anthropic,neutral,0.0003164540816326,polarization_score,Claude Sonnet 4.5,Neutral
-gemini,general,-0.0118013758212878,polarization_score,Gemini 2.0 Flash,General
-gemini,popular,0.0304628848641655,polarization_score,Gemini 2.0 Flash,Popular
-gemini,engaging,0.0169658157894737,polarization_score,Gemini 2.0 Flash,Engaging
-gemini,informative,0.0610984604221636,polarization_score,Gemini 2.0 Flash,Informative
-gemini,controversial,0.0342125401034928,polarization_score,Gemini 2.0 Flash,Controversial
-gemini,neutral,-0.020006537735849,polarization_score,Gemini 2.0 Flash,Neutral
-openai,general,0.0802823109354413,sentiment_polarity,GPT-4o-mini,General
-openai,popular,-0.0020169399477806,sentiment_polarity,GPT-4o-mini,Popular
-openai,engaging,-0.0461966842105263,sentiment_polarity,GPT-4o-mini,Engaging
-openai,informative,-0.0531838037809647,sentiment_polarity,GPT-4o-mini,Informative
-openai,controversial,-0.0081549142480211,sentiment_polarity,GPT-4o-mini,Controversial
-openai,neutral,0.0544874667519181,sentiment_polarity,GPT-4o-mini,Neutral
-anthropic,general,0.0194709921465968,sentiment_polarity,Claude Sonnet 4.5,General
-anthropic,popular,-0.002920325613079,sentiment_polarity,Claude Sonnet 4.5,Popular
-anthropic,engaging,0.0911414312581063,sentiment_polarity,Claude Sonnet 4.5,Engaging
-anthropic,informative,-0.0477114531249999,sentiment_polarity,Claude Sonnet 4.5,Informative
-anthropic,controversial,0.0821271525198938,sentiment_polarity,Claude Sonnet 4.5,Controversial
-anthropic,neutral,-0.0428437091836734,sentiment_polarity,Claude Sonnet 4.5,Neutral
-gemini,general,0.0107428239159001,sentiment_polarity,Gemini 2.0 Flash,General
-gemini,popular,-0.034195074385511,sentiment_polarity,Gemini 2.0 Flash,Popular
-gemini,engaging,-0.059614947368421,sentiment_polarity,Gemini 2.0 Flash,Engaging
-gemini,informative,0.0186629749340369,sentiment_polarity,Gemini 2.0 Flash,Informative
-gemini,controversial,0.069636267141009,sentiment_polarity,Gemini 2.0 Flash,Controversial
-gemini,neutral,0.07903226819407,sentiment_polarity,Gemini 2.0 Flash,Neutral
-openai,general,-0.0023141245059288,toxicity,GPT-4o-mini,General
-openai,popular,-0.0045143093994778,toxicity,GPT-4o-mini,Popular
-openai,engaging,0.006832447368421,toxicity,GPT-4o-mini,Engaging
-openai,informative,-0.0042472503259452,toxicity,GPT-4o-mini,Informative
-openai,controversial,0.0032252189973614,toxicity,GPT-4o-mini,Controversial
-openai,neutral,-0.00551070971867,toxicity,GPT-4o-mini,Neutral
-anthropic,general,0.0134069738219895,toxicity,Claude Sonnet 4.5,General
-anthropic,popular,-0.0088485258855585,toxicity,Claude Sonnet 4.5,Popular
-anthropic,engaging,-0.0058443722438391,toxicity,Claude Sonnet 4.5,Engaging
-anthropic,informative,-0.0005849583333333,toxicity,Claude Sonnet 4.5,Informative
-anthropic,controversial,0.0015313196286472,toxicity,Claude Sonnet 4.5,Controversial
-anthropic,neutral,0.0070558469387755,toxicity,Claude Sonnet 4.5,Neutral
-gemini,general,0.0018479283837056,toxicity,Gemini 2.0 Flash,General
-gemini,popular,-0.0074796209573091,toxicity,Gemini 2.0 Flash,Popular
-gemini,engaging,0.0081112631578947,toxicity,Gemini 2.0 Flash,Engaging
-gemini,informative,-0.0073295343007915,toxicity,Gemini 2.0 Flash,Informative
-gemini,controversial,6.533699870636678e-05,toxicity,Gemini 2.0 Flash,Controversial
-gemini,neutral,0.0058894770889487,toxicity,Gemini 2.0 Flash,Neutral
+openai,general,0.0468796515378722,polarization_score,GPT-4o-mini,General
+openai,popular,-0.0567793899435253,polarization_score,GPT-4o-mini,Popular
+openai,engaging,-0.0083388986437961,polarization_score,GPT-4o-mini,Engaging
+openai,informative,0.2606007467482677,polarization_score,GPT-4o-mini,Informative
+openai,controversial,0.3891838650332705,polarization_score,GPT-4o-mini,Controversial
+openai,neutral,0.1823385230057595,polarization_score,GPT-4o-mini,Neutral
+anthropic,general,0.1654222309486428,polarization_score,Claude Sonnet 4.5,General
+anthropic,popular,0.023360029195911,polarization_score,Claude Sonnet 4.5,Popular
+anthropic,engaging,0.1864396141680774,polarization_score,Claude Sonnet 4.5,Engaging
+anthropic,informative,0.2711541526934481,polarization_score,Claude Sonnet 4.5,Informative
+anthropic,controversial,0.4500448385986205,polarization_score,Claude Sonnet 4.5,Controversial
+anthropic,neutral,0.3219957637795099,polarization_score,Claude Sonnet 4.5,Neutral
+google,general,0.0827864105118149,polarization_score,Gemini 2.0 Flash,General
+google,popular,0.0154905768036674,polarization_score,Gemini 2.0 Flash,Popular
+google,engaging,0.1771029076843865,polarization_score,Gemini 2.0 Flash,Engaging
+google,informative,0.2424802193050882,polarization_score,Gemini 2.0 Flash,Informative
+google,controversial,0.4246749292470227,polarization_score,Gemini 2.0 Flash,Controversial
+google,neutral,0.3097596568450728,polarization_score,Gemini 2.0 Flash,Neutral
+openai,general,0.0099319277444148,sentiment_polarity,GPT-4o-mini,General
+openai,popular,0.1255470582900804,sentiment_polarity,GPT-4o-mini,Popular
+openai,engaging,0.0852213757888191,sentiment_polarity,GPT-4o-mini,Engaging
+openai,informative,-0.0942844224389637,sentiment_polarity,GPT-4o-mini,Informative
+openai,controversial,-0.2165190433090336,sentiment_polarity,GPT-4o-mini,Controversial
+openai,neutral,-0.0673992686208903,sentiment_polarity,GPT-4o-mini,Neutral
+anthropic,general,-0.1463766776584221,sentiment_polarity,Claude Sonnet 4.5,General
+anthropic,popular,-0.0980431648053521,sentiment_polarity,Claude Sonnet 4.5,Popular
+anthropic,engaging,-0.184087101607043,sentiment_polarity,Claude Sonnet 4.5,Engaging
+anthropic,informative,-0.10670023025392,sentiment_polarity,Claude Sonnet 4.5,Informative
+anthropic,controversial,-0.2541253643740444,sentiment_polarity,Claude Sonnet 4.5,Controversial
+anthropic,neutral,-0.1751543771646131,sentiment_polarity,Claude Sonnet 4.5,Neutral
+google,general,-0.0639900367643345,sentiment_polarity,Gemini 2.0 Flash,General
+google,popular,-0.0603750473986953,sentiment_polarity,Gemini 2.0 Flash,Popular
+google,engaging,-0.1685036914104207,sentiment_polarity,Gemini 2.0 Flash,Engaging
+google,informative,-0.152648746819794,sentiment_polarity,Gemini 2.0 Flash,Informative
+google,controversial,-0.2379845625593714,sentiment_polarity,Gemini 2.0 Flash,Controversial
+google,neutral,-0.1977382415840248,sentiment_polarity,Gemini 2.0 Flash,Neutral
+openai,general,-0.0161515054934826,toxicity,GPT-4o-mini,General
+openai,popular,-0.0121615866106141,toxicity,GPT-4o-mini,Popular
+openai,engaging,-0.006295423543296,toxicity,GPT-4o-mini,Engaging
+openai,informative,-0.043541587842121,toxicity,GPT-4o-mini,Informative
+openai,controversial,0.0331235067121201,toxicity,GPT-4o-mini,Controversial
+openai,neutral,0.0078918492909252,toxicity,GPT-4o-mini,Neutral
+anthropic,general,-0.0095982576903284,toxicity,Claude Sonnet 4.5,General
+anthropic,popular,0.0318011057038671,toxicity,Claude Sonnet 4.5,Popular
+anthropic,engaging,0.0793875021616075,toxicity,Claude Sonnet 4.5,Engaging
+anthropic,informative,-0.0425304342391223,toxicity,Claude Sonnet 4.5,Informative
+anthropic,controversial,0.0357845570963701,toxicity,Claude Sonnet 4.5,Controversial
+anthropic,neutral,-0.00122738786982,toxicity,Claude Sonnet 4.5,Neutral
+google,general,-0.0237408832567586,toxicity,Gemini 2.0 Flash,General
+google,popular,0.0192601247936278,toxicity,Gemini 2.0 Flash,Popular
+google,engaging,0.076283367399278,toxicity,Gemini 2.0 Flash,Engaging
+google,informative,-0.0368236834510641,toxicity,Gemini 2.0 Flash,Informative
+google,controversial,0.0457360956598142,toxicity,Gemini 2.0 Flash,Controversial
+google,neutral,0.0299432748888609,toxicity,Gemini 2.0 Flash,Neutral
