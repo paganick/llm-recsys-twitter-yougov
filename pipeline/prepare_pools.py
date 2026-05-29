@@ -94,18 +94,6 @@ def main():
 
     pools_dir.mkdir(parents=True, exist_ok=True)
 
-    # ── Write post_features.csv ───────────────────────────────────────────────
-    post_cols = (["post_id", "author_id", "text"]
-                 + [c for c in POST_FEATURE_COLS if c in pool.columns])
-    pool[post_cols].to_csv(pools_dir / "post_features.csv", index=False)
-    print(f"  post_features.csv:   {len(pool):,} posts, {len(post_cols)} columns")
-
-    # ── Write author_features.csv ─────────────────────────────────────────────
-    author_cols = ["author_id"] + [c for c in AUTHOR_FEATURE_COLS if c in pool.columns]
-    author_df = pool[author_cols].drop_duplicates(subset="author_id")
-    author_df.to_csv(pools_dir / "author_features.csv", index=False)
-    print(f"  author_features.csv: {len(author_df):,} authors, {len(author_cols)} columns")
-
     # Sort by date then post_id as tiebreaker — fully deterministic regardless
     # of platform or pandas version (avoids unstable-sort ambiguity on ties).
     if "created_at" not in pool.columns:
@@ -162,13 +150,28 @@ def main():
         print(f"\n{len(existing)} existing trial file(s) found — they will be overwritten.")
 
     print(f"\nWriting {n_t} pool files to {pools_dir} …")
+    samples = []
     for t, (s, e) in enumerate(buckets):
         bucket = pool.iloc[s:e]
         sample = bucket.sample(n=p_size, random_state=SEED_BASE + t)
         out    = pools_dir / f"trial_{t:03d}.csv"
         sample.to_csv(out, index=False)
+        samples.append(sample)
         if (t + 1) % 10 == 0 or t == n_t - 1:
             print(f"  {t+1}/{n_t} written")
+
+    # ── Write post_features.csv and author_features.csv ───────────────────────
+    # Only include posts/authors that actually appear in at least one trial.
+    shown = pd.concat(samples, ignore_index=True).drop_duplicates(subset="post_id")
+    post_cols = (["post_id", "author_id", "text"]
+                 + [c for c in POST_FEATURE_COLS if c in pool.columns])
+    shown[post_cols].to_csv(pools_dir / "post_features.csv", index=False)
+    print(f"  post_features.csv:   {len(shown):,} unique shown posts")
+
+    author_cols = ["author_id"] + [c for c in AUTHOR_FEATURE_COLS if c in pool.columns]
+    author_df = shown[author_cols].drop_duplicates(subset="author_id")
+    author_df.to_csv(pools_dir / "author_features.csv", index=False)
+    print(f"  author_features.csv: {len(author_df):,} unique shown authors")
 
     print(f"\n✓ Done.")
     print(f"  {n_t} trial pools of {p_size} posts each → {pools_dir}/trial_*.csv")
