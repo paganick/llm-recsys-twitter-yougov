@@ -282,31 +282,58 @@ def build_inference_prompt(pool_df: pd.DataFrame, context_level: str = "none") -
 
 # ── Response parsers ──────────────────────────────────────────────────────────
 
-def parse_ranking(response: str, pool_size: int, k: int) -> List[int]:
+def parse_ranking(response: str, pool_size: int, k: int) -> tuple:
+    """
+    Parse a ranking response into a list of 0-based post indices.
+
+    Returns (indices, diag) where diag is a dict with:
+      n_raw       — numbers found in the response
+      n_valid     — numbers in range [1, pool_size]
+      n_selected  — final selected count (after dedup and cap at k)
+      fallback    — True if we had to fall back to first-k
+      duplicates  — True if duplicates were present
+    """
     numbers = re.findall(r"\d+", response)
+    diag = {"n_raw": len(numbers), "n_valid": 0, "n_selected": 0,
+            "fallback": False, "duplicates": False}
     try:
         indices = [int(n) - 1 for n in numbers]
         valid   = [i for i in indices if 0 <= i < pool_size]
-        return list(dict.fromkeys(valid))[:k] if valid else list(range(k))
+        diag["n_valid"]     = len(valid)
+        diag["duplicates"]  = len(valid) != len(set(valid))
+        deduped = list(dict.fromkeys(valid))[:k]
+        diag["n_selected"]  = len(deduped)
+        if not deduped:
+            diag["fallback"] = True
+            return list(range(k)), diag
+        return deduped, diag
     except Exception:
-        return list(range(k))
+        diag["fallback"] = True
+        return list(range(k)), diag
 
 
-def parse_inference_response(response: str, pool_df: pd.DataFrame) -> pd.DataFrame:
+def parse_inference_response(response: str, pool_df: pd.DataFrame) -> tuple:
     """
     Parse the LLM's demographic inference response.
 
     Expected line format (one per post):
         Post X | Gender: male | Age group: 25-34 | Race/ethnicity: white | ...
 
-    Returns a DataFrame with one row per post, columns: post_id + inferred_*.
+    Returns (df, diag) where diag is a dict with:
+      n_parsed    — posts successfully parsed
+      n_expected  — pool size
+      n_oof       — out-of-vocabulary values encountered
+      oof_samples — up to 5 example OOF values for debugging
     """
     post_ids = list(pool_df.get("post_id", pool_df.index))
+    valid_options = {key: {v.lower() for v in opts}
+                     for key, _, opts in DEMO_INFERENCE_FIELDS}
+    diag = {"n_parsed": 0, "n_expected": len(post_ids),
+            "n_oof": 0, "oof_samples": []}
     rows = []
 
     for raw_line in response.strip().split("\n"):
         line = raw_line.strip()
-        # Accept "Post X", "post X", "1.", "1)" etc. as line starters
         m = re.match(r"(?:post\s*)?(\d+)[.\)|\s]", line, re.IGNORECASE)
         if not m:
             continue
@@ -315,28 +342,35 @@ def parse_inference_response(response: str, pool_df: pd.DataFrame) -> pd.DataFra
             continue
 
         row = {"post_id": post_ids[post_num]}
-        # Split on "|" and parse each "Label: value" segment
         segments = line.split("|")
-        for seg in segments[1:]:  # skip the "Post X" segment
+        for seg in segments[1:]:
             if ":" not in seg:
                 continue
             label_raw, _, value_raw = seg.partition(":")
             label_key = label_raw.strip().lower()
             col_key   = _LABEL_TO_KEY.get(label_key)
-            if col_key:
-                row[f"inferred_{col_key}"] = value_raw.strip().lower()
+            if not col_key:
+                continue
+            value = value_raw.strip().lower()
+            if value != "unknown" and value not in valid_options.get(col_key, set()):
+                diag["n_oof"] += 1
+                if len(diag["oof_samples"]) < 5:
+                    diag["oof_samples"].append(f"{col_key}={value!r}")
+                value = "unknown"
+            row[f"inferred_{col_key}"] = value
         rows.append(row)
 
+    diag["n_parsed"] = len(rows)
+
     if not rows:
-        return pd.DataFrame()
+        return pd.DataFrame(), diag
 
     result = pd.DataFrame(rows)
-    # Ensure all inference columns are present (fill missing with "unknown")
     for key, _, _ in DEMO_INFERENCE_FIELDS:
         col = f"inferred_{key}"
         if col not in result.columns:
             result[col] = "unknown"
-    return result
+    return result, diag
 
 
 # ── Data loading ─────────────────────────────────────────────────────────────
@@ -372,20 +406,21 @@ def load_trial_pools(n_trials: int) -> Dict[int, pd.DataFrame]:
 # ── Trial runners ─────────────────────────────────────────────────────────────
 
 def run_trial(llm_client, pool_df: pd.DataFrame, k: int,
-              style: str, context_level: str) -> pd.DataFrame:
+              style: str, context_level: str) -> tuple:
+    """Returns (result_df, diag)."""
     prompt   = build_prompt(pool_df, k, style, context_level)
     response = llm_client.generate(prompt, temperature=0.3)
-    selected_indices = parse_ranking(response, len(pool_df), k)
+    selected_indices, diag = parse_ranking(response, len(pool_df), k)
 
     result = pool_df.copy()
     result["selected"] = 0
     result.iloc[selected_indices, result.columns.get_loc("selected")] = 1
-    return result
+    return result, diag
 
 
 def run_inference(llm_client, pool_df: pd.DataFrame,
-                  context_level: str) -> pd.DataFrame:
-    """Ask the LLM to infer demographics for every post in pool_df."""
+                  context_level: str) -> tuple:
+    """Returns (result_df, diag)."""
     prompt   = build_inference_prompt(pool_df, context_level)
     response = llm_client.generate(prompt, temperature=0.0)
     return parse_inference_response(response, pool_df)
@@ -571,7 +606,9 @@ def main():
         # Independent of prompt style: the same pool is shown regardless of
         # style, so inference results are identical across styles.
         if args.infer_demographics and cl in inf_missing:
-            print(f"\nInference: {cl} — {len(inf_missing[cl])} trial(s)")
+            n_inf = len(inf_missing[cl])
+            print(f"\nInference: {cl} — {n_inf} trial(s)")
+            inf_diags = []
             for j, trial_id in enumerate(inf_missing[cl]):
                 pool = trial_pools[trial_id]
                 if args.fake:
@@ -584,12 +621,14 @@ def main():
                             row[f"inferred_{fkey}"] = inf_rng.choice(options)
                         fake_rows.append(row)
                     inf_result = pd.DataFrame(fake_rows)
+                    inf_diag = {"n_parsed": len(fake_rows),
+                                "n_expected": len(pool), "n_oof": 0}
                 else:
                     try:
-                        inf_result = run_inference(llm_client, pool, cl)
+                        inf_result, inf_diag = run_inference(llm_client, pool, cl)
                     except RuntimeError as e:
                         print(f"  Trial {j+1} (id={trial_id}) SKIPPED [inf]: {e}")
-                        inf_result = None
+                        inf_result, inf_diag = None, None
 
                 if inf_result is not None and not inf_result.empty:
                     inf_result["context_level"] = cl
@@ -597,8 +636,26 @@ def main():
                     header = not inf_csv.exists()
                     inf_result.to_csv(inf_csv, mode="a", index=False,
                                       header=header, quoting=_csv.QUOTE_ALL)
-                print(f"  Trial {j+1}/{len(inf_missing[cl])} (id={trial_id}) done")
-            print(f"  └─ inference / {cl} complete\n")
+                    if inf_diag:
+                        inf_diags.append(inf_diag)
+                        parsed, expected = inf_diag["n_parsed"], inf_diag["n_expected"]
+                        warn = []
+                        if parsed < expected:
+                            warn.append(f"parsed {parsed}/{expected} posts")
+                        if inf_diag["n_oof"]:
+                            warn.append(f"{inf_diag['n_oof']} OOF values "
+                                        f"({', '.join(inf_diag['oof_samples'])})")
+                        if warn:
+                            print(f"  [WARN] trial {trial_id}: {'; '.join(warn)}")
+
+            if inf_diags and not args.fake:
+                avg_parsed = sum(d["n_parsed"] for d in inf_diags) / len(inf_diags)
+                exp        = inf_diags[0]["n_expected"]
+                total_oof  = sum(d["n_oof"] for d in inf_diags)
+                print(f"  └─ inference / {cl}: avg parsed {avg_parsed:.1f}/{exp}, "
+                      f"total OOF={total_oof}")
+            else:
+                print(f"  └─ inference / {cl} complete")
 
         # ── Recommendations (per style) ───────────────────────────────────────
         for style in args.styles:
@@ -609,6 +666,7 @@ def main():
 
             trial_ids = rec_missing[key]
             print(f"Condition: {style.upper()} / {cl} — {len(trial_ids)} trial(s)")
+            rec_diags = []
 
             for j, trial_id in enumerate(trial_ids):
                 pool = trial_pools[trial_id]
@@ -618,12 +676,14 @@ def main():
                     rng    = random.Random(fake_seed + trial_id)
                     chosen = rng.sample(range(len(result)), min(args.k, len(result)))
                     result.iloc[chosen, result.columns.get_loc("selected")] = 1
+                    rec_diag = {"fallback": False, "n_selected": args.k,
+                                "duplicates": False}
                 else:
                     try:
-                        result = run_trial(llm_client, pool, args.k, style, cl)
+                        result, rec_diag = run_trial(llm_client, pool, args.k, style, cl)
                     except RuntimeError as e:
                         print(f"  Trial {j+1} (id={trial_id}) SKIPPED [rec]: {e}")
-                        result = None
+                        result, rec_diag = None, None
 
                 if result is not None:
                     result["prompt_style"]  = style
@@ -636,9 +696,30 @@ def main():
                     header = not out_csv.exists()
                     result[slim_cols].to_csv(out_csv, mode="a", index=False,
                                              header=header, quoting=_csv.QUOTE_ALL)
-                print(f"  Trial {j+1}/{len(trial_ids)} (id={trial_id}) done")
+                    if rec_diag:
+                        rec_diags.append(rec_diag)
+                        warn = []
+                        if rec_diag.get("fallback"):
+                            warn.append("fallback to first-k (parse failed)")
+                        if rec_diag.get("n_selected", args.k) < args.k:
+                            warn.append(f"only {rec_diag['n_selected']}/{args.k} selected")
+                        if rec_diag.get("duplicates"):
+                            warn.append("duplicates in response")
+                        if warn:
+                            print(f"  [WARN] trial {trial_id}: {'; '.join(warn)}")
 
-            print(f"  └─ {style} / {cl} complete\n")
+            if rec_diags and not args.fake:
+                n_fallback = sum(1 for d in rec_diags if d.get("fallback"))
+                n_short    = sum(1 for d in rec_diags if d.get("n_selected", args.k) < args.k)
+                n_dup      = sum(1 for d in rec_diags if d.get("duplicates"))
+                issues = []
+                if n_fallback: issues.append(f"fallback={n_fallback}/{len(rec_diags)}")
+                if n_short:    issues.append(f"short={n_short}/{len(rec_diags)}")
+                if n_dup:      issues.append(f"duplicates={n_dup}/{len(rec_diags)}")
+                suffix = f"  issues: {', '.join(issues)}" if issues else "  no parse issues"
+                print(f"  └─ {style} / {cl} complete —{suffix}")
+            else:
+                print(f"  └─ {style} / {cl} complete")
 
     # ── Token usage logging ───────────────────────────────────────────────────
     if not args.fake:
