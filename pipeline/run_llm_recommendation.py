@@ -62,7 +62,7 @@ USAGE
   python run_llm_recommendation.py --provider anthropic \\
       --context-levels none author_post public_demo --infer-demographics --dry-run
 
-Providers:     anthropic (Claude Sonnet 4.5), openai (GPT-4o-mini), gemini (Gemini 2.0 Flash)
+Providers:     anthropic (Claude Sonnet 4.6), openai (GPT-5), gemini (Gemini 3.5 Flash)
 Prompt styles: general, popular, engaging, informative, controversial, neutral
 
 Pre-requisite
@@ -95,9 +95,9 @@ EXPERIMENTS_DIR = Path("outputs/experiments")
 TOKEN_LOG       = Path("outputs/token_usage.csv")
 
 COST_PER_1M = {
-    "anthropic": {"input": 3.00,  "output": 15.00},
-    "openai":    {"input": 0.15,  "output":  0.60},
-    "gemini":    {"input": 0.10,  "output":  0.40},
+    "anthropic": {"input": 3.00,  "output": 15.00},  # claude-sonnet-4-6
+    "openai":    {"input": 5.00,  "output": 40.00},  # gpt-5 (verify at platform.openai.com)
+    "gemini":    {"input": 0.30,  "output":  2.50},  # gemini-3.5-flash (verify at ai.google.dev)
 }
 
 STYLE_ORDER = ["general", "popular", "engaging", "informative", "controversial", "neutral"]
@@ -400,8 +400,8 @@ def main():
     )
     parser.add_argument("--provider", required=True,
                         choices=["anthropic", "openai", "gemini"],
-                        help="LLM provider (anthropic=Claude Sonnet 4.5, "
-                             "openai=GPT-4o-mini, gemini=Gemini 2.0 Flash)")
+                        help="LLM provider (anthropic=Claude Sonnet 4.6, "
+                             "openai=GPT-5, gemini=Gemini 3.5 Flash)")
     parser.add_argument("--context-levels", nargs="+", default=CONTEXT_LEVELS,
                         choices=CONTEXT_LEVELS, metavar="LEVEL",
                         help=f"Context levels to run (default: all). "
@@ -429,9 +429,9 @@ def main():
     trial_pools = load_trial_pools(args.n_trials)
 
     provider_models = {
-        "anthropic": "claude-sonnet-4-5",
-        "openai":    "gpt-4o-mini",
-        "gemini":    "gemini-2.0-flash",
+        "anthropic": "claude-sonnet-4-6",
+        "openai":    "gpt-5",
+        "gemini":    "gemini-3.5-flash",  # verify exact ID at ai.google.dev/gemini-api/docs/models
     }
     model   = provider_models[args.provider]
     out_dir = EXPERIMENTS_DIR / f"{args.provider}_{model}"
