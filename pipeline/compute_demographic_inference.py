@@ -75,11 +75,11 @@ def _normalize(series: pd.Series, col: str) -> pd.Series:
     return s
 
 
-def load_ground_truth() -> pd.DataFrame:
+def load_ground_truth(pools_dir: Path) -> pd.DataFrame:
     """Load post_features (post_id→author_id) + author_features (demographics)."""
-    post_df   = pd.read_csv(POOLS / "post_features.csv",   low_memory=False,
+    post_df   = pd.read_csv(pools_dir / "post_features.csv",   low_memory=False,
                             usecols=["post_id", "author_id"])
-    author_df = pd.read_csv(POOLS / "author_features.csv", low_memory=False)
+    author_df = pd.read_csv(pools_dir / "author_features.csv", low_memory=False)
     return post_df.merge(author_df, on="author_id", how="left")
 
 
@@ -126,22 +126,27 @@ def main():
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--fake", action="store_true",
                         help="Read from outputs_fake/ instead of outputs/")
+    parser.add_argument("--experiments-dir", type=Path, default=None,
+                        help="Experiments directory to read from "
+                             "(default: outputs/experiments)")
+    parser.add_argument("--analysis-dir", type=Path, default=OUT_DIR.parent,
+                        help="Directory for analysis outputs "
+                             "(default: analysis_outputs)")
     args = parser.parse_args()
 
-    if args.fake:
-        global EXP_DIR, POOLS
-        POOLS   = ROOT / "outputs_fake" / "pools"
-        EXP_DIR = ROOT / "outputs_fake" / "experiments"
-
-    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    base = ROOT / ("outputs_fake" if args.fake else "outputs")
+    pools_dir   = base / "pools"
+    exp_dir     = Path(args.experiments_dir) if args.experiments_dir else base / "experiments"
+    out_dir_eff = Path(args.analysis_dir) / "demographic_inference"
+    out_dir_eff.mkdir(parents=True, exist_ok=True)
 
     print("Loading ground truth ...")
-    gt = load_ground_truth()
+    gt = load_ground_truth(pools_dir)
     print(f"  {len(gt):,} posts with author info")
 
     rows = []
 
-    for exp_path in sorted(EXP_DIR.iterdir()):
+    for exp_path in sorted(exp_dir.iterdir()):
         inf_csv = exp_path / "demographic_inference.csv"
         if not inf_csv.exists():
             continue
@@ -181,7 +186,7 @@ def main():
         sys.exit(1)
 
     acc_df = pd.DataFrame(rows)
-    out_csv = OUT_DIR / "accuracy_by_attribute.csv"
+    out_csv = out_dir_eff / "accuracy_by_attribute.csv"
     acc_df.to_csv(out_csv, index=False)
     print(f"\n✓ {out_csv}")
 
@@ -208,7 +213,7 @@ def main():
     plt.suptitle("Demographic Inference Accuracy vs Ground Truth",
                  fontweight="bold", fontsize=13, y=1.02)
     plt.tight_layout()
-    out_png = OUT_DIR / "accuracy_heatmap.png"
+    out_png = out_dir_eff / "accuracy_heatmap.png"
     fig.savefig(out_png, bbox_inches="tight", dpi=150)
     plt.close()
     print(f"✓ {out_png}")

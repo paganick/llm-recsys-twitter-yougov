@@ -455,6 +455,10 @@ def main():
                         help="No API calls: select k posts at random (useful for pipeline testing)")
     parser.add_argument("--seed", type=int, default=None,
                         help="Base random seed for --fake mode")
+    parser.add_argument("--experiments-dir", type=Path,
+                        default=EXPERIMENTS_DIR,
+                        help="Directory for experiment outputs "
+                             f"(default: {EXPERIMENTS_DIR})")
     args = parser.parse_args()
 
     # Preserve canonical ordering regardless of CLI order
@@ -468,7 +472,7 @@ def main():
         "gemini":    "gemini-3.5-flash",
     }
     model   = provider_models[args.provider]
-    out_dir = EXPERIMENTS_DIR / f"{args.provider}_{model}"
+    out_dir = args.experiments_dir / f"{args.provider}_{model}"
     out_dir.mkdir(parents=True, exist_ok=True)
     out_csv  = out_dir / "trial_results.csv"
     inf_csv  = out_dir / "demographic_inference.csv"
@@ -736,9 +740,10 @@ def main():
             "total_tokens":  stats["total_tokens"],
             "cost_usd":      round(cost_usd, 6),
         }])
-        TOKEN_LOG.parent.mkdir(parents=True, exist_ok=True)
-        header = not TOKEN_LOG.exists()
-        usage_row.to_csv(TOKEN_LOG, mode="a", index=False, header=header)
+        token_log = args.experiments_dir.parent / "token_usage.csv"
+        token_log.parent.mkdir(parents=True, exist_ok=True)
+        header = not token_log.exists()
+        usage_row.to_csv(token_log, mode="a", index=False, header=header)
         print(f"Tokens: {stats['total_input_tokens']:,} in / "
               f"{stats['total_output_tokens']:,} out  →  ${cost_usd:.4f}")
 

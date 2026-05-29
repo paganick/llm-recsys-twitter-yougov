@@ -926,9 +926,16 @@ def plot_heatmap_by_prompt(submodel_df: pd.DataFrame, out_dir: Path):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--fake", action="store_true")
+    parser.add_argument("--experiments-dir", type=Path, default=None,
+                        help="Experiments directory to read from "
+                             "(default: outputs/experiments)")
+    parser.add_argument("--analysis-dir", type=Path,
+                        default=ROOT / "analysis_outputs",
+                        help="Directory for analysis outputs "
+                             "(default: analysis_outputs)")
     args = parser.parse_args()
 
-    out_dir = ROOT / "analysis_outputs" / "logistic_regression"
+    out_dir = args.analysis_dir / "logistic_regression"
     out_dir.mkdir(parents=True, exist_ok=True)
 
     print("=" * 70)
@@ -936,7 +943,7 @@ def main():
     print("=" * 70)
 
     print("\nLoading data ...")
-    df = load_data(fake=args.fake)
+    df = load_data(fake=args.fake, experiments_dir=args.experiments_dir)
     print(f"Total rows: {len(df):,}  |  selected: {df['selected'].sum():,}")
 
     print("\nFitting scalers on full dataset ...")
@@ -987,7 +994,7 @@ def main():
     plot_demographic_zoom_22(table_df, out_dir)
 
     print("\n" + "=" * 70)
-    print("DONE → analysis_outputs/logistic_regression/")
+    print(f"DONE → {out_dir}/")
     print("=" * 70)
 
 

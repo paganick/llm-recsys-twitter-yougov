@@ -17,14 +17,20 @@ PROVIDERS     = ["anthropic", "openai", "gemini", "google"]
 _PROVIDER_ALIAS = {"google": "gemini"}
 
 
-def load_data(fake: bool = False) -> pd.DataFrame:
+def load_data(fake: bool = False,
+              experiments_dir: Path = None,
+              analysis_dir: Path = None) -> pd.DataFrame:
     """
     Load and join post_features, author_features, and trial_results.
 
     Parameters
     ----------
     fake : bool
-        If True, reads from outputs_fake/ instead of outputs/.
+        If True, reads pools from outputs_fake/ instead of outputs/.
+    experiments_dir : Path, optional
+        Override the experiments directory (default: outputs/experiments).
+    analysis_dir : Path, optional
+        Unused here; accepted for API symmetry with callers.
 
     Returns
     -------
@@ -33,7 +39,7 @@ def load_data(fake: bool = False) -> pd.DataFrame:
     """
     base      = Path("outputs_fake" if fake else "outputs")
     pools_dir = base / "pools"
-    exp_dir   = base / "experiments"
+    exp_dir   = Path(experiments_dir) if experiments_dir else base / "experiments"
 
     post_path   = pools_dir / "post_features.csv"
     author_path = pools_dir / "author_features.csv"

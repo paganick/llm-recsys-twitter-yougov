@@ -33,11 +33,12 @@ import seaborn as sns
 
 ROOT    = Path(__file__).parent.parent
 EXP_DIR = ROOT / "outputs" / "experiments"
-OUT_DIR = ROOT / "analysis_outputs" / "feature_correlations"
+OUT_DIR = ROOT / "analysis_outputs" / "feature_correlations"  # may be overridden below
 
 import argparse as _argparse
 _ap = _argparse.ArgumentParser(add_help=False)
-_ap.add_argument("--fake", action="store_true")
+_ap.add_argument("--fake",         action="store_true")
+_ap.add_argument("--analysis-dir", type=Path, default=None)
 _cli, _ = _ap.parse_known_args()
 
 # ── feature definitions ───────────────────────────────────────────────────────
@@ -367,6 +368,9 @@ def plot_cramersv_subgroup(df: pd.DataFrame, features: list, feat_types: dict,
 # ── main ──────────────────────────────────────────────────────────────────────
 
 def main():
+    global OUT_DIR
+    if _cli.analysis_dir:
+        OUT_DIR = Path(_cli.analysis_dir) / "feature_correlations"
     OUT_DIR.mkdir(parents=True, exist_ok=True)
 
     pools_dir = ROOT / ("outputs_fake" if _cli.fake else "outputs") / "pools"

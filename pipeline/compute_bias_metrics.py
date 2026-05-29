@@ -384,18 +384,26 @@ def compute_feature_importance(df: pd.DataFrame, features: list) -> dict:
 # ============================================================================
 
 def main():
+    global OUTPUT_DIR
     parser = argparse.ArgumentParser(
         description=__doc__,
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
     parser.add_argument("--fake", action="store_true",
                         help="Read from outputs_fake/ (for pipeline testing)")
+    parser.add_argument("--experiments-dir", type=Path, default=None,
+                        help="Experiments directory to read from "
+                             "(default: outputs/experiments)")
+    parser.add_argument("--analysis-dir", type=Path, default=OUTPUT_DIR,
+                        help=f"Directory for analysis outputs "
+                             f"(default: {OUTPUT_DIR})")
     args = parser.parse_args()
 
     import sys
     sys.path.insert(0, str(Path(__file__).parent.parent))
     from utils.data_loader import load_data as _load_data
-    combined = _load_data(fake=args.fake)
+    OUTPUT_DIR = args.analysis_dir
+    combined = _load_data(fake=args.fake, experiments_dir=args.experiments_dir)
     combined["context_level"] = combined["context_level"].fillna("none")
     provider_groups = {p: g for p, g in combined.groupby("provider")}
 
