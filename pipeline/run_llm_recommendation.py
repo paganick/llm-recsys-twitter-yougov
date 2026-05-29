@@ -436,7 +436,7 @@ def main():
     model   = provider_models[args.provider]
     out_dir = EXPERIMENTS_DIR / f"{args.provider}_{model}"
     out_dir.mkdir(parents=True, exist_ok=True)
-    out_csv  = out_dir / "post_level_data.csv"
+    out_csv  = out_dir / "trial_results.csv"
     inf_csv  = out_dir / "demographic_inference.csv"
 
     # ── Gap-fill: find missing (style, context_level) × trial_id combinations ─
@@ -526,10 +526,10 @@ def main():
 
     # Cost estimate
     rates = COST_PER_1M.get(args.provider, {"input": 0, "output": 0})
-    avg_in_tokens  = args.sample_size * 60   # rough: ~60 tokens/post for recommendation
+    avg_in_tokens  = pool_size * 60   # rough: ~60 tokens/post for recommendation
     avg_out_tokens = args.k * 3
-    inf_in_tokens  = args.sample_size * 70   # inference prompt is slightly longer
-    inf_out_tokens = args.sample_size * 25   # ~25 tokens/post for 9 attributes
+    inf_in_tokens  = pool_size * 70   # inference prompt is slightly longer
+    inf_out_tokens = pool_size * 25   # ~25 tokens/post for 9 attributes
     rec_cost  = total_rec_trials * (avg_in_tokens * rates["input"] +
                                     avg_out_tokens * rates["output"]) / 1_000_000
     inf_cost  = total_inf_trials * (inf_in_tokens * rates["input"] +
@@ -595,9 +595,13 @@ def main():
                         result["prompt_style"]  = style
                         result["context_level"] = cl
                         result["trial_id"]      = trial_id
+                        slim_cols = [c for c in
+                                     ["post_id", "author_id", "trial_id",
+                                      "prompt_style", "context_level", "selected"]
+                                     if c in result.columns]
                         header = not out_csv.exists()
-                        result.to_csv(out_csv, mode="a", index=False,
-                                      header=header, quoting=_csv.QUOTE_ALL)
+                        result[slim_cols].to_csv(out_csv, mode="a", index=False,
+                                                 header=header, quoting=_csv.QUOTE_ALL)
 
                 # ── Demographic inference ─────────────────────────────────────
                 if needs_inf and trial_id in inf_missing.get(key, []):

@@ -2,7 +2,7 @@
 Shared data loading utility for analysis scripts.
 
 Loads and joins the three output tables:
-  outputs/pools/post_features.csv    — one row per shown post (with NLP features)
+  outputs/pools/post_features.csv    — one row per unique post (with NLP features)
   outputs/pools/author_features.csv  — one row per author
   outputs/experiments/*/trial_results.csv — one row per (post × condition)
 
@@ -13,40 +13,28 @@ from pathlib import Path
 import pandas as pd
 
 
-# Canonical provider names used throughout the analysis.
-# "google" is the legacy name from early experiments; normalised to "gemini" on load.
-PROVIDERS = ["anthropic", "openai", "gemini", "google"]
+PROVIDERS     = ["anthropic", "openai", "gemini", "google"]
 _PROVIDER_ALIAS = {"google": "gemini"}
 
 
-def load_data(base: str = "outputs", fake: bool = False,
-              migrated: bool = False) -> pd.DataFrame:
+def load_data(fake: bool = False) -> pd.DataFrame:
     """
     Load and join post_features, author_features, and trial_results.
 
     Parameters
     ----------
-    base : str
-        Root outputs directory ("outputs" or "outputs_fake").
     fake : bool
-        Shortcut: if True, sets base="outputs_fake".
+        If True, reads from outputs_fake/ instead of outputs/.
 
     Returns
     -------
     pd.DataFrame
         One row per (post × trial × condition), all feature columns included.
     """
-    if migrated:
-        base = "outputs_migrated"
-    elif fake:
-        base = "outputs_fake"
+    base      = Path("outputs_fake" if fake else "outputs")
+    pools_dir = base / "pools"
+    exp_dir   = base / "experiments"
 
-    root      = Path(base)
-    # Migrated data has its own pools; otherwise pools are always canonical.
-    pools_dir = root / "pools" if migrated else Path("outputs") / "pools"
-    exp_dir   = root / "experiments"
-
-    # ── Feature tables ────────────────────────────────────────────────────────
     post_path   = pools_dir / "post_features.csv"
     author_path = pools_dir / "author_features.csv"
 
@@ -64,7 +52,6 @@ def load_data(base: str = "outputs", fake: bool = False,
     print(f"  post_features:   {len(post_df):,} posts")
     print(f"  author_features: {len(author_df):,} authors")
 
-    # ── Trial results (one file per provider) ─────────────────────────────────
     frames = []
     for d in sorted(exp_dir.iterdir()):
         csv = d / "trial_results.csv"
@@ -93,8 +80,7 @@ def load_data(base: str = "outputs", fake: bool = False,
     if "context_level" not in trials.columns:
         trials["context_level"] = "none"
 
-    # ── Join ──────────────────────────────────────────────────────────────────
-    # Drop author_id from post_df — it's already in trials and would collide.
+    # Drop author_id from post_df before join — it's in trials and would collide.
     post_df_for_join = post_df.drop(columns=["author_id"], errors="ignore")
     combined = (
         trials

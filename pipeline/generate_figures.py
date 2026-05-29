@@ -44,14 +44,11 @@ from pathlib import Path
 # PATHS
 # ============================================================================
 
-def _init_paths(base_dir: Path, fake: bool = False, migrated: bool = False):
+def _init_paths(base_dir: Path, fake: bool = False):
     global BASE, ANALYSIS, OUT, SUMMARY_CSV, DIR_BIAS_CSV, IMPORTANCE_CSV, POOL_CSV
     BASE     = base_dir
     ANALYSIS = BASE / "analysis_outputs"
-    if migrated:
-        POOL_CSV = BASE / "outputs_migrated" / "pools" / "post_features.csv"
-    else:
-        POOL_CSV = BASE / "outputs" / "pools" / "post_features.csv"
+    POOL_CSV = BASE / ("outputs_fake" if fake else "outputs") / "pools" / "post_features.csv"
     OUT      = ANALYSIS / "visualizations" / "paper_plots_final"
     if OUT.exists():
         import shutil
@@ -62,11 +59,10 @@ def _init_paths(base_dir: Path, fake: bool = False, migrated: bool = False):
     IMPORTANCE_CSV = ANALYSIS / "feature_importance_data.csv"
 
 _parser = argparse.ArgumentParser(add_help=False)
-_parser.add_argument("--base-dir",  type=Path, default=Path(__file__).parent.parent)
-_parser.add_argument("--fake",      action="store_true")
-_parser.add_argument("--migrated",  action="store_true")
+_parser.add_argument("--base-dir", type=Path, default=Path(__file__).parent.parent)
+_parser.add_argument("--fake",     action="store_true")
 _args, _ = _parser.parse_known_args()
-_init_paths(_args.base_dir, fake=_args.fake, migrated=_args.migrated)
+_init_paths(_args.base_dir, fake=_args.fake)
 
 # ============================================================================
 # SHARED CONSTANTS

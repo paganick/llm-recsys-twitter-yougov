@@ -123,11 +123,11 @@ CMAP_DIVG = LinearSegmentedColormap.from_list("divg", DIVG_COLORS, N=256)
 # DATA LOADING
 # ============================================================================
 
-def load_data(fake: bool = False, migrated: bool = False) -> pd.DataFrame:
+def load_data(fake: bool = False) -> pd.DataFrame:
     import sys
     sys.path.insert(0, str(ROOT))
     from utils.data_loader import load_data as _load
-    return _load(fake=fake, migrated=migrated)
+    return _load(fake=fake)
 
 
 # ============================================================================
@@ -925,9 +925,7 @@ def plot_heatmap_by_prompt(submodel_df: pd.DataFrame, out_dir: Path):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--fake",     action="store_true")
-    parser.add_argument("--migrated", action="store_true",
-                        help="Read from outputs_migrated/ (new three-table format)")
+    parser.add_argument("--fake", action="store_true")
     args = parser.parse_args()
 
     out_dir = ROOT / "analysis_outputs" / "logistic_regression"
@@ -938,7 +936,7 @@ def main():
     print("=" * 70)
 
     print("\nLoading data ...")
-    df = load_data(fake=args.fake, migrated=args.migrated)
+    df = load_data(fake=args.fake)
     print(f"Total rows: {len(df):,}  |  selected: {df['selected'].sum():,}")
 
     print("\nFitting scalers on full dataset ...")

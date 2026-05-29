@@ -40,6 +40,26 @@ N_TRIALS   = 100
 POOL_SIZE  = 100
 SEED_BASE  = 42   # trial t gets seed SEED_BASE + t
 
+# Columns that capture a snapshot at tweet time — they belong in post_features
+# (not author_features) because they can change between tweets.
+POST_FEATURE_COLS = [
+    "created_at",
+    "has_url", "has_hashtag", "has_mention", "has_emoji",
+    "word_count", "avg_word_length",
+    "is_reply", "is_retweet", "is_quote",
+    "user_followers_count", "user_friends_count",
+    "user_statuses_count", "user_favourites_count",
+    "user_verified", "user_account_age_days", "engagement_score",
+    "favorite_count", "retweet_count", "retweeted",
+]
+
+# Stable survey-derived demographics — one row per author.
+AUTHOR_FEATURE_COLS = [
+    "author_gender", "author_partisanship", "author_ideology", "author_race",
+    "author_age", "author_education", "author_income",
+    "author_marital_status", "author_religiosity",
+]
+
 
 def main():
     parser = argparse.ArgumentParser(
@@ -62,6 +82,24 @@ def main():
     print(f"Loading {POOL_FILE} …")
     pool = pd.read_csv(POOL_FILE, engine="python", on_bad_lines="warn")
     print(f"  {len(pool):,} posts loaded")
+
+    # Rename user_id → author_id for consistency with the three-table schema.
+    if "user_id" in pool.columns and "author_id" not in pool.columns:
+        pool = pool.rename(columns={"user_id": "author_id"})
+
+    POOLS_DIR.mkdir(parents=True, exist_ok=True)
+
+    # ── Write post_features.csv ───────────────────────────────────────────────
+    post_cols = (["post_id", "author_id", "text"]
+                 + [c for c in POST_FEATURE_COLS if c in pool.columns])
+    pool[post_cols].to_csv(POOLS_DIR / "post_features.csv", index=False)
+    print(f"  post_features.csv:   {len(pool):,} posts, {len(post_cols)} columns")
+
+    # ── Write author_features.csv ─────────────────────────────────────────────
+    author_cols = ["author_id"] + [c for c in AUTHOR_FEATURE_COLS if c in pool.columns]
+    author_df = pool[author_cols].drop_duplicates(subset="author_id")
+    author_df.to_csv(POOLS_DIR / "author_features.csv", index=False)
+    print(f"  author_features.csv: {len(author_df):,} authors, {len(author_cols)} columns")
 
     # Sort by date then post_id as tiebreaker — fully deterministic regardless
     # of platform or pandas version (avoids unstable-sort ambiguity on ties).
@@ -109,7 +147,6 @@ def main():
         print("\n--dry-run: no files written.")
         return
 
-    POOLS_DIR.mkdir(parents=True, exist_ok=True)
     existing = sorted(POOLS_DIR.glob("trial_*.csv"))
     if existing:
         print(f"\n{len(existing)} existing trial file(s) found — they will be overwritten.")
@@ -123,11 +160,13 @@ def main():
         if (t + 1) % 10 == 0 or t == n_t - 1:
             print(f"  {t+1}/{n_t} written")
 
-    print(f"\n✓ Done. {n_t} pools of {p_size} posts each in {POOLS_DIR}/")
-    print(f"  Date range covered: "
-          f"{pool['created_at'].iloc[buckets[0][0]] if 'created_at' in pool.columns else 'n/a'}"
-          f" → "
-          f"{pool['created_at'].iloc[buckets[-1][1]-1] if 'created_at' in pool.columns else 'n/a'}")
+    print(f"\n✓ Done.")
+    print(f"  {n_t} trial pools of {p_size} posts each → {POOLS_DIR}/trial_*.csv")
+    print(f"  post_features.csv + author_features.csv → {POOLS_DIR}/")
+    if "created_at" in pool.columns:
+        print(f"  Date range: {pool['created_at'].iloc[buckets[0][0]]}"
+              f" → {pool['created_at'].iloc[buckets[-1][1]-1]}")
+    print(f"\n  Next step: python pipeline/compute_text_features.py")
 
 
 if __name__ == "__main__":

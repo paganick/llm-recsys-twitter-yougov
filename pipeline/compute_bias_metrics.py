@@ -6,8 +6,9 @@ Analyzes bias across all available features, 3 LLM providers (Anthropic /
 OpenAI / Gemini), 6 prompt styles, and up to 5 context levels
 (none / author / post / author_post / public_demo), giving up to 90 conditions total.
 
-Reads per-condition post_level_data.csv files from outputs/experiments/ and
-produces three aggregated output files in analysis_outputs/:
+Reads from outputs/pools/ (post_features, author_features) and
+outputs/experiments/*/trial_results.csv and produces three aggregated
+output files in analysis_outputs/:
   - pool_vs_recommended_summary.csv   (Cohen's d / Cramér's V per feature)
   - directional_bias_data.csv         (directional bias per category)
   - feature_importance_data.csv       (Random Forest SHAP + AUROC)
@@ -15,7 +16,6 @@ produces three aggregated output files in analysis_outputs/:
 Usage
 -----
     python compute_bias_metrics.py
-    python compute_bias_metrics.py --experiments-dir outputs/experiments
 """
 
 import argparse
@@ -307,14 +307,6 @@ def compute_directional_bias(pool_vals, rec_vals, feature_type):
     return rows
 
 
-def load_experiment_data(experiments_dir: Path, provider: str) -> pd.DataFrame | None:
-    exp_dirs = list(experiments_dir.glob(f"{provider}_*"))
-    if not exp_dirs:
-        return None
-    return pd.read_csv(exp_dirs[0] / "post_level_data.csv",
-                       engine="python", on_bad_lines="warn")
-
-
 def get_available_features(df: pd.DataFrame) -> list:
     """Return configured features that are actually present in df."""
     all_configured = flat_features()
@@ -396,28 +388,16 @@ def main():
         description=__doc__,
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
-    parser.add_argument("--experiments-dir", type=Path, default=Path("outputs/experiments"),
-                        help="Directory containing experiment subdirectories (default: outputs/experiments)")
-    parser.add_argument("--migrated", action="store_true",
-                        help="Read from outputs_migrated/ (new three-table format)")
+    parser.add_argument("--fake", action="store_true",
+                        help="Read from outputs_fake/ (for pipeline testing)")
     args = parser.parse_args()
 
-    global OUTPUT_DIR
-    if args.migrated:
-        import sys
-        sys.path.insert(0, str(Path(__file__).parent.parent))
-        from utils.data_loader import load_data as _load_data
-        combined = _load_data(migrated=True)
-        combined["context_level"] = combined["context_level"].fillna("none")
-        provider_groups = {p: g for p, g in combined.groupby("provider")}
-        OUTPUT_DIR = Path("analysis_outputs")
-    else:
-        experiments_dir = args.experiments_dir
-        if not experiments_dir.exists():
-            print(f"ERROR: {experiments_dir} not found.")
-            print(f"       Run first: python run_llm_recommendation.py --provider anthropic")
-            import sys; sys.exit(1)
-        provider_groups = None
+    import sys
+    sys.path.insert(0, str(Path(__file__).parent.parent))
+    from utils.data_loader import load_data as _load_data
+    combined = _load_data(fake=args.fake)
+    combined["context_level"] = combined["context_level"].fillna("none")
+    provider_groups = {p: g for p, g in combined.groupby("provider")}
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -429,14 +409,12 @@ def main():
         print("WARNING: shap could not be imported — feature_importance_data.csv will be empty.")
         print("         Install a compatible version: pip install shap")
 
-    providers_to_run = list(provider_groups.keys()) if provider_groups else PROVIDERS
-    for provider in providers_to_run:
+    for provider in PROVIDERS:
+        if provider not in provider_groups:
+            continue
         print(f"\n{'='*60}")
         print(f"Provider: {provider.upper()}")
-        if provider_groups:
-            df = provider_groups[provider].copy()
-        else:
-            df = load_experiment_data(args.experiments_dir, provider)
+        df = provider_groups[provider].copy()
         if df is None:
             print(f"  No data found — skipping.")
             continue

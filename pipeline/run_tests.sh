@@ -138,10 +138,10 @@ ok "Test datasets generated (datasets/test/)"
 echo ""
 echo "[Step 0] Cleaning previous test outputs ..."
 rm -rf "$TEST_OUT"
-rm -f outputs/experiments/*/post_level_data.csv
+rm -f outputs/experiments/*/trial_results.csv
 rm -rf analysis_outputs/
 mkdir -p "$TEST_OUT"
-ok "Clean output dir: $TEST_OUT/, outputs/experiments/*/post_level_data.csv, analysis_outputs/"
+ok "Clean output dir: $TEST_OUT/, outputs/experiments/*/trial_results.csv, analysis_outputs/"
 
 # -----------------------------------------------------------------------
 # TEST A — Full pipeline with created_at + temporal + all context levels
@@ -191,9 +191,9 @@ done
 $APT - <<'PYEOF'
 import pandas as pd, sys, glob
 
-providers = ["anthropic_claude-sonnet-4-5", "openai_gpt-4o-mini", "gemini_gemini-2.0-flash"]
+providers = ["anthropic_claude-sonnet-4-6", "openai_gpt-5", "gemini_gemini-3.5-flash"]
 for p in providers:
-    path = f"outputs/experiments/{p}/post_level_data.csv"
+    path = f"outputs/experiments/{p}/trial_results.csv"
     df = pd.read_csv(path)
     if "context_level" not in df.columns:
         print(f"FAIL — {p}: missing context_level column"); sys.exit(1)

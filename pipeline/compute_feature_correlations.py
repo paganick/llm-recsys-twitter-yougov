@@ -37,11 +37,8 @@ OUT_DIR = ROOT / "analysis_outputs" / "feature_correlations"
 
 import argparse as _argparse
 _ap = _argparse.ArgumentParser(add_help=False)
-_ap.add_argument("--migrated", action="store_true")
-_ap.add_argument("--fake",     action="store_true")
+_ap.add_argument("--fake", action="store_true")
 _cli, _ = _ap.parse_known_args()
-if _cli.migrated:
-    OUT_DIR = ROOT / "analysis_outputs" / "feature_correlations"
 
 # ── feature definitions ───────────────────────────────────────────────────────
 
@@ -372,10 +369,7 @@ def plot_cramersv_subgroup(df: pd.DataFrame, features: list, feat_types: dict,
 def main():
     OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-    if _cli.migrated:
-        pools_dir = ROOT / "outputs_migrated" / "pools"
-    else:
-        pools_dir = ROOT / "outputs" / "pools"
+    pools_dir = ROOT / ("outputs_fake" if _cli.fake else "outputs") / "pools"
 
     print("Loading unique shown posts ...")
     raw = load_shown_posts(pools_dir)
