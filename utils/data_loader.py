@@ -18,6 +18,7 @@ _PROVIDER_ALIAS = {"google": "gemini"}
 
 
 def load_data(fake: bool = False,
+              pools_dir: Path = None,
               experiments_dir: Path = None,
               analysis_dir: Path = None) -> pd.DataFrame:
     """
@@ -38,7 +39,7 @@ def load_data(fake: bool = False,
         One row per (post × trial × condition), all feature columns included.
     """
     base      = Path("outputs_fake" if fake else "outputs")
-    pools_dir = base / "pools"
+    pools_dir = Path(pools_dir) if pools_dir else base / "pools"
     exp_dir   = Path(experiments_dir) if experiments_dir else base / "experiments"
 
     post_path   = pools_dir / "post_features.csv"

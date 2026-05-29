@@ -72,33 +72,38 @@ def main():
                         help=f"Posts per trial pool (default: {POOL_SIZE})")
     parser.add_argument("--dry-run",   action="store_true",
                         help="Print bucket statistics and exit without writing files")
+    parser.add_argument("--pools-dir", type=Path, default=POOLS_DIR,
+                        help=f"Directory for pool files (default: {POOLS_DIR})")
     args = parser.parse_args()
 
-    if not POOL_FILE.exists():
-        print(f"ERROR: master pool not found at {POOL_FILE}")
-        print("       Run first:  python pipeline/prepare_dataset.py --tweets <path> --survey <path>")
+    pools_dir = args.pools_dir
+    pool_file = pools_dir / "twitter_pool.csv"
+
+    if not pool_file.exists():
+        print(f"ERROR: master pool not found at {pool_file}")
+        print("       Place twitter_pool.csv there before running.")
         sys.exit(1)
 
-    print(f"Loading {POOL_FILE} …")
-    pool = pd.read_csv(POOL_FILE, engine="python", on_bad_lines="warn")
+    print(f"Loading {pool_file} …")
+    pool = pd.read_csv(pool_file, engine="python", on_bad_lines="warn")
     print(f"  {len(pool):,} posts loaded")
 
     # Rename user_id → author_id for consistency with the three-table schema.
     if "user_id" in pool.columns and "author_id" not in pool.columns:
         pool = pool.rename(columns={"user_id": "author_id"})
 
-    POOLS_DIR.mkdir(parents=True, exist_ok=True)
+    pools_dir.mkdir(parents=True, exist_ok=True)
 
     # ── Write post_features.csv ───────────────────────────────────────────────
     post_cols = (["post_id", "author_id", "text"]
                  + [c for c in POST_FEATURE_COLS if c in pool.columns])
-    pool[post_cols].to_csv(POOLS_DIR / "post_features.csv", index=False)
+    pool[post_cols].to_csv(pools_dir / "post_features.csv", index=False)
     print(f"  post_features.csv:   {len(pool):,} posts, {len(post_cols)} columns")
 
     # ── Write author_features.csv ─────────────────────────────────────────────
     author_cols = ["author_id"] + [c for c in AUTHOR_FEATURE_COLS if c in pool.columns]
     author_df = pool[author_cols].drop_duplicates(subset="author_id")
-    author_df.to_csv(POOLS_DIR / "author_features.csv", index=False)
+    author_df.to_csv(pools_dir / "author_features.csv", index=False)
     print(f"  author_features.csv: {len(author_df):,} authors, {len(author_cols)} columns")
 
     # Sort by date then post_id as tiebreaker — fully deterministic regardless
@@ -152,22 +157,22 @@ def main():
         print("\n--dry-run: no files written.")
         return
 
-    existing = sorted(POOLS_DIR.glob("trial_*.csv"))
+    existing = sorted(pools_dir.glob("trial_*.csv"))
     if existing:
         print(f"\n{len(existing)} existing trial file(s) found — they will be overwritten.")
 
-    print(f"\nWriting {n_t} pool files to {POOLS_DIR} …")
+    print(f"\nWriting {n_t} pool files to {pools_dir} …")
     for t, (s, e) in enumerate(buckets):
         bucket = pool.iloc[s:e]
         sample = bucket.sample(n=p_size, random_state=SEED_BASE + t)
-        out    = POOLS_DIR / f"trial_{t:03d}.csv"
+        out    = pools_dir / f"trial_{t:03d}.csv"
         sample.to_csv(out, index=False)
         if (t + 1) % 10 == 0 or t == n_t - 1:
             print(f"  {t+1}/{n_t} written")
 
     print(f"\n✓ Done.")
-    print(f"  {n_t} trial pools of {p_size} posts each → {POOLS_DIR}/trial_*.csv")
-    print(f"  post_features.csv + author_features.csv → {POOLS_DIR}/")
+    print(f"  {n_t} trial pools of {p_size} posts each → {pools_dir}/trial_*.csv")
+    print(f"  post_features.csv + author_features.csv → {pools_dir}/")
     if "created_at" in pool.columns:
         print(f"  Date range: {pool['created_at'].iloc[buckets[0][0]]}"
               f" → {pool['created_at'].iloc[buckets[-1][1]-1]}")

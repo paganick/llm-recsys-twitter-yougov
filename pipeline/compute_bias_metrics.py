@@ -391,6 +391,8 @@ def main():
     )
     parser.add_argument("--fake", action="store_true",
                         help="Read from outputs_fake/ (for pipeline testing)")
+    parser.add_argument("--pools-dir", type=Path, default=None,
+                        help="Pools directory to read from (default: outputs/pools)")
     parser.add_argument("--experiments-dir", type=Path, default=None,
                         help="Experiments directory to read from "
                              "(default: outputs/experiments)")
@@ -403,7 +405,8 @@ def main():
     sys.path.insert(0, str(Path(__file__).parent.parent))
     from utils.data_loader import load_data as _load_data
     OUTPUT_DIR = args.analysis_dir
-    combined = _load_data(fake=args.fake, experiments_dir=args.experiments_dir)
+    combined = _load_data(fake=args.fake, pools_dir=args.pools_dir,
+                          experiments_dir=args.experiments_dir)
     combined["context_level"] = combined["context_level"].fillna("none")
     provider_groups = {p: g for p, g in combined.groupby("provider")}
 

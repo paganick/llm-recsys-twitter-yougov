@@ -38,6 +38,7 @@ OUT_DIR = ROOT / "analysis_outputs" / "feature_correlations"  # may be overridde
 import argparse as _argparse
 _ap = _argparse.ArgumentParser(add_help=False)
 _ap.add_argument("--fake",         action="store_true")
+_ap.add_argument("--pools-dir",    type=Path, default=None)
 _ap.add_argument("--analysis-dir", type=Path, default=None)
 _cli, _ = _ap.parse_known_args()
 
@@ -373,7 +374,10 @@ def main():
         OUT_DIR = Path(_cli.analysis_dir) / "feature_correlations"
     OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-    pools_dir = ROOT / ("outputs_fake" if _cli.fake else "outputs") / "pools"
+    if _cli.pools_dir:
+        pools_dir = Path(_cli.pools_dir)
+    else:
+        pools_dir = ROOT / ("outputs_fake" if _cli.fake else "outputs") / "pools"
 
     print("Loading unique shown posts ...")
     raw = load_shown_posts(pools_dir)

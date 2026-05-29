@@ -374,7 +374,8 @@ def parse_inference_response(response: str, pool_df: pd.DataFrame) -> tuple:
 
 # ── Data loading ─────────────────────────────────────────────────────────────
 
-def load_trial_pools(n_trials: int) -> Dict[int, pd.DataFrame]:
+def load_trial_pools(n_trials: int,
+                     pools_dir: Path = POOLS_DIR) -> Dict[int, pd.DataFrame]:
     """
     Load pre-generated trial pools produced by prepare_pools.py.
 
@@ -384,7 +385,7 @@ def load_trial_pools(n_trials: int) -> Dict[int, pd.DataFrame]:
     pools: Dict[int, pd.DataFrame] = {}
     missing = []
     for t in range(n_trials):
-        path = POOLS_DIR / f"trial_{t:03d}.csv"
+        path = pools_dir / f"trial_{t:03d}.csv"
         if path.exists():
             pools[t] = pd.read_csv(path, engine="python", on_bad_lines="warn")
         else:
@@ -455,6 +456,10 @@ def main():
                         help="No API calls: select k posts at random (useful for pipeline testing)")
     parser.add_argument("--seed", type=int, default=None,
                         help="Base random seed for --fake mode")
+    parser.add_argument("--pools-dir", type=Path,
+                        default=POOLS_DIR,
+                        help=f"Directory containing trial pool files "
+                             f"(default: {POOLS_DIR})")
     parser.add_argument("--experiments-dir", type=Path,
                         default=EXPERIMENTS_DIR,
                         help="Directory for experiment outputs "
@@ -464,7 +469,7 @@ def main():
     # Preserve canonical ordering regardless of CLI order
     context_levels = [l for l in CONTEXT_LEVELS if l in args.context_levels]
 
-    trial_pools = load_trial_pools(args.n_trials)
+    trial_pools = load_trial_pools(args.n_trials, args.pools_dir)
 
     provider_models = {
         "anthropic": "claude-sonnet-4-6",

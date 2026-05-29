@@ -126,6 +126,8 @@ def main():
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--fake", action="store_true",
                         help="Read from outputs_fake/ instead of outputs/")
+    parser.add_argument("--pools-dir", type=Path, default=None,
+                        help="Pools directory for ground truth (default: outputs/pools)")
     parser.add_argument("--experiments-dir", type=Path, default=None,
                         help="Experiments directory to read from "
                              "(default: outputs/experiments)")
@@ -135,8 +137,8 @@ def main():
     args = parser.parse_args()
 
     base = ROOT / ("outputs_fake" if args.fake else "outputs")
-    pools_dir   = base / "pools"
-    exp_dir     = Path(args.experiments_dir) if args.experiments_dir else base / "experiments"
+    pools_dir = Path(args.pools_dir) if args.pools_dir else base / "pools"
+    exp_dir   = Path(args.experiments_dir) if args.experiments_dir else base / "experiments"
     out_dir_eff = Path(args.analysis_dir) / "demographic_inference"
     out_dir_eff.mkdir(parents=True, exist_ok=True)
 

@@ -123,11 +123,11 @@ CMAP_DIVG = LinearSegmentedColormap.from_list("divg", DIVG_COLORS, N=256)
 # DATA LOADING
 # ============================================================================
 
-def load_data(fake: bool = False) -> pd.DataFrame:
+def load_data(fake: bool = False, pools_dir=None, experiments_dir=None) -> pd.DataFrame:
     import sys
     sys.path.insert(0, str(ROOT))
     from utils.data_loader import load_data as _load
-    return _load(fake=fake)
+    return _load(fake=fake, pools_dir=pools_dir, experiments_dir=experiments_dir)
 
 
 # ============================================================================
@@ -926,6 +926,8 @@ def plot_heatmap_by_prompt(submodel_df: pd.DataFrame, out_dir: Path):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--fake", action="store_true")
+    parser.add_argument("--pools-dir", type=Path, default=None,
+                        help="Pools directory to read from (default: outputs/pools)")
     parser.add_argument("--experiments-dir", type=Path, default=None,
                         help="Experiments directory to read from "
                              "(default: outputs/experiments)")
@@ -943,7 +945,8 @@ def main():
     print("=" * 70)
 
     print("\nLoading data ...")
-    df = load_data(fake=args.fake, experiments_dir=args.experiments_dir)
+    df = load_data(fake=args.fake, pools_dir=args.pools_dir,
+                   experiments_dir=args.experiments_dir)
     print(f"Total rows: {len(df):,}  |  selected: {df['selected'].sum():,}")
 
     print("\nFitting scalers on full dataset ...")

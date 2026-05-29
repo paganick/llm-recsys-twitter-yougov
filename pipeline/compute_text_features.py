@@ -104,19 +104,23 @@ def main():
         description=__doc__,
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
+    parser.add_argument("--pools-dir", type=Path, default=POOLS_DIR,
+                        help=f"Directory containing post_features.csv (default: {POOLS_DIR})")
     parser.add_argument("--fake", action="store_true",
                         help="Assign random feature values without loading any NLP models. "
                              "Use together with --fake in run_llm_recommendation.py for "
                              "end-to-end pipeline testing without API keys or GPU.")
     args = parser.parse_args()
 
-    if not POST_FILE.exists():
-        print(f"ERROR: {POST_FILE} not found.")
+    post_file = args.pools_dir / "post_features.csv"
+
+    if not post_file.exists():
+        print(f"ERROR: {post_file} not found.")
         print("       Run first:  python pipeline/prepare_pools.py")
         sys.exit(1)
 
-    print(f"Loading {POST_FILE} ...")
-    df = pd.read_csv(POST_FILE, engine="python", on_bad_lines="warn")
+    print(f"Loading {post_file} ...")
+    df = pd.read_csv(post_file, engine="python", on_bad_lines="warn")
     print(f"  {len(df):,} posts, {df['post_id'].nunique():,} unique post_ids")
 
     if args.fake:
@@ -170,9 +174,9 @@ def main():
         df = df.drop(columns=[c for c in feature_cols if c in df.columns], errors="ignore")
         df = df.merge(cache[["post_id"] + feature_cols], on="post_id", how="left")
 
-    df.to_csv(POST_FILE, index=False)
+    df.to_csv(post_file, index=False)
     print(f"\n✓ Saved enriched post_features ({len(df):,} posts, {len(df.columns)} columns)"
-          f" → {POST_FILE}")
+          f" → {post_file}")
     print(f"  Next step: python pipeline/run_llm_recommendation.py --provider anthropic")
 
 
