@@ -162,7 +162,9 @@ def main():
 
     # ── Write post_features.csv and author_features.csv ───────────────────────
     # Only include posts/authors that actually appear in at least one trial.
-    shown = pd.concat(samples, ignore_index=True).drop_duplicates(subset="post_id")
+    shown = pd.concat(samples, ignore_index=True).drop_duplicates(subset="post_id").copy()
+    # Strip embedded newlines from text so the CSV is safe for all readers.
+    shown["text"] = shown["text"].astype(str).str.replace(r"\r?\n", " ", regex=True).str.strip()
     post_cols = (["post_id", "author_id", "text"]
                  + [c for c in POST_FEATURE_COLS if c in pool.columns])
     shown[post_cols].to_csv(pools_dir / "post_features.csv", index=False)

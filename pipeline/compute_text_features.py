@@ -121,6 +121,8 @@ def main():
 
     print(f"Loading {post_file} ...")
     df = pd.read_csv(post_file, engine="python", on_bad_lines="warn")
+    # Normalise text in case any embedded newlines survived from the source data.
+    df["text"] = df["text"].astype(str).str.replace(r"\r?\n", " ", regex=True).str.strip()
     print(f"  {len(df):,} posts, {df['post_id'].nunique():,} unique post_ids")
 
     if args.fake:

@@ -54,8 +54,8 @@ def load_data(fake: bool = False,
             f"{author_path} not found. Run prepare_pools.py first."
         )
 
-    post_df   = pd.read_csv(post_path,   low_memory=False)
-    author_df = pd.read_csv(author_path, low_memory=False)
+    post_df   = pd.read_csv(post_path,   engine="python", on_bad_lines="warn")
+    author_df = pd.read_csv(author_path, engine="python", on_bad_lines="warn")
     print(f"  post_features:   {len(post_df):,} posts")
     print(f"  author_features: {len(author_df):,} authors")
 
