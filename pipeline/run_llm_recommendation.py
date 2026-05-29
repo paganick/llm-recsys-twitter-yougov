@@ -76,7 +76,6 @@ comparisons are not confounded by different post distributions.
 
 import sys
 import argparse
-import csv as _csv
 import re
 import random as _random
 from pathlib import Path
@@ -634,8 +633,7 @@ def main():
                     inf_result["context_level"] = cl
                     inf_result["trial_id"]      = trial_id
                     header = not inf_csv.exists()
-                    inf_result.to_csv(inf_csv, mode="a", index=False,
-                                      header=header, quoting=_csv.QUOTE_ALL)
+                    inf_result.to_csv(inf_csv, mode="a", index=False, header=header)
                     if inf_diag:
                         inf_diags.append(inf_diag)
                         parsed, expected = inf_diag["n_parsed"], inf_diag["n_expected"]
@@ -694,8 +692,7 @@ def main():
                                   "prompt_style", "context_level", "selected"]
                                  if c in result.columns]
                     header = not out_csv.exists()
-                    result[slim_cols].to_csv(out_csv, mode="a", index=False,
-                                             header=header, quoting=_csv.QUOTE_ALL)
+                    result[slim_cols].to_csv(out_csv, mode="a", index=False, header=header)
                     if rec_diag:
                         rec_diags.append(rec_diag)
                         warn = []
