@@ -35,6 +35,14 @@ ROOT    = Path(__file__).parent.parent
 EXP_DIR = ROOT / "outputs" / "experiments"
 OUT_DIR = ROOT / "analysis_outputs" / "feature_correlations"
 
+import argparse as _argparse
+_ap = _argparse.ArgumentParser(add_help=False)
+_ap.add_argument("--migrated", action="store_true")
+_ap.add_argument("--fake",     action="store_true")
+_cli, _ = _ap.parse_known_args()
+if _cli.migrated:
+    OUT_DIR = ROOT / "analysis_outputs" / "feature_correlations"
+
 # ── feature definitions ───────────────────────────────────────────────────────
 
 LOG_COLS = {
@@ -223,16 +231,12 @@ def pairwise_association(df: pd.DataFrame, features: list, feat_types: dict) -> 
 
 # ── data loading ─────────────────────────────────────────────────────────────
 
-def load_shown_posts() -> pd.DataFrame:
-    frames = []
-    for d in sorted(EXP_DIR.iterdir()):
-        csv = d / "post_level_data.csv"
-        if csv.exists():
-            frames.append(pd.read_csv(csv, engine="python", on_bad_lines="warn"))
-    all_df = pd.concat(frames, ignore_index=True)
-    agg = {c: "first" for c in all_df.columns if c not in ("post_id", "selected")}
-    agg["selected"] = "max"
-    return all_df.groupby("post_id", sort=False).agg(agg).reset_index()
+def load_shown_posts(pools_dir: Path = ROOT / "outputs" / "pools") -> pd.DataFrame:
+    import sys
+    sys.path.insert(0, str(ROOT))
+    post_df   = pd.read_csv(pools_dir / "post_features.csv",   low_memory=False)
+    author_df = pd.read_csv(pools_dir / "author_features.csv", low_memory=False)
+    return post_df.merge(author_df, on="author_id", how="left")
 
 
 def prepare_df(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
@@ -368,8 +372,13 @@ def plot_cramersv_subgroup(df: pd.DataFrame, features: list, feat_types: dict,
 def main():
     OUT_DIR.mkdir(parents=True, exist_ok=True)
 
+    if _cli.migrated:
+        pools_dir = ROOT / "outputs_migrated" / "pools"
+    else:
+        pools_dir = ROOT / "outputs" / "pools"
+
     print("Loading unique shown posts ...")
-    raw = load_shown_posts()
+    raw = load_shown_posts(pools_dir)
     print(f"  {len(raw):,} unique posts")
 
     df, feat_types = prepare_df(raw)

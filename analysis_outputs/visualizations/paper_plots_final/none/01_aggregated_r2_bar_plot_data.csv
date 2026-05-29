@@ -1,28 +1,28 @@
 feature,feature_display,category,r_squared,significant
-polarization_score,Content: Polarization Score,content,0.08558452742966466,0.8333333333333334
-text_length,Text: Character Length,text_metrics,0.042800780399493164,0.9444444444444444
-primary_topic,Content: Primary Topic,content,0.03792759122495734,1.0
-has_mention,Style: Has Mention,style,0.031964521307094707,1.0
-sentiment_polarity,Sentiment: Polarity,sentiment,0.028555252349493538,0.9444444444444444
-has_url,Style: Has URL,style,0.015330984061977613,0.8888888888888888
-avg_word_length,Text: Avg Word Length,text_metrics,0.010805916341004123,1.0
-toxicity,Toxicity: Toxicity,toxicity,0.00947639954446402,0.7222222222222222
-has_hashtag,Style: Has Hashtag,style,0.004732809819169773,0.5555555555555556
-user_followers_count,Author Meta: Followers,author_metadata,0.004460454696291816,0.5
-author_age,Author: Age,author,0.004298384442890352,0.7777777777777778
-author_ideology,Author: Ideology,author,0.0035778770606660656,0.7222222222222222
-sentiment_subjectivity,Sentiment: Subjectivity,sentiment,0.003423033257861424,0.6111111111111112
-author_education,Author: Education,author,0.002876453643745672,0.7777777777777778
-has_emoji,Style: Has Emoji,style,0.00287322753969894,0.5
-author_gender,Author: Gender,author,0.0026116297276162033,0.8333333333333334
-author_race,Author: Race,author,0.0023887266910967747,0.7222222222222222
-author_income,Author: Income,author,0.0022375968064079765,0.8333333333333334
-user_statuses_count,Author Meta: Tweet Count,author_metadata,0.0017844120211208587,0.4444444444444444
-retweet_count,Post Meta: Retweets,post_metadata,0.001708254046030296,0.2777777777777778
-author_partisanship,Author: Partisanship,author,0.0015735162562381512,0.6666666666666666
-author_marital_status,Author: Marital Status,author,0.0014455711247789316,0.6666666666666666
-user_friends_count,Author Meta: Following,author_metadata,0.0013686648956218852,0.3888888888888889
-favorite_count,Post Meta: Likes,post_metadata,0.0012714856824842017,0.2222222222222222
-author_religiosity,Author: Religiosity,author,0.0011530329156826992,0.3888888888888889
-user_favourites_count,Author Meta: Likes Given,author_metadata,0.000847566494594855,0.2777777777777778
+polarization_score,Content: Polarization Score,content,0.06415153184176409,0.8333333333333334
+text_length,Text Length,other,0.032411863199508936,0.9444444444444444
+primary_topic,Content: Primary Topic,content,0.02570444118653091,0.9444444444444444
+has_mention,Style: Has Mention,style,0.024643255693809644,1.0
+sentiment_polarity,Sentiment: Polarity,sentiment,0.021473796701969163,0.9444444444444444
+has_url,Style: Has URL,style,0.01198097050040846,0.8888888888888888
+avg_word_length,Text: Avg Word Length,text_metrics,0.008853286519515328,1.0
+toxicity,Toxicity: Toxicity,toxicity,0.006936591947622161,0.7222222222222222
+has_hashtag,Style: Has Hashtag,style,0.003701097504194065,0.5555555555555556
+author_age,Author: Age,author,0.003002648944643595,0.7222222222222222
+sentiment_subjectivity,Sentiment: Subjectivity,sentiment,0.0026858079970016055,0.5555555555555556
+author_ideology,Author: Ideology,author,0.0024682680541579438,0.7222222222222222
+has_emoji,Style: Has Emoji,style,0.0023748956698466652,0.5
+user_followers_count,Author Meta: Followers,author_metadata,0.002166737633744982,0.4444444444444444
+author_education,Author: Education,author,0.001985323453773167,0.7222222222222222
+author_gender,Author: Gender,author,0.0018164666666000676,0.7222222222222222
+author_race,Author: Race,author,0.0016678100921117566,0.3888888888888889
+author_income,Author: Income,author,0.0015596611339003799,0.6666666666666666
+user_statuses_count,Author Meta: Tweet Count,author_metadata,0.0011223844952194554,0.3333333333333333
+author_partisanship,Author: Partisanship,author,0.0010949298283919207,0.5555555555555556
+author_marital_status,Author: Marital Status,author,0.0010183847164536343,0.3333333333333333
+user_friends_count,Author Meta: Following,author_metadata,0.0009340542965327414,0.2777777777777778
+retweet_count,Post Meta: Retweets,post_metadata,0.0008475245289104242,0.16666666666666666
+author_religiosity,Author: Religiosity,author,0.0008120441787503942,0.3888888888888889
+favorite_count,Post Meta: Likes,post_metadata,0.000717195384322025,0.1111111111111111
+user_favourites_count,Author Meta: Likes Given,author_metadata,0.0006691252760141903,0.2777777777777778
 retweeted,Post Meta: Is Retweeted,post_metadata,0.0,0.0

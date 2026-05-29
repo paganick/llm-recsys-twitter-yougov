@@ -1,91 +1,91 @@
 provider,prompt_style,category,directional_bias,category_display
-anthropic,controversial,diaries_&_daily_life,-0.1181050603253848,"Diaries &
+anthropic,controversial,diaries_&_daily_life,-0.1037128051301279,"Diaries &
 Daily Life"
-anthropic,controversial,news_&_social_concern,0.459375944294817,"News &
+anthropic,controversial,news_&_social_concern,0.4033964985146087,"News &
 Social Concern"
-anthropic,controversial,sports,-0.0464726619807747,Sports
-anthropic,engaging,diaries_&_daily_life,0.0193720666446168,"Diaries &
+anthropic,controversial,sports,-0.0408095141953409,Sports
+anthropic,engaging,diaries_&_daily_life,0.0168445754009562,"Diaries &
 Daily Life"
-anthropic,engaging,news_&_social_concern,0.0633831348509843,"News &
+anthropic,engaging,news_&_social_concern,0.0551134793067146,"News &
 Social Concern"
-anthropic,engaging,sports,0.0025725936762962,Sports
-anthropic,general,diaries_&_daily_life,0.019427423974195,"Diaries &
+anthropic,engaging,sports,0.0022369450276714,Sports
+anthropic,general,diaries_&_daily_life,0.0171114120071369,"Diaries &
 Daily Life"
-anthropic,general,news_&_social_concern,0.0437531449444041,"News &
+anthropic,general,news_&_social_concern,0.0385371776899567,"News &
 Social Concern"
-anthropic,general,sports,-0.0208842005661932,Sports
-anthropic,informative,diaries_&_daily_life,-0.1125449174580253,"Diaries &
+anthropic,general,sports,-0.0183945211059626,Sports
+anthropic,informative,diaries_&_daily_life,-0.0985284966354969,"Diaries &
 Daily Life"
-anthropic,informative,news_&_social_concern,0.2174798709605879,"News &
+anthropic,informative,news_&_social_concern,0.1903947794196958,"News &
 Social Concern"
-anthropic,informative,sports,-0.0469146056117264,Sports
-anthropic,neutral,diaries_&_daily_life,0.0181275776213483,"Diaries &
+anthropic,informative,sports,-0.0410718286136256,Sports
+anthropic,neutral,diaries_&_daily_life,0.0158220192287638,"Diaries &
 Daily Life"
-anthropic,neutral,news_&_social_concern,0.0528768660766768,"News &
+anthropic,neutral,news_&_social_concern,0.0461517147683699,"News &
 Social Concern"
-anthropic,neutral,sports,-0.0009731896658249,Sports
-anthropic,popular,diaries_&_daily_life,0.0669783607226183,"Diaries &
+anthropic,neutral,sports,-0.0008494144075699,Sports
+anthropic,popular,diaries_&_daily_life,0.0587216236971372,"Diaries &
 Daily Life"
-anthropic,popular,news_&_social_concern,-0.0049702077250676,"News &
+anthropic,popular,news_&_social_concern,-0.0043575068810167,"News &
 Social Concern"
-anthropic,popular,sports,0.00404091984083,Sports
-google,controversial,diaries_&_daily_life,-0.0844454777958614,"Diaries &
+anthropic,popular,sports,0.0035427766777723,Sports
+gemini,controversial,diaries_&_daily_life,-0.0735699238373035,"Diaries &
 Daily Life"
-google,controversial,news_&_social_concern,0.3352987677284352,"News &
+gemini,controversial,news_&_social_concern,0.2921163506725004,"News &
 Social Concern"
-google,controversial,sports,-0.0352662171588002,Sports
-google,engaging,diaries_&_daily_life,-0.01604851739604,"Diaries &
+gemini,controversial,sports,-0.0307243558580456,Sports
+gemini,engaging,diaries_&_daily_life,-0.014114936740367,"Diaries &
 Daily Life"
-google,engaging,news_&_social_concern,0.1601706173954117,"News &
+gemini,engaging,news_&_social_concern,0.1408727096971354,"News &
 Social Concern"
-google,engaging,sports,-0.0295885097557407,Sports
-google,general,diaries_&_daily_life,-0.0053641670582551,"Diaries &
+gemini,engaging,sports,-0.0260235841814937,Sports
+gemini,general,diaries_&_daily_life,-0.0047076851786415,"Diaries &
 Daily Life"
-google,general,news_&_social_concern,0.0568171895264277,"News &
+gemini,general,news_&_social_concern,0.0498637417740376,"News &
 Social Concern"
-google,general,sports,-0.0230204737047936,Sports
-google,informative,diaries_&_daily_life,-0.0909429544487015,"Diaries &
+gemini,general,sports,-0.0202031632662493,Sports
+gemini,informative,diaries_&_daily_life,-0.0801153513467738,"Diaries &
 Daily Life"
-google,informative,news_&_social_concern,0.1547049304897531,"News &
+gemini,informative,news_&_social_concern,0.1362858721315904,"News &
 Social Concern"
-google,informative,sports,-0.0413016062657639,Sports
-google,neutral,diaries_&_daily_life,-0.0174315321983715,"Diaries &
+gemini,informative,sports,-0.0363842665682722,Sports
+gemini,neutral,diaries_&_daily_life,-0.0153420195439739,"Diaries &
 Daily Life"
-google,neutral,news_&_social_concern,0.0709651465902874,"News &
+gemini,neutral,news_&_social_concern,0.0624585752726242,"News &
 Social Concern"
-google,neutral,sports,-0.0163437711196215,Sports
-google,popular,diaries_&_daily_life,0.0252738275844822,"Diaries &
+gemini,neutral,sports,-0.014384648066846,Sports
+gemini,popular,diaries_&_daily_life,0.0220867742528447,"Diaries &
 Daily Life"
-google,popular,news_&_social_concern,0.0400640110442639,"News &
+gemini,popular,news_&_social_concern,0.0350119017248279,"News &
 Social Concern"
-google,popular,sports,-0.0340491862765372,Sports
-openai,controversial,diaries_&_daily_life,-0.0990998439552126,"Diaries &
+gemini,popular,sports,-0.0297555519942169,Sports
+openai,controversial,diaries_&_daily_life,-0.0866142059291597,"Diaries &
 Daily Life"
-openai,controversial,news_&_social_concern,0.455364728556196,"News &
+openai,controversial,news_&_social_concern,0.3979931026921428,"News &
 Social Concern"
-openai,controversial,sports,-0.0646835103804945,Sports
-openai,engaging,diaries_&_daily_life,-0.0055067444350845,"Diaries &
+openai,controversial,sports,-0.0565340031297032,Sports
+openai,engaging,diaries_&_daily_life,-0.0047947102646417,"Diaries &
 Daily Life"
-openai,engaging,news_&_social_concern,0.0677998491276296,"News &
+openai,engaging,news_&_social_concern,0.0590331794739287,"News &
 Social Concern"
-openai,engaging,sports,-0.0189685922041508,Sports
-openai,general,diaries_&_daily_life,-0.0300724841265381,"Diaries &
+openai,engaging,sports,-0.0165159115007392,Sports
+openai,general,diaries_&_daily_life,-0.0263668699687656,"Diaries &
 Daily Life"
-openai,general,news_&_social_concern,0.1224925549249874,"News &
+openai,general,news_&_social_concern,0.1073986855977377,"News &
 Social Concern"
-openai,general,sports,-0.0265494184413103,Sports
-openai,informative,diaries_&_daily_life,-0.0928538065446234,"Diaries &
+openai,general,sports,-0.023277926121528,Sports
+openai,informative,diaries_&_daily_life,-0.0810126478486358,"Diaries &
 Daily Life"
-openai,informative,news_&_social_concern,0.2747537942331602,"News &
+openai,informative,news_&_social_concern,0.2397158846319414,"News &
 Social Concern"
-openai,informative,sports,-0.0598252524084887,Sports
-openai,neutral,diaries_&_daily_life,-0.0540576576993182,"Diaries &
+openai,informative,sports,-0.0521960519033269,Sports
+openai,neutral,diaries_&_daily_life,-0.0475167503336517,"Diaries &
 Daily Life"
-openai,neutral,news_&_social_concern,0.2211748112694945,"News &
+openai,neutral,news_&_social_concern,0.1944129423002663,"News &
 Social Concern"
-openai,neutral,sports,-0.0274122629548703,Sports
-openai,popular,diaries_&_daily_life,-0.0205505975844344,"Diaries &
+openai,neutral,sports,-0.0240954142362593,Sports
+openai,popular,diaries_&_daily_life,-0.0179905310088754,"Diaries &
 Daily Life"
-openai,popular,news_&_social_concern,0.0806224969253571,"News &
+openai,popular,news_&_social_concern,0.0705790439907794,"News &
 Social Concern"
-openai,popular,sports,-0.018129040396077,Sports
+openai,popular,sports,-0.015870636465278,Sports

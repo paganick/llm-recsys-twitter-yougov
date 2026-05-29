@@ -1,109 +1,109 @@
 provider,prompt_style,category,mean_bias,std_bias,provider_label
-anthropic,controversial,18-24,-0.0038280518345865,,Claude Sonnet 4.5
-anthropic,controversial,25-34,-0.0513696191396607,,Claude Sonnet 4.5
-anthropic,controversial,35-44,-0.0155321243383789,,Claude Sonnet 4.5
-anthropic,controversial,45-54,-0.0102859818620836,,Claude Sonnet 4.5
-anthropic,controversial,55-64,-0.0127227220638088,,Claude Sonnet 4.5
-anthropic,controversial,65+,0.0937384992385186,,Claude Sonnet 4.5
-anthropic,engaging,18-24,0.0133858476182466,,Claude Sonnet 4.5
-anthropic,engaging,25-34,-0.0173494925332224,,Claude Sonnet 4.5
-anthropic,engaging,35-44,0.0381214462919962,,Claude Sonnet 4.5
-anthropic,engaging,45-54,-0.0163185181378297,,Claude Sonnet 4.5
-anthropic,engaging,55-64,-0.0228141240377442,,Claude Sonnet 4.5
-anthropic,engaging,65+,0.0049748407985535,,Claude Sonnet 4.5
-anthropic,general,18-24,-0.0034332079834446,,Claude Sonnet 4.5
-anthropic,general,25-34,0.0038806159835535,,Claude Sonnet 4.5
-anthropic,general,35-44,0.0358479175913368,,Claude Sonnet 4.5
-anthropic,general,45-54,-0.0155501837776991,,Claude Sonnet 4.5
-anthropic,general,55-64,-0.0628891922761817,,Claude Sonnet 4.5
-anthropic,general,65+,0.042144050462435,,Claude Sonnet 4.5
-anthropic,informative,18-24,-0.0075628892663592,,Claude Sonnet 4.5
-anthropic,informative,25-34,-0.0569913669548589,,Claude Sonnet 4.5
-anthropic,informative,35-44,-0.0089388688793218,,Claude Sonnet 4.5
-anthropic,informative,45-54,-0.0100767331299355,,Claude Sonnet 4.5
-anthropic,informative,55-64,0.0578365856074714,,Claude Sonnet 4.5
-anthropic,informative,65+,0.0257332726230043,,Claude Sonnet 4.5
-anthropic,neutral,18-24,-0.0011699470235437,,Claude Sonnet 4.5
-anthropic,neutral,25-34,-0.0415666067312681,,Claude Sonnet 4.5
-anthropic,neutral,35-44,0.0239908528123378,,Claude Sonnet 4.5
-anthropic,neutral,45-54,-0.0411608360384712,,Claude Sonnet 4.5
-anthropic,neutral,55-64,-0.0152925772623601,,Claude Sonnet 4.5
-anthropic,neutral,65+,0.0751991142433055,,Claude Sonnet 4.5
-anthropic,popular,18-24,0.0122112548069325,,Claude Sonnet 4.5
-anthropic,popular,25-34,0.0080749881472896,,Claude Sonnet 4.5
-anthropic,popular,35-44,0.0116485803086972,,Claude Sonnet 4.5
-anthropic,popular,45-54,-0.0259429489543275,,Claude Sonnet 4.5
-anthropic,popular,55-64,-0.0026355818363799,,Claude Sonnet 4.5
-anthropic,popular,65+,-0.0033562924722119,,Claude Sonnet 4.5
-google,controversial,18-24,-0.0121502519763641,,Gemini 2.0 Flash
-google,controversial,25-34,-0.0741745962742919,,Gemini 2.0 Flash
-google,controversial,35-44,-0.0252972999082258,,Gemini 2.0 Flash
-google,controversial,45-54,-0.0231604115345601,,Gemini 2.0 Flash
-google,controversial,55-64,0.0403532499315719,,Gemini 2.0 Flash
-google,controversial,65+,0.0944293097618702,,Gemini 2.0 Flash
-google,engaging,18-24,-0.0005514923956628,,Gemini 2.0 Flash
-google,engaging,25-34,-0.0122520582722376,,Gemini 2.0 Flash
-google,engaging,35-44,-0.0087897715139867,,Gemini 2.0 Flash
-google,engaging,45-54,-0.0228032244287849,,Gemini 2.0 Flash
-google,engaging,55-64,0.0193814209789546,,Gemini 2.0 Flash
-google,engaging,65+,0.0250151256317175,,Gemini 2.0 Flash
-google,general,18-24,0.0043890670833676,,Gemini 2.0 Flash
-google,general,25-34,-0.0195780181599652,,Gemini 2.0 Flash
-google,general,35-44,0.0015096751666154,,Gemini 2.0 Flash
-google,general,45-54,-0.0141391186659798,,Gemini 2.0 Flash
-google,general,55-64,0.0004266567397192,,Gemini 2.0 Flash
-google,general,65+,0.0273917378362428,,Gemini 2.0 Flash
-google,informative,18-24,-0.0114159112434041,,Gemini 2.0 Flash
-google,informative,25-34,-0.0738180842625238,,Gemini 2.0 Flash
-google,informative,35-44,-0.0329395051214911,,Gemini 2.0 Flash
-google,informative,45-54,0.0081216291143706,,Gemini 2.0 Flash
-google,informative,55-64,0.0461643864689699,,Gemini 2.0 Flash
-google,informative,65+,0.0638874850440785,,Gemini 2.0 Flash
-google,neutral,18-24,-0.0091277069419145,,Gemini 2.0 Flash
-google,neutral,25-34,-0.0532972407744721,,Gemini 2.0 Flash
-google,neutral,35-44,-0.0251028806584362,,Gemini 2.0 Flash
-google,neutral,45-54,-0.0125008432840855,,Gemini 2.0 Flash
-google,neutral,55-64,0.042108547527491,,Gemini 2.0 Flash
-google,neutral,65+,0.0579201241314173,,Gemini 2.0 Flash
-google,popular,18-24,0.0055498532199923,,Gemini 2.0 Flash
-google,popular,25-34,1.1857191979797175e-05,,Gemini 2.0 Flash
-google,popular,35-44,0.0139493849124621,,Gemini 2.0 Flash
-google,popular,45-54,0.0013264589114788,,Gemini 2.0 Flash
-google,popular,55-64,-0.010177594959353,,Gemini 2.0 Flash
-google,popular,65+,-0.01065995927656,,Gemini 2.0 Flash
-openai,controversial,18-24,-0.0094556043394604,,GPT-4o-mini
-openai,controversial,25-34,-0.0536260115948813,,GPT-4o-mini
-openai,controversial,35-44,-0.0108033488493835,,GPT-4o-mini
-openai,controversial,45-54,-0.0266431220356856,,GPT-4o-mini
-openai,controversial,55-64,0.0026696918560241,,GPT-4o-mini
-openai,controversial,65+,0.0978583949633868,,GPT-4o-mini
-openai,engaging,18-24,-0.007770264359571,,GPT-4o-mini
-openai,engaging,25-34,-0.0324214949107788,,GPT-4o-mini
-openai,engaging,35-44,0.0131495099193718,,GPT-4o-mini
-openai,engaging,45-54,-0.0078696868678848,,GPT-4o-mini
-openai,engaging,55-64,0.040564551619628,,GPT-4o-mini
-openai,engaging,65+,-0.0056526154007652,,GPT-4o-mini
-openai,general,18-24,-0.0143033245504924,,GPT-4o-mini
-openai,general,25-34,-0.0217319583951921,,GPT-4o-mini
-openai,general,35-44,-0.0191829282972434,,GPT-4o-mini
-openai,general,45-54,-0.0138363181617558,,GPT-4o-mini
-openai,general,55-64,0.0321052960084885,,GPT-4o-mini
-openai,general,65+,0.0369492333961953,,GPT-4o-mini
-openai,informative,18-24,-0.0111425163912612,,GPT-4o-mini
-openai,informative,25-34,-0.0675937481049302,,GPT-4o-mini
-openai,informative,35-44,-0.0072182495733385,,GPT-4o-mini
-openai,informative,45-54,-0.0213146050663166,,GPT-4o-mini
-openai,informative,55-64,0.0597929379307745,,GPT-4o-mini
-openai,informative,65+,0.0474761812050721,,GPT-4o-mini
-openai,neutral,18-24,-0.0036711400446125,,GPT-4o-mini
-openai,neutral,25-34,-0.0466558772185045,,GPT-4o-mini
-openai,neutral,35-44,0.0191915793812433,,GPT-4o-mini
-openai,neutral,45-54,-0.0061693822131703,,GPT-4o-mini
-openai,neutral,55-64,0.0191782441082339,,GPT-4o-mini
-openai,neutral,65+,0.0181265759868101,,GPT-4o-mini
-openai,popular,18-24,-0.0081770659117901,,GPT-4o-mini
-openai,popular,25-34,-0.0155162588409413,,GPT-4o-mini
-openai,popular,35-44,-0.0102331949729494,,GPT-4o-mini
-openai,popular,45-54,0.002539373240416,,GPT-4o-mini
-openai,popular,55-64,0.0245557033348999,,GPT-4o-mini
-openai,popular,65+,0.0068314431503649,,GPT-4o-mini
+anthropic,controversial,18-24,-0.0033811050299024,,Claude Sonnet 4.5
+anthropic,controversial,25-34,-0.0453719241960163,,Claude Sonnet 4.5
+anthropic,controversial,35-44,-0.0137186605602052,,Claude Sonnet 4.5
+anthropic,controversial,45-54,-0.0090850350293474,,Claude Sonnet 4.5
+anthropic,controversial,55-64,-0.0112372719656868,,Claude Sonnet 4.5
+anthropic,controversial,65+,0.0827939967811584,,Claude Sonnet 4.5
+anthropic,engaging,18-24,0.011690435759524,,Claude Sonnet 4.5
+anthropic,engaging,25-34,-0.0151520571355902,,Claude Sonnet 4.5
+anthropic,engaging,35-44,0.0332930966828905,,Claude Sonnet 4.5
+anthropic,engaging,45-54,-0.01425166290709,,Claude Sonnet 4.5
+anthropic,engaging,55-64,-0.0199245545802796,,Claude Sonnet 4.5
+anthropic,engaging,65+,0.0043447421805453,,Claude Sonnet 4.5
+anthropic,general,18-24,-0.0029982522110676,,Claude Sonnet 4.5
+anthropic,general,25-34,0.0033889777459157,,Claude Sonnet 4.5
+anthropic,general,35-44,0.0313063172108085,,Claude Sonnet 4.5
+anthropic,general,45-54,-0.0135801189787566,,Claude Sonnet 4.5
+anthropic,general,55-64,-0.0549217119101353,,Claude Sonnet 4.5
+anthropic,general,65+,0.0368047881432354,,Claude Sonnet 4.5
+anthropic,informative,18-24,-0.0066516631555892,,Claude Sonnet 4.5
+anthropic,informative,25-34,-0.0501246762195148,,Claude Sonnet 4.5
+anthropic,informative,35-44,-0.0078618557912393,,Claude Sonnet 4.5
+anthropic,informative,45-54,-0.0088626227528205,,Claude Sonnet 4.5
+anthropic,informative,55-64,0.0508680574289961,,Claude Sonnet 4.5
+anthropic,informative,65+,0.0226327604901679,,Claude Sonnet 4.5
+anthropic,neutral,18-24,-0.0010276762379947,,Claude Sonnet 4.5
+anthropic,neutral,25-34,-0.0365119216273642,,Claude Sonnet 4.5
+anthropic,neutral,35-44,0.0210734579158895,,Claude Sonnet 4.5
+anthropic,neutral,45-54,-0.0361554944638514,,Claude Sonnet 4.5
+anthropic,neutral,55-64,-0.0134329315378944,,Claude Sonnet 4.5
+anthropic,neutral,65+,0.0660545659512153,,Claude Sonnet 4.5
+anthropic,popular,18-24,0.0107007522753776,,Claude Sonnet 4.5
+anthropic,popular,25-34,0.0070761317454208,,Claude Sonnet 4.5
+anthropic,popular,35-44,0.0102076792445971,,Claude Sonnet 4.5
+anthropic,popular,45-54,-0.0227338692413022,,Claude Sonnet 4.5
+anthropic,popular,55-64,-0.0023095667708592,,Claude Sonnet 4.5
+anthropic,popular,65+,-0.0029411272532341,,Claude Sonnet 4.5
+gemini,controversial,18-24,-0.0106734873792631,,Gemini 2.0 Flash
+gemini,controversial,25-34,-0.065159275604793,,Gemini 2.0 Flash
+gemini,controversial,35-44,-0.0222226182489987,,Gemini 2.0 Flash
+gemini,controversial,45-54,-0.0203454513283798,,Gemini 2.0 Flash
+gemini,controversial,55-64,0.0354486396409508,,Gemini 2.0 Flash
+gemini,controversial,65+,0.0829521929204838,,Gemini 2.0 Flash
+gemini,engaging,18-24,-0.0004870003385038,,Gemini 2.0 Flash
+gemini,engaging,25-34,-0.0108192906608944,,Gemini 2.0 Flash
+gemini,engaging,35-44,-0.0077618870837531,,Gemini 2.0 Flash
+gemini,engaging,45-54,-0.0201365931844832,,Gemini 2.0 Flash
+gemini,engaging,55-64,0.0171149387582997,,Gemini 2.0 Flash
+gemini,engaging,65+,0.022089832509335,,Gemini 2.0 Flash
+gemini,general,18-24,0.0038691886329625,,Gemini 2.0 Flash
+gemini,general,25-34,-0.0172590311065263,,Gemini 2.0 Flash
+gemini,general,35-44,0.0013308563945786,,Gemini 2.0 Flash
+gemini,general,45-54,-0.0124643611463197,,Gemini 2.0 Flash
+gemini,general,55-64,0.0003761198851925,,Gemini 2.0 Flash
+gemini,general,65+,0.0241472273401124,,Gemini 2.0 Flash
+gemini,informative,18-24,-0.010032348312642,,Gemini 2.0 Flash
+gemini,informative,25-34,-0.0648716267412717,,Gemini 2.0 Flash
+gemini,informative,35-44,-0.0289473684210526,,Gemini 2.0 Flash
+gemini,informative,45-54,0.0071373200442967,,Gemini 2.0 Flash
+gemini,informative,55-64,0.0405694468729964,,Gemini 2.0 Flash
+gemini,informative,65+,0.0561445765576732,,Gemini 2.0 Flash
+gemini,neutral,18-24,-0.0080577441889549,,Gemini 2.0 Flash
+gemini,neutral,25-34,-0.0470496626229059,,Gemini 2.0 Flash
+gemini,neutral,35-44,-0.0221602853858843,,Gemini 2.0 Flash
+gemini,neutral,45-54,-0.0110354767051985,,Gemini 2.0 Flash
+gemini,neutral,55-64,0.037172523866526,,Gemini 2.0 Flash
+gemini,neutral,65+,0.0511306450364176,,Gemini 2.0 Flash
+gemini,popular,18-24,0.0048141895165269,,Gemini 2.0 Flash
+gemini,popular,25-34,1.028545567996475e-05,,Gemini 2.0 Flash
+gemini,popular,35-44,0.0121003168814736,,Gemini 2.0 Flash
+gemini,popular,45-54,0.0011506294549811,,Gemini 2.0 Flash
+gemini,popular,55-64,-0.0088284985232172,,Gemini 2.0 Flash
+gemini,popular,65+,-0.0092469227854445,,Gemini 2.0 Flash
+openai,controversial,18-24,-0.0082844633786806,,GPT-4o-mini
+openai,controversial,25-34,-0.0469840650320452,,GPT-4o-mini
+openai,controversial,35-44,-0.0094652805570899,,GPT-4o-mini
+openai,controversial,45-54,-0.0233431900145424,,GPT-4o-mini
+openai,controversial,55-64,0.0023390323473344,,GPT-4o-mini
+openai,controversial,65+,0.0857379666350238,,GPT-4o-mini
+openai,engaging,18-24,-0.0067703003841667,,GPT-4o-mini
+openai,engaging,25-34,-0.0282491366177696,,GPT-4o-mini
+openai,engaging,35-44,0.0114572848411612,,GPT-4o-mini
+openai,engaging,45-54,-0.0068569280991431,,GPT-4o-mini
+openai,engaging,55-64,0.0353442542885482,,GPT-4o-mini
+openai,engaging,65+,-0.0049251740286299,,GPT-4o-mini
+openai,general,18-24,-0.0125915939605876,,GPT-4o-mini
+openai,general,25-34,-0.0191312163206995,,GPT-4o-mini
+openai,general,35-44,-0.0168872378754518,,GPT-4o-mini
+openai,general,45-54,-0.0121804759157433,,GPT-4o-mini
+openai,general,55-64,0.0282631390972279,,GPT-4o-mini
+openai,general,65+,0.0325273849752544,,GPT-4o-mini
+openai,informative,18-24,-0.0098257755290168,,GPT-4o-mini
+openai,informative,25-34,-0.0596060147207709,,GPT-4o-mini
+openai,informative,35-44,-0.0063652497810701,,GPT-4o-mini
+openai,informative,45-54,-0.0187958013717191,,GPT-4o-mini
+openai,informative,55-64,0.0527270470778929,,GPT-4o-mini
+openai,informative,65+,0.0418657943246841,,GPT-4o-mini
+openai,neutral,18-24,-0.0032212684026891,,GPT-4o-mini
+openai,neutral,25-34,-0.0409385371457748,,GPT-4o-mini
+openai,neutral,35-44,0.0168397902306186,,GPT-4o-mini
+openai,neutral,45-54,-0.0054133690749723,,GPT-4o-mini
+openai,neutral,55-64,0.0168280890988001,,GPT-4o-mini
+openai,neutral,65+,0.0159052952940175,,GPT-4o-mini
+openai,popular,18-24,-0.0071692690870773,,GPT-4o-mini
+openai,popular,25-34,-0.013603930316259,,GPT-4o-mini
+openai,popular,35-44,-0.0089719869171923,,GPT-4o-mini
+openai,popular,45-54,0.002226403733253,,GPT-4o-mini
+openai,popular,55-64,0.021529292625183,,GPT-4o-mini
+openai,popular,65+,0.0059894899620926,,GPT-4o-mini

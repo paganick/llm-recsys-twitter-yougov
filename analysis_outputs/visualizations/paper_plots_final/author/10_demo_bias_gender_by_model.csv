@@ -1,37 +1,37 @@
 provider,prompt_style,category,mean_bias,std_bias,provider_label
-anthropic,controversial,female,-0.1512484227813791,,Claude Sonnet 4.5
-anthropic,controversial,male,0.1512484227813791,,Claude Sonnet 4.5
-anthropic,engaging,female,-0.070497933906824,,Claude Sonnet 4.5
-anthropic,engaging,male,0.0704979339068241,,Claude Sonnet 4.5
-anthropic,general,female,-0.1314399975005467,,Claude Sonnet 4.5
-anthropic,general,male,0.1314399975005467,,Claude Sonnet 4.5
-anthropic,informative,female,-0.1219100214427317,,Claude Sonnet 4.5
-anthropic,informative,male,0.1219100214427316,,Claude Sonnet 4.5
-anthropic,neutral,female,-0.0901444835775367,,Claude Sonnet 4.5
-anthropic,neutral,male,0.0901444835775368,,Claude Sonnet 4.5
-anthropic,popular,female,-0.0524842249619154,,Claude Sonnet 4.5
-anthropic,popular,male,0.0524842249619154,,Claude Sonnet 4.5
-google,controversial,female,-0.1143291173505914,,Gemini 2.0 Flash
-google,controversial,male,0.1143291173505913,,Gemini 2.0 Flash
-google,engaging,female,-0.0410124445392655,,Gemini 2.0 Flash
-google,engaging,male,0.0410124445392654,,Gemini 2.0 Flash
-google,general,female,-0.0281662012717228,,Gemini 2.0 Flash
-google,general,male,0.0281662012717228,,Gemini 2.0 Flash
-google,informative,female,-0.0421364219836031,,Gemini 2.0 Flash
-google,informative,male,0.042136421983603,,Gemini 2.0 Flash
-google,neutral,female,-0.0364937560038424,,Gemini 2.0 Flash
-google,neutral,male,0.0364937560038425,,Gemini 2.0 Flash
-google,popular,female,-0.0133900211254383,,Gemini 2.0 Flash
-google,popular,male,0.0133900211254382,,Gemini 2.0 Flash
-openai,controversial,female,-0.1203677501459389,,GPT-4o-mini
-openai,controversial,male,0.120367750145939,,GPT-4o-mini
-openai,engaging,female,0.0208130607795814,,GPT-4o-mini
-openai,engaging,male,-0.0208130607795814,,GPT-4o-mini
-openai,general,female,-0.0167047039431976,,GPT-4o-mini
-openai,general,male,0.0167047039431976,,GPT-4o-mini
-openai,informative,female,-0.0812595017684719,,GPT-4o-mini
-openai,informative,male,0.081259501768472,,GPT-4o-mini
-openai,neutral,female,-0.0184141539696505,,GPT-4o-mini
-openai,neutral,male,0.0184141539696504,,GPT-4o-mini
-openai,popular,female,0.0117895579350296,,GPT-4o-mini
-openai,popular,male,-0.0117895579350296,,GPT-4o-mini
+anthropic,controversial,female,-0.1318098778792057,,Claude Sonnet 4.5
+anthropic,controversial,male,0.1318098778792057,,Claude Sonnet 4.5
+anthropic,engaging,female,-0.0620531472826555,,Claude Sonnet 4.5
+anthropic,engaging,male,0.0620531472826556,,Claude Sonnet 4.5
+anthropic,general,female,-0.1154975978037062,,Claude Sonnet 4.5
+anthropic,general,male,0.1154975978037062,,Claude Sonnet 4.5
+anthropic,informative,female,-0.1067401867548714,,Claude Sonnet 4.5
+anthropic,informative,male,0.1067401867548714,,Claude Sonnet 4.5
+anthropic,neutral,female,-0.0785427853358166,,Claude Sonnet 4.5
+anthropic,neutral,male,0.0785427853358167,,Claude Sonnet 4.5
+anthropic,popular,female,-0.0458115144655174,,Claude Sonnet 4.5
+anthropic,popular,male,0.0458115144655172,,Claude Sonnet 4.5
+gemini,controversial,female,-0.1001393896927748,,Gemini 2.0 Flash
+gemini,controversial,male,0.1001393896927748,,Gemini 2.0 Flash
+gemini,engaging,female,-0.0357840553510625,,Gemini 2.0 Flash
+gemini,engaging,male,0.0357840553510624,,Gemini 2.0 Flash
+gemini,general,female,-0.0245700092829713,,Gemini 2.0 Flash
+gemini,general,male,0.0245700092829713,,Gemini 2.0 Flash
+gemini,informative,female,-0.0372829859520398,,Gemini 2.0 Flash
+gemini,informative,male,0.0372829859520397,,Gemini 2.0 Flash
+gemini,neutral,female,-0.0319983154348283,,Gemini 2.0 Flash
+gemini,neutral,male,0.0319983154348284,,Gemini 2.0 Flash
+gemini,popular,female,-0.0116423862156058,,Gemini 2.0 Flash
+gemini,popular,male,0.0116423862156058,,Gemini 2.0 Flash
+openai,controversial,female,-0.1054593057974884,,GPT-4o-mini
+openai,controversial,male,0.1054593057974885,,GPT-4o-mini
+openai,engaging,female,0.0183553033486085,,GPT-4o-mini
+openai,engaging,male,-0.0183553033486085,,GPT-4o-mini
+openai,general,female,-0.0146964422518374,,GPT-4o-mini
+openai,general,male,0.0146964422518373,,GPT-4o-mini
+openai,informative,female,-0.0715699938584364,,GPT-4o-mini
+openai,informative,male,0.0715699938584366,,GPT-4o-mini
+openai,neutral,female,-0.0162718684893975,,GPT-4o-mini
+openai,neutral,male,0.0162718684893975,,GPT-4o-mini
+openai,popular,female,0.0103628611218783,,GPT-4o-mini
+openai,popular,male,-0.0103628611218783,,GPT-4o-mini

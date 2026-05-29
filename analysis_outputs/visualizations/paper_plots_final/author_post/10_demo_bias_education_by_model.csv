@@ -1,91 +1,91 @@
 provider,prompt_style,category,mean_bias,std_bias,provider_label
-anthropic,controversial,college,-0.0428610216996211,,Claude Sonnet 4.5
-anthropic,controversial,high school,-0.0162026757756902,,Claude Sonnet 4.5
-anthropic,controversial,less than high school,0.0002391118701964,,Claude Sonnet 4.5
-anthropic,controversial,postgraduate,0.0400608728021195,,Claude Sonnet 4.5
-anthropic,controversial,some college,0.0187637128029954,,Claude Sonnet 4.5
-anthropic,engaging,college,0.0514014835617114,,Claude Sonnet 4.5
-anthropic,engaging,high school,-0.0611510961677248,,Claude Sonnet 4.5
-anthropic,engaging,less than high school,-0.0086034945609275,,Claude Sonnet 4.5
-anthropic,engaging,postgraduate,0.0469204968112283,,Claude Sonnet 4.5
-anthropic,engaging,some college,-0.0285673896442874,,Claude Sonnet 4.5
-anthropic,general,college,0.0563385266824014,,Claude Sonnet 4.5
-anthropic,general,high school,-0.0375299156845198,,Claude Sonnet 4.5
-anthropic,general,less than high school,-0.0103219066282597,,Claude Sonnet 4.5
-anthropic,general,postgraduate,0.0514723796455953,,Claude Sonnet 4.5
-anthropic,general,some college,-0.0599590840152172,,Claude Sonnet 4.5
-anthropic,informative,college,-0.0059397113688536,,Claude Sonnet 4.5
-anthropic,informative,high school,-0.0872816757621771,,Claude Sonnet 4.5
-anthropic,informative,less than high school,-0.0037077585554637,,Claude Sonnet 4.5
-anthropic,informative,postgraduate,0.127680969435199,,Claude Sonnet 4.5
-anthropic,informative,some college,-0.0307518237487045,,Claude Sonnet 4.5
-anthropic,neutral,college,0.0513133110909486,,Claude Sonnet 4.5
-anthropic,neutral,high school,-0.0443096565947851,,Claude Sonnet 4.5
-anthropic,neutral,less than high school,-0.0096356358775535,,Claude Sonnet 4.5
-anthropic,neutral,postgraduate,0.0830073438100563,,Claude Sonnet 4.5
-anthropic,neutral,some college,-0.0803753624286663,,Claude Sonnet 4.5
-anthropic,popular,college,0.0803860280507708,,Claude Sonnet 4.5
-anthropic,popular,high school,-0.082302207808424,,Claude Sonnet 4.5
-anthropic,popular,less than high school,-0.0015422620984896,,Claude Sonnet 4.5
-anthropic,popular,postgraduate,0.045813469134173,,Claude Sonnet 4.5
-anthropic,popular,some college,-0.0423550272780302,,Claude Sonnet 4.5
-google,controversial,college,-0.006305510346431,,Gemini 2.0 Flash
-google,controversial,high school,-0.014331550802139,,Gemini 2.0 Flash
-google,controversial,less than high school,0.0015717275052313,,Gemini 2.0 Flash
-google,controversial,postgraduate,0.0466217158800278,,Gemini 2.0 Flash
-google,controversial,some college,-0.0275563822366891,,Gemini 2.0 Flash
-google,engaging,college,0.0076971378194514,,Gemini 2.0 Flash
-google,engaging,high school,-0.025796779407449,,Gemini 2.0 Flash
-google,engaging,less than high school,-0.0003437237215137,,Gemini 2.0 Flash
-google,engaging,postgraduate,0.0110909982377054,,Gemini 2.0 Flash
-google,engaging,some college,0.0073523670718059,,Gemini 2.0 Flash
-google,general,college,0.0185178012198532,,Gemini 2.0 Flash
-google,general,high school,-0.0315078346569192,,Gemini 2.0 Flash
-google,general,less than high school,0.000878992885492,,Gemini 2.0 Flash
-google,general,postgraduate,0.015963557301536,,Gemini 2.0 Flash
-google,general,some college,-0.003852516749962,,Gemini 2.0 Flash
-google,informative,college,0.0355338808094957,,Gemini 2.0 Flash
-google,informative,high school,-0.0536587291778244,,Gemini 2.0 Flash
-google,informative,less than high school,-0.0080925536833335,,Gemini 2.0 Flash
-google,informative,postgraduate,0.0618210906494184,,Gemini 2.0 Flash
-google,informative,some college,-0.035603688597756,,Gemini 2.0 Flash
-google,neutral,college,0.0320543558716571,,Gemini 2.0 Flash
-google,neutral,high school,0.0092089595468734,,Gemini 2.0 Flash
-google,neutral,less than high school,-0.0043864448234801,,Gemini 2.0 Flash
-google,neutral,postgraduate,0.005698677308274,,Gemini 2.0 Flash
-google,neutral,some college,-0.0425755479033244,,Gemini 2.0 Flash
-google,popular,college,0.0126012653939893,,Gemini 2.0 Flash
-google,popular,high school,-0.0122790109680012,,Gemini 2.0 Flash
-google,popular,less than high school,-0.0034600228930111,,Gemini 2.0 Flash
-google,popular,postgraduate,-0.0102811044689612,,Gemini 2.0 Flash
-google,popular,some college,0.0134188729359843,,Gemini 2.0 Flash
-openai,controversial,college,0.0005141305112224,,GPT-4o-mini
-openai,controversial,high school,-0.0327789086748357,,GPT-4o-mini
-openai,controversial,less than high school,-0.001757166941313,,GPT-4o-mini
-openai,controversial,postgraduate,0.0499362326112698,,GPT-4o-mini
-openai,controversial,some college,-0.0159142875063434,,GPT-4o-mini
-openai,engaging,college,0.0300932450795769,,GPT-4o-mini
-openai,engaging,high school,-0.0394349049798561,,GPT-4o-mini
-openai,engaging,less than high school,-0.0044842621218118,,GPT-4o-mini
-openai,engaging,postgraduate,0.0165265439256395,,GPT-4o-mini
-openai,engaging,some college,-0.0027006219035484,,GPT-4o-mini
-openai,general,college,0.0164128785750407,,GPT-4o-mini
-openai,general,high school,-0.0253694442883631,,GPT-4o-mini
-openai,general,less than high school,0.0003315165477327,,GPT-4o-mini
-openai,general,postgraduate,0.0066809012754958,,GPT-4o-mini
-openai,general,some college,0.0019441478900938,,GPT-4o-mini
-openai,informative,college,0.0043367363721031,,GPT-4o-mini
-openai,informative,high school,-0.0448931393197117,,GPT-4o-mini
-openai,informative,less than high school,-0.0088717718826858,,GPT-4o-mini
-openai,informative,postgraduate,0.069282523643178,,GPT-4o-mini
-openai,informative,some college,-0.0198543488128836,,GPT-4o-mini
-openai,neutral,college,0.0579382420606018,,GPT-4o-mini
-openai,neutral,high school,-0.0528884726991063,,GPT-4o-mini
-openai,neutral,less than high school,-0.0027892422648431,,GPT-4o-mini
-openai,neutral,postgraduate,0.0191254619513905,,GPT-4o-mini
-openai,neutral,some college,-0.0213859890480429,,GPT-4o-mini
-openai,popular,college,-0.0069590993661505,,GPT-4o-mini
-openai,popular,high school,-0.0194118760051717,,GPT-4o-mini
-openai,popular,less than high school,0.0012434171107817,,GPT-4o-mini
-openai,popular,postgraduate,0.0056891930245025,,GPT-4o-mini
-openai,popular,some college,0.0194383652360379,,GPT-4o-mini
+anthropic,controversial,college,-0.0376379875592474,,Claude Sonnet 4.5
+anthropic,controversial,high school,-0.0142282214723159,,Claude Sonnet 4.5
+anthropic,controversial,less than high school,0.0002099737532808,,Claude Sonnet 4.5
+anthropic,controversial,postgraduate,0.035179064155442,,Claude Sonnet 4.5
+anthropic,controversial,some college,0.0164771711228404,,Claude Sonnet 4.5
+anthropic,engaging,college,0.0446950850139092,,Claude Sonnet 4.5
+anthropic,engaging,high school,-0.0531726567508278,,Claude Sonnet 4.5
+anthropic,engaging,less than high school,-0.007480988760873,,Claude Sonnet 4.5
+anthropic,engaging,postgraduate,0.0407987367009545,,Claude Sonnet 4.5
+anthropic,engaging,some college,-0.0248401762031629,,Claude Sonnet 4.5
+anthropic,general,college,0.049622211530368,,Claude Sonnet 4.5
+anthropic,general,high school,-0.0330558416146131,,Claude Sonnet 4.5
+anthropic,general,less than high school,-0.0090913956091118,,Claude Sonnet 4.5
+anthropic,general,postgraduate,0.0453361751034748,,Claude Sonnet 4.5
+anthropic,general,some college,-0.0528111494101178,,Claude Sonnet 4.5
+anthropic,informative,college,-0.0051999756616302,,Claude Sonnet 4.5
+anthropic,informative,high school,-0.0764115563004571,,Claude Sonnet 4.5
+anthropic,informative,less than high school,-0.0032459917747373,,Claude Sonnet 4.5
+anthropic,informative,postgraduate,0.1117794943703691,,Claude Sonnet 4.5
+anthropic,informative,some college,-0.0269219706335444,,Claude Sonnet 4.5
+anthropic,neutral,college,0.0447870207333386,,Claude Sonnet 4.5
+anthropic,neutral,high school,-0.0386741269741958,,Claude Sonnet 4.5
+anthropic,neutral,less than high school,-0.0084101262353154,,Claude Sonnet 4.5
+anthropic,neutral,postgraduate,0.0724500436475659,,Claude Sonnet 4.5
+anthropic,neutral,some college,-0.0701528111713933,,Claude Sonnet 4.5
+anthropic,popular,college,0.0704764649175838,,Claude Sonnet 4.5
+anthropic,popular,high school,-0.0721564281990229,,Claude Sonnet 4.5
+anthropic,popular,less than high school,-0.0013521402078638,,Claude Sonnet 4.5
+anthropic,popular,postgraduate,0.0401658276752784,,Claude Sonnet 4.5
+anthropic,popular,some college,-0.0371337241859753,,Claude Sonnet 4.5
+gemini,controversial,college,-0.0054934370442391,,Gemini 2.0 Flash
+gemini,controversial,high school,-0.0124858207745908,,Gemini 2.0 Flash
+gemini,controversial,less than high school,0.0013693080538,,Gemini 2.0 Flash
+gemini,controversial,postgraduate,0.0406174039863879,,Gemini 2.0 Flash
+gemini,controversial,some college,-0.0240074542213579,,Gemini 2.0 Flash
+gemini,engaging,college,0.0067697601418466,,Gemini 2.0 Flash
+gemini,engaging,high school,-0.02268869456634,,Gemini 2.0 Flash
+gemini,engaging,less than high school,-0.0003023107035748,,Gemini 2.0 Flash
+gemini,engaging,postgraduate,0.0097547165666133,,Gemini 2.0 Flash
+gemini,engaging,some college,0.0064665285614549,,Gemini 2.0 Flash
+gemini,general,college,0.016251540527541,,Gemini 2.0 Flash
+gemini,general,high school,-0.0276518170695669,,Gemini 2.0 Flash
+gemini,general,less than high school,0.0007714192593599,,Gemini 2.0 Flash
+gemini,general,postgraduate,0.0140098921772361,,Gemini 2.0 Flash
+gemini,general,some college,-0.0033810348945702,,Gemini 2.0 Flash
+gemini,informative,college,0.0313032423789678,,Gemini 2.0 Flash
+gemini,informative,high school,-0.0472701592659129,,Gemini 2.0 Flash
+gemini,informative,less than high school,-0.0071290600306877,,Gemini 2.0 Flash
+gemini,informative,postgraduate,0.0544607158195268,,Gemini 2.0 Flash
+gemini,informative,some college,-0.0313647389018938,,Gemini 2.0 Flash
+gemini,neutral,college,0.028212009630364,,Gemini 2.0 Flash
+gemini,neutral,high school,0.0081050842656847,,Gemini 2.0 Flash
+gemini,neutral,less than high school,-0.003860642968418,,Gemini 2.0 Flash
+gemini,neutral,postgraduate,0.0050155785299532,,Gemini 2.0 Flash
+gemini,neutral,some college,-0.0374720294575839,,Gemini 2.0 Flash
+gemini,popular,college,0.0110122340245809,,Gemini 2.0 Flash
+gemini,popular,high school,-0.0107306161835559,,Gemini 2.0 Flash
+gemini,popular,less than high school,-0.003023710765303,,Gemini 2.0 Flash
+gemini,popular,postgraduate,-0.0089846475654238,,Gemini 2.0 Flash
+gemini,popular,some college,0.0117267404897019,,Gemini 2.0 Flash
+openai,controversial,college,0.0004493549555296,,GPT-4o-mini
+openai,controversial,high school,-0.0286490778671504,,GPT-4o-mini
+openai,controversial,less than high school,-0.0015357806151096,,GPT-4o-mini
+openai,controversial,postgraduate,0.0436447421317199,,GPT-4o-mini
+openai,controversial,some college,-0.0139092386049896,,GPT-4o-mini
+openai,engaging,college,0.0262021222848361,,GPT-4o-mini
+openai,engaging,high school,-0.0343358850081053,,GPT-4o-mini
+openai,engaging,less than high school,-0.0039044371639638,,GPT-4o-mini
+openai,engaging,postgraduate,0.0143896254372115,,GPT-4o-mini
+openai,engaging,some college,-0.0023514255499785,,GPT-4o-mini
+openai,general,college,0.0143904385610546,,GPT-4o-mini
+openai,general,high school,-0.0222433516272378,,GPT-4o-mini
+openai,general,less than high school,0.0002906661674434,,GPT-4o-mini
+openai,general,postgraduate,0.0058576622557665,,GPT-4o-mini
+openai,general,some college,0.0017045846429732,,GPT-4o-mini
+openai,informative,college,0.0037836951397003,,GPT-4o-mini
+openai,informative,high school,-0.0391681528401287,,GPT-4o-mini
+openai,informative,less than high school,-0.0077404013693294,,GPT-4o-mini
+openai,informative,postgraduate,0.0604472869647213,,GPT-4o-mini
+openai,informative,some college,-0.0173224278949634,,GPT-4o-mini
+openai,neutral,college,0.0509277889559579,,GPT-4o-mini
+openai,neutral,high school,-0.0464890352214295,,GPT-4o-mini
+openai,neutral,less than high school,-0.00245174752217,,GPT-4o-mini
+openai,neutral,postgraduate,0.0168113055436998,,GPT-4o-mini
+openai,neutral,some college,-0.0187983117560582,,GPT-4o-mini
+openai,popular,college,-0.0060921777299267,,GPT-4o-mini
+openai,popular,high school,-0.0169936643339268,,GPT-4o-mini
+openai,popular,less than high school,0.001088519883501,,GPT-4o-mini
+openai,popular,postgraduate,0.0049804684804063,,GPT-4o-mini
+openai,popular,some college,0.0170168536999461,,GPT-4o-mini

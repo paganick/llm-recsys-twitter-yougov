@@ -45,8 +45,8 @@ CONTEXT_LABELS  = {
     "author_post": "Author+Post",
     "public_demo": "Public+Demo",
 }
-PROVIDER_ORDER  = ["anthropic", "openai", "google"]
-PROVIDER_LABELS = {"anthropic": "Claude", "openai": "GPT-4o", "google": "Gemini"}
+PROVIDER_ORDER  = ["anthropic", "openai", "gemini"]
+PROVIDER_LABELS = {"anthropic": "Claude", "openai": "GPT-4o", "gemini": "Gemini"}
 PROMPT_ORDER    = ["general", "popular", "engaging", "informative", "controversial", "neutral"]
 PROMPT_LABELS   = {p: p.capitalize() for p in PROMPT_ORDER}
 
@@ -57,6 +57,7 @@ LOG_FEATURES = [
 ]
 # Features used on the original scale (still z-scored)
 LINEAR_FEATURES = [
+    "text_length",
     "avg_word_length",
     "sentiment_polarity", "sentiment_subjectivity",
     "polarization_score", "toxicity",
@@ -79,6 +80,7 @@ CATEGORICAL_CONFIG = {
 
 # Display names for the table
 FEATURE_DISPLAY = {
+    "text_length":            "Text length",
     "avg_word_length":        "Avg word length",
     "sentiment_polarity":     "Sentiment polarity",
     "sentiment_subjectivity": "Sentiment subjectivity",
@@ -100,7 +102,7 @@ FEATURE_DISPLAY = {
 
 # Feature groups for table section headers
 FEATURE_GROUPS = [
-    ("Text",            ["avg_word_length"]),
+    ("Text",            ["text_length", "avg_word_length"]),
     ("Content",         ["polarization_score", "toxicity"]),
     ("Sentiment",       ["sentiment_polarity", "sentiment_subjectivity"]),
     ("Style",           ["has_emoji", "has_hashtag", "has_mention", "has_url"]),
@@ -121,33 +123,11 @@ CMAP_DIVG = LinearSegmentedColormap.from_list("divg", DIVG_COLORS, N=256)
 # DATA LOADING
 # ============================================================================
 
-def load_data(fake: bool = False) -> pd.DataFrame:
-    base = "outputs_fake" if fake else "outputs"
-    exp_root = ROOT / base / "experiments"
-
-    frames = []
-    for exp_dir in sorted(exp_root.iterdir()):
-        csv = exp_dir / "post_level_data.csv"
-        if not csv.exists():
-            continue
-        provider = exp_dir.name.split("_")[0]
-        if provider not in PROVIDER_ORDER:
-            continue
-        df = pd.read_csv(csv, low_memory=False)
-        df["provider"] = provider
-        frames.append(df)
-        print(f"  Loaded {len(df):,} rows from {exp_dir.name}")
-
-    combined = pd.concat(frames, ignore_index=True)
-    combined["selected"] = pd.to_numeric(combined["selected"], errors="coerce").fillna(0).astype(int)
-    # Unique trial identifier across providers/prompts/context levels
-    combined["trial_group"] = (
-        combined["provider"] + "|" +
-        combined["prompt_style"].fillna("") + "|" +
-        combined["context_level"].fillna("none") + "|" +
-        combined["trial_id"].astype(str)
-    )
-    return combined
+def load_data(fake: bool = False, migrated: bool = False) -> pd.DataFrame:
+    import sys
+    sys.path.insert(0, str(ROOT))
+    from utils.data_loader import load_data as _load
+    return _load(fake=fake, migrated=migrated)
 
 
 # ============================================================================
@@ -945,7 +925,9 @@ def plot_heatmap_by_prompt(submodel_df: pd.DataFrame, out_dir: Path):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--fake", action="store_true")
+    parser.add_argument("--fake",     action="store_true")
+    parser.add_argument("--migrated", action="store_true",
+                        help="Read from outputs_migrated/ (new three-table format)")
     args = parser.parse_args()
 
     out_dir = ROOT / "analysis_outputs" / "logistic_regression"
@@ -956,7 +938,7 @@ def main():
     print("=" * 70)
 
     print("\nLoading data ...")
-    df = load_data(fake=args.fake)
+    df = load_data(fake=args.fake, migrated=args.migrated)
     print(f"Total rows: {len(df):,}  |  selected: {df['selected'].sum():,}")
 
     print("\nFitting scalers on full dataset ...")

@@ -1,73 +1,73 @@
 provider,prompt_style,category,mean_bias,std_bias,provider_label
-anthropic,controversial,Democrat,-0.035626504201235,,Claude Sonnet 4.5
-anthropic,controversial,Independent,0.0276049294906889,,Claude Sonnet 4.5
-anthropic,controversial,Other,0.0035690610664757,,Claude Sonnet 4.5
-anthropic,controversial,Republican,0.0044525136440703,,Claude Sonnet 4.5
-anthropic,engaging,Democrat,0.0361394237911402,,Claude Sonnet 4.5
-anthropic,engaging,Independent,-0.0061516170543622,,Claude Sonnet 4.5
-anthropic,engaging,Other,-0.0116689721966588,,Claude Sonnet 4.5
-anthropic,engaging,Republican,-0.0183188345401191,,Claude Sonnet 4.5
-anthropic,general,Democrat,0.0201604596185639,,Claude Sonnet 4.5
-anthropic,general,Independent,0.0353986189296511,,Claude Sonnet 4.5
-anthropic,general,Other,0.0014292262606805,,Claude Sonnet 4.5
-anthropic,general,Republican,-0.0569883048088956,,Claude Sonnet 4.5
-anthropic,informative,Democrat,0.001667747686529,,Claude Sonnet 4.5
-anthropic,informative,Independent,0.0346246966560417,,Claude Sonnet 4.5
-anthropic,informative,Other,-0.0096962328982085,,Claude Sonnet 4.5
-anthropic,informative,Republican,-0.0265962114443622,,Claude Sonnet 4.5
-anthropic,neutral,Democrat,0.0264878728640656,,Claude Sonnet 4.5
-anthropic,neutral,Independent,0.0059324308251575,,Claude Sonnet 4.5
-anthropic,neutral,Other,-0.0036895282417558,,Claude Sonnet 4.5
-anthropic,neutral,Republican,-0.0287307754474673,,Claude Sonnet 4.5
-anthropic,popular,Democrat,0.053662565965405,,Claude Sonnet 4.5
-anthropic,popular,Independent,0.0315673110625792,,Claude Sonnet 4.5
-anthropic,popular,Other,0.001112802374632,,Claude Sonnet 4.5
-anthropic,popular,Republican,-0.0863426794026163,,Claude Sonnet 4.5
-google,controversial,Democrat,-0.0250487991787279,,Gemini 2.0 Flash
-google,controversial,Independent,0.0336808316825956,,Gemini 2.0 Flash
-google,controversial,Other,-0.0002641180241272,,Gemini 2.0 Flash
-google,controversial,Republican,-0.0083679144797405,,Gemini 2.0 Flash
-google,engaging,Democrat,-0.0050142415955639,,Gemini 2.0 Flash
-google,engaging,Independent,0.0368945742994461,,Gemini 2.0 Flash
-google,engaging,Other,-0.0230529117905253,,Gemini 2.0 Flash
-google,engaging,Republican,-0.0088274209133567,,Gemini 2.0 Flash
-google,general,Democrat,0.0095841087305753,,Gemini 2.0 Flash
-google,general,Independent,0.0098942676273639,,Gemini 2.0 Flash
-google,general,Other,-0.0076277218431391,,Gemini 2.0 Flash
-google,general,Republican,-0.0118506545148001,,Gemini 2.0 Flash
-google,informative,Democrat,-0.0274776717522957,,Gemini 2.0 Flash
-google,informative,Independent,0.025642891800097,,Gemini 2.0 Flash
-google,informative,Other,0.0030181321544737,,Gemini 2.0 Flash
-google,informative,Republican,-0.001183352202275,,Gemini 2.0 Flash
-google,neutral,Democrat,-0.0107867758519956,,Gemini 2.0 Flash
-google,neutral,Independent,0.0246595278306802,,Gemini 2.0 Flash
-google,neutral,Other,-0.0034546296629016,,Gemini 2.0 Flash
-google,neutral,Republican,-0.010418122315783,,Gemini 2.0 Flash
-google,popular,Democrat,-0.0171592301746924,,Gemini 2.0 Flash
-google,popular,Independent,0.032493733533177,,Gemini 2.0 Flash
-google,popular,Other,-0.0086016491376402,,Gemini 2.0 Flash
-google,popular,Republican,-0.0067328542208443,,Gemini 2.0 Flash
-openai,controversial,Democrat,-0.0166747993927564,,GPT-4o-mini
-openai,controversial,Independent,0.0471951131352562,,GPT-4o-mini
-openai,controversial,Other,0.0025545796284247,,GPT-4o-mini
-openai,controversial,Republican,-0.0330748933709246,,GPT-4o-mini
-openai,engaging,Democrat,0.005716869141493,,GPT-4o-mini
-openai,engaging,Independent,0.0166456838901513,,GPT-4o-mini
-openai,engaging,Other,-0.022522165605137,,GPT-4o-mini
-openai,engaging,Republican,0.0001596125734927,,GPT-4o-mini
-openai,general,Democrat,-0.0021327885124595,,GPT-4o-mini
-openai,general,Independent,0.0148070120607212,,GPT-4o-mini
-openai,general,Other,-0.0070543113485377,,GPT-4o-mini
-openai,general,Republican,-0.0056199121997239,,GPT-4o-mini
-openai,informative,Democrat,-0.018106485475985,,GPT-4o-mini
-openai,informative,Independent,0.0108345916019557,,GPT-4o-mini
-openai,informative,Other,0.0175249856197871,,GPT-4o-mini
-openai,informative,Republican,-0.0102530917457578,,GPT-4o-mini
-openai,neutral,Democrat,-0.0053565285763427,,GPT-4o-mini
-openai,neutral,Independent,0.0210329745933461,,GPT-4o-mini
-openai,neutral,Other,-0.0058561436270414,,GPT-4o-mini
-openai,neutral,Republican,-0.0098203023899618,,GPT-4o-mini
-openai,popular,Democrat,0.0217076517933311,,GPT-4o-mini
-openai,popular,Independent,0.0072497310930603,,GPT-4o-mini
-openai,popular,Other,-0.0121404992396424,,GPT-4o-mini
-openai,popular,Republican,-0.016816883646749,,GPT-4o-mini
+anthropic,controversial,Democrat,-0.0310917102611805,,Claude Sonnet 4.5
+anthropic,controversial,Independent,0.0240911784287571,,Claude Sonnet 4.5
+anthropic,controversial,Other,0.0031147656799702,,Claude Sonnet 4.5
+anthropic,controversial,Republican,0.003885766152453,,Claude Sonnet 4.5
+anthropic,engaging,Democrat,0.0315768756816714,,Claude Sonnet 4.5
+anthropic,engaging,Independent,-0.0053749846176149,,Claude Sonnet 4.5
+anthropic,engaging,Other,-0.0101957819393099,,Claude Sonnet 4.5
+anthropic,engaging,Republican,-0.0160061091247465,,Claude Sonnet 4.5
+anthropic,general,Democrat,0.0177016087605298,,Claude Sonnet 4.5
+anthropic,general,Independent,0.0310812607852838,,Claude Sonnet 4.5
+anthropic,general,Other,0.001254912069244,,Claude Sonnet 4.5
+anthropic,general,Republican,-0.0500377816150577,,Claude Sonnet 4.5
+anthropic,informative,Democrat,0.0014651724221655,,Claude Sonnet 4.5
+anthropic,informative,Independent,0.0304189602996024,,Claude Sonnet 4.5
+anthropic,informative,Other,-0.0085184666458251,,Claude Sonnet 4.5
+anthropic,informative,Republican,-0.0233656660759428,,Claude Sonnet 4.5
+anthropic,neutral,Democrat,0.0231464103596269,,Claude Sonnet 4.5
+anthropic,neutral,Independent,0.0051840507923716,,Claude Sonnet 4.5
+anthropic,neutral,Other,-0.0032240918383812,,Claude Sonnet 4.5
+anthropic,neutral,Republican,-0.0251063693136172,,Claude Sonnet 4.5
+anthropic,popular,Democrat,0.0467531291615734,,Claude Sonnet 4.5
+anthropic,popular,Independent,0.0275027953814916,,Claude Sonnet 4.5
+anthropic,popular,Other,0.0009695211590518,,Claude Sonnet 4.5
+anthropic,popular,Republican,-0.0752254457021169,,Claude Sonnet 4.5
+gemini,controversial,Democrat,-0.0219928653946249,,Gemini 2.0 Flash
+gemini,controversial,Independent,0.0295717967272219,,Gemini 2.0 Flash
+gemini,controversial,Other,-0.0002318958330688,,Gemini 2.0 Flash
+gemini,controversial,Republican,-0.0073470354995281,,Gemini 2.0 Flash
+gemini,engaging,Democrat,-0.0043830829394727,,Gemini 2.0 Flash
+gemini,engaging,Independent,0.0322505360160704,,Gemini 2.0 Flash
+gemini,engaging,Other,-0.0201511679181184,,Gemini 2.0 Flash
+gemini,engaging,Republican,-0.0077162851584792,,Gemini 2.0 Flash
+gemini,general,Democrat,0.0084233242468722,,Gemini 2.0 Flash
+gemini,general,Independent,0.0086959180820577,,Gemini 2.0 Flash
+gemini,general,Other,-0.0067038862095477,,Gemini 2.0 Flash
+gemini,general,Republican,-0.0104153561193821,,Gemini 2.0 Flash
+gemini,informative,Democrat,-0.024071870050787,,Gemini 2.0 Flash
+gemini,informative,Independent,0.0224645073535663,,Gemini 2.0 Flash
+gemini,informative,Other,0.0026440407933224,,Gemini 2.0 Flash
+gemini,informative,Republican,-0.0010366780961017,,Gemini 2.0 Flash
+gemini,neutral,Democrat,-0.0094604618643004,,Gemini 2.0 Flash
+gemini,neutral,Independent,0.0216274562329619,,Gemini 2.0 Flash
+gemini,neutral,Other,-0.0030298573577122,,Gemini 2.0 Flash
+gemini,neutral,Republican,-0.0091371370109492,,Gemini 2.0 Flash
+gemini,popular,Democrat,-0.0149381478005264,,Gemini 2.0 Flash
+gemini,popular,Independent,0.0282877605328366,,Gemini 2.0 Flash
+gemini,popular,Other,-0.0074882558738474,,Gemini 2.0 Flash
+gemini,popular,Republican,-0.0058613568584626,,Gemini 2.0 Flash
+openai,controversial,Democrat,-0.0146647212248653,,GPT-4o-mini
+openai,controversial,Independent,0.0415059372531442,,GPT-4o-mini
+openai,controversial,Other,0.002246635609532,,GPT-4o-mini
+openai,controversial,Republican,-0.0290878516378108,,GPT-4o-mini
+openai,engaging,Democrat,0.0050010190298294,,GPT-4o-mini
+openai,engaging,Independent,0.0145613586455874,,GPT-4o-mini
+openai,engaging,Other,-0.019702004015933,,GPT-4o-mini
+openai,engaging,Republican,0.0001396263405162,,GPT-4o-mini
+openai,general,Democrat,-0.0018665079586177,,GPT-4o-mini
+openai,general,Independent,0.0129583433581103,,GPT-4o-mini
+openai,general,Other,-0.0061735742656587,,GPT-4o-mini
+openai,general,Republican,-0.0049182611338339,,GPT-4o-mini
+openai,informative,Democrat,-0.0159100960323477,,GPT-4o-mini
+openai,informative,Independent,0.0095203121051301,,GPT-4o-mini
+openai,informative,Other,0.0153991344452868,,GPT-4o-mini
+openai,informative,Republican,-0.0090093505180692,,GPT-4o-mini
+openai,neutral,Democrat,-0.0047197384658684,,GPT-4o-mini
+openai,neutral,Independent,0.018532551040291,,GPT-4o-mini
+openai,neutral,Other,-0.0051599587203302,,GPT-4o-mini
+openai,neutral,Republican,-0.0086528538540922,,GPT-4o-mini
+openai,popular,Democrat,0.0191442870694448,,GPT-4o-mini
+openai,popular,Independent,0.0063936410323509,,GPT-4o-mini
+openai,popular,Other,-0.0107068790683981,,GPT-4o-mini
+openai,popular,Republican,-0.0148310490333976,,GPT-4o-mini

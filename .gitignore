@@ -1,8 +1,7 @@
 # Data — not redistributed (examples/ is synthetic and committed)
 datasets/*
 !datasets/examples/
-outputs/pools/
-outputs/experiments/
+outputs/
 
 # LaTeX / generated document outputs
 *.tex
@@ -20,6 +19,14 @@ NOTES.md
 # Local exploration (not for sharing)
 explore_dataset.py
 explore_outputs/
+
+# Intermediate migrated data and scratch/archive folders
+outputs_migrated/
+outputs_fake/
+_scratch/
+
+# One-time migration script (local use only)
+pipeline/migrate_to_new_format.py
 
 # Environment
 config.yaml

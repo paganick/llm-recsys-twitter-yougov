@@ -68,6 +68,7 @@ FEATURES = {
     ],
     # Text metrics (pre-computed from tweet text)
     "text_metrics": [
+        "text_length",
         "avg_word_length",
     ],
     # Content (NLP-computed)
@@ -92,17 +93,6 @@ FEATURES = {
         "retweet_count",
         "retweeted",
     ],
-    # --- Extended features (Phase 2) ---
-    # Uncomment to include once data contains these columns:
-    #
-    # "text_metrics_extended": [
-    #     "word_count",
-    # ],
-    # "tweet_type": [
-    #     "is_reply",
-    #     "is_retweet",
-    #     "is_quote",
-    # ],
 }
 
 FEATURE_TYPES = {
@@ -408,13 +398,28 @@ def main():
     )
     parser.add_argument("--experiments-dir", type=Path, default=Path("outputs/experiments"),
                         help="Directory containing experiment subdirectories (default: outputs/experiments)")
+    parser.add_argument("--migrated", action="store_true",
+                        help="Read from outputs_migrated/ (new three-table format)")
     args = parser.parse_args()
 
-    experiments_dir = args.experiments_dir
-    if not experiments_dir.exists():
-        print(f"ERROR: {experiments_dir} not found.")
-        print(f"       Run first: python run_llm_recommendation.py --provider anthropic")
-        import sys; sys.exit(1)
+    global OUTPUT_DIR
+    if args.migrated:
+        import sys
+        sys.path.insert(0, str(Path(__file__).parent.parent))
+        from utils.data_loader import load_data as _load_data
+        combined = _load_data(migrated=True)
+        combined["context_level"] = combined["context_level"].fillna("none")
+        provider_groups = {p: g for p, g in combined.groupby("provider")}
+        OUTPUT_DIR = Path("analysis_outputs")
+    else:
+        experiments_dir = args.experiments_dir
+        if not experiments_dir.exists():
+            print(f"ERROR: {experiments_dir} not found.")
+            print(f"       Run first: python run_llm_recommendation.py --provider anthropic")
+            import sys; sys.exit(1)
+        provider_groups = None
+
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
     summary_rows      = []
     dir_bias_rows     = []
@@ -424,10 +429,14 @@ def main():
         print("WARNING: shap could not be imported — feature_importance_data.csv will be empty.")
         print("         Install a compatible version: pip install shap")
 
-    for provider in PROVIDERS:
+    providers_to_run = list(provider_groups.keys()) if provider_groups else PROVIDERS
+    for provider in providers_to_run:
         print(f"\n{'='*60}")
         print(f"Provider: {provider.upper()}")
-        df = load_experiment_data(experiments_dir, provider)
+        if provider_groups:
+            df = provider_groups[provider].copy()
+        else:
+            df = load_experiment_data(args.experiments_dir, provider)
         if df is None:
             print(f"  No data found — skipping.")
             continue
@@ -450,8 +459,8 @@ def main():
                 if sub.empty:
                     continue
 
-                pool_df = sub[sub["selected"] == 0]
-                rec_df  = sub[sub["selected"] == 1]
+                pool_df = sub                        # all shown posts
+                rec_df  = sub[sub["selected"] == 1]  # recommended posts only
 
                 # --------------------------------------------------------------
                 # Bias summary
