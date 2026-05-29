@@ -96,8 +96,8 @@ TOKEN_LOG       = Path("outputs/token_usage.csv")
 
 COST_PER_1M = {
     "anthropic": {"input": 3.00,  "output": 15.00},  # claude-sonnet-4-6
-    "openai":    {"input": 5.00,  "output": 40.00},  # gpt-5 (verify at platform.openai.com)
-    "gemini":    {"input": 0.30,  "output":  2.50},  # gemini-3.5-flash (verify at ai.google.dev)
+    "openai":    {"input": 1.25,  "output": 10.00},  # gpt-5
+    "gemini":    {"input": 1.50,  "output":  9.00},  # gemini-3.5-flash
 }
 
 STYLE_ORDER = ["general", "popular", "engaging", "informative", "controversial", "neutral"]
@@ -431,7 +431,7 @@ def main():
     provider_models = {
         "anthropic": "claude-sonnet-4-6",
         "openai":    "gpt-5",
-        "gemini":    "gemini-3.5-flash",  # verify exact ID at ai.google.dev/gemini-api/docs/models
+        "gemini":    "gemini-3.5-flash",
     }
     model   = provider_models[args.provider]
     out_dir = EXPERIMENTS_DIR / f"{args.provider}_{model}"

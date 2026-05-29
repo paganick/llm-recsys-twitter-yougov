@@ -78,10 +78,10 @@ plt.rcParams["savefig.dpi"] = 300
 
 PROVIDER_ORDER  = ["anthropic", "openai", "gemini", "google"]
 PROVIDER_LABELS = {
-    "anthropic": "Claude Sonnet 4.5",
-    "openai":    "GPT-4o-mini",
-    "gemini":    "Gemini 2.0 Flash",
-    "google":    "Gemini 2.0 Flash",
+    "anthropic": "Claude Sonnet 4.6",
+    "openai":    "GPT-5",
+    "gemini":    "Gemini 3.5 Flash",
+    "google":    "Gemini 3.5 Flash",
 }
 _PROVIDER_PREFERRED_ORDER = ["anthropic", "openai", "gemini", "google"]
 
