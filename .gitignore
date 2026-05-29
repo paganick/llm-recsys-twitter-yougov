@@ -17,6 +17,10 @@ outputs/experiments/
 # Personal notes
 NOTES.md
 
+# Local exploration (not for sharing)
+explore_dataset.py
+explore_outputs/
+
 # Environment
 config.yaml
 *.sif
