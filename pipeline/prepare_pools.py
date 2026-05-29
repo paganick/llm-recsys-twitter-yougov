@@ -107,10 +107,15 @@ def main():
         print("WARNING: no created_at column — sorting by post_id only")
         pool = pool.sort_values("post_id", kind="mergesort").reset_index(drop=True)
     else:
-        dates = pd.to_datetime(pool["created_at"], errors="coerce")
+        dates = pd.to_datetime(pool["created_at"], format="mixed", errors="coerce")
+        n_bad = dates.isna().sum()
+        if n_bad:
+            print(f"  WARNING: {n_bad:,} posts have unparseable created_at — dropping them")
+            pool = pool[dates.notna()].copy()
+            dates = dates[dates.notna()]
         sort_cols = ["_date", "post_id"] if "post_id" in pool.columns else ["_date"]
         pool = (pool.assign(_date=dates)
-                    .sort_values(sort_cols, na_position="last", kind="mergesort")
+                    .sort_values(sort_cols, kind="mergesort")
                     .drop(columns="_date")
                     .reset_index(drop=True))
 

@@ -661,10 +661,11 @@ def main():
               f"{stats['total_output_tokens']:,} out  →  ${cost_usd:.4f}")
 
     print(f"\n✓ Done. Outputs in {out_dir}")
-    print(f"\nNext steps:")
-    print(f"  python compute_text_features.py --experiment-dir {out_dir}")
-    print(f"  python compute_bias_metrics.py")
-    print(f"  python generate_figures.py")
+    print(f"\nNext steps (if all providers done):")
+    print(f"  python pipeline/compute_bias_metrics.py")
+    print(f"  python pipeline/logistic_regression.py")
+    print(f"  python pipeline/compute_feature_correlations.py")
+    print(f"  python pipeline/generate_figures.py")
 
 
 if __name__ == "__main__":
