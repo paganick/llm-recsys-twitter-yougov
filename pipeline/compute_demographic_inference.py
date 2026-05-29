@@ -160,23 +160,19 @@ def main():
 
         print(f"\nProvider: {provider.upper()}  ({exp_path.name})")
         inf_df = pd.read_csv(inf_csv, low_memory=False)
-        print(f"  {len(inf_df):,} rows, context levels: "
-              f"{sorted(inf_df['context_level'].unique())}")
+        print(f"  {len(inf_df):,} rows, {inf_df['trial_id'].nunique()} trials")
 
         merged = inf_df.merge(gt, on="post_id", how="left")
 
-        for cl in sorted(inf_df["context_level"].unique()):
-            sub = merged[merged["context_level"] == cl]
-            for attr_key, gt_col in ATTRIBUTE_MAP.items():
-                if gt_col not in sub.columns:
-                    continue
-                stats = compute_accuracy(sub, attr_key, gt_col)
-                rows.append({
-                    "provider":      provider,
-                    "context_level": cl,
-                    "attribute":     attr_key,
-                    **stats,
-                })
+        for attr_key, gt_col in ATTRIBUTE_MAP.items():
+            if gt_col not in merged.columns:
+                continue
+            stats = compute_accuracy(merged, attr_key, gt_col)
+            rows.append({
+                "provider":  provider,
+                "attribute": attr_key,
+                **stats,
+            })
                 print(f"  {cl:14s} | {attr_key:15s}: "
                       f"acc={stats['accuracy']:.2%}  "
                       f"(all={stats['accuracy_all']:.2%}, "
@@ -192,27 +188,20 @@ def main():
     acc_df.to_csv(out_csv, index=False)
     print(f"\n✓ {out_csv}")
 
-    # ── Heatmap: accuracy_all, attributes × context_levels, one panel per provider ──
-    providers = acc_df["provider"].unique()
-    n = len(providers)
-    fig, axes = plt.subplots(1, n, figsize=(6 * n, 5), squeeze=False)
+    # ── Heatmap: accuracy_all per attribute × provider ────────────────────────
+    pivot = acc_df.pivot(index="attribute", columns="provider", values="accuracy_all")
+    fig, ax = plt.subplots(figsize=(max(4, len(pivot.columns) * 2.5), 6))
+    sns.heatmap(
+        pivot, ax=ax,
+        vmin=0, vmax=1, center=0.5,
+        cmap="RdYlGn", annot=True, fmt=".2f", linewidths=0.5,
+        cbar_kws={"label": "Accuracy (incl. unknown)"},
+    )
+    ax.set_xlabel("Provider")
+    ax.set_ylabel("Attribute")
+    plt.setp(ax.get_xticklabels(), rotation=30, ha="right")
 
-    for ax, prov in zip(axes[0], providers):
-        pdata = acc_df[acc_df["provider"] == prov]
-        pivot = pdata.pivot(index="attribute", columns="context_level",
-                            values="accuracy_all")
-        sns.heatmap(
-            pivot, ax=ax,
-            vmin=0, vmax=1, center=0.5,
-            cmap="RdYlGn", annot=True, fmt=".2f", linewidths=0.5,
-            cbar_kws={"label": "Accuracy (incl. unknown)"},
-        )
-        ax.set_title(prov.title(), fontweight="bold")
-        ax.set_xlabel("Context level")
-        ax.set_ylabel("Attribute")
-        plt.setp(ax.get_xticklabels(), rotation=30, ha="right")
-
-    plt.suptitle("Demographic Inference Accuracy vs Ground Truth",
+    plt.suptitle("Demographic Inference Accuracy vs Ground Truth (text-only)",
                  fontweight="bold", fontsize=13, y=1.02)
     plt.tight_layout()
     out_png = out_dir_eff / "accuracy_heatmap.png"

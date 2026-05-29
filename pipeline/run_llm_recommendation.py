@@ -527,22 +527,19 @@ def main():
             if missing:
                 rec_missing[key] = missing
 
+    # Inference: once per trial, text-only — independent of both style and
+    # context level. inf_missing is a flat list of trial_ids.
     if args.infer_demographics:
-        for cl in context_levels:
-            if existing_inf is not None:
-                have_inf = set(
-                    existing_inf.loc[
-                        existing_inf["context_level"] == cl, "trial_id"
-                    ].unique()
-                )
-                missing_inf = sorted(expected_ids - have_inf)
-            else:
-                missing_inf = sorted(expected_ids)
-            if missing_inf:
-                inf_missing[cl] = missing_inf
+        if existing_inf is not None:
+            have_inf     = set(existing_inf["trial_id"].unique())
+            missing_inf  = sorted(expected_ids - have_inf)
+        else:
+            missing_inf  = sorted(expected_ids)
+        if missing_inf:
+            inf_missing  = missing_inf   # plain list, not a dict
 
     total_rec_trials = sum(len(v) for v in rec_missing.values())
-    total_inf_trials = sum(len(v) for v in inf_missing.values())
+    total_inf_trials = len(inf_missing) if isinstance(inf_missing, list) else 0
 
     # ── Summary ───────────────────────────────────────────────────────────────
     pool_size = len(next(iter(trial_pools.values())))
@@ -559,8 +556,9 @@ def main():
 
     print(f"Missing recommendation trials: {total_rec_trials}")
     if args.infer_demographics:
-        print(f"Missing inference trials:      {total_inf_trials} "
-              f"(once per context level × trial, independent of prompt style)")
+        inf_status = f"{total_inf_trials} missing" if total_inf_trials else "complete"
+        print(f"Missing inference trials:      {inf_status} "
+              f"(once per trial, text-only)")
     print()
     for style in args.styles:
         for cl in context_levels:
@@ -569,11 +567,8 @@ def main():
             status = "complete" if key not in rec_missing else f"rec={rec_n}"
             print(f"  {style:15s} / {cl:14s}: {status}")
     if args.infer_demographics:
-        print()
-        for cl in context_levels:
-            inf_n = len(inf_missing.get(cl, []))
-            status = "complete" if cl not in inf_missing else f"inf={inf_n}"
-            print(f"  {'[inference]':15s} / {cl:14s}: {status}")
+        inf_status = f"inf={total_inf_trials}" if total_inf_trials else "complete"
+        print(f"\n  {'[inference]':15s} (text-only): {inf_status}")
 
     # Cost estimate
     rates = COST_PER_1M.get(args.provider, {"input": 0, "output": 0})
@@ -608,61 +603,59 @@ def main():
     import random
 
     # ── Trial loop ────────────────────────────────────────────────────────────
-    for cl in context_levels:
 
-        # ── Demographic inference (once per context_level × trial) ────────────
-        # Independent of prompt style: the same pool is shown regardless of
-        # style, so inference results are identical across styles.
-        if args.infer_demographics and cl in inf_missing:
-            n_inf = len(inf_missing[cl])
-            print(f"\nInference: {cl} — {n_inf} trial(s)")
-            inf_diags = []
-            for j, trial_id in enumerate(inf_missing[cl]):
-                pool = trial_pools[trial_id]
-                if args.fake:
-                    import random as _r
-                    inf_rng = _r.Random(fake_seed + trial_id + 999)
-                    fake_rows = []
-                    for pid in list(pool.get("post_id", pool.index)):
-                        row = {"post_id": pid}
-                        for fkey, _, options in DEMO_INFERENCE_FIELDS:
-                            row[f"inferred_{fkey}"] = inf_rng.choice(options)
-                        fake_rows.append(row)
-                    inf_result = pd.DataFrame(fake_rows)
-                    inf_diag = {"n_parsed": len(fake_rows),
-                                "n_expected": len(pool), "n_oof": 0}
-                else:
-                    try:
-                        inf_result, inf_diag = run_inference(llm_client, pool, cl)
-                    except RuntimeError as e:
-                        print(f"  Trial {j+1} (id={trial_id}) SKIPPED [inf]: {e}")
-                        inf_result, inf_diag = None, None
-
-                if inf_result is not None and not inf_result.empty:
-                    inf_result["context_level"] = cl
-                    inf_result["trial_id"]      = trial_id
-                    header = not inf_csv.exists()
-                    inf_result.to_csv(inf_csv, mode="a", index=False, header=header)
-                    if inf_diag:
-                        inf_diags.append(inf_diag)
-                        parsed, expected = inf_diag["n_parsed"], inf_diag["n_expected"]
-                        warn = []
-                        if parsed < expected:
-                            warn.append(f"parsed {parsed}/{expected} posts")
-                        if inf_diag["n_oof"]:
-                            warn.append(f"{inf_diag['n_oof']} OOF values "
-                                        f"({', '.join(inf_diag['oof_samples'])})")
-                        if warn:
-                            print(f"  [WARN] trial {trial_id}: {'; '.join(warn)}")
-
-            if inf_diags and not args.fake:
-                avg_parsed = sum(d["n_parsed"] for d in inf_diags) / len(inf_diags)
-                exp        = inf_diags[0]["n_expected"]
-                total_oof  = sum(d["n_oof"] for d in inf_diags)
-                print(f"  └─ inference / {cl}: avg parsed {avg_parsed:.1f}/{exp}, "
-                      f"total OOF={total_oof}")
+    # ── Demographic inference (once per trial, text-only) ─────────────────────
+    # Always uses context_level="none" so the LLM only sees tweet text.
+    # Runs before the recommendation loop so it doesn't need to repeat.
+    if args.infer_demographics and isinstance(inf_missing, list) and inf_missing:
+        print(f"\nInference (text-only): {len(inf_missing)} trial(s)")
+        inf_diags = []
+        for j, trial_id in enumerate(inf_missing):
+            pool = trial_pools[trial_id]
+            if args.fake:
+                import random as _r
+                inf_rng = _r.Random(fake_seed + trial_id + 999)
+                fake_rows = []
+                for pid in list(pool.get("post_id", pool.index)):
+                    row = {"post_id": pid}
+                    for fkey, _, options in DEMO_INFERENCE_FIELDS:
+                        row[f"inferred_{fkey}"] = inf_rng.choice(options)
+                    fake_rows.append(row)
+                inf_result = pd.DataFrame(fake_rows)
+                inf_diag = {"n_parsed": len(fake_rows),
+                            "n_expected": len(pool), "n_oof": 0}
             else:
-                print(f"  └─ inference / {cl} complete")
+                try:
+                    inf_result, inf_diag = run_inference(llm_client, pool, "none")
+                except RuntimeError as e:
+                    print(f"  Trial {j+1} (id={trial_id}) SKIPPED [inf]: {e}")
+                    inf_result, inf_diag = None, None
+
+            if inf_result is not None and not inf_result.empty:
+                inf_result["trial_id"] = trial_id
+                header = not inf_csv.exists()
+                inf_result.to_csv(inf_csv, mode="a", index=False, header=header)
+                if inf_diag:
+                    inf_diags.append(inf_diag)
+                    warn = []
+                    if inf_diag["n_parsed"] < inf_diag["n_expected"]:
+                        warn.append(f"parsed {inf_diag['n_parsed']}/{inf_diag['n_expected']} posts")
+                    if inf_diag["n_oof"]:
+                        warn.append(f"{inf_diag['n_oof']} OOF values "
+                                    f"({', '.join(inf_diag['oof_samples'])})")
+                    if warn:
+                        print(f"  [WARN] trial {trial_id}: {'; '.join(warn)}")
+
+        if inf_diags and not args.fake:
+            avg_parsed = sum(d["n_parsed"] for d in inf_diags) / len(inf_diags)
+            exp        = inf_diags[0]["n_expected"]
+            total_oof  = sum(d["n_oof"] for d in inf_diags)
+            print(f"  └─ inference complete: avg parsed {avg_parsed:.1f}/{exp}, "
+                  f"total OOF={total_oof}")
+        else:
+            print(f"  └─ inference complete")
+
+    for cl in context_levels:
 
         # ── Recommendations (per style) ───────────────────────────────────────
         for style in args.styles:
