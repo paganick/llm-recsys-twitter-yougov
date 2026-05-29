@@ -439,10 +439,14 @@ def main():
     out_csv  = out_dir / "trial_results.csv"
     inf_csv  = out_dir / "demographic_inference.csv"
 
-    # ── Gap-fill: find missing (style, context_level) × trial_id combinations ─
+    # ── Gap-fill ──────────────────────────────────────────────────────────────
+    # Recommendations: keyed on (style, context_level) — 6 × 5 conditions.
+    # Inference: keyed on context_level only — runs once per trial per context
+    # level, independent of prompt style (style only affects the recommendation
+    # framing, not what the LLM sees about the posts).
     expected_ids = set(range(args.n_trials))
     rec_missing:  dict = {}   # (style, context_level) → [trial_ids]
-    inf_missing:  dict = {}   # same, for inference
+    inf_missing:  dict = {}   # context_level → [trial_ids]
 
     if out_csv.exists():
         try:
@@ -480,22 +484,20 @@ def main():
             if missing:
                 rec_missing[key] = missing
 
-            if args.infer_demographics:
-                if existing_inf is not None:
-                    have_inf = set(
-                        existing_inf.loc[
-                            (existing_inf["prompt_style"] == style) &
-                            (existing_inf["context_level"] == cl),
-                            "trial_id",
-                        ].unique()
-                    )
-                    missing_inf = sorted(expected_ids - have_inf)
-                else:
-                    missing_inf = sorted(expected_ids)
-                if missing_inf:
-                    inf_missing[key] = missing_inf
+    if args.infer_demographics:
+        for cl in context_levels:
+            if existing_inf is not None:
+                have_inf = set(
+                    existing_inf.loc[
+                        existing_inf["context_level"] == cl, "trial_id"
+                    ].unique()
+                )
+                missing_inf = sorted(expected_ids - have_inf)
+            else:
+                missing_inf = sorted(expected_ids)
+            if missing_inf:
+                inf_missing[cl] = missing_inf
 
-    all_missing_keys = set(rec_missing.keys()) | set(inf_missing.keys())
     total_rec_trials = sum(len(v) for v in rec_missing.values())
     total_inf_trials = sum(len(v) for v in inf_missing.values())
 
@@ -508,21 +510,27 @@ def main():
     print(f"Infer demog.:     {'yes' if args.infer_demographics else 'no'}")
     print(f"Output dir:       {out_dir}\n")
 
-    if not all_missing_keys:
+    if not rec_missing and not inf_missing:
         print("All conditions already complete — nothing to run.")
         return
 
     print(f"Missing recommendation trials: {total_rec_trials}")
     if args.infer_demographics:
-        print(f"Missing inference trials:      {total_inf_trials}")
+        print(f"Missing inference trials:      {total_inf_trials} "
+              f"(once per context level × trial, independent of prompt style)")
     print()
     for style in args.styles:
         for cl in context_levels:
             key = (style, cl)
             rec_n = len(rec_missing.get(key, []))
-            inf_n = len(inf_missing.get(key, [])) if args.infer_demographics else "-"
-            status = "complete" if key not in all_missing_keys else f"rec={rec_n}, inf={inf_n}"
+            status = "complete" if key not in rec_missing else f"rec={rec_n}"
             print(f"  {style:15s} / {cl:14s}: {status}")
+    if args.infer_demographics:
+        print()
+        for cl in context_levels:
+            inf_n = len(inf_missing.get(cl, []))
+            status = "complete" if cl not in inf_missing else f"inf={inf_n}"
+            print(f"  {'[inference]':15s} / {cl:14s}: {status}")
 
     # Cost estimate
     rates = COST_PER_1M.get(args.provider, {"input": 0, "output": 0})
@@ -557,81 +565,77 @@ def main():
     import random
 
     # ── Trial loop ────────────────────────────────────────────────────────────
-    for style in args.styles:
-        for cl in context_levels:
+    for cl in context_levels:
+
+        # ── Demographic inference (once per context_level × trial) ────────────
+        # Independent of prompt style: the same pool is shown regardless of
+        # style, so inference results are identical across styles.
+        if args.infer_demographics and cl in inf_missing:
+            print(f"\nInference: {cl} — {len(inf_missing[cl])} trial(s)")
+            for j, trial_id in enumerate(inf_missing[cl]):
+                pool = trial_pools[trial_id]
+                if args.fake:
+                    import random as _r
+                    inf_rng = _r.Random(fake_seed + trial_id + 999)
+                    fake_rows = []
+                    for pid in list(pool.get("post_id", pool.index)):
+                        row = {"post_id": pid}
+                        for fkey, _, options in DEMO_INFERENCE_FIELDS:
+                            row[f"inferred_{fkey}"] = inf_rng.choice(options)
+                        fake_rows.append(row)
+                    inf_result = pd.DataFrame(fake_rows)
+                else:
+                    try:
+                        inf_result = run_inference(llm_client, pool, cl)
+                    except RuntimeError as e:
+                        print(f"  Trial {j+1} (id={trial_id}) SKIPPED [inf]: {e}")
+                        inf_result = None
+
+                if inf_result is not None and not inf_result.empty:
+                    inf_result["context_level"] = cl
+                    inf_result["trial_id"]      = trial_id
+                    header = not inf_csv.exists()
+                    inf_result.to_csv(inf_csv, mode="a", index=False,
+                                      header=header, quoting=_csv.QUOTE_ALL)
+                print(f"  Trial {j+1}/{len(inf_missing[cl])} (id={trial_id}) done")
+            print(f"  └─ inference / {cl} complete\n")
+
+        # ── Recommendations (per style) ───────────────────────────────────────
+        for style in args.styles:
             key = (style, cl)
-            if key not in all_missing_keys:
+            if key not in rec_missing:
                 print(f"Condition: {style.upper()} / {cl} — skipped (complete)")
                 continue
 
-            needs_rec = key in rec_missing
-            needs_inf = args.infer_demographics and key in inf_missing
-            trial_ids = sorted(set(rec_missing.get(key, [])) | set(inf_missing.get(key, [])))
-
-            print(f"Condition: {style.upper()} / {cl} — "
-                  f"{len(trial_ids)} trial(s)  "
-                  f"[rec={'yes' if needs_rec else 'no'}, "
-                  f"inf={'yes' if needs_inf else 'no'}]")
+            trial_ids = rec_missing[key]
+            print(f"Condition: {style.upper()} / {cl} — {len(trial_ids)} trial(s)")
 
             for j, trial_id in enumerate(trial_ids):
                 pool = trial_pools[trial_id]
+                if args.fake:
+                    result = pool.copy()
+                    result["selected"] = 0
+                    rng    = random.Random(fake_seed + trial_id)
+                    chosen = rng.sample(range(len(result)), min(args.k, len(result)))
+                    result.iloc[chosen, result.columns.get_loc("selected")] = 1
+                else:
+                    try:
+                        result = run_trial(llm_client, pool, args.k, style, cl)
+                    except RuntimeError as e:
+                        print(f"  Trial {j+1} (id={trial_id}) SKIPPED [rec]: {e}")
+                        result = None
 
-                # ── Recommendation ────────────────────────────────────────────
-                if needs_rec and trial_id in rec_missing.get(key, []):
-                    if args.fake:
-                        result = pool.copy()
-                        result["selected"] = 0
-                        rng    = random.Random(fake_seed + trial_id)
-                        chosen = rng.sample(range(len(result)), min(args.k, len(result)))
-                        result.iloc[chosen, result.columns.get_loc("selected")] = 1
-                    else:
-                        try:
-                            result = run_trial(llm_client, pool, args.k, style, cl)
-                        except RuntimeError as e:
-                            print(f"  Trial {j+1} (id={trial_id}) SKIPPED [rec]: {e}")
-                            result = None
-
-                    if result is not None:
-                        result["prompt_style"]  = style
-                        result["context_level"] = cl
-                        result["trial_id"]      = trial_id
-                        slim_cols = [c for c in
-                                     ["post_id", "author_id", "trial_id",
-                                      "prompt_style", "context_level", "selected"]
-                                     if c in result.columns]
-                        header = not out_csv.exists()
-                        result[slim_cols].to_csv(out_csv, mode="a", index=False,
-                                                 header=header, quoting=_csv.QUOTE_ALL)
-
-                # ── Demographic inference ─────────────────────────────────────
-                if needs_inf and trial_id in inf_missing.get(key, []):
-                    if args.fake:
-                        # Fake: random choices from valid options
-                        import random as _r
-                        inf_rng = _r.Random(fake_seed + trial_id + 999)
-                        fake_rows = []
-                        post_ids  = list(pool.get("post_id", pool.index))
-                        for pid in post_ids:
-                            row = {"post_id": pid}
-                            for fkey, _, options in DEMO_INFERENCE_FIELDS:
-                                row[f"inferred_{fkey}"] = inf_rng.choice(options)
-                            fake_rows.append(row)
-                        inf_result = pd.DataFrame(fake_rows)
-                    else:
-                        try:
-                            inf_result = run_inference(llm_client, pool, cl)
-                        except RuntimeError as e:
-                            print(f"  Trial {j+1} (id={trial_id}) SKIPPED [inf]: {e}")
-                            inf_result = None
-
-                    if inf_result is not None and not inf_result.empty:
-                        inf_result["prompt_style"]  = style
-                        inf_result["context_level"] = cl
-                        inf_result["trial_id"]      = trial_id
-                        header = not inf_csv.exists()
-                        inf_result.to_csv(inf_csv, mode="a", index=False,
-                                          header=header, quoting=_csv.QUOTE_ALL)
-
+                if result is not None:
+                    result["prompt_style"]  = style
+                    result["context_level"] = cl
+                    result["trial_id"]      = trial_id
+                    slim_cols = [c for c in
+                                 ["post_id", "author_id", "trial_id",
+                                  "prompt_style", "context_level", "selected"]
+                                 if c in result.columns]
+                    header = not out_csv.exists()
+                    result[slim_cols].to_csv(out_csv, mode="a", index=False,
+                                             header=header, quoting=_csv.QUOTE_ALL)
                 print(f"  Trial {j+1}/{len(trial_ids)} (id={trial_id}) done")
 
             print(f"  └─ {style} / {cl} complete\n")
@@ -666,6 +670,8 @@ def main():
     print(f"  python pipeline/logistic_regression.py")
     print(f"  python pipeline/compute_feature_correlations.py")
     print(f"  python pipeline/generate_figures.py")
+    if args.infer_demographics:
+        print(f"  python pipeline/compute_demographic_inference.py")
 
 
 if __name__ == "__main__":
