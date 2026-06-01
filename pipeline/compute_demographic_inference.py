@@ -173,10 +173,9 @@ def main():
                 "attribute": attr_key,
                 **stats,
             })
-                print(f"  {cl:14s} | {attr_key:15s}: "
-                      f"acc={stats['accuracy']:.2%}  "
-                      f"(all={stats['accuracy_all']:.2%}, "
-                      f"unknown={stats['pct_unknown']:.1%})")
+            print(f"  {attr_key:15s}: acc={stats['accuracy']:.2%}  "
+                  f"(all={stats['accuracy_all']:.2%}, "
+                  f"unknown={stats['pct_unknown']:.1%})")
 
     if not rows:
         print("\nNo demographic_inference.csv files found. "
