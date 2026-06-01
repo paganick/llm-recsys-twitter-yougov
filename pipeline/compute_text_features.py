@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
 """
-Compute NLP-derived text features for all posts in the shared pool.
+Compute all text-derived features for the posts in post_features.csv.
 
-Features computed per post:
+Simple text features computed per post (fast, no ML models):
+  - has_url, has_hashtag, has_mention, has_emoji
+  - word_count, avg_word_length
+
+NLP features computed per post (requires model downloads on first run):
   - sentiment_polarity, sentiment_subjectivity  (VADER)
   - primary_topic, polarization_score           (Cardiff NLP RoBERTa)
   - toxicity                                    (Detoxify)
-
-Style indicators (has_emoji, has_hashtag, has_mention, has_url) and text
-metrics (avg_word_length, word_count) are expected to already be present in
-post_features.csv (pre-computed from the raw data).  If they are missing they
-will be computed here as a fallback.
 
 Features are cached in outputs/cache/twitter_features.parquet, keyed on
 post_id, so repeated runs only recompute new posts.
@@ -121,9 +120,33 @@ def main():
 
     print(f"Loading {post_file} ...")
     df = pd.read_csv(post_file, engine="python", on_bad_lines="warn")
-    # Normalise text in case any embedded newlines survived from the source data.
     df["text"] = df["text"].astype(str).str.replace(r"\r?\n", " ", regex=True).str.strip()
     print(f"  {len(df):,} posts, {df['post_id'].nunique():,} unique post_ids")
+
+    # ── Simple text features (fast, no ML) ───────────────────────────────────
+    text = df["text"]
+    simple = {}
+    if "has_url" not in df.columns:
+        simple["has_url"]     = text.str.contains(r"https?://", regex=True).astype(int)
+    if "has_hashtag" not in df.columns:
+        simple["has_hashtag"] = text.str.contains(r"#\w+", regex=True).astype(int)
+    if "has_mention" not in df.columns:
+        simple["has_mention"] = text.str.contains(r"@\w+", regex=True).astype(int)
+    if "has_emoji" not in df.columns:
+        simple["has_emoji"]   = text.str.contains(
+            r"[\U0001F600-\U0001F64F\U0001F300-\U0001F5FF"
+            r"\U0001F680-\U0001F6FF\U0001F1E0-\U0001F1FF☀-⛿✀-➿]",
+            regex=True).astype(int)
+    if "word_count" not in df.columns:
+        simple["word_count"]      = text.str.split().str.len().fillna(0).astype(int)
+    if "avg_word_length" not in df.columns:
+        simple["avg_word_length"] = text.apply(
+            lambda t: round(sum(len(w) for w in t.split()) / len(t.split()), 3)
+            if t.split() else 0.0)
+    if simple:
+        for col, vals in simple.items():
+            df[col] = vals
+        print(f"  Simple text features computed: {list(simple)}")
 
     if args.fake:
         print(f"\n--fake mode: assigning random feature values (no NLP models loaded)")
