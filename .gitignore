@@ -9,9 +9,9 @@ outputs/
 *.aux
 *.log
 
-# Generated outputs (optional — uncomment to track analysis outputs)
-# outputs/
-# analysis_outputs/
+analysis_outputs/
+analysis_outputs_v2/
+outputs_v2/
 
 # Personal notes
 NOTES.md
