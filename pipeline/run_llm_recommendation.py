@@ -690,11 +690,12 @@ def main():
                     result["context_level"] = cl
                     result["trial_id"]      = trial_id
                     slim_cols = [c for c in
-                                 ["post_id", "author_id", "trial_id",
-                                  "prompt_style", "context_level", "selected"]
+                                 ["post_id", "trial_id", "prompt_style", "context_level"]
                                  if c in result.columns]
+                    # Store only selected posts — the full pool is in trial_*.csv
+                    selected_rows = result[result["selected"] == 1][slim_cols]
                     header = not out_csv.exists()
-                    result[slim_cols].to_csv(out_csv, mode="a", index=False, header=header)
+                    selected_rows.to_csv(out_csv, mode="a", index=False, header=header)
                     if rec_diag:
                         rec_diags.append(rec_diag)
                         warn = []

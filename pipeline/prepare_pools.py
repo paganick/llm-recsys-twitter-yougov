@@ -40,12 +40,17 @@ N_TRIALS   = 100
 POOL_SIZE  = 100
 SEED_BASE  = 42   # trial t gets seed SEED_BASE + t
 
+# Text-derived features computed automatically from the text column.
+TEXT_COMPUTED_COLS = [
+    "has_url", "has_hashtag", "has_mention", "has_emoji",
+    "word_count", "avg_word_length",
+]
+
 # Columns that capture a snapshot at tweet time — they belong in post_features
 # (not author_features) because they can change between tweets.
 POST_FEATURE_COLS = [
     "created_at",
-    "has_url", "has_hashtag", "has_mention", "has_emoji",
-    "word_count", "avg_word_length",
+    *TEXT_COMPUTED_COLS,
     "is_reply", "is_retweet", "is_quote",
     "user_followers_count", "user_friends_count",
     "user_statuses_count", "user_favourites_count",
@@ -59,6 +64,30 @@ AUTHOR_FEATURE_COLS = [
     "author_age", "author_education", "author_income",
     "author_marital_status", "author_religiosity",
 ]
+
+
+def compute_text_features(df: pd.DataFrame) -> pd.DataFrame:
+    """Compute simple text-derived features from the text column if not present."""
+    text = df["text"].astype(str)
+    if "has_url" not in df.columns:
+        df["has_url"] = text.str.contains(r"https?://", regex=True).astype(int)
+    if "has_hashtag" not in df.columns:
+        df["has_hashtag"] = text.str.contains(r"#\w+", regex=True).astype(int)
+    if "has_mention" not in df.columns:
+        df["has_mention"] = text.str.contains(r"@\w+", regex=True).astype(int)
+    if "has_emoji" not in df.columns:
+        emoji_re = (r"[\U0001F600-\U0001F64F\U0001F300-\U0001F5FF"
+                    r"\U0001F680-\U0001F6FF\U0001F1E0-\U0001F1FF"
+                    r"☀-⛿✀-➿]")
+        df["has_emoji"] = text.str.contains(emoji_re, regex=True).astype(int)
+    if "word_count" not in df.columns:
+        df["word_count"] = text.str.split().str.len().fillna(0).astype(int)
+    if "avg_word_length" not in df.columns:
+        def _avg(t):
+            words = t.split()
+            return round(sum(len(w) for w in words) / len(words), 3) if words else 0.0
+        df["avg_word_length"] = text.apply(_avg)
+    return df
 
 
 def main():
@@ -91,6 +120,14 @@ def main():
     # Rename user_id → author_id for consistency with the three-table schema.
     if "user_id" in pool.columns and "author_id" not in pool.columns:
         pool = pool.rename(columns={"user_id": "author_id"})
+
+    # Strip embedded newlines from text before any further processing.
+    pool["text"] = pool["text"].astype(str).str.replace(r"\r?\n", " ", regex=True).str.strip()
+
+    # Compute simple text-derived features from the text column if not already present.
+    pool = compute_text_features(pool)
+    computed = [c for c in TEXT_COMPUTED_COLS if c in pool.columns]
+    print(f"  Text features computed: {computed}")
 
     pools_dir.mkdir(parents=True, exist_ok=True)
 
@@ -163,8 +200,6 @@ def main():
     # ── Write post_features.csv and author_features.csv ───────────────────────
     # Only include posts/authors that actually appear in at least one trial.
     shown = pd.concat(samples, ignore_index=True).drop_duplicates(subset="post_id").copy()
-    # Strip embedded newlines from text so the CSV is safe for all readers.
-    shown["text"] = shown["text"].astype(str).str.replace(r"\r?\n", " ", regex=True).str.strip()
     post_cols = (["post_id", "author_id", "text"]
                  + [c for c in POST_FEATURE_COLS if c in pool.columns])
     shown[post_cols].to_csv(pools_dir / "post_features.csv", index=False)
