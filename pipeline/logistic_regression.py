@@ -60,7 +60,7 @@ LINEAR_FEATURES = [
     "text_length",
     "avg_word_length",
     "sentiment_polarity", "sentiment_subjectivity",
-    "polarization_score", "toxicity",
+    "abs_sentiment_polarity", "toxicity",
 ]
 BINARY_FEATURES = [
     "has_emoji", "has_hashtag", "has_mention", "has_url",
@@ -76,6 +76,11 @@ CATEGORICAL_CONFIG = {
     "author_marital_status": {"ref": "single"},
     "author_religiosity":    {"ref": "not religious"},
     "author_race":           {"ref": "white"},
+    # Effects-coded like demographics; all topics in model, top-3 shown in plots.
+    "primary_topic": {
+        "ref":     "news_&_social_concern",
+        "display": ["news_&_social_concern", "diaries_&_daily_life", "sports"],
+    },
 }
 
 # Display names for the table
@@ -84,7 +89,7 @@ FEATURE_DISPLAY = {
     "avg_word_length":        "Avg word length",
     "sentiment_polarity":     "Sentiment polarity",
     "sentiment_subjectivity": "Sentiment subjectivity",
-    "polarization_score":     "Polarization",
+    "abs_sentiment_polarity": "|Sentiment polarity|",
     "toxicity":               "Toxicity",
     "user_followers_count":   "Followers (log)",
     "user_friends_count":     "Following (log)",
@@ -103,13 +108,22 @@ FEATURE_DISPLAY = {
 # Feature groups for table section headers
 FEATURE_GROUPS = [
     ("Text",            ["text_length", "avg_word_length"]),
-    ("Content",         ["polarization_score", "toxicity"]),
+    ("Content",         ["abs_sentiment_polarity", "toxicity"]),
     ("Sentiment",       ["sentiment_polarity", "sentiment_subjectivity"]),
     ("Style",           ["has_emoji", "has_hashtag", "has_mention", "has_url"]),
     ("Post metadata",   ["favorite_count", "retweet_count"]),
     ("Author metadata", ["user_followers_count", "user_friends_count",
                          "user_statuses_count", "user_favourites_count"]),
-    ("Demographics",    list(CATEGORICAL_CONFIG.keys())),
+    ("Gender",          ["author_gender"]),
+    ("Partisanship",    ["author_partisanship"]),
+    ("Ideology",        ["author_ideology"]),
+    ("Age",             ["author_age"]),
+    ("Education",       ["author_education"]),
+    ("Income",          ["author_income"]),
+    ("Marital status",  ["author_marital_status"]),
+    ("Religiosity",     ["author_religiosity"]),
+    ("Race",            ["author_race"]),
+    ("Topic",           ["primary_topic"]),
 ]
 
 DIVG_COLORS = [
@@ -198,18 +212,29 @@ def build_X(df: pd.DataFrame, scaler_params: dict,
         parts.append(col.rename(f))
         feat_cols.append(f)
 
-    # Categorical dummies
+    # Categorical encoding
     for f, cfg in CATEGORICAL_CONFIG.items():
         if f not in feature_names or f not in df.columns:
             continue
-        ref = cfg["ref"]
+        ref  = cfg["ref"]
         vals = df[f].fillna("unknown").astype(str)
-        # Drop reference and "unknown" categories
         cats = sorted(v for v in vals.unique() if v not in (ref, "unknown"))
-        for cat in cats:
-            col_name = f"{f}::{cat}"
-            parts.append((vals == cat).astype(float).rename(col_name))
-            feat_cols.append(col_name)
+        if "include" in cfg:
+            # Dummy coding (subset of categories): ref = 0, cat = 1
+            cats = [c for c in cats if c in cfg["include"]]
+            for cat in cats:
+                parts.append((vals == cat).astype(float).rename(f"{f}::{cat}"))
+                feat_cols.append(f"{f}::{cat}")
+        else:
+            # Effects coding (sum-to-zero): ref = -1, cat = 1, other = 0
+            # Each coefficient is deviation from the grand mean across categories.
+            is_ref = (vals == ref)
+            for cat in cats:
+                col = pd.Series(0.0, index=df.index)
+                col[vals == cat] = 1.0
+                col[is_ref]      = -1.0
+                parts.append(col.rename(f"{f}::{cat}"))
+                feat_cols.append(f"{f}::{cat}")
 
     # Fixed effects
     if add_fixed_effects:
@@ -253,8 +278,15 @@ def fit_logit(y: pd.Series, X: pd.DataFrame,
         return None
 
 
-def extract_coefs(result, feat_cols: list[str]) -> pd.DataFrame:
-    """Extract coefficient, OR, CI, p-value for each feature column."""
+def extract_coefs(result, feat_cols: list[str],
+                  categorical_config: dict | None = None) -> pd.DataFrame:
+    """Extract coefficient, OR, CI, p-value for each feature column.
+
+    For effects-coded categoricals (those without an 'include' filter) the
+    reference category is not directly estimated; its coefficient is derived
+    as -sum(all other dummies) and appended so every category is visible.
+    """
+    from scipy.stats import norm as _norm
     rows = []
     for f in feat_cols:
         if f not in result.params.index:
@@ -271,6 +303,38 @@ def extract_coefs(result, feat_cols: list[str]) -> pd.DataFrame:
             "ci_hi":   np.exp(coef + 1.96 * se),
             "pvalue":  pval,
         })
+
+    # Derive reference-category rows for effects-coded features
+    if categorical_config is not None:
+        try:
+            cov = result.cov_params()
+        except Exception:
+            cov = None
+        for f, cfg in categorical_config.items():
+            if "include" in cfg:
+                continue  # dummy-coded — no derivation needed
+            dummy_cols = [fc for fc in feat_cols
+                          if fc.startswith(f"{f}::") and fc in result.params.index]
+            if not dummy_cols:
+                continue
+            coef_ref = -float(result.params[dummy_cols].sum())
+            if cov is not None:
+                # Var(-sum Xi) = sum_ij Cov(Xi, Xj) = sum of all elements of submatrix
+                var_ref  = float(cov.loc[dummy_cols, dummy_cols].values.sum())
+                se_ref   = np.sqrt(max(var_ref, 0.0))
+            else:
+                se_ref = np.nan
+            pval_ref = float(2 * _norm.sf(abs(coef_ref / se_ref))) if se_ref > 0 else np.nan
+            rows.append({
+                "feature": f"{f}::{cfg['ref']}",
+                "coef":    coef_ref,
+                "se":      se_ref,
+                "or":      np.exp(coef_ref),
+                "ci_lo":   np.exp(coef_ref - 1.96 * se_ref),
+                "ci_hi":   np.exp(coef_ref + 1.96 * se_ref),
+                "pvalue":  pval_ref,
+            })
+
     return pd.DataFrame(rows)
 
 
@@ -301,7 +365,7 @@ def run_pooled_models(df: pd.DataFrame, scaler_params: dict,
         if res is None:
             print(f"    WARN: model did not converge for {cl}")
             continue
-        coef_df = extract_coefs(res, feat_cols)
+        coef_df = extract_coefs(res, feat_cols, categorical_config=CATEGORICAL_CONFIG)
         results[cl] = {
             "result":    res,
             "coef_df":   coef_df,
@@ -637,6 +701,9 @@ def plot_forest_20(table_df: pd.DataFrame, out_dir: Path):
         for f in g_feats:
             if f in CATEGORICAL_CONFIG:
                 dummies = sorted(c for c in all_feats if c.startswith(f"{f}::"))
+                display = CATEGORICAL_CONFIG[f].get("display")
+                if display:
+                    dummies = [d for d in dummies if d.split("::", 1)[1] in display]
                 for dn in dummies:
                     cat_val = dn.split("::", 1)[1]
                     base = f.replace("author_", "").replace("_", " ").title()
@@ -769,7 +836,7 @@ def plot_context_effect_21(table_df: pd.DataFrame, out_dir: Path):
 
     # ── Panel B: author demographics (mean |coef| across dummies) ─────────────
     ax = axes[0, 1]
-    demo_feats  = list(CATEGORICAL_CONFIG.keys())
+    demo_feats  = [k for k in CATEGORICAL_CONFIG if k != "primary_topic"]
     demo_labels = [f.replace("author_", "").replace("_", " ").title() for f in demo_feats]
     cmap_b = plt.cm.tab10
     for i, (feat, lbl) in enumerate(zip(demo_feats, demo_labels)):
@@ -802,7 +869,7 @@ def plot_context_effect_21(table_df: pd.DataFrame, out_dir: Path):
         ("avg_word_length",        "Avg word length"),
         ("sentiment_polarity",     "Sentiment polarity"),
         ("sentiment_subjectivity", "Sent. subjectivity"),
-        ("polarization_score",     "Polarization"),
+        ("abs_sentiment_polarity", "|Sentiment polarity|"),
         ("toxicity",               "Toxicity"),
         ("has_emoji",              "Has emoji"),
         ("has_hashtag",            "Has hashtag"),
@@ -838,7 +905,7 @@ def plot_context_effect_21(table_df: pd.DataFrame, out_dir: Path):
 
 def plot_demographic_zoom_22(table_df: pd.DataFrame, out_dir: Path):
     """Figure 22: OR for each category dummy of each demographic feature across context levels."""
-    demo_feats = list(CATEGORICAL_CONFIG.keys())  # 9 features
+    demo_feats = [k for k in CATEGORICAL_CONFIG if k != "primary_topic"]  # 9 features
     xticks  = list(range(len(CONTEXT_LEVELS)))
     xlabels = [CONTEXT_LABELS[cl] for cl in CONTEXT_LEVELS]
 
