@@ -101,7 +101,7 @@ FEATURES_ALL = {
     "text_metrics":    ["avg_word_length"],
     "sentiment":       ["sentiment_polarity", "sentiment_subjectivity"],
     "style":           ["has_emoji", "has_hashtag", "has_mention", "has_url"],
-    "content":         ["abs_sentiment_polarity", "primary_topic"],
+    "content":         ["polarization_score", "primary_topic"],
     "toxicity":        ["toxicity"],
     "author_metadata": ["user_followers_count", "user_friends_count", "user_statuses_count", "user_favourites_count"],
     "post_metadata":   ["favorite_count", "retweet_count", "retweeted"],
@@ -118,7 +118,7 @@ FEATURE_DISPLAY = {
     "author_marital_status":  "Author: Marital Status",
     "author_religiosity":     "Author: Religiosity",
     "avg_word_length":        "Text: Avg Word Length",
-    "abs_sentiment_polarity": "Content: |Sentiment Polarity|",
+    "polarization_score":     "Content: Polarizing Content Score",
     "primary_topic":          "Content: Primary Topic",
     "sentiment_polarity":     "Sentiment: Polarity",
     "sentiment_subjectivity": "Sentiment: Subjectivity",
@@ -161,9 +161,9 @@ CMAP_WR   = LinearSegmentedColormap.from_list(
 )
 
 RQ3_METRICS = {
-    "abs_sentiment_polarity": {
-        "short_name": "|Sentiment|",
-        "ylabel":     "|Sentiment Polarity| Bias\n(Recommended − Pool)",
+    "polarization_score": {
+        "short_name": "Polarizing Content",
+        "ylabel":     "Polarizing Content Score Bias\n(Recommended − Pool)",
     },
     "sentiment_polarity": {
         "short_name": "Sentiment",
@@ -1131,9 +1131,9 @@ _METRICS_09 = {
         "title":  "Average Word Length Directional Bias by Model and Prompt Style",
         "ylabel": "Directional Bias (chars/word)\n← Shorter | Longer →",
     },
-    "abs_sentiment_polarity": {
-        "title":  "|Sentiment Polarity| Directional Bias by Model and Prompt Style",
-        "ylabel": "Directional Bias\n← Less | More Extreme Sentiment →",
+    "polarization_score": {
+        "title":  "Polarizing Content Score Directional Bias by Model and Prompt Style",
+        "ylabel": "Directional Bias\n← Less | More Polarizing Content →",
     },
     "sentiment_polarity": {
         "title":  "Sentiment Polarity Directional Bias by Model and Prompt Style",
@@ -1268,7 +1268,7 @@ def plot_09_raw_bias_heatmaps(context_level="none"):
 
     labels = {
         "avg_word_length":      "09a",
-        "abs_sentiment_polarity": "09b",
+        "polarization_score":     "09b",
         "sentiment_polarity":   "09d",
         "toxicity":             "09e",
         "has_emoji":            "09f",

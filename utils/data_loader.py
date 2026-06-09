@@ -23,6 +23,18 @@ import pandas as pd
 
 
 PROVIDERS       = ["anthropic", "openai", "gemini", "google"]
+_DEMO_COLS      = [
+    "author_gender", "author_partisanship", "author_ideology", "author_race",
+    "author_age", "author_education", "author_income",
+    "author_marital_status", "author_religiosity",
+]
+
+
+def _normalise_demo_strings(df: pd.DataFrame) -> None:
+    """Lowercase + strip all demographic string columns in-place."""
+    for col in _DEMO_COLS:
+        if col in df.columns:
+            df[col] = df[col].astype(str).str.strip().str.lower().replace("nan", float("nan"))
 _PROVIDER_ALIAS = {"google": "gemini"}
 
 
@@ -79,6 +91,7 @@ def load_data(fake: bool = False,
 
         post_df   = pd.read_csv(post_path,   engine="python", on_bad_lines="warn")
         author_df = pd.read_csv(author_path, engine="python", on_bad_lines="warn")
+        _normalise_demo_strings(author_df)
         print(f"  post_features:   {len(post_df):,} posts")
         print(f"  author_features: {len(author_df):,} authors")
 
@@ -130,6 +143,7 @@ def load_data(fake: bool = False,
     for d in legacy_dirs:
         df = pd.read_csv(d / "post_level_data.csv", low_memory=False)
         print(f"  post_level_data: {len(df):,} rows  ({d.name})")
+        _normalise_demo_strings(df)
 
         if "user_id" in df.columns and "author_id" not in df.columns:
             df = df.rename(columns={"user_id": "author_id"})

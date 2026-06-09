@@ -60,7 +60,7 @@ LINEAR_FEATURES = [
     "text_length",
     "avg_word_length",
     "sentiment_polarity", "sentiment_subjectivity",
-    "abs_sentiment_polarity", "toxicity",
+    "polarization_score", "toxicity",
 ]
 BINARY_FEATURES = [
     "has_emoji", "has_hashtag", "has_mention", "has_url",
@@ -68,7 +68,7 @@ BINARY_FEATURES = [
 # Categorical features: reference category for dummy encoding
 CATEGORICAL_CONFIG = {
     "author_gender":         {"ref": "male"},
-    "author_partisanship":   {"ref": "Independent"},
+    "author_partisanship":   {"ref": "independent"},
     "author_ideology":       {"ref": "center"},
     "author_age":            {"ref": "25-34"},
     "author_education":      {"ref": "college"},
@@ -90,6 +90,7 @@ FEATURE_DISPLAY = {
     "sentiment_polarity":     "Sentiment polarity",
     "sentiment_subjectivity": "Sentiment subjectivity",
     "abs_sentiment_polarity": "|Sentiment polarity|",
+    "polarization_score":     "Polarizing content score",
     "toxicity":               "Toxicity",
     "user_followers_count":   "Followers (log)",
     "user_friends_count":     "Following (log)",
@@ -108,7 +109,7 @@ FEATURE_DISPLAY = {
 # Feature groups for table section headers
 FEATURE_GROUPS = [
     ("Text",            ["text_length", "avg_word_length"]),
-    ("Content",         ["abs_sentiment_polarity", "toxicity"]),
+    ("Content",         ["polarization_score", "toxicity"]),
     ("Sentiment",       ["sentiment_polarity", "sentiment_subjectivity"]),
     ("Style",           ["has_emoji", "has_hashtag", "has_mention", "has_url"]),
     ("Post metadata",   ["favorite_count", "retweet_count"]),

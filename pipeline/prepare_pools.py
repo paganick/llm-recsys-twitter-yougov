@@ -88,6 +88,9 @@ def main():
 
     print(f"Loading {pool_file} …")
     pool = pd.read_csv(pool_file, engine="python", on_bad_lines="warn")
+    for col in AUTHOR_FEATURE_COLS:
+        if col in pool.columns:
+            pool[col] = pool[col].astype(str).str.strip().str.lower().replace("nan", float("nan"))
     print(f"  {len(pool):,} posts loaded")
 
     # Rename user_id → author_id for consistency with the three-table schema.

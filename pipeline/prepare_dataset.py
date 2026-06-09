@@ -112,7 +112,7 @@ def load_tweets(path: Path) -> pd.DataFrame:
 
 
 def load_survey(path: Path) -> pd.DataFrame:
-    """Load survey CSV; normalise user identifier."""
+    """Load survey CSV; normalise user identifier and demographic string values."""
     df = pd.read_csv(path)
     if "user_id" not in df.columns:
         for candidate in ("userid", "author_id", "screen_name", "username"):
@@ -123,6 +123,9 @@ def load_survey(path: Path) -> pd.DataFrame:
             print(f"ERROR: cannot find a user identifier column in {path}")
             sys.exit(1)
     df["user_id"] = df["user_id"].astype(str)
+    for col in SURVEY_COLS:
+        if col in df.columns:
+            df[col] = df[col].astype(str).str.strip().str.lower().replace("nan", float("nan"))
     return df
 
 

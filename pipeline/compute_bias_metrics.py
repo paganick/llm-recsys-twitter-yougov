@@ -73,7 +73,7 @@ FEATURES = {
     ],
     # Content (NLP-computed)
     "content": [
-        "abs_sentiment_polarity",
+        "polarization_score",
         "primary_topic",
     ],
     # Safety (NLP-computed)
@@ -120,7 +120,7 @@ FEATURE_TYPES = {
     "text_length":     "numerical",
     "word_count":      "numerical",
     # Content (mixed)
-    "abs_sentiment_polarity": "numerical",
+    "polarization_score": "numerical",
     "primary_topic":      "categorical",
     # Safety (numerical)
     "toxicity": "numerical",
@@ -168,7 +168,7 @@ FEATURE_DISPLAY_NAMES = {
     "avg_word_length": "Text: Avg Word Length",
     "text_length":     "Text: Length",
     "word_count":      "Text: Word Count",
-    "abs_sentiment_polarity": "Content: |Sentiment Polarity|",
+    "polarization_score":     "Content: Polarizing Content Score",
     "primary_topic":      "Content: Primary Topic",
     "toxicity":           "Toxicity: Score",
     "is_reply":    "Tweet: Is Reply",
